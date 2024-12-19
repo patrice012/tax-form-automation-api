@@ -1,0 +1,9 @@
+node_modules/
+dist/
+
+.env*
+
+*.txt
+*.sh
+*.log
+*.js
