@@ -167,6 +167,7 @@ export const handleNavigation = async ({ page }: { page: Page }) => {
     // waiting to page to load
     try {
       await page.waitForURL("https://ito.intuit.com/app/protax/tax-hub");
+      await page.waitForTimeout(3000);
     } catch (error) {
       console.warn("waiting for URL");
     }

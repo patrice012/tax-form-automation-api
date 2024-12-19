@@ -129,20 +129,3 @@ const globalErrorHandler = (
 };
 
 export { AppError, errorHandler, asyncHandler, globalErrorHandler };
-
-/**
-    // Creating a custom error
-    throw new AppError('Resource not found', 404);
-
-    // In a route handler
-    router.get('/user/:id', asyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (!user) {
-        throw new AppError('User not found', 404);
-    }
-    res.json(user);
-    }));
-
-    // In app.ts or server configuration
-    app.use(globalErrorHandler);
- */
