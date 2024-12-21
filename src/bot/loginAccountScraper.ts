@@ -27,22 +27,27 @@ interface IOTPInput {
   factorCode: string;
 }
 
-// Helper Functions
 export const fillEmail = async ({
   page,
   email,
 }: IEmailInput): Promise<{ page: Page; success: boolean }> => {
   try {
+    const emailInputSelector = 'input[name="Email"]';
+    const emailIdSelector = '[id="iux-identifier-first-unknown-identifier"]';
+    const submitButtonSelector = 'button[type="submit"]';
+
+    // Wait for email input field
     try {
-      await page.locator('input[name="Email"]').waitFor();
+      await page.locator(emailInputSelector).waitFor();
     } catch (error) {
-      logger.warn("Error waiting for Email field");
+      logger.warn("Error waiting for the Email input field");
     }
-    await page
-      .locator('[id="iux-identifier-first-unknown-identifier"]')
-      .fill(email);
+
+    // Fill the email and submit
+    await page.locator(emailIdSelector).fill(email);
     await page.waitForTimeout(500);
-    await page.locator('button[type="submit"]').click();
+    await page.locator(submitButtonSelector).click();
+
     return { page, success: true };
   } catch (error) {
     logger.error("Error filling email:", error);
@@ -55,16 +60,22 @@ export const fillPassword = async ({
   password,
 }: IPasswordInput): Promise<{ page: Page; success: boolean }> => {
   try {
+    const passwordInputSelector = 'input[name="Password"]';
+    const passwordIdSelector = '[id="iux-password-confirmation-password"]';
+    const submitButtonSelector = 'button[type="submit"]';
+
+    // Wait for password input field
     try {
-      await page.locator('input[name="Password"]').waitFor();
+      await page.locator(passwordInputSelector).waitFor();
     } catch (error) {
-      logger.warn("Error waiting for Password field");
+      logger.warn("Error waiting for the Password input field");
     }
-    await page
-      .locator('[id="iux-password-confirmation-password"]')
-      .fill(password);
+
+    // Fill the password and submit
+    await page.locator(passwordIdSelector).fill(password);
     await page.waitForTimeout(500);
-    await page.locator('button[type="submit"]').click();
+    await page.locator(submitButtonSelector).click();
+
     return { page, success: true };
   } catch (error) {
     logger.error("Error filling password:", error);
@@ -76,31 +87,29 @@ export const checkForOTP = async ({
   page,
 }: IOTPCheck): Promise<{ page: Page; success: boolean }> => {
   try {
-    const otpSelector = '[data-testid="challengePickerOption_SMS_OTP"]';
+    const otpOptionSelector = '[data-testid="challengePickerOption_SMS_OTP"]';
+
+    // Wait for OTP field
     try {
-      console.log("waiting for OTP field");
-      await page.locator(otpSelector).waitFor({ timeout: 5000 });
+      logger.info("Waiting for OTP option to appear...");
+      await page.locator(otpOptionSelector).waitFor({ timeout: 5000 });
     } catch (error) {
-      logger.warn("Error waiting for OTP input");
+      logger.warn("Error waiting for OTP option:", error);
       return { page, success: false };
     }
-    let checkOTP = null;
-    try {
-      console.log("check OTP process");
-      checkOTP = await page.locator(otpSelector);
-    } catch (error) {
-      console.log(error);
-    }
 
-    if (checkOTP) {
-      await page.waitForTimeout(500);
-      console.log("trying click process OTP");
-      await checkOTP?.click();
+    // Click the OTP option
+    const otpOption = page.locator(otpOptionSelector);
+    if (otpOption) {
+      logger.info("OTP option found. Clicking...");
+      await otpOption.click();
       return { page, success: true };
     }
+
+    logger.warn("OTP option not found");
     return { page, success: false };
   } catch (error) {
-    logger.error("Error checking OTP:", error);
+    logger.error("Error checking for OTP:", error);
     return { page, success: false };
   }
 };
@@ -110,16 +119,20 @@ export const handleOTPInput = async ({
   factorCode,
 }: IOTPInput): Promise<{ page: Page; success: boolean }> => {
   try {
-    const confirmCodeSelector = '[id="ius-mfa-confirm-code"]';
-    try {
-      await page.locator(confirmCodeSelector).waitFor();
-      logger.warn("Error waiting for OTP input field");
-    } catch (error) {}
+    const otpInputSelector = '[id="ius-mfa-confirm-code"]';
+    const submitButtonSelector = 'button[type="submit"]';
 
-    // Handle OTP fill if needed
-    await page.locator(confirmCodeSelector).fill(factorCode);
+    // Wait for OTP input field
+    try {
+      await page.locator(otpInputSelector).waitFor();
+    } catch (error) {
+      logger.warn("Error waiting for OTP input field:", error);
+    }
+
+    // Fill OTP and submit
+    await page.locator(otpInputSelector).fill(factorCode);
     await page.waitForTimeout(500);
-    await page.locator('button[type="submit"]').click();
+    await page.locator(submitButtonSelector).click();
 
     return { page, success: true };
   } catch (error) {
