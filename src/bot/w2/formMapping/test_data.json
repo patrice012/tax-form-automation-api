@@ -1,0 +1,241 @@
+[
+  {
+    "targetClient": {
+      "email": "lorem@test.com"
+    },
+    "W2": {
+      "wage_income": {
+        "value": 464769.39,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "federal_tax_withheld": {
+        "value": 135635.14,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "social_security_wages": {
+        "value": 160200.0,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "social_security_tax_withheld": {
+        "value": 9932.4,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "medicare_wages_and_tips": {
+        "value": 484384.67,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "medicare_tax_withheld": {
+        "value": 9583.04,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "social_security_tips": {
+        "value": 0.0,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "allocated_tips": {
+        "value": 0.0,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "dependent_care_benefits": {
+        "value": 0.0,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "nonqualified_plans": {
+        "value": 0.0,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "box12a": {
+        "value": ["DD", 15343.02],
+        "status": "success",
+        "type": [
+          "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+          "number"
+        ],
+        "notes": [],
+        "is_pii": false
+      },
+      "box12b": {
+        "value": ["E", 19615.28],
+        "status": "success",
+        "type": [
+          "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+          "number"
+        ],
+        "notes": [],
+        "is_pii": false
+      },
+      "box12c": {
+        "value": [null, null],
+        "status": "success",
+        "type": [
+          "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+          "number"
+        ],
+        "notes": [],
+        "is_pii": false
+      },
+      "box12d": {
+        "value": [null, null],
+        "status": "success",
+        "type": [
+          "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+          "number"
+        ],
+        "notes": [],
+        "is_pii": false
+      },
+      "statutory_employee": {
+        "value": false,
+        "status": "success",
+        "type": "bool",
+        "notes": [],
+        "is_pii": false
+      },
+      "retirement_plan": {
+        "value": true,
+        "status": "success",
+        "type": "bool",
+        "notes": [],
+        "is_pii": false
+      },
+      "third_party_sick_pay": {
+        "value": false,
+        "status": "success",
+        "type": "bool",
+        "notes": [],
+        "is_pii": false
+      },
+      "other": {
+        "value": [
+          ["AA", 44.6],
+          ["C", 1000]
+        ],
+        "status": "success",
+        "type": [["string", "number"]],
+        "notes": [],
+        "is_pii": false
+      },
+      "state": {
+        "value": ["WY", "WI"],
+        "status": "success",
+        "type": ["string", "string"],
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_state_id_number": {
+        "value": ["", ""],
+        "status": "success",
+        "type": ["string", "string"],
+        "notes": [],
+        "is_pii": false
+      },
+      "state_wages_and_tips": {
+        "value": [0.0, 0.0],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      },
+      "state_income_tax": {
+        "value": [0.0, 0.0],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      },
+      "local_wages_and_tips": {
+        "value": [0.0, 0.0],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      },
+      "local_income_tax": {
+        "value": [0.0, 0.0],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      },
+      "locality_name": {
+        "value": ["", ""],
+        "status": "success",
+        "type": ["string", "string"],
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_fed_id_number": {
+        "value": "830204184",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_name": {
+        "value": "NATIONAL OUTDOOR LEADERS HIP SCHOOL",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_address": {
+        "value": "284 LINCOLN ST",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_city": {
+        "value": "LANDER",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_state": {
+        "value": "WY",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "employer_zip_code": {
+        "value": "82520",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      }
+    }
+  }
+]

@@ -2,7 +2,7 @@ import { Browser, BrowserContext, Page, LaunchOptions } from "playwright";
 import { chromium, firefox } from "playwright-extra";
 import logger from "../utils/logger";
 
-const BrowserApp = firefox;
+const BrowserApp = chromium;
 
 class PlaywrightService {
   private static instance: PlaywrightService;

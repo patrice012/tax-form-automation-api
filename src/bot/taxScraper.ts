@@ -2,6 +2,7 @@ import { Locator, Page } from "playwright";
 import { PlaywrightService } from "../services/playwrightService";
 import logger from "../utils/logger";
 import { fillPassword } from "./loginAccountScraper";
+import { fillForm } from "./w2/fillForm";
 
 interface TaxScraperOptions {
   page: Page;
@@ -17,10 +18,17 @@ interface NavigationResult {
 async function navigateToClientList(page: Page): Promise<NavigationResult> {
   try {
     const clientListSelector = "[id='/app/protax/client-list']";
-    await page.waitForSelector(clientListSelector, { state: "visible" });
+    const locator = page.locator(clientListSelector);
+    // Check element visibility and enabled state
+    const isVisible = await locator.isVisible();
+    if (!isVisible) {
+      await page.waitForSelector(clientListSelector, { state: "visible" });
+    }
     await page.waitForTimeout(500);
     await page.click(clientListSelector);
-    await page.waitForLoadState("networkidle");
+    try {
+      await page.waitForLoadState("networkidle");
+    } catch (error) {}
     logger.info("Navigated to client list page.");
 
     // Wait for client links to load
@@ -118,7 +126,7 @@ async function handleExistingTaxReturn(page: Page): Promise<void> {
   }
 }
 
-async function handleNewTaxReturn(page: Page): Promise<void> {
+async function handleNewTaxReturn(page: Page): Promise<any> {
   try {
     // Create tax return
     const createButton = page
@@ -146,11 +154,11 @@ async function handleNewTaxReturn(page: Page): Promise<void> {
     await nextButton?.click();
   } catch (error) {
     logger.error("Error handling 'Next' button:", error);
-    throw error;
+    return { page, success: false };
   }
 }
 
-async function navigateToW2Form(page: Page): Promise<void> {
+async function navigateToW2Form(page: Page): Promise<any> {
   try {
     await page.locator("[data-automation-id='SECTION_INPUT_RETURN']").click();
     logger.info("Clicked Input Return button");
@@ -160,7 +168,7 @@ async function navigateToW2Form(page: Page): Promise<void> {
     logger.info("Clicked W-2 form link");
   } catch (error) {
     logger.error("Failed to navigate to W-2 form:", error);
-    throw error;
+    return { page, success: false };
   }
 }
 
@@ -218,6 +226,8 @@ export async function taxScraper({ page }: TaxScraperOptions) {
     }
 
     await navigateToW2Form(page);
+    await page.waitForTimeout(5000);
+    await fillForm({ page });
     await page.waitForTimeout(30000);
 
     return { page, success: true };
@@ -246,7 +256,11 @@ export const loadTaxPage = async ({
     if (cookies && Array.isArray(cookies)) {
       await page.context().addCookies(cookies);
     }
-    await page!.goto(targetUrl, { waitUntil: "networkidle", timeout: 45000 });
+    try {
+      await page!.goto(targetUrl, { waitUntil: "networkidle" });
+    } catch (error) {
+      logger.warn(`${error}`);
+    }
 
     let accountChoiceButtonExists = false;
 

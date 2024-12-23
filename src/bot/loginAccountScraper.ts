@@ -155,10 +155,8 @@ export const loadPage = async (): Promise<any> => {
     return { page, playwrightService };
   } catch (error) {
     logger.error("Scraping error:", error);
-    return {page}
+    return { page };
   }
-
- 
 };
 
 export async function loginAccountScraper({ email, password }: IAccount) {
