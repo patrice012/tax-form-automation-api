@@ -92,7 +92,9 @@ export const checkForOTP = async ({
     // Wait for OTP field
     try {
       logger.info("Waiting for OTP option to appear...");
-      await page.locator(otpOptionSelector).waitFor({ timeout: 5000 });
+      await page
+        .locator(otpOptionSelector)
+        .waitFor({ state: "visible", timeout: 5000 });
     } catch (error) {
       logger.warn("Error waiting for OTP option:", error);
       return { page, success: false };
@@ -155,7 +157,7 @@ export const loadPage = async (): Promise<any> => {
     return { page, playwrightService };
   } catch (error) {
     logger.error("Scraping error:", error);
-    return { page };
+    return { page, playwrightService };
   }
 };
 

@@ -115,21 +115,21 @@
         "is_pii": false
       },
       "statutory_employee": {
-        "value": false,
-        "status": "success",
-        "type": "bool",
-        "notes": [],
-        "is_pii": false
-      },
-      "retirement_plan": {
         "value": true,
         "status": "success",
         "type": "bool",
         "notes": [],
         "is_pii": false
       },
-      "third_party_sick_pay": {
+      "retirement_plan": {
         "value": false,
+        "status": "success",
+        "type": "bool",
+        "notes": [],
+        "is_pii": false
+      },
+      "third_party_sick_pay": {
+        "value": true,
         "status": "success",
         "type": "bool",
         "notes": [],

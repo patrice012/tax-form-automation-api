@@ -14,12 +14,14 @@ interface InputField {
   inputType: string;
   xpath?: string;
   ref?: string;
+  custom?: string;
   fields?: InputField[];
 }
 
 export interface IInput {
   label: string;
   ref: string;
+  custom?: string;
   inputType: string;
   xpath: string;
   value: any;
@@ -64,6 +66,7 @@ function mergeData(
               ref: normalizeText(input.ref as string),
               inputType: normalizeText(field.inputType),
               xpath: normalizeXPath(field.xpath as string),
+              custom: normalizeText(field.custom || ""),
               value: fieldValue,
               status: refData.status,
               type: fieldType,
@@ -78,6 +81,7 @@ function mergeData(
             ref: normalizeText(input.ref as string),
             inputType: normalizeText(input.inputType),
             xpath: normalizeXPath(input.xpath as string),
+            custom: normalizeText(input.custom || ""),
             value: refData.value,
             status: refData.status,
             type: refData.type,

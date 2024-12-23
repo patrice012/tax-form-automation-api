@@ -25,34 +25,10 @@ export async function selectOption({
       logger.info("Waiting for select element to be visible...");
       await locator.waitFor({
         state: "visible",
-        timeout: 30000,
+        timeout: 15000,
       });
     } catch (error) {
       logger.warn(`Failed to wait for element`);
-    }
-
-    // Try to find and wait for label if it exists
-    try {
-      const labelLocator = page.getByText(label).first();
-      await labelLocator.waitFor({
-        state: "visible",
-        timeout: 5000,
-      });
-    } catch (error) {
-      logger.warn(`Label: ${label} not visible, continuing anyway`);
-    }
-
-    // Check element visibility and enabled state
-    const isVisible = await locator.isVisible();
-    const isEnabled = await locator.isEnabled();
-    logger.info(
-      `Select element state - Visible: ${isVisible}, Enabled: ${isEnabled}`
-    );
-
-    if (!isVisible || !isEnabled) {
-      logger.error(
-        `Select element not interactable - Visible: ${isVisible}, Enabled: ${isEnabled}`
-      );
     }
 
     // Get all available options

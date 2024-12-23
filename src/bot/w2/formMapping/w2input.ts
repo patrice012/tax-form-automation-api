@@ -1,6 +1,7 @@
 const employerInformation_e_file = [
   {
     label: "(b) Employer identification number (EIN)",
+    ref: "employer_fed_id_number",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
@@ -19,30 +20,35 @@ const employerInformation_e_file = [
   },
   {
     label: "(c) Name of employer",
+    ref: "employer_name",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "Street address",
+    ref: "employer_address",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "City",
+    ref: "employer_city",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "State",
+    ref: "employer_state",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[2]/div[1]/div[1]/input[1]",
   },
   {
     label: "ZIP code",
+    ref: "employer_zip_code",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[3]/div[1]/div[1]/input[1]",
@@ -590,6 +596,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(15) St",
     ref: "state",
+    custom: "table",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/input[1]",
@@ -597,6 +604,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(15) Employer's State ID Number",
     ref: "employer_state_id_number",
+    custom: "table",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/input[1]",
@@ -604,6 +612,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(16) State Wages, Tips, etc. [Override]",
     ref: "state_wages_and_tips",
+    custom: "table",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/div[1]/input[1]",
@@ -611,6 +620,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(17) State Income Tax [Override]",
     ref: "state_income_tax",
+    custom: "table",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]",
@@ -618,6 +628,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(18) Local Wages, Tips, etc. [Override]",
     ref: "local_wages_and_tips",
+    custom: "table",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/div[1]/input[1]",
@@ -625,6 +636,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(19) Local Income Tax [Override]",
     ref: "local_income_tax",
+    custom: "table",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[6]/div[1]/div[1]/div[1]/input[1]",
@@ -632,6 +644,7 @@ const electronic_filing_fields_w_2_state_local = [
   {
     label: "(20) Locality Name",
     ref: "locality_name",
+    custom: "table",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/div[1]/input[1]",
@@ -680,7 +693,6 @@ const employee_information_fields = [
   },
   {
     label: "(a) Social security number [Override]",
-    ref: "employer_fed_id_number",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -693,14 +705,12 @@ const employee_information_fields = [
   },
   {
     label: "(e) Name",
-    ref: "employer_name",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "(f) Street address",
-    ref: "employer_address",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[5]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -713,21 +723,18 @@ const employee_information_fields = [
   },
   {
     label: "City",
-    ref: "employer_city",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[6]/div[1]/section[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "State",
-    ref: "employer_state",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[6]/div[1]/section[1]/div[2]/div[1]/span[1]/div[2]/div[1]/div[1]/input[1]",
   },
   {
     label: "ZIP code",
-    ref: "employer_zip_code",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[6]/div[1]/section[1]/div[6]/div[1]/section[1]/div[2]/div[1]/span[1]/div[3]/div[1]/div[1]/input[1]",
@@ -804,6 +811,7 @@ type Tfield = {
   inputType: string;
   xpath?: string;
   ref?: string;
+  custom?: string;
   fields?: {
     label: string;
     inputType: string;
@@ -819,4 +827,3 @@ export function getInputFields() {
   });
   return arr;
 }
-

@@ -20,15 +20,21 @@ async function navigateToClientList(page: Page): Promise<NavigationResult> {
     const clientListSelector = "[id='/app/protax/client-list']";
     const locator = page.locator(clientListSelector);
     // Check element visibility and enabled state
-    const isVisible = await locator.isVisible();
-    if (!isVisible) {
-      await page.waitForSelector(clientListSelector, { state: "visible" });
-    }
-    await page.waitForTimeout(500);
-    await page.click(clientListSelector);
     try {
-      await page.waitForLoadState("networkidle");
-    } catch (error) {}
+      const isVisible = await locator.isVisible();
+      logger.info(`clientListSelector is visible: ${isVisible}`);
+      if (!isVisible) {
+        await page.waitForSelector(clientListSelector, { state: "visible" });
+      }
+    } catch (error) {
+      logger.warn(`clientListSelector is not visible`);
+    }
+    try {
+      await page.click(clientListSelector);
+      logger.info("Click client list");
+    } catch (error) {
+      logger.warn("Error click client list");
+    }
     logger.info("Navigated to client list page.");
 
     // Wait for client links to load

@@ -9,6 +9,7 @@ interface WatchOptions {
   dbName?: string;
   collectionName: string;
   jobId: string;
+  maxTime?: number;
 }
 
 export const watchJobCollection = async ({
@@ -50,7 +51,12 @@ export const watchJobCollection = async ({
   }
 };
 
-export function setupJobWatch({ dbName, collectionName, jobId }: WatchOptions) {
+export function setupJobWatch({
+  dbName,
+  collectionName,
+  jobId,
+  maxTime = 300000,
+}: WatchOptions) {
   return new Promise(async (resolve, reject) => {
     try {
       const changeStream = await watchJobCollection({
@@ -63,7 +69,7 @@ export function setupJobWatch({ dbName, collectionName, jobId }: WatchOptions) {
         try {
           changeStream?.close();
         } catch (error) {}
-      }, 5 * 60 * 1000);
+      }, maxTime);
 
       changeStream.on("change", (change) => {
         console.log("Detected change:", change);

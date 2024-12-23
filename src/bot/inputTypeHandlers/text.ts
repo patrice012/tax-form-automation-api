@@ -23,34 +23,10 @@ export async function fillTextInput({
       logger.info("Waiting for input element to be visible...");
       await locator.waitFor({
         state: "visible",
-        timeout: 30000,
+        timeout: 15000,
       });
     } catch (error) {
       logger.warn(`Failed to wait for element`);
-    }
-
-    try {
-      // Wait for element to be visible and enabled
-      logger.info("Waiting for element to be visible and enabled...");
-      const labelLocator = page.getByText(label).first();
-      await labelLocator.waitFor({
-        state: "visible",
-        timeout: 30000,
-      });
-    } catch (error) {
-      logger.warn(`Label: ${label} not visible`);
-    }
-
-    // Ensure element is ready for interaction
-    const isVisible = await locator.isVisible();
-    const isEnabled = await locator.isEnabled();
-
-    logger.info(`Element state - Visible: ${isVisible}, Enabled: ${isEnabled}`);
-
-    if (!isVisible || !isEnabled) {
-      logger.error(
-        `Element not ready for interaction - Visible: ${isVisible}, Enabled: ${isEnabled}`
-      );
     }
 
     try {
@@ -138,52 +114,9 @@ export async function fillTextInput({
       );
     } catch (fallbackError) {
       // Try one last time with a different strategy
-      try {
-        logger.info("Attempting final fallback with JavaScript click...");
-
-        await page.evaluate(
-          ({ xpath, value }) => {
-            const element = document.evaluate(
-              xpath,
-              document,
-              null,
-              XPathResult.FIRST_ORDERED_NODE_TYPE,
-              null
-            ).singleNodeValue as HTMLInputElement;
-
-            if (element) {
-              // Force click and focus
-              element.click();
-              element.focus();
-              // Use keyboard events
-              element.dispatchEvent(
-                new KeyboardEvent("keydown", { bubbles: true })
-              );
-              element.value = value.toString();
-              element.dispatchEvent(
-                new KeyboardEvent("keyup", { bubbles: true })
-              );
-              element.dispatchEvent(new Event("input", { bubbles: true }));
-              element.dispatchEvent(new Event("change", { bubbles: true }));
-            }
-          },
-          { xpath, value }
-        );
-
-        // Verify the final attempt
-        const finalValue = await locator.inputValue();
-        if (finalValue !== value.toString()) {
-          logger.error("Final attempt failed to set value");
-        }
-
-        logger.info(
-          `Successfully filled input using final fallback method: ${value} for ${label}`
-        );
-      } catch (finalError) {
-        logger.error(
-          `All attempts to fill input ${label} failed. Please check element accessibility and page state.`
-        );
-      }
+      logger.error(
+        `All attempts to fill input ${label} failed. Please check element accessibility and page state.`
+      );
     }
   }
 }
