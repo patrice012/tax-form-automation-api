@@ -5,12 +5,14 @@ import { fillTextInput } from "../inputTypeHandlers/text";
 import { selectOption } from "../inputTypeHandlers/select";
 import { checkboxInput } from "../inputTypeHandlers/checkbox";
 import { fillTableLikeInputs } from "../inputTypeHandlers/fillTableLikeInputs";
+import { fillPopupLikeInputs } from "../inputTypeHandlers/fillPopupLikeInputs";
 
 export async function fillForm({ page }: { page: Page }) {
   try {
     const inputMapping = await getInputMapping();
     const inputs = inputMapping.inputs;
     const tableLikeInput = [];
+    const popupLikeInputs = [];
 
     for (let input of inputs) {
       const inputType = input.inputType;
@@ -18,6 +20,11 @@ export async function fillForm({ page }: { page: Page }) {
 
       if (custom && custom === "table") {
         tableLikeInput.push(input);
+        continue;
+      }
+
+      if (custom && custom === "popup") {
+        popupLikeInputs.push(input);
         continue;
       }
 
@@ -36,7 +43,7 @@ export async function fillForm({ page }: { page: Page }) {
           break;
       }
     }
-    // handle special cases
+    // handle special cases -- inputs inside table
     for (let i = 0; i < tableLikeInput.length; i++) {
       const { xpath, value, label } = tableLikeInput[i];
       await fillTableLikeInputs({
@@ -45,6 +52,17 @@ export async function fillForm({ page }: { page: Page }) {
         xpath,
         page,
         index: i,
+      });
+    }
+
+    // handle special cases --  inputs inside popup
+    for (let i = 0; i < popupLikeInputs.length; i++) {
+      const { xpath, value, label } = popupLikeInputs[i];
+      await fillPopupLikeInputs({
+        value: value,
+        label,
+        xpath,
+        page,
       });
     }
 
