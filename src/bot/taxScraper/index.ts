@@ -9,6 +9,7 @@ import { handleNewTaxReturn } from "./handleNewTaxReturn";
 import { navigateToW2Form } from "./navigateToW2Form";
 
 import { TaxScraperOptions } from "./declaration";
+import { getClientEmail } from "./getClientEmail";
 
 export async function taxScraper({ page }: TaxScraperOptions) {
   try {
@@ -19,7 +20,7 @@ export async function taxScraper({ page }: TaxScraperOptions) {
       return { page, success: false };
     }
 
-    const email = "cgallegos@gradientcoast.com";
+    const { email } = await getClientEmail();
     const nameElement = await findClientNameByEmail({
       page,
       emailToFind: email.trim(),

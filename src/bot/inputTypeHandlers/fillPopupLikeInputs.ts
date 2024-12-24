@@ -52,7 +52,7 @@ export async function fillPopupLikeInputs({
     const actionButton = page.locator(
       "[data-testid='expDetView-action1-button']"
     );
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(1500);
     await actionButton.click();
     logger.info("Successfully clicked the action button.");
 

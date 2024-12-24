@@ -32,6 +32,7 @@ class PlaywrightService {
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-dev-shm-usage",
+        "--start-maximized",
       ],
     };
 
@@ -53,7 +54,7 @@ class PlaywrightService {
 
       // Create new context with common settings
       this.context = await this.browser.newContext({
-        viewport: { width: 1280, height: 720 },
+        viewport: null,
         userAgent:
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
       });
