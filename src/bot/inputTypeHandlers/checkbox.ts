@@ -13,7 +13,9 @@ export async function checkboxInput({
   page: Page;
 }): Promise<void> {
   try {
-    logger.info(`Handling checkbox for: ${label} with desired state: ${value}`);
+    logger.info(
+      `Handling checkbox for: ${label} with desired state: ${value.toString()}`
+    );
     logger.info(`Using xpath: ${xpath}`);
 
     try {
@@ -30,55 +32,58 @@ export async function checkboxInput({
 
     const desiredState = value.toString().toLowerCase() === "true";
 
-    if (desiredState) {
-      // Use page.evaluate to directly check the checkbox
-      const result = await page.evaluate(
-        ({ xpath }) => {
-          const checkbox = document.evaluate(
-            xpath,
-            document,
-            null,
-            XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null
-          ).singleNodeValue as HTMLInputElement;
+    // Use page.evaluate to directly check the checkbox
+    const result = await page.evaluate(
+      ({ xpath, desiredState }) => {
+        const checkbox = document.evaluate(
+          xpath,
+          document,
+          null,
+          XPathResult.FIRST_ORDERED_NODE_TYPE,
+          null
+        ).singleNodeValue as HTMLInputElement;
 
-          if (!checkbox) {
-            return { success: false, error: "Checkbox not found" };
-          }
+        if (!checkbox) {
+          return { success: false, error: "Checkbox not found" };
+        }
 
-          try {
-            // Focus and click the checkbox
-            checkbox.focus();
-            checkbox.click();
+        const currentState = checkbox.checked as boolean;
 
-            // Set the checked property as a backup
-            checkbox.checked = true;
+        if (currentState === desiredState) {
+          logger.info(
+            `Current state match desire state for: ${label}, skip it`
+          );
+          return { success: true, checked: checkbox.checked };
+        }
 
-            // Dispatch events
-            checkbox.dispatchEvent(new Event("click", { bubbles: true }));
-            checkbox.dispatchEvent(new Event("change", { bubbles: true }));
-            checkbox.dispatchEvent(new Event("input", { bubbles: true }));
+        try {
+          // Focus and click the checkbox
+          checkbox.focus();
+          checkbox.click();
 
-            return { success: true, checked: checkbox.checked };
-          } catch (e) {
-            return {
-              success: false,
-              error: e instanceof Error ? e.message : "Unknown error",
-            };
-          }
-        },
-        { xpath }
-      );
+          // Set the checked property as a backup
+          checkbox.checked = desiredState;
 
-      if (!result.success) {
-        logger.error(`Failed to check checkbox ${label}: ${result.error}`);
-      } else {
-        logger.info(`Successfully checked checkbox ${label}`);
-      }
+          // Dispatch events
+          checkbox.dispatchEvent(new Event("click", { bubbles: true }));
+          checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+          checkbox.dispatchEvent(new Event("input", { bubbles: true }));
+
+          return { success: true, checked: checkbox.checked };
+        } catch (e) {
+          return {
+            success: false,
+            error: e instanceof Error ? e.message : "Unknown error",
+          };
+        }
+      },
+      { xpath, desiredState }
+    );
+
+    if (!result.success) {
+      logger.error(`Failed to check checkbox ${label}: ${result.error}`);
     } else {
-      logger.info(
-        `Desired state for checkbox ${label} is false. Skipping action.`
-      );
+      logger.info(`Successfully checked checkbox ${label}`);
     }
   } catch (error) {
     logger.error(
