@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import { getInputMapping, IInputMapping } from "./formMapping/inputMapping";
+import { getInputMapping } from "./formMapping/inputMapping";
 import logger from "../../utils/logger";
 import { fillTextInput } from "../inputTypeHandlers/text";
 import { selectOption } from "../inputTypeHandlers/select";
@@ -8,7 +8,7 @@ import { fillTableLikeInputs } from "../inputTypeHandlers/fillTableLikeInputs";
 
 export async function fillForm({ page }: { page: Page }) {
   try {
-    const inputMapping = (await getInputMapping()) as IInputMapping;
+    const inputMapping = await getInputMapping();
     const inputs = inputMapping.inputs;
     const tableLikeInput = [];
 
@@ -39,7 +39,6 @@ export async function fillForm({ page }: { page: Page }) {
     // handle special cases
     for (let i = 0; i < tableLikeInput.length; i++) {
       const { xpath, value, label } = tableLikeInput[i];
-      logger.info(`${xpath}, ${value}`);
       await fillTableLikeInputs({
         value: value,
         label,

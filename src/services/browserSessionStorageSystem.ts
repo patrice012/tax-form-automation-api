@@ -1,46 +1,7 @@
-import mongoose, { Schema, Document } from "mongoose";
 import { Page } from "playwright";
 import { encodePassword, decodePassword } from "../utils/hashPwd";
 import logger from "../utils/logger";
-
-interface IBrowserSession extends Document {
-  uid: string;
-  documentId: String;
-  cookies: any[];
-  key?: string;
-  lastUsed: Date;
-}
-
-const BrowserSessionSchema = new Schema<IBrowserSession>(
-  {
-    uid: {
-      type: String,
-      required: true,
-    },
-    documentId: {
-      type: String,
-    },
-    cookies: [
-      {
-        type: Schema.Types.Mixed,
-        required: true,
-      },
-    ],
-    key: {
-      type: String,
-    },
-    lastUsed: {
-      type: Date,
-      default: Date.now,
-    },
-  },
-  { timestamps: true }
-);
-
-const BrowserSession = mongoose.model<IBrowserSession>(
-  "BrowserSession",
-  BrowserSessionSchema
-);
+import { BrowserSession, IBrowserSession } from "../models/BrowserSession";
 
 class SessionManager {
   _session: IBrowserSession | null = null;
@@ -153,4 +114,4 @@ class SessionManager {
   }
 }
 
-export { SessionManager, IBrowserSession, BrowserSession };
+export { SessionManager };

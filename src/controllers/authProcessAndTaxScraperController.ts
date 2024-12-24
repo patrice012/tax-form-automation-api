@@ -1,24 +1,28 @@
 import { Request, Response } from "express";
+
+import { handleOTPInput } from "../bot/auth/handleOTPInput";
+import { authProcess } from "../bot/authProcess";
+import { checkForOTP } from "../bot/auth/checkForOTP";
+import { handleNavigationToClientPage } from "../bot/taxScraper/handleNavigationToClientPage";
+
+import { taxScraper } from "../bot/taxScraper";
+
 import logger from "../utils/logger";
-import {
-  checkForOTP,
-  handleOTPInput,
-  loginAccountScraper,
-  handleNavigation,
-} from "../bot/loginAccountScraper";
 import { setupJobWatch } from "../utils/watchDB";
 import { updateTwoFactorStatus } from "../utils/updateTwoFactorStatus";
-import { SessionManager } from "../services/browserSessionStorageSystem";
-import { loadTaxPage, taxScraper } from "../bot/taxScraper";
-import { decodePassword } from "../utils/hashPwd";
 
-export const scrapeWebsite = async (req: Request, res: Response) => {
+import { SessionManager } from "../services/browserSessionStorageSystem";
+
+export const authProcessAndTaxScraperController = async (
+  req: Request,
+  res: Response
+) => {
   const { email, password, id, uid } = req.body;
   let _playwrightService = null;
   const sessionManager = new SessionManager();
 
   try {
-    const { page, playwrightService } = await loginAccountScraper({
+    const { page, playwrightService } = await authProcess({
       email,
       password,
     });
@@ -33,7 +37,7 @@ export const scrapeWebsite = async (req: Request, res: Response) => {
     });
 
     if (!hasOTP) {
-      await handleNavigation({ page: currentPage });
+      await handleNavigationToClientPage({ page: currentPage });
       // Save the session
       const sessionId = await sessionManager.saveSession({
         page: currentPage,
@@ -71,7 +75,9 @@ export const scrapeWebsite = async (req: Request, res: Response) => {
       key: password,
     });
     logger.info("Session saved:", sessionId);
-    await handleNavigation({ page });
+    await handleNavigationToClientPage({ page });
+
+    await taxScraper({ page });
 
     updateTwoFactorStatus({
       documentId: id,
@@ -80,54 +86,6 @@ export const scrapeWebsite = async (req: Request, res: Response) => {
 
     res.status(200).json({
       message: "Scraping success",
-    });
-  } catch (error) {
-    logger.error("Scraping error:", error);
-    res.status(500).json({
-      message: "Scraping failed",
-      error: error instanceof Error ? error.message : "Unknown error",
-    });
-  } finally {
-    _playwrightService?.cleanup();
-  }
-};
-
-export const startTaxScraper = async (req: Request, res: Response) => {
-  const { id, uid } = req.body;
-  let _playwrightService = null;
-  try {
-    const sessionManager = new SessionManager();
-    const { cookies, key } = await sessionManager.loadSessionToPage({
-      uid,
-      documentId: id,
-    });
-
-    if (!cookies) {
-      logger.info("No saved session found");
-    }
-
-    let decodedKey = "";
-    if (key) {
-      decodedKey = decodePassword(key);
-    }
-
-    const { page, playwrightService } = await loadTaxPage({
-      cookies,
-      hash: decodedKey as string,
-    });
-    _playwrightService = playwrightService;
-
-    const { page: currentPage } = await taxScraper({ page });
-
-    res.status(200).json({
-      message: "Login success",
-    });
-
-    // Save the session
-    sessionManager.saveSession({
-      page: currentPage,
-      uid: uid,
-      documentId: id,
     });
   } catch (error) {
     logger.error("Scraping error:", error);
