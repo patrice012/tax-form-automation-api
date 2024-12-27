@@ -11,7 +11,7 @@ export async function fillForm({ page }: { page: Page }) {
   try {
     const inputMapping = await getInputMapping();
     const inputs = inputMapping.inputs;
-    const tableLikeInput = [];
+    const tableLikeInputs = [];
     const popupLikeInputs = [];
 
     for (let input of inputs) {
@@ -19,7 +19,7 @@ export async function fillForm({ page }: { page: Page }) {
       const { xpath, value, label, custom } = input;
 
       if (custom && custom === "table") {
-        tableLikeInput.push(input);
+        tableLikeInputs.push(input);
         continue;
       }
 
@@ -44,8 +44,8 @@ export async function fillForm({ page }: { page: Page }) {
       }
     }
     // handle special cases -- inputs inside table
-    for (let i = 0; i < tableLikeInput.length; i++) {
-      const { xpath, value, label } = tableLikeInput[i];
+    for (let i = 0; i < tableLikeInputs.length; i++) {
+      const { xpath, value, label } = tableLikeInputs[i];
       await fillTableLikeInputs({
         value: value,
         label,

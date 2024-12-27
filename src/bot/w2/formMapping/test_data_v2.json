@@ -1,9 +1,10 @@
 [
   {
     "targetClient": {
-      "email": "lorem@test.com"
+      "email":"cgallegos@gradientcoast.com"
     },
     "W2": {
+      "taxYear": 2024,
       "wage_income": {
         "value": 464769.39,
         "type": "number"

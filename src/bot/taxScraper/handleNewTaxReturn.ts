@@ -1,5 +1,6 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
+import { getClientInformation } from "./getClientInformation";
 
 export async function handleNewTaxReturn(page: Page): Promise<any> {
   try {
@@ -17,6 +18,66 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
     } else if (await createButton.isVisible()) {
       logger.info("Using primary create button");
       await createButton.click();
+    }
+
+    // Select appropriate tax year
+    const { taxYear } = await getClientInformation();
+
+    const locator = page
+      .locator("[data-automation-id='select-return-year']")
+      .first();
+    logger.info(`Attempting to select option taxYear with value: ${taxYear}`);
+
+    try {
+      try {
+        // Wait for element to be visible
+        logger.info("Waiting for select element to be visible...");
+        await locator.waitFor({
+          state: "visible",
+          timeout: 15000,
+        });
+      } catch (error) {
+        logger.warn(`Failed to wait for element`);
+      }
+
+      // Get all available options
+      const options = await locator.evaluate((select: HTMLSelectElement) => {
+        return Array.from(select.options).map((option) => ({
+          value: option.value,
+          text: option.text,
+        }));
+      });
+
+      logger.info("Available options:", options);
+
+      // Find the matching option that starts with our value
+      const matchingOption = options.find(
+        (opt) =>
+          opt.value.startsWith(taxYear.toString()) ||
+          opt.text.startsWith(taxYear.toString())
+      );
+
+      if (!matchingOption) {
+        logger.error(`No option found starting with: ${taxYear}`);
+      }
+
+      // Select the matching option using its full value
+      await locator.selectOption(matchingOption?.value as string);
+      logger.info(
+        `Selected option with value: ${matchingOption?.value as string}`
+      );
+
+      // Verify the selection
+      const selectedValue = await locator.evaluate(
+        (select: HTMLSelectElement) => select.value
+      );
+      if (!selectedValue.startsWith(taxYear.toString())) {
+        logger.error(
+          `Selection verification failed. Expected to start with: ${taxYear}, Got: ${selectedValue}`
+        );
+      }
+    } catch (error) {
+      logger.error(`Error selecting tax year: ${error}`);
     }
 
     // Handle Next button

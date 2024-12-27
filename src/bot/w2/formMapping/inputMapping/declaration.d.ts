@@ -21,10 +21,10 @@ export export interface IInput {
   inputType: string;
   xpath: string;
   value: any;
-  status: string;
+  status?: string;
   type: string | string[];
-  notes: any[];
-  is_pii: boolean;
+  notes?: any[];
+  is_pii?: boolean;
 }
 
 export interface IInputMapping {

@@ -1,15 +1,83 @@
 import { IInput, IInputMapping, InputField, IClientData } from "./declaration";
 import { normalizeText, normalizeXPath } from "./utils";
 
+function processMixedInputs(input: InputField, refData: any): IInput[] {
+  return (
+    input.fields?.map((field, index) => {
+      const fieldValue = refData.value[index];
+      const fieldType = Array.isArray(refData.type)
+        ? refData.type[index]
+        : refData.type;
+
+      return {
+        label: normalizeText(field.label),
+        ref: normalizeText(input.ref as string),
+        inputType: normalizeText(field.inputType),
+        xpath: normalizeXPath(field.xpath as string),
+        custom: normalizeText(field.custom || ""),
+        value: fieldValue,
+        status: refData.status,
+        type: fieldType,
+        notes: refData.notes,
+        is_pii: refData.is_pii,
+      };
+    }) || []
+  );
+}
+
+function processTableInputs(input: InputField, refData: any[]): IInput[] {
+  return (
+    input.fields?.map((field) => {
+      const typeValues = refData.reduce(
+        (acc, data) => {
+          const fieldData = data[field.ref as string];
+          if (fieldData) {
+            acc.value.push(fieldData.value);
+            acc.type.push(fieldData.type);
+          }
+          return acc;
+        },
+        { value: [], type: [] } as { value: unknown[]; type: string[] }
+      );
+
+      return {
+        label: normalizeText(field.label),
+        ref: normalizeText(input.ref as string),
+        inputType: normalizeText(field.inputType),
+        xpath: normalizeXPath(field.xpath as string),
+        custom: normalizeText(input.custom || ""),
+        value: typeValues.value,
+        status: "",
+        type: typeValues.type,
+      };
+    }) || []
+  );
+}
+
+function processStandardInput(input: InputField, refData: any): IInput {
+  return {
+    label: normalizeText(input.label),
+    ref: normalizeText(input.ref as string),
+    inputType: normalizeText(input.inputType),
+    xpath: normalizeXPath(input.xpath as string),
+    custom: normalizeText(input.custom || ""),
+    value: refData.value,
+    status: refData.status,
+    type: refData.type,
+    notes: refData.notes,
+    is_pii: refData.is_pii,
+  };
+}
+
 export function mergeData(
-  IClientData: IClientData[],
+  clientData: IClientData[],
   inputs: InputField[]
 ): IInputMapping {
-  const data = IClientData.map((data) => {
+  const data = clientData.map((client) => {
     const mergedInputs: IInput[] = [];
 
     inputs.forEach((input) => {
-      const refData = input.ref ? data.W2[input.ref] : null;
+      const refData = input.ref ? client.W2[input.ref] : null;
 
       if (refData) {
         if (
@@ -17,46 +85,21 @@ export function mergeData(
           input.fields &&
           Array.isArray(refData.value)
         ) {
-          // Handle mixed input types
-          input.fields.forEach((field, index) => {
-            const fieldValue = refData.value[index];
-            const fieldType = Array.isArray(refData.type)
-              ? refData.type[index]
-              : refData.type;
-
-            mergedInputs.push({
-              label: normalizeText(field.label),
-              ref: normalizeText(input.ref as string),
-              inputType: normalizeText(field.inputType),
-              xpath: normalizeXPath(field.xpath as string),
-              custom: normalizeText(field.custom || ""),
-              value: fieldValue,
-              status: refData.status,
-              type: fieldType,
-              notes: refData.notes,
-              is_pii: refData.is_pii,
-            });
-          });
+          mergedInputs.push(...processMixedInputs(input, refData));
+        } else if (
+          input.inputType === "table" &&
+          input.fields &&
+          Array.isArray(refData)
+        ) {
+          mergedInputs.push(...processTableInputs(input, refData));
         } else {
-          // Handle standard input types
-          mergedInputs.push({
-            label: normalizeText(input.label),
-            ref: normalizeText(input.ref as string),
-            inputType: normalizeText(input.inputType),
-            xpath: normalizeXPath(input.xpath as string),
-            custom: normalizeText(input.custom || ""),
-            value: refData.value,
-            status: refData.status,
-            type: refData.type,
-            notes: refData.notes,
-            is_pii: refData.is_pii,
-          });
+          mergedInputs.push(processStandardInput(input, refData));
         }
       }
     });
 
     return {
-      targetClient: data.targetClient,
+      targetClient: client.targetClient,
       inputs: mergedInputs,
     };
   });
