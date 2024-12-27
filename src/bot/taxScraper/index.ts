@@ -1,5 +1,5 @@
 import logger from "../../utils/logger";
-import { fillForm } from "../w2/fillForm";
+import { fillForm } from "../form/w2/fillForm";
 
 import { navigateToClientList } from "./navigateToClientList";
 import { navigateToClientProfile } from "./navigateToClientProfile";

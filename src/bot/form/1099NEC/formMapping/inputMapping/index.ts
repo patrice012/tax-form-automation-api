@@ -1,4 +1,4 @@
-import logger from "../../../../utils/logger";
+import logger from "../../../../../utils/logger";
 import { getFormData } from "../getData";
 import { getInputFields } from "../w2input";
 import { IInputMapping } from "./declaration";

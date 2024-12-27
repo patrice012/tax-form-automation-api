@@ -73,6 +73,14 @@ class PlaywrightService {
       await this.initialize();
     }
     this.currentPage = await this.context!.newPage();
+
+    // Listen for all console events and handle errors
+    this.currentPage?.on("console", (msg) => {
+      if (msg?.type() === "error") console.log(`Error text: "${msg?.text()}"`);
+      else {
+        console.log(msg?.text());
+      }
+    });
     return this.currentPage;
   }
 

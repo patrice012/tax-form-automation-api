@@ -8,7 +8,7 @@ export const loadTaxPage = async ({
   cookies,
   hash,
 }: {
-  cookies: any;
+  cookies?: any;
   hash?: string;
 }): Promise<{
   page: Page;

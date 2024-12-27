@@ -1,5 +1,5 @@
 import logger from "../../utils/logger";
-import { getFormData } from "../w2/formMapping/getData";
+import { getFormData } from "../form/w2/formMapping/getData";
 
 export async function getClientInformation(): Promise<{
   email: string;

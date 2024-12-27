@@ -1,0 +1,72 @@
+[
+  {
+    "targetClient": {
+      "email": "cgallegos@gradientcoast.com"
+    },
+    "1099NEC": {
+      "payers_tin": {
+        "value": "CMBTT",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "payers_name": {
+        "value": "MOGWL",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "account_number": {
+        "value": "OSFIZ",
+        "status": "success",
+        "type": "string",
+        "notes": [],
+        "is_pii": false
+      },
+      "nonemployee_compensation": {
+        "value": 219050.04,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "resale": {
+        "value": true,
+        "status": "success",
+        "type": "bool",
+        "notes": [],
+        "is_pii": false
+      },
+      "federal_income_tax_withheld": {
+        "value": 32012.95,
+        "status": "success",
+        "type": "number",
+        "notes": [],
+        "is_pii": false
+      },
+      "state_tax_withheld": {
+        "value": [null, 294220.06],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      },
+      "payers_state_number": {
+        "value": [null, "BBAIN"],
+        "status": "success",
+        "type": ["string", "string"],
+        "notes": [],
+        "is_pii": false
+      },
+      "state_income": {
+        "value": [242707.25, 361676.28],
+        "status": "success",
+        "type": ["number", "number"],
+        "notes": [],
+        "is_pii": false
+      }
+    }
+  }
+]

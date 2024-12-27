@@ -1,11 +1,11 @@
 import { Page } from "playwright";
 import { getInputMapping } from "./formMapping/inputMapping";
-import logger from "../../utils/logger";
-import { fillTextInput } from "../inputTypeHandlers/text";
-import { selectOption } from "../inputTypeHandlers/select";
-import { checkboxInput } from "../inputTypeHandlers/checkbox";
-import { fillTableLikeInputs } from "../inputTypeHandlers/fillTableLikeInputs";
-import { fillPopupLikeInputs } from "../inputTypeHandlers/fillPopupLikeInputs";
+import logger from "../../../utils/logger";
+import { fillTextInput } from "../../inputTypeHandlers/text";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { fillTableLikeInputs } from "../../inputTypeHandlers/fillTableLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/fillPopupLikeInputs";
 
 export async function fillForm({ page }: { page: Page }) {
   try {
