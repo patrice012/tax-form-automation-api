@@ -1,5 +1,6 @@
 import logger from "../../utils/logger";
 import { IEmailInput, IAuthResponse } from "./declaration";
+import { solveCaptcha } from "./solveCaptcha";
 
 export const fillEmail = async ({
   page,
@@ -21,6 +22,11 @@ export const fillEmail = async ({
     await page.locator(emailIdSelector).fill(email);
     await page.waitForTimeout(500);
     await page.locator(submitButtonSelector).click();
+    try {
+      await solveCaptcha({ page });
+    } catch (error) {
+      logger.error(`Failed to solve captcha: ${error}`);
+    }
 
     return { page, success: true };
   } catch (error) {

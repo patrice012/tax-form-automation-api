@@ -1,8 +1,38 @@
 import { Browser, BrowserContext, Page, LaunchOptions } from "playwright";
 import { chromium, firefox } from "playwright-extra";
+
+// puppeteer extra libraries
+// import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
+// import AdblockerPlugin from "puppeteer-extra-plugin-adblocker";
+// import blockResourcesPlugin from "puppeteer-extra-plugin-block-resources";
+// import AnonymizeUAPlugin from "puppeteer-extra-plugin-anonymize-ua";
+
 import logger from "../utils/logger";
+import { CAPTCHA_TOKEN } from "../config/env";
 
 const BrowserApp = chromium;
+
+// initializations
+// BrowserApp.use(AnonymizeUAPlugin());
+// BrowserApp.use(StealthPlugin());
+// BrowserApp.use(AdblockerPlugin({ blockTrackers: true }));
+// BrowserApp.use(
+//   blockResourcesPlugin({
+//     blockedTypes: new Set(["font"]),
+//   })
+// );
+BrowserApp.use(
+  RecaptchaPlugin({
+    provider: {
+      id: "2captcha",
+      token: CAPTCHA_TOKEN,
+    },
+    visualFeedback: true,
+    solveInactiveChallenges: true,
+    solveScoreBased: true,
+  })
+);
 
 class PlaywrightService {
   private static instance: PlaywrightService;

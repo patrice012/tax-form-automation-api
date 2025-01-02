@@ -61,16 +61,10 @@ function getCheckboxInput() {
     Array.from(document.querySelectorAll(tag)).forEach((element) => {
       // get svg path
       const xpath = generateXpath(element);
-      const svg = element.parentElement.querySelector("svg");
-      const svgXpath = generateXpath(svg);
       xpaths.push({
         xpath: xpath,
-        svgXpath: svgXpath,
       });
       console.log("element:", $x(xpath)[0], xpath);
-      if (svgXpath) {
-        console.log("svg element:", $x(svgXpath)[0], svgXpath);
-      }
     });
   });
   return xpaths;
