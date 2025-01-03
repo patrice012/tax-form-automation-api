@@ -7,8 +7,7 @@ import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
 import AnonymizeUAPlugin from "puppeteer-extra-plugin-anonymize-ua";
 
 import logger from "../utils/logger";
-import { CAPTCHA_TOKEN, PROXY_PASSWORD, PROXY_USER } from "../config/env";
-import { getRandomProxy } from "../utils/proxies";
+import { CAPTCHA_TOKEN } from "../config/env";
 
 const BrowserApp = chromium;
 
@@ -48,8 +47,6 @@ class PlaywrightService {
   private getLaunchOptions(
     customOptions?: Partial<LaunchOptions>
   ): LaunchOptions {
-    const proxyUrl = getRandomProxy();
-
     const defaultOptions: LaunchOptions = {
       headless: process.env.NODE_ENV === "production",
       // executablePath: BrowserApp.executablePath(),
@@ -61,18 +58,6 @@ class PlaywrightService {
       ],
     };
 
-    // if (proxyUrl) {
-    //   defaultOptions.args?.push(`--proxy-server=${proxyUrl}`);
-    // }
-
-    if (proxyUrl) {
-      defaultOptions["proxy"] = {
-        server: proxyUrl,
-        username: "przhgwsl",
-        password: "df6bgx012zls",
-      };
-    }
-
     return { ...defaultOptions, ...customOptions };
   }
 
@@ -81,8 +66,8 @@ class PlaywrightService {
     customOptions?: Partial<LaunchOptions>
   ): Promise<void> {
     try {
-      // Close existing browser if open
-      await this.close();
+      // // Close existing browser if open
+      // await this.close();
 
       // Launch new browser
       this.browser = await BrowserApp.launch(
@@ -110,25 +95,6 @@ class PlaywrightService {
       await this.initialize();
     }
     this.currentPage = await this.context!.newPage();
-
-    // Listen for all console events and handle errors
-    this.currentPage?.on("console", (msg) => {
-      if (msg?.type() === "error") console.log(`Error text: "${msg?.text()}"`);
-      else {
-        console.log(msg?.text());
-      }
-    });
-
-    // try {
-    //   // auth for proxy
-    //   await this.currentPage?.authenticate({
-    //     username: PROXY_USER,
-    //     password: PROXY_PASSWORD,
-    //   });
-    //   console.log("success auth proxy");
-    // } catch (error) {
-    //   console.error(error, "proxy");
-    // }
 
     return this.currentPage;
   }

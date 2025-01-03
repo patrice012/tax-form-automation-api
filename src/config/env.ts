@@ -12,6 +12,4 @@ export const {
   LOG_LEVEL,
   CHROME_EXECUTABLE_PATH,
   CAPTCHA_TOKEN,
-  PROXY_USER,
-  PROXY_PASSWORD,
 } = process.env;

@@ -6,5 +6,3 @@ dist/
 *.txt
 *.sh
 *.log
-
-testProxies.js

@@ -5,14 +5,14 @@ export async function solveCaptcha({ page }: { page: Page }) {
   try {
     // Solve the CAPTCHA
     try {
-      const { captchas, solved, error } = await page.solveRecaptchas();
+      const { solved } = await page.solveRecaptchas();
 
       const isSolved = solved?.at(0)?.isSolved;
 
       if (isSolved) {
         logger.info("Captcha is solved");
         logger.info("Click continue btn");
-        await page.locator(`button[type="submit"]`).click();
+        await page.locator(`button[type="submit"]`)?.click();
       } else {
         logger.info("Captcha not solved");
       }

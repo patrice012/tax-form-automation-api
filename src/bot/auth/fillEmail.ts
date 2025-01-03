@@ -23,10 +23,18 @@ export const fillEmail = async ({
     await page.waitForTimeout(500);
     await page.locator(submitButtonSelector).click();
 
+    // Solve captcha if found
     const captchaId = "[id='ius-recaptcha']";
     try {
-      logger.info("Waiting for captcha");
-      await page.locator(captchaId).waitFor(20000);
+      logger.info("Checking captcha visibility");
+      const captchaLocator = page.locator(captchaId);
+      if (await captchaLocator.isVisible()) {
+        logger.info("Captcha already visible");
+      } else {
+        logger.info("Captcha not visible");
+        logger.info("Waiting for captcha: 20s");
+        captchaLocator.waitFor(20000);
+      }
     } catch (error) {
       logger.error("Captcha not present");
     }
