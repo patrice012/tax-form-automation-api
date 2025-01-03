@@ -2,26 +2,19 @@ import { Browser, BrowserContext, Page, LaunchOptions } from "playwright";
 import { chromium, firefox } from "playwright-extra";
 
 // puppeteer extra libraries
-// import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
-// import AdblockerPlugin from "puppeteer-extra-plugin-adblocker";
-// import blockResourcesPlugin from "puppeteer-extra-plugin-block-resources";
-// import AnonymizeUAPlugin from "puppeteer-extra-plugin-anonymize-ua";
+import AnonymizeUAPlugin from "puppeteer-extra-plugin-anonymize-ua";
 
 import logger from "../utils/logger";
-import { CAPTCHA_TOKEN } from "../config/env";
+import { CAPTCHA_TOKEN, PROXY_PASSWORD, PROXY_USER } from "../config/env";
+import { getRandomProxy } from "../utils/proxies";
 
 const BrowserApp = chromium;
 
 // initializations
-// BrowserApp.use(AnonymizeUAPlugin());
-// BrowserApp.use(StealthPlugin());
-// BrowserApp.use(AdblockerPlugin({ blockTrackers: true }));
-// BrowserApp.use(
-//   blockResourcesPlugin({
-//     blockedTypes: new Set(["font"]),
-//   })
-// );
+BrowserApp.use(AnonymizeUAPlugin());
+BrowserApp.use(StealthPlugin());
 BrowserApp.use(
   RecaptchaPlugin({
     provider: {
@@ -55,6 +48,8 @@ class PlaywrightService {
   private getLaunchOptions(
     customOptions?: Partial<LaunchOptions>
   ): LaunchOptions {
+    const proxyUrl = getRandomProxy();
+
     const defaultOptions: LaunchOptions = {
       headless: process.env.NODE_ENV === "production",
       // executablePath: BrowserApp.executablePath(),
@@ -65,6 +60,18 @@ class PlaywrightService {
         "--start-maximized",
       ],
     };
+
+    // if (proxyUrl) {
+    //   defaultOptions.args?.push(`--proxy-server=${proxyUrl}`);
+    // }
+
+    if (proxyUrl) {
+      defaultOptions["proxy"] = {
+        server: proxyUrl,
+        username: "przhgwsl",
+        password: "df6bgx012zls",
+      };
+    }
 
     return { ...defaultOptions, ...customOptions };
   }
@@ -111,6 +118,18 @@ class PlaywrightService {
         console.log(msg?.text());
       }
     });
+
+    // try {
+    //   // auth for proxy
+    //   await this.currentPage?.authenticate({
+    //     username: PROXY_USER,
+    //     password: PROXY_PASSWORD,
+    //   });
+    //   console.log("success auth proxy");
+    // } catch (error) {
+    //   console.error(error, "proxy");
+    // }
+
     return this.currentPage;
   }
 

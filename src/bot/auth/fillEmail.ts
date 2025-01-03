@@ -22,11 +22,23 @@ export const fillEmail = async ({
     await page.locator(emailIdSelector).fill(email);
     await page.waitForTimeout(500);
     await page.locator(submitButtonSelector).click();
+
+    const captchaId = "[id='ius-recaptcha']";
     try {
+      logger.info("Waiting for captcha");
+      await page.locator(captchaId).waitFor(20000);
+    } catch (error) {
+      logger.error("Captcha not present");
+    }
+
+    try {
+      logger.info("Start solving captcha");
       await solveCaptcha({ page });
     } catch (error) {
       logger.error(`Failed to solve captcha: ${error}`);
     }
+
+    logger.info("Moving to next after captcha");
 
     return { page, success: true };
   } catch (error) {

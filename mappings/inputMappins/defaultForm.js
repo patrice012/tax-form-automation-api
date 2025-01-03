@@ -77,7 +77,6 @@ const mapInputsToXpaths = (rootElement) => {
     const xpath = generateXpath(input);
     const inputType =
       input.tagName.toLowerCase() === "select" ? "select" : input.type;
-
     return {
       label,
       inputType,
