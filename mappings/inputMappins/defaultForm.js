@@ -108,7 +108,7 @@ window.generateMappingsFromElement = (selector) => {
   console.log("Mapped Data:", mappedData);
 
   // Download the result as JSON
-  downloadAsJson(mappedData, "table-mappings.json");
+  downloadAsJson(mappedData, "default-mappings.json");
 };
 
 console.log(
