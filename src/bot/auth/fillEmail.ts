@@ -54,6 +54,6 @@ export const fillEmail = async ({
     return { page, success: true };
   } catch (error) {
     logger.error("Error filling email:", error);
-    throw error;
+    
   }
 };
