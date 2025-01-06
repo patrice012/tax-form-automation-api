@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import logger from "../../utils/logger";
+import logger from "../../../../utils/logger";
 
 export async function fillPopupLikeInputs({
   value,
@@ -94,11 +94,9 @@ async function getInputNumber({
 // Helper to open the popup
 async function openPopup({ page, xpath }: { page: Page; xpath: string }) {
   const inputLocator = page.locator(`xpath=${xpath}`).first();
+  logger.info(inputLocator ? "popup input found" : "popup input not found");
 
   try {
-    logger.info("Waiting for input element to be visible...");
-    await inputLocator.waitFor({ state: "visible", timeout: 15000 });
-
     logger.info("Focusing on the input element...");
     await inputLocator.focus();
 
@@ -113,7 +111,7 @@ async function openPopup({ page, xpath }: { page: Page; xpath: string }) {
     logger.info(
       "Waiting for expand button within the closest div to appear..."
     );
-    await buttonLocator.waitFor({ state: "visible", timeout: 15000 });
+    // await buttonLocator.waitFor({ state: "visible", timeout: 30000 });
 
     logger.info("Clicking the expand button...");
     await buttonLocator.click();

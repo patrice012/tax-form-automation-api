@@ -1,15 +1,14 @@
 import logger from "../../utils/logger";
-import { fillForm } from "../form/w2/fillForm";
 
 import { navigateToClientList } from "./navigateToClientList";
 import { navigateToClientProfile } from "./navigateToClientProfile";
 import { findClientNameByEmail } from "./findClientNameByEmail";
 import { handleExistingTaxReturn } from "./handleExistingTaxReturn";
 import { handleNewTaxReturn } from "./handleNewTaxReturn";
-import { navigateToW2Form } from "./navigateToW2Form";
 
 import { TaxScraperOptions } from "./declaration";
 import { getClientInformation } from "./getClientInformation";
+import { fillAllForms } from "./fillAllForms";
 
 export async function taxScraper({ page }: TaxScraperOptions) {
   try {
@@ -20,7 +19,8 @@ export async function taxScraper({ page }: TaxScraperOptions) {
       return { page, success: false };
     }
 
-    const { email, taxYear } = await getClientInformation();
+    const { email, taxYear, formData } = await getClientInformation();
+
     const nameElement = await findClientNameByEmail({
       page,
       emailToFind: email.trim(),
@@ -77,9 +77,10 @@ export async function taxScraper({ page }: TaxScraperOptions) {
       logger.error("Error handling tax return:", error);
     }
 
-    await navigateToW2Form(page);
-    await page.waitForTimeout(5000);
-    await fillForm({ page });
+    // fill all provided forms
+    logger.info("start fill forms");
+    await fillAllForms({ page, formData });
+
     await page.waitForTimeout(30000);
 
     return { page, success: true };

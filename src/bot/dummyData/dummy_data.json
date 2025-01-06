@@ -73,10 +73,7 @@
         "is_pii": false
       },
       "box12a": {
-        "value": [
-          null,
-          349069.7
-        ],
+        "value": [null, 349069.7],
         "status": "success",
         "type": [
           "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
@@ -86,10 +83,7 @@
         "is_pii": false
       },
       "box12b": {
-        "value": [
-          "E",
-          381747.06
-        ],
+        "value": ["E", 381747.06],
         "status": "success",
         "type": [
           "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
@@ -99,10 +93,7 @@
         "is_pii": false
       },
       "box12c": {
-        "value": [
-          "N",
-          null
-        ],
+        "value": ["N", null],
         "status": "success",
         "type": [
           "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
@@ -112,10 +103,7 @@
         "is_pii": false
       },
       "box12d": {
-        "value": [
-          "W",
-          21725.22
-        ],
+        "value": ["W", 21725.22],
         "status": "success",
         "type": [
           "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
@@ -147,104 +135,54 @@
       },
       "other": {
         "value": [
-          [
-            "QWPSB",
-            144693.98
-          ],
-          [
-            null,
-            50500.71
-          ],
-          [
-            "QJJFG",
-            324017.69
-          ]
+          ["QWPSB", 144693.98],
+          [null, 50500.71],
+          ["QJJFG", 324017.69]
         ],
         "status": "success",
-        "type": [
-          [
-            "string",
-            "number"
-          ]
-        ],
+        "type": [["string", "number"]],
         "notes": [],
         "is_pii": false
       },
       "state": {
-        "value": [
-          "ESEJZ",
-          "ORVUF"
-        ],
+        "value": ["ESEJZ", "ORVUF"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_wages_and_tips": {
-        "value": [
-          null,
-          133870.44
-        ],
+        "value": [null, 133870.44],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "state_income_tax": {
-        "value": [
-          471454.86,
-          157338.94
-        ],
+        "value": [471454.86, 157338.94],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "local_wages_and_tips": {
-        "value": [
-          197815.95,
-          229425.93
-        ],
+        "value": [197815.95, 229425.93],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "local_income_tax": {
-        "value": [
-          123313.75,
-          131370.8
-        ],
+        "value": [123313.75, 131370.8],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "locality_name": {
-        "value": [
-          "XKFZN",
-          null
-        ],
+        "value": ["XKFZN", null],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
@@ -256,15 +194,9 @@
         "is_pii": false
       },
       "employer_state_id_number": {
-        "value": [
-          "QUKBJ",
-          "NZWAS"
-        ],
+        "value": ["QUKBJ", "NZWAS"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
@@ -358,41 +290,23 @@
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          null,
-          294220.06
-        ],
+        "value": [null, 294220.06],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          null,
-          "BBAIN"
-        ],
+        "value": [null, "BBAIN"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_income": {
-        "value": [
-          242707.25,
-          361676.28
-        ],
+        "value": [242707.25, 361676.28],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -528,41 +442,23 @@
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          243335.71,
-          108850.45
-        ],
+        "value": [243335.71, 108850.45],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          null,
-          "BIBMX"
-        ],
+        "value": [null, "BIBMX"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_income": {
-        "value": [
-          28439.79,
-          425671.27
-        ],
+        "value": [28439.79, 425671.27],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -698,41 +594,23 @@
         "is_pii": false
       },
       "state": {
-        "value": [
-          "CWGXT",
-          "HFIRW"
-        ],
+        "value": ["CWGXT", "HFIRW"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          "GXBQV",
-          null
-        ],
+        "value": ["GXBQV", null],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          65409.83,
-          80790.99
-        ],
+        "value": [65409.83, 80790.99],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -826,41 +704,23 @@
         "is_pii": false
       },
       "state": {
-        "value": [
-          "WFVLH",
-          "FAFIW"
-        ],
+        "value": ["WFVLH", "FAFIW"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          "HQKZN",
-          "CZEZG"
-        ],
+        "value": ["HQKZN", "CZEZG"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          217281.88,
-          156838.66
-        ],
+        "value": [217281.88, 156838.66],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -1010,80 +870,44 @@
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          199826.43,
-          343811.21
-        ],
+        "value": [199826.43, 343811.21],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          "WXUFU",
-          "MOXDD"
-        ],
+        "value": ["WXUFU", "MOXDD"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_distribution": {
-        "value": [
-          265565.94,
-          158648.98
-        ],
+        "value": [265565.94, 158648.98],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "local_tax_withheld": {
-        "value": [
-          221286.71,
-          446010.15
-        ],
+        "value": [221286.71, 446010.15],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
       "name_of_locality": {
-        "value": [
-          "XLEWL",
-          "VHUMG"
-        ],
+        "value": ["XLEWL", "VHUMG"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "local_distribution": {
-        "value": [
-          356772.43,
-          167923.77
-        ],
+        "value": [356772.43, 167923.77],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -1236,15 +1060,9 @@
         "is_pii": false
       },
       "student_name": {
-        "value": [
-          "JYFPV",
-          "SHRUU"
-        ],
+        "value": ["JYFPV", "SHRUU"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
@@ -1471,41 +1289,23 @@
         "is_pii": false
       },
       "state": {
-        "value": [
-          "BBHYQ",
-          "CAHMI"
-        ],
+        "value": ["BBHYQ", "CAHMI"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "payers_state_number": {
-        "value": [
-          "GWCBM",
-          "RDVYC"
-        ],
+        "value": ["GWCBM", "RDVYC"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          279036.52,
-          298063.42
-        ],
+        "value": [279036.52, 298063.42],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       },
@@ -1737,41 +1537,23 @@
         "is_pii": false
       },
       "state": {
-        "value": [
-          "DHWMA",
-          "USIAK"
-        ],
+        "value": ["DHWMA", "USIAK"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_identification_number": {
-        "value": [
-          "VCYQE",
-          "HSKMM"
-        ],
+        "value": ["VCYQE", "HSKMM"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          72320.98,
-          299688.8
-        ],
+        "value": [72320.98, 299688.8],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }
@@ -1893,41 +1675,23 @@
         "is_pii": false
       },
       "state": {
-        "value": [
-          "ZISQW",
-          "WJIST"
-        ],
+        "value": ["ZISQW", "WJIST"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_identification_number": {
-        "value": [
-          "ABQXZ",
-          "LCQWL"
-        ],
+        "value": ["ABQXZ", "LCQWL"],
         "status": "success",
-        "type": [
-          "string",
-          "string"
-        ],
+        "type": ["string", "string"],
         "notes": [],
         "is_pii": false
       },
       "state_tax_withheld": {
-        "value": [
-          451712.03,
-          null
-        ],
+        "value": [451712.03, null],
         "status": "success",
-        "type": [
-          "number",
-          "number"
-        ],
+        "type": ["number", "number"],
         "notes": [],
         "is_pii": false
       }

@@ -23,8 +23,8 @@ export function normalizeText(text: string): string {
 }
 
 export function cleanUpInputMapping(mergeObj: IInputMapping) {
-  const inputs = mergeObj.inputs;
-  const validInput = inputs.filter((input) => {
+  const inputs = mergeObj?.inputs;
+  const validInput = inputs?.filter((input) => {
     if (input && input?.value != null && input?.value != undefined) {
       return input;
     }

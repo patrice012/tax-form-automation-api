@@ -5,6 +5,11 @@ export interface IClientData {
   W2: Record<string, any>;
 }
 
+export interface IMergeData {
+  form_name: string;
+  form_data: unknown;
+}
+
 export interface InputField {
   label: string;
   inputType: string;
@@ -14,7 +19,7 @@ export interface InputField {
   fields?: InputField[];
 }
 
-export export interface IInput {
+export interface IInput {
   label: string;
   ref: string;
   custom?: string;
@@ -28,8 +33,5 @@ export export interface IInput {
 }
 
 export interface IInputMapping {
-  targetClient: {
-    email: string;
-  };
   inputs: IInput[];
 }

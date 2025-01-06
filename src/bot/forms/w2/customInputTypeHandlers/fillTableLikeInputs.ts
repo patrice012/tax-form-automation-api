@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import logger from "../../utils/logger";
+import logger from "../../../../utils/logger";
 
 export async function fillTableLikeInputs({
   value,
@@ -64,7 +64,7 @@ export async function fillTableLikeInputs({
     for (let i = 0; i < value.length; i++) {
       const inputIndex = index + i * INITIAL_NUMBER_OF_INPUTS;
       const inputValue = value[i].toString();
-      logger.info(`Current index: ${inputIndex}`)
+      logger.info(`Current index: ${inputIndex}`);
 
       try {
         // First, find the table using XPath

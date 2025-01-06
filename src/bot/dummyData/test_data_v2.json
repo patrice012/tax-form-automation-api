@@ -1,0 +1,256 @@
+[
+  {
+    "targetClient": {
+      "email": "cgallegos@gradientcoast.com",
+      "taxYear": 2024
+    },
+    "forms": [
+      {
+        "form_name": "1099NEC",
+        "form_data": {
+          "payers_tin": {
+            "value": "CMBTT",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": "MOGWL",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "OSFIZ",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "nonemployee_compensation": {
+            "value": 219050.04,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "resale": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 32012.95,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [null, 294220.06],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": [null, "BBAIN"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_income": {
+            "value": [242707.25, 361676.28],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
+        "form_name": "W2",
+        "form_data": {
+          "wage_income": {
+            "value": 464769.39,
+            "type": "number"
+          },
+          "federal_tax_withheld": {
+            "value": 135635.14,
+            "type": "number"
+          },
+          "social_security_wages": {
+            "value": 160200.0,
+            "type": "number"
+          },
+          "social_security_tax_withheld": {
+            "value": 9932.4,
+            "type": "number"
+          },
+          "medicare_wages_and_tips": {
+            "value": 484384.67,
+            "type": "number"
+          },
+          "medicare_tax_withheld": {
+            "value": 9583.04,
+            "type": "number"
+          },
+          "social_security_tips": {
+            "value": 0.0,
+            "type": "number"
+          },
+          "allocated_tips": {
+            "value": 0.0,
+            "type": "number"
+          },
+          "dependent_care_benefits": {
+            "value": 0.0,
+            "type": "number"
+          },
+          "nonqualified_plans": {
+            "value": 0.0,
+            "type": "number"
+          },
+          "box12a": {
+            "value": ["DD", 15343.02],
+            "type": [
+              "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+              "number"
+            ]
+          },
+          "box12b": {
+            "value": ["E", 19615.28],
+            "type": [
+              "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+              "number"
+            ]
+          },
+          "box12c": {
+            "value": [null, null],
+            "type": [
+              "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+              "number"
+            ]
+          },
+          "box12d": {
+            "value": [null, null],
+            "type": [
+              "string[A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,Y,Z,AA,BB,DD,EE,FF,GG,HH]",
+              "number"
+            ]
+          },
+          "statutory_employee": {
+            "value": true,
+            "type": "bool"
+          },
+          "retirement_plan": {
+            "value": true,
+            "type": "bool"
+          },
+          "third_party_sick_pay": {
+            "value": false,
+            "type": "bool"
+          },
+          "other": {
+            "value": [
+              ["AA", 44.6],
+              ["C", 1000]
+            ],
+            "type": [["string", "number"]]
+          },
+          "state_and_local": [
+            {
+              "state": {
+                "value": "WY",
+                "type": "string"
+              },
+              "employer_state_id_number": {
+                "value": "",
+                "type": "string"
+              },
+              "state_wages_and_tips": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "state_income_tax": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "local_wages_and_tips": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "local_income_tax": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "locality_name": {
+                "value": "",
+                "type": "string"
+              }
+            },
+            {
+              "state": {
+                "value": "WI",
+                "type": "string"
+              },
+              "employer_state_id_number": {
+                "value": "",
+                "type": "string"
+              },
+              "state_wages_and_tips": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "state_income_tax": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "local_wages_and_tips": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "local_income_tax": {
+                "value": 0.0,
+                "type": "number"
+              },
+              "locality_name": {
+                "value": "",
+                "type": "string"
+              }
+            }
+          ],
+          "employer_fed_id_number": {
+            "value": "830204184",
+            "type": "string"
+          },
+          "employer_name": {
+            "value": "NATIONAL OUTDOOR LEADERS HIP SCHOOL",
+            "type": "string"
+          },
+          "employer_address": {
+            "value": "284 LINCOLN ST",
+            "type": "string"
+          },
+          "employer_city": {
+            "value": "LANDER",
+            "type": "string"
+          },
+          "employer_state": {
+            "value": "WY",
+            "type": "string"
+          },
+          "employer_zip_code": {
+            "value": "82520",
+            "type": "string"
+          }
+        }
+      }
+    ]
+  }
+]

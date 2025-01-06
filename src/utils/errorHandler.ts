@@ -51,13 +51,13 @@ const errorHandler = (
   if (responseCallback) {
     responseCallback();
   } else {
-    // // Default response handling
-    // res.status(statusCode).json({
-    //   status: "error",
-    //   statusCode,
-    //   message,
-    //   ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
-    // });
+    // Default response handling
+    res.status(statusCode).json({
+      status: "error",
+      statusCode,
+      message,
+      ...(process.env.NODE_ENV === "development" && { stack: err.stack }),
+    });
   }
 };
 
@@ -103,29 +103,8 @@ const globalErrorHandler = (
   if (err.code === 11000) err = handleDuplicateKeyError(err);
   if (err.name === "CastError") err = handleCastError(err);
 
-  // Optional custom response callback
-  const responseCallback = (
-    statusCode: number,
-    message: string,
-    error?: Error
-  ) => {
-    // Custom response logic
-    res.status(statusCode).json({
-      status: "error",
-      message,
-      // Add any additional custom error handling
-      ...(process.env.NODE_ENV === "development" &&
-        error && {
-          stack: error.stack,
-          fullError: error,
-        }),
-      // You can add more custom properties or transformations
-      timestamp: new Date().toISOString(),
-    });
-  };
-
   // Call error handler with optional callback
-  errorHandler(err, req, res, next, responseCallback);
+  errorHandler(err, req, res, next);
 };
 
 export { AppError, errorHandler, asyncHandler, globalErrorHandler };

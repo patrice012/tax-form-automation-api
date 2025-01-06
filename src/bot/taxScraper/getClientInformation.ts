@@ -1,17 +1,24 @@
 import logger from "../../utils/logger";
-import { getFormData } from "../form/w2/formMapping/getData";
+import { getData } from "../dummyData/getData";
+import { IMergeData } from "../forms/utils/getFormData";
 
 export async function getClientInformation(): Promise<{
   email: string;
   taxYear: string;
+  formData: IMergeData[];
 }> {
   try {
-    const formData = await getFormData();
-    const email = formData[0]?.targetClient?.email;
-    const taxYear = formData[0]?.W2?.taxYear;
-    return { email: email ? email?.trim() : "", taxYear: taxYear || "" };
+    const data = await getData();
+    const email = data[0]?.targetClient?.email;
+    const taxYear = data[0]?.targetClient?.taxYear;
+    const formData = data[0]?.forms;
+    return {
+      email: email ? email?.trim() : "",
+      taxYear: taxYear || "",
+      formData: formData || [],
+    };
   } catch (error) {
     logger.error(`Fail getting client email`);
-    return { email: "", taxYear: "" };
+    return { email: "", taxYear: "", formData: [] };
   }
 }

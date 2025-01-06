@@ -1,7 +1,7 @@
 import * as fs from "fs/promises";
 import * as path from "path";
 
-export async function getFormData(): Promise<any> {
+export async function getData(): Promise<any> {
   try {
     // Define the path to the test_data.json file
     const filePath = path.resolve(__dirname, "test_data_v2.json");
