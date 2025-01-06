@@ -1,11 +1,8 @@
 import logger from "../../utils/logger";
-import { IEmailInput, IAuthResponse } from "./declaration";
+import { IEmailInput } from "./declaration";
 import { solveCaptcha } from "./solveCaptcha";
 
-export const fillEmail = async ({
-  page,
-  email,
-}: IEmailInput): Promise<IAuthResponse> => {
+export const fillEmail = async ({ page, email }: IEmailInput) => {
   try {
     const emailInputSelector = 'input[name="Email"]';
     const emailIdSelector = '[id="iux-identifier-first-unknown-identifier"]';
@@ -54,6 +51,5 @@ export const fillEmail = async ({
     return { page, success: true };
   } catch (error) {
     logger.error("Error filling email:", error);
-    
   }
 };
