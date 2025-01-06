@@ -25,25 +25,28 @@ export const fillEmail = async ({
 
     // Solve captcha if found
     const captchaId = "[id='ius-recaptcha']";
+    let captchaLocator = null;
     try {
       logger.info("Checking captcha visibility");
-      const captchaLocator = page.locator(captchaId);
-      if (await captchaLocator.isVisible()) {
+      captchaLocator = page.locator(captchaId);
+      if (await captchaLocator?.isVisible()) {
         logger.info("Captcha already visible");
       } else {
         logger.info("Captcha not visible");
         logger.info("Waiting for captcha: 20s");
-        captchaLocator.waitFor(20000);
+        captchaLocator?.waitFor(20000);
       }
     } catch (error) {
       logger.error("Captcha not present");
     }
 
-    try {
-      logger.info("Start solving captcha");
-      await solveCaptcha({ page });
-    } catch (error) {
-      logger.error(`Failed to solve captcha: ${error}`);
+    if (captchaLocator) {
+      try {
+        logger.info("Start solving captcha");
+        await solveCaptcha({ page });
+      } catch (error) {
+        logger.error(`Failed to solve captcha: ${error}`);
+      }
     }
 
     logger.info("Moving to next after captcha");
