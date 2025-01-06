@@ -10,9 +10,24 @@ export const fillEmail = async ({ page, email }: IEmailInput) => {
 
     // Wait for email input field
     try {
-      await page.locator(emailInputSelector).waitFor();
+      await page
+        .locator(emailInputSelector)
+        .waitForElementState({ state: "visible" });
     } catch (error) {
       logger.warn("Error waiting for the Email input field");
+    }
+
+    try {
+      const isEmailFieldVisible = await page
+        .locator(emailInputSelector)
+        .isVisible();
+      logger.info(`Email field visibility: ${isEmailFieldVisible}`);
+      if (!isEmailFieldVisible) {
+        await page.reload();
+        logger.info("Reload page");
+      }
+    } catch (error) {
+      logger.warn("Failed to reload a page");
     }
 
     // Fill the email and submit
@@ -22,16 +37,21 @@ export const fillEmail = async ({ page, email }: IEmailInput) => {
 
     // Solve captcha if found
     const captchaId = "[id='ius-recaptcha']";
-    let captchaLocator = null;
+    logger.info("Checking captcha visibility");
+    const captchaLocator = page.locator(captchaId);
     try {
-      logger.info("Checking captcha visibility");
-      captchaLocator = page.locator(captchaId);
-      if (await captchaLocator?.isVisible()) {
+      const isCaptchaVisible = await captchaLocator.waitForElementState({
+        state: "visible",
+        timeout: 3000,
+      });
+      if (isCaptchaVisible) {
         logger.info("Captcha already visible");
       } else {
         logger.info("Captcha not visible");
         logger.info("Waiting for captcha: 20s");
-        captchaLocator?.waitFor(20000);
+        captchaLocator?.waitForElementState({
+          timeout: 20000,
+        });
       }
     } catch (error) {
       logger.error("Captcha not present");

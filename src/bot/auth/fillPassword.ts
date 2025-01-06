@@ -12,7 +12,9 @@ export const fillPassword = async ({
 
     // Wait for password input field
     try {
-      await page.locator(passwordInputSelector).waitFor();
+      await page
+        .locator(passwordInputSelector)
+        .waitForElementState({ state: "visible" });
     } catch (error) {
       logger.warn("Error waiting for the Password input field");
     }

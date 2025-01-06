@@ -11,7 +11,10 @@ export const handleOTPInput = async ({
 
     // Wait for OTP input field
     try {
-      await page.locator(otpInputSelector).waitFor();
+      await page.locator(otpInputSelector).waitForElementState({
+        state: "visible",
+        timeout: 10000,
+      });
     } catch (error) {
       logger.warn("Error waiting for OTP input field:", error);
     }
