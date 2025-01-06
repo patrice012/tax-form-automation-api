@@ -59,8 +59,8 @@ export async function fillAllForms({
         await processor.fillForm({ page, formData: formSpecificData });
 
         logger.info(`Returning to forms page after processing form: ${name}`);
-        await page.waitForTimeout(5000);
-        await ViewAllInputs({ page });
+        await page.waitForTimeout(30000);
+        // await ViewAllInputs({ page });
       } catch (error) {
         logger.error(`Error processing form: ${name} - ${error}`);
       }
