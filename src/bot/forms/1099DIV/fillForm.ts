@@ -54,8 +54,10 @@ export async function fill1099DIVForm({
     for (let i = 0; i < popupLikeInputs.length; i++) {
       const { xpath, value, label } = popupLikeInputs[i];
       try {
+        // parse value => [[label, val]]]
+        const newValue = transformValue(value);
         await fillPopupLikeInputs({
-          value: value,
+          value: newValue,
           label,
           xpath,
           page,
@@ -69,4 +71,13 @@ export async function fill1099DIVForm({
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
+}
+
+function transformValue(value: unknown[]) {
+  return value
+    .filter((item) => item)
+    .map((item) => {
+      // If the item is not an array, transform it into ["", item]
+      return Array.isArray(item) ? item : ["", item];
+    });
 }

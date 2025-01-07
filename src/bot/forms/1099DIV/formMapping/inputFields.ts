@@ -397,12 +397,6 @@ const inputs_fields = [
   },
 ];
 
-// cash_liquidation_distributions, noncash_liquidation_distributions, exempt_interest_dividends, specified_private_activity_bond_interest_dividends, state, payers_state_number, payers_address, payers_city, payers_state, payers_zip_code, payers_phone_number ==> skipped
-
-// payers_tin ==> not correct: expect number but got string 5.50s
-
-// // check this => state_tax_withheld values and it's type
-
 const fields = [...inputs_fields];
 
 type Tfield = {
