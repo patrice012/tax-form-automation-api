@@ -9,6 +9,7 @@ import { handleNewTaxReturn } from "./handleNewTaxReturn";
 import { TaxScraperOptions } from "./declaration";
 import { getClientInformation } from "./getClientInformation";
 import { fillAllForms } from "./fillAllForms";
+import { navigateToFormsSection } from "./navigateToFormsSection";
 
 export async function taxScraper({ page }: TaxScraperOptions) {
   try {
@@ -76,6 +77,9 @@ export async function taxScraper({ page }: TaxScraperOptions) {
     } catch (error) {
       logger.error("Error handling tax return:", error);
     }
+
+    // navigate to form page section
+    await navigateToFormsSection({ page });
 
     // fill all provided forms
     logger.info("start fill forms");

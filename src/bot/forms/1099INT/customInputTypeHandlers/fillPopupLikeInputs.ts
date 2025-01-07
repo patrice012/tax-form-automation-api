@@ -49,12 +49,8 @@ export async function fillPopupLikeInputs({
     });
 
     // Click the action button
-    const actionButton = page.locator(
-      "[data-testid='expDetView-action1-button']"
-    );
-    await page.waitForTimeout(1500);
-    await actionButton.click();
-    logger.info("Successfully clicked the action button.");
+    const btnSelector = "[data-testid='expDetView-action1-button']";
+    await clickActionButton({ page, popupSelector, btnSelector });
 
     logger.info(`Successfully filled input with value: ${value} for ${label}`);
   } catch (error) {
@@ -105,9 +101,8 @@ async function openPopup({ page, xpath }: { page: Page; xpath: string }) {
     logger.info("Locating the closest div containing the input...");
 
     // Find the button within the closest div
-    const buttonLocator = closestDiv
-      .locator('button[aria-label="expandDetails"]')
-      .first();
+    const btnSelector = 'button[type="button"]'; //'button[aria-label="expandDetails"]'
+    const buttonLocator = closestDiv.locator(btnSelector);
     logger.info(
       "Waiting for expand button within the closest div to appear..."
     );
@@ -120,6 +115,52 @@ async function openPopup({ page, xpath }: { page: Page; xpath: string }) {
   } catch (error) {
     logger.error("Error during popup opening:", error);
     return { isOpen: false };
+  }
+}
+
+// Helper to close the popup
+async function clickActionButton({
+  page,
+  popupSelector,
+  btnSelector,
+}: {
+  page: Page;
+  popupSelector: string;
+  btnSelector: string;
+}) {
+  const actionButton = page.locator(btnSelector);
+
+  try {
+    // Wait for the button to be visible
+    await actionButton.waitFor({ state: "visible", timeout: 3000 });
+
+    // Click the action button
+    await actionButton.click();
+    logger.info("Clicked the action button.");
+
+    // Wait for a short delay to allow popup to respond
+    await page.waitForTimeout(500);
+
+    // Check if the popup is still open
+    const popup = page.locator(popupSelector);
+    let isPopupVisible = false;
+    try {
+      isPopupVisible = await popup.isVisible();
+    } catch (error) {
+      logger.info("Fail to check popup visibility");
+    }
+    logger.info(`Popup visibility: ${isPopupVisible}`);
+
+    if (isPopupVisible) {
+      logger.warn("Popup is still open, clicking the action button again.");
+      await actionButton.click();
+    } else {
+      logger.info(
+        "Popup closed successfully after clicking the action button."
+      );
+    }
+  } catch (error) {
+    logger.error(`Failed to handle action button: ${error}`);
   }
 }
 
@@ -143,6 +184,11 @@ async function fillInputs({
 
   let inputIndex = 0;
 
+  // Function to generate a random valid index
+  function getRandomIndex(max: number): number {
+    return Math.floor(Math.random() * max);
+  }
+
   // Ensure we process at least the required number of inputs
   while (inputIndex < requiredInputs) {
     // Fill available inputs
@@ -160,17 +206,26 @@ async function fillInputs({
       logger.info(
         `Filling input ${inputIndex + 1} with value: ${flatValues[inputIndex]}`
       );
+      try {
+        await input.clear();
+        logger.info("Clear input value");
+      } catch (error) {
+        logger.warn("Failed to clear input");
+      }
       await input.fill(flatValues[inputIndex].toString());
     }
 
-    // If more inputs are needed, press Enter on the last filled input
+    // If more inputs are needed, press Enter on a random input
     if (numberOfInputs < requiredInputs) {
-      const lastInput = page
+      const randomIndex = getRandomIndex(numberOfInputs);
+      const randomInput = page
         .locator(popupSelector)
         .locator("input")
-        .nth(numberOfInputs - 1);
-      logger.info("Pressing Enter to add more input fields...");
-      await lastInput.press("Enter");
+        .nth(randomIndex);
+      logger.info(
+        `Pressing Enter on a random input (index: ${randomIndex})...`
+      );
+      await randomInput.press("Enter");
       await page.waitForTimeout(1500);
 
       // Update the number of inputs

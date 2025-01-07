@@ -9,13 +9,35 @@ export async function navigateToForm({
   linkText: string;
 }): Promise<any> {
   try {
-    await page.locator("[data-automation-id='SECTION_INPUT_RETURN']").click();
-    logger.info("Clicked Input Return button");
+    // Attempt to click the form link
+    try {
+      const locator = page.locator("a", { hasText: linkText });
+      await locator.waitFor({ state: "visible" });
+      await locator.click();
+      logger.info(`Clicked ${linkText} form link`);
+    } catch (linkClickError) {
+      // Fallback: Use evaluate to click the form link
+      logger.warn(
+        `Standard click failed on form link. Attempting fallback: ${linkClickError}`
+      );
 
-    await page.locator("a", { hasText: linkText }).click();
-    logger.info(`Clicked ${linkText} form link`);
+      await page.evaluate((formLinkText) => {
+        const link = Array.from(document.querySelectorAll("a")).find((anchor) =>
+          anchor.textContent?.includes(formLinkText)
+        );
+        if (link) {
+          link.click();
+        } else {
+          throw new Error(`Form link with text "${formLinkText}" not found`);
+        }
+      }, linkText);
+
+      logger.info(`Clicked ${linkText} form link using evaluate`);
+    }
+
+    return { page, success: true };
   } catch (error) {
-    logger.error(`Failed to navigate to ${linkText} form:`, error);
+    logger.error(`Failed to navigate to ${linkText} form: ${error}`);
     return { page, success: false };
   }
 }
