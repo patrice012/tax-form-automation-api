@@ -6,6 +6,373 @@
     },
     "forms": [
       {
+        "form_name": "1099DIV",
+        "form_data": {
+          "payers_tin": {
+            "value": "ORIMI",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "JGHPW",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "total_ordinary_dividends": {
+            "value": 258313.63,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "qualified_dividends": {
+            "value": 120678.03,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "total_capital_gain_distributions": {
+            "value": 277588.11,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "unrecap_sec_1250_gain": {
+            "value": 238046.56,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "section_1202_gain": {
+            "value": 224087.27,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "collectibles_28_gain": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "section_897_ordinary_dividends": {
+            "value": 202200.56,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "section_897_capital_gain": {
+            "value": 331980.01,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "nondividend_distributions": {
+            "value": 276736.48,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 498315.73,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "section_199A_dividends": {
+            "value": 175905.26,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "investment_expenses": {
+            "value": 153311.5,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "foreign_tax_paid": {
+            "value": 360642.17,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "foreign_country_or_US_possession": {
+            "value": "TYRET",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "cash_liquidation_distributions": {
+            "value": 294793.45,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "noncash_liquidation_distributions": {
+            "value": 298395.37,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "FATCA_filing_requirement": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "exempt_interest_dividends": {
+            "value": 180440.53,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "specified_private_activity_bond_interest_dividends": {
+            "value": 354009.24,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "state": {
+            "value": ["BBHYQ", "CAHMI"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": ["GWCBM", "RDVYC"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [279036.52, 298063.42],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": "UJXHP",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_address": {
+            "value": "OBYCT",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_city": {
+            "value": "GCGOE",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state": {
+            "value": "RMAHH",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_zip_code": {
+            "value": "BGGUP",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_phone_number": {
+            "value": "FCFDG",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
+        "form_name": "1099INT",
+        "form_data": {
+          "payers_tin": {
+            "value": null,
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": null,
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "KYOPB",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "interest_income": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "early_withdrawal_penalty": {
+            "value": 282613.46,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "interest_on_US_savings_bonds_and_treasury_obligations": {
+            "value": 130382.85,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 157091.93,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "investment_expenses": {
+            "value": 65439.14,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "foreign_tax_paid": {
+            "value": 228612.29,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "foreign_country_or_US_possession": {
+            "value": "YAQOC",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "tax_exempt_interest": {
+            "value": 252942.35,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "specified_private_activity_bond_interest": {
+            "value": 174504.42,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "market_discount": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "bond_premium": {
+            "value": 142493.7,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "bond_premium_on_treasury_obligations": {
+            "value": 271608.98,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "bond_premium_on_tax_exempt_bond": {
+            "value": 491926.66,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "tax_exempt_and_tax_credit_bond_cuspid_no": {
+            "value": 264470.35,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "FATCA_filing_requirement": {
+            "value": false,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "state": {
+            "value": ["CWGXT", "HFIRW"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": ["GXBQV", null],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [65409.83, 80790.99],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
         "form_name": "1099NEC",
         "form_data": {
           "payers_tin": {

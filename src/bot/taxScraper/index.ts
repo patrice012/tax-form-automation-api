@@ -81,7 +81,7 @@ export async function taxScraper({ page }: TaxScraperOptions) {
     logger.info("start fill forms");
     await fillAllForms({ page, formData });
 
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(5000);
 
     return { page, success: true };
   } catch (error) {

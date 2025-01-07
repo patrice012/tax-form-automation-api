@@ -4,9 +4,11 @@ import { IMergeData } from "../forms/utils/getFormData";
 import { navigateToForm } from "./navigateToForm";
 import { getFormData } from "../forms/utils/getFormData";
 import { getFormsName } from "../forms/utils/getFormsName";
-import { fill1099NECForm } from "../forms/1099NEC/fillForm";
-import { fillW2Form } from "../forms/w2/fillForm";
 import { ViewAllInputs } from "./viewAllInputs";
+import { fillW2Form } from "../forms/w2/fillForm";
+import { fill1099NECForm } from "../forms/1099NEC/fillForm";
+import { fill1099INTForm } from "../forms/1099INT/fillForm";
+import { fill1099DIVForm } from "../forms/1099DIV/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -24,6 +26,17 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "SS Benefits, Alimony, Misc. Income",
     getFormData: (data) => getFormData({ formName: "1099NEC", data }),
     fillForm: fill1099NECForm,
+  },
+
+  "1099INT": {
+    linkText: "Interest Income (1099-INT, 1099-OID)",
+    getFormData: (data) => getFormData({ formName: "1099INT", data }),
+    fillForm: fill1099INTForm,
+  },
+  "1099DIV": {
+    linkText: "Dividend Income (1099-DIV)",
+    getFormData: (data) => getFormData({ formName: "1099DIV", data }),
+    fillForm: fill1099DIVForm,
   },
 };
 
@@ -60,14 +73,13 @@ export async function fillAllForms({
 
         logger.info(`Returning to forms page after processing form: ${name}`);
         await page.waitForTimeout(30000);
-        // await ViewAllInputs({ page });
+        await ViewAllInputs({ page });
       } catch (error) {
         logger.error(`Error processing form: ${name} - ${error}`);
       }
     }
 
     logger.info("Completed processing all forms");
-    await page.waitForTimeout(30000);
   } catch (error) {
     logger.error(`Error in fillAllForms: ${error}`);
   }
