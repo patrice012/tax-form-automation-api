@@ -328,13 +328,13 @@ const inputs_fields = [
   },
   {
     label: "Foreign income tax withheld (foreign currency)",
-    ref: "foreign_tax_paid",
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "Foreign income tax withheld (U.S. dollars)",
+    ref: "foreign_tax_paid",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
@@ -399,7 +399,9 @@ const inputs_fields = [
 
 // cash_liquidation_distributions, noncash_liquidation_distributions, exempt_interest_dividends, specified_private_activity_bond_interest_dividends, state, payers_state_number, payers_address, payers_city, payers_state, payers_zip_code, payers_phone_number ==> skipped
 
-// payers_tin ==> not correct: expect number but get string 5.50s
+// payers_tin ==> not correct: expect number but got string 5.50s
+
+// // check this => state_tax_withheld values and it's type
 
 const fields = [...inputs_fields];
 

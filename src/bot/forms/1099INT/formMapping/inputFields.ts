@@ -429,6 +429,10 @@ const inputs_fields = [
 
 // investment_expenses, bond_premium_on_tax_exempt_bond, tax_exempt_and_tax_credit_bond_cuspid_no, state, payers_state_number ==> skipped
 
+//  foreign_country_or_US_possession (maybe error) it should be => Name of foreign country (not required if HTKO) intead of => Name of foreign country (if FinCen Form 114 is required)
+
+// check this => state_tax_withheld values and it's type
+
 const fields = [...inputs_fields];
 
 type Tfield = {
