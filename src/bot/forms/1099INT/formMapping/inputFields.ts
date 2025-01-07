@@ -254,7 +254,6 @@ const inputs_fields = [
   },
   {
     label: "Name of foreign country (if FinCen Form 114 is required)",
-    ref: "foreign_country_or_US_possession",
     inputType: "select",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]",
@@ -279,6 +278,7 @@ const inputs_fields = [
   },
   {
     label: "Name of foreign country (not required if HTKO)",
+    ref: "foreign_country_or_US_possession",
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -428,8 +428,6 @@ const inputs_fields = [
 ];
 
 // investment_expenses, bond_premium_on_tax_exempt_bond, tax_exempt_and_tax_credit_bond_cuspid_no, state, payers_state_number ==> skipped
-
-// foreign_country_or_US_possession => not correct select values
 
 const fields = [...inputs_fields];
 
