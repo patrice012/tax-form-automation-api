@@ -14,19 +14,19 @@ const logger = winston.createLogger({
       format: winston.format.simple(),
     }),
     new winston.transports.File({
-      filename: "error.log",
+      filename: "logs/error.log",
       level: "error",
     }),
     new winston.transports.File({
-      filename: "warn.log",
+      filename: "logs/warn.log",
       level: "warn",
     }),
     new winston.transports.File({
-      filename: "debug.log",
+      filename: "logs/debug.log",
       level: "debug",
     }),
     new winston.transports.File({
-      filename: "combined.log",
+      filename: "logs/combined.log",
     }),
   ],
 });

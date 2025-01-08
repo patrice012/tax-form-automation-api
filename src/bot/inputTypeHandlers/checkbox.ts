@@ -50,7 +50,7 @@ export async function checkboxInput({
         const currentState = checkbox.checked as boolean;
 
         if (currentState === desiredState) {
-          logger.info(
+          console.log(
             `Current state match desire state for: ${label}, skip it`
           );
           return { success: true, checked: checkbox.checked };
