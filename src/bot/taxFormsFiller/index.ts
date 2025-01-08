@@ -6,12 +6,12 @@ import { findClientNameByEmail } from "./findClientNameByEmail";
 import { handleExistingTaxReturn } from "./handleExistingTaxReturn";
 import { handleNewTaxReturn } from "./handleNewTaxReturn";
 
-import { TaxScraperOptions } from "./declaration";
+import { TaxFillerOptions } from "./declaration";
 import { getClientInformation } from "./getClientInformation";
 import { fillAllForms } from "./fillAllForms";
 import { navigateToFormsSection } from "./navigateToFormsSection";
 
-export async function taxScraper({ page }: TaxScraperOptions) {
+export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
   try {
     logger.info("Starting tax scraping process");
 
@@ -78,7 +78,7 @@ export async function taxScraper({ page }: TaxScraperOptions) {
       logger.error("Error handling tax return:", error);
     }
 
-    // navigate to form page section
+    // navigate to forms section
     await navigateToFormsSection({ page });
 
     // fill all provided forms
@@ -90,8 +90,8 @@ export async function taxScraper({ page }: TaxScraperOptions) {
     return { page, success: true };
   } catch (error) {
     logger.error("Tax scraper encountered an error:", error);
-    throw error;
+    return { page, success: false };
   }
 }
 
-export default taxScraper;
+export default startTaxFormsFiller;

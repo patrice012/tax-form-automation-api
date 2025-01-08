@@ -1,7 +1,7 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
 
-export async function ViewAllInputs({ page }: { page: Page }) {
+export async function displayFormsSection({ page }: { page: Page }) {
   try {
     const linkText = "View all input screens";
 

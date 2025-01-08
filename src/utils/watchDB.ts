@@ -8,14 +8,14 @@ import mongoConnection, {
 interface WatchOptions {
   dbName?: string;
   collectionName: string;
-  jobId: string;
+  documentId: string;
   maxTime?: number;
 }
 
-export const watchJobCollection = async ({
+export const setupCollectionWatch = async ({
   dbName,
   collectionName,
-  jobId,
+  documentId,
 }: WatchOptions): Promise<ChangeStream> => {
   try {
     const options: ConnectionOptions = {
@@ -31,7 +31,7 @@ export const watchJobCollection = async ({
       [
         {
           $match: {
-            "documentKey._id": new mongoose.Types.ObjectId(jobId),
+            "documentKey._id": new mongoose.Types.ObjectId(documentId),
           },
         },
       ],
@@ -51,17 +51,17 @@ export const watchJobCollection = async ({
   }
 };
 
-export function setupJobWatch({
+export function watchDBCollection({
   dbName,
   collectionName,
-  jobId,
+  documentId,
   maxTime = 300000,
 }: WatchOptions) {
   return new Promise(async (resolve, reject) => {
     try {
-      const changeStream = await watchJobCollection({
+      const changeStream = await setupCollectionWatch({
         collectionName,
-        jobId,
+        documentId,
         dbName,
       });
 

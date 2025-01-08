@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { authProcessAndTaxScraperController } from "../controllers/authProcessAndTaxScraperController";
-import { startTaxScraperController } from "../controllers/startTaxScraperController";
+import { authProcessAndTaxFormFillerController } from "../controllers/authProcessAndTaxFormFillerController";
+import { startTaxFormFillerController } from "../controllers/startTaxFormFillerController";
 
 const router = Router();
 
-router.post("/fill-form", authProcessAndTaxScraperController);
-router.post("/login", startTaxScraperController);
+router.post("/fill-form", authProcessAndTaxFormFillerController);
+router.post("/login", startTaxFormFillerController);
 
 export default router;

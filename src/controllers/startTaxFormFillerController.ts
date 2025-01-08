@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 
-import { taxScraper } from "../bot/taxScraper";
-import { loadTaxPage } from "../bot/taxScraper/loadTaxPage";
+import { startTaxFormsFiller } from "../bot/taxFormsFiller";
+import { loadTaxPage } from "../bot/taxFormsFiller/loadTaxPage";
 
 import logger from "../utils/logger";
 import { decodePassword } from "../utils/hashPwd";
 
 import { SessionManager } from "../services/browserSessionStorageSystem";
 
-export const startTaxScraperController = async (
+export const startTaxFormFillerController = async (
   req: Request,
   res: Response
 ) => {
@@ -36,7 +36,7 @@ export const startTaxScraperController = async (
     });
     _playwrightService = playwrightService;
 
-    const { page: currentPage } = await taxScraper({ page });
+    const { page: currentPage } = await startTaxFormsFiller({ page });
 
     res.status(200).json({
       message: "Login success",

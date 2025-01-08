@@ -1,4 +1,4 @@
-export interface TaxScraperOptions {
+export interface TaxFillerOptions {
   page: Page;
   timeout?: number;
   hash?: string;

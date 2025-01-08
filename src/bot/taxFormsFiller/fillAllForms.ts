@@ -4,7 +4,7 @@ import { IMergeData } from "../forms/utils/getFormData";
 import { navigateToForm } from "./navigateToForm";
 import { getFormData } from "../forms/utils/getFormData";
 import { getFormsName } from "../forms/utils/getFormsName";
-import { ViewAllInputs } from "./viewAllInputs";
+import { displayFormsSection } from "./displayFormsSection";
 import { fillW2Form } from "../forms/w2/fillForm";
 import { fill1099NECForm } from "../forms/1099NEC/fillForm";
 import { fill1099INTForm } from "../forms/1099INT/fillForm";
@@ -73,7 +73,7 @@ export async function fillAllForms({
 
         logger.info(`Returning to forms page after processing form: ${name}`);
         await page.waitForTimeout(30000);
-        await ViewAllInputs({ page });
+        await displayFormsSection({ page });
       } catch (error) {
         logger.error(`Error processing form: ${name} - ${error}`);
       }
