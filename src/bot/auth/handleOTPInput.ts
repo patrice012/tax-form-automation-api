@@ -11,7 +11,7 @@ export const handleOTPInput = async ({
 
     // Wait for OTP input field
     try {
-      await page.locator(otpInputSelector).waitForElementState({
+      await page.locator(otpInputSelector).waitFor({
         state: "visible",
         timeout: 10000,
       });
