@@ -48,7 +48,7 @@ class PlaywrightService {
     customOptions?: Partial<LaunchOptions>
   ): LaunchOptions {
     const defaultOptions: LaunchOptions = {
-      headless: process.env.NODE_ENV === "production",
+      headless: true,
       // executablePath: BrowserApp.executablePath(),
       args: [
         "--no-sandbox",
