@@ -9,8 +9,7 @@ const inputs_fields = [
   },
   {
     label: "Description of Property",
-    inputType: "special",
-    expectValue: "1099B Short Term",
+    inputType: "text",
     ref: "description_of_property",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/div[1]/input[1]",

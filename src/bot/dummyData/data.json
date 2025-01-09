@@ -6,6 +6,158 @@
     },
     "forms": [
       {
+        "form_name": "1099MISC",
+        "form_data": {
+          "payers_tin": {
+            "value": "OGMKC",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": "JKWBQ",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "BSUCE",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "rents": {
+            "value": 70091.15,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "royalties": {
+            "value": 231314.03,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "other_income": {
+            "value": 37692.44,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 427983.45,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "fishing_boat_proceeds": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "medical_and_health_care_payments": {
+            "value": 270293.97,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_7_checkbox": {
+            "value": null,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "substitute_payments_in_lieu_of_dividends_or_interest": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "crop_insurance_proceeds": {
+            "value": 118189.75,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "gross_proceeds_paid_to_an_attorney": {
+            "value": 240679.21,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "fish_purchased_for_resale": {
+            "value": 451221.43,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "section_409A_deferrals": {
+            "value": 1077.69,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "FATCA_filing_requirement": {
+            "value": false,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "excess_golden_parachute": {
+            "value": 348295.75,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "nonqualified_deferred_compensation": {
+            "value": 391680.76,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [243335.71, 108850.45],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": [null, "BIBMX"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_income": {
+            "value": [28439.79, 425671.27],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
         "form_name": "1099Blong_term",
         "form_data": {
           "account_number": {

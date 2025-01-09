@@ -108,7 +108,7 @@ function processStandardInput(input: InputField, refData: any): IInput {
   let expectValue = refData?.value;
   if (input.ref === "basis_is_reported_to_irs") {
     expectValue =
-      refData?.value === true ? null : refData.value === false ? 1 : 2;
+      refData?.value === true ? null : refData.value === false ? 1 : null;
   }
 
   return {
