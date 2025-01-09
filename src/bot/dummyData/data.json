@@ -1,8 +1,8 @@
 [
   {
     "targetClient": {
-      "email": "capron.ben@gmail.com",
-      "taxYear": 2024
+      "email": "irhathaway1@gmail.com",
+      "taxYear": 2023
     },
     "forms": [
       {
@@ -274,144 +274,6 @@
           },
           "state_tax_withheld": {
             "value": [72320.98, 299688.8],
-            "status": "success",
-            "type": ["number", "number"],
-            "notes": [],
-            "is_pii": false
-          }
-        }
-      },
-      {
-        "form_name": "1099Blong_term",
-        "form_data": {
-          "account_number": {
-            "value": "DBUWI",
-            "status": "success",
-            "type": "string",
-            "notes": [],
-            "is_pii": false
-          },
-          "description_of_property": {
-            "value": "GASVP",
-            "status": "success",
-            "type": "string",
-            "notes": [],
-            "is_pii": false
-          },
-          "date_acquired": {
-            "value": "WLMIT",
-            "status": "success",
-            "type": "string",
-            "notes": [],
-            "is_pii": false
-          },
-          "date_sold": {
-            "value": "YWZGJ",
-            "status": "success",
-            "type": "string",
-            "notes": [],
-            "is_pii": false
-          },
-          "proceeds": {
-            "value": 205387.55,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "cost_basis": {
-            "value": 236488.13,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "accrued_market_discount": {
-            "value": 190615.57,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "wash_sale_loss_disallowed": {
-            "value": 396196.83,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "short_term_gain_loss": {
-            "value": true,
-            "status": "success",
-            "type": "bool",
-            "notes": [],
-            "is_pii": false
-          },
-          "long_term_gain_loss": {
-            "value": true,
-            "status": "success",
-            "type": "bool",
-            "notes": [],
-            "is_pii": false
-          },
-          "proceeds_from_collectibles": {
-            "value": false,
-            "status": "success",
-            "type": "bool",
-            "notes": [],
-            "is_pii": false
-          },
-          "federal_income_tax_withheld": {
-            "value": 437095.19,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "noncovered_security": {
-            "value": false,
-            "status": "success",
-            "type": "bool",
-            "notes": [],
-            "is_pii": false
-          },
-          "loss_not_allowed": {
-            "value": null,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "gain_loss_realized": {
-            "value": 435466.49,
-            "status": "success",
-            "type": "number",
-            "notes": [],
-            "is_pii": false
-          },
-          "basis_is_reported_to_irs": {
-            "value": true,
-            "status": "success",
-            "type": "bool",
-            "notes": [],
-            "is_pii": false
-          },
-          "state": {
-            "value": ["ZISQW", "WJIST"],
-            "status": "success",
-            "type": ["string", "string"],
-            "notes": [],
-            "is_pii": false
-          },
-          "state_identification_number": {
-            "value": ["ABQXZ", "LCQWL"],
-            "status": "success",
-            "type": ["string", "string"],
-            "notes": [],
-            "is_pii": false
-          },
-          "state_tax_withheld": {
-            "value": [451712.03, null],
             "status": "success",
             "type": ["number", "number"],
             "notes": [],

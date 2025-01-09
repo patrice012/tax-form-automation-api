@@ -6,19 +6,17 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
   try {
     // Create tax return
     const createButton = page
-      .locator("[class='client-profile-zero-state']")
-      .locator("button[type='button']");
-    const secondBtn = page.locator("[class='create-tax-return-btn']");
+      .locator("button", {
+        hasText: "Create tax return",
+      })
+      .first();
 
-    await page.waitForTimeout(500);
+    try {
+      await createButton.isVisible();
+    } catch (error) {}
 
-    if (await secondBtn.isVisible()) {
-      logger.info("Using secondary create button");
-      await secondBtn.click();
-    } else if (await createButton.isVisible()) {
-      logger.info("Using primary create button");
-      await createButton.click();
-    }
+    logger.info("Using primary create button");
+    await createButton.click();
 
     // Select appropriate tax year
     const { taxYear } = await getClientInformation();
@@ -34,7 +32,7 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
         logger.info("Waiting for select element to be visible...");
         await locator.waitFor({
           state: "visible",
-          timeout: 15000,
+          timeout: 5000,
         });
       } catch (error) {
         logger.warn(`Failed to wait for element`);

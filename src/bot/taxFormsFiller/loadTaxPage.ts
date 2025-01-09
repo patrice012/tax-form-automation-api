@@ -23,7 +23,10 @@ export const loadTaxPage = async ({
       await page.context().addCookies(cookies);
     }
     try {
-      await page!.goto(targetUrl, { waitUntil: "networkidle" });
+      await page!.goto(targetUrl, {
+        waitUntil: "domcontentloaded",
+        timeout: 15000,
+      });
     } catch (error) {
       logger.warn(`${error}`);
     }

@@ -38,38 +38,43 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
     }
 
     // Wait for and check table rows
+    let tableElementsFound = false;
     try {
       try {
         const tableRow = page
           .locator("[data-testid='protax-datatable-row']")
           .first();
-        await tableRow.waitFor({ timeout: 15000 });
+        await tableRow.waitFor({ state: "visible", timeout: 5000 });
         logger.info("Table row is visible");
+
+        const hasItems = await page.evaluate(
+          () =>
+            document.querySelectorAll("[data-testid='protax-datatable-row']")
+              .length
+        );
+
+        // match provided tax year
+        const firstRowTaxYear = await page
+          .locator("[data-testid='protax-datatable-row']")
+          ?.first()
+          ?.locator("[class='return-year']")
+          ?.textContent();
+
+        logger.info(
+          `firstRowTaxYear: ${firstRowTaxYear} and provided taxYear: ${taxYear} `
+        );
+        const isSameYear =
+          firstRowTaxYear?.toString()?.trim() === taxYear?.toString()?.trim();
+
+        if (hasItems > 0 && isSameYear) {
+          logger.info(`Data found ${hasItems} for email: ${email}`);
+          tableElementsFound = true;
+        }
       } catch (error) {
         logger.warn("Warn: Table not loaded on time.");
       }
 
-      const hasItems = await page.evaluate(
-        () =>
-          document.querySelectorAll("[data-testid='protax-datatable-row']")
-            .length
-      );
-
-      // match provided tax year
-      const firstRowTaxYear = await page
-        .locator("[data-testid='protax-datatable-row']")
-        ?.first()
-        ?.locator("[class='return-year']")
-        ?.textContent();
-
-      logger.info(
-        `firstRowTaxYear: ${firstRowTaxYear} and provided taxYear: ${taxYear} `
-      );
-      const isSameYear =
-        firstRowTaxYear?.toString()?.trim() === taxYear?.toString()?.trim();
-
-      if (hasItems > 0 && isSameYear) {
-        logger.info(`Data found ${hasItems} for email: ${email}`);
+      if (tableElementsFound) {
         await handleExistingTaxReturn(page);
       } else {
         await handleNewTaxReturn(page);
