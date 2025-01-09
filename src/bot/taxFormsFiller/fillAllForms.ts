@@ -9,6 +9,7 @@ import { fillW2Form } from "../forms/w2/fillForm";
 import { fill1099NECForm } from "../forms/1099NEC/fillForm";
 import { fill1099INTForm } from "../forms/1099INT/fillForm";
 import { fill1099DIVForm } from "../forms/1099DIV/fillForm";
+import { fill1099BShortTermForm } from "../forms/1099BShortTerm/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -37,6 +38,11 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "Dividend Income (1099-DIV)",
     getFormData: (data) => getFormData({ formName: "1099DIV", data }),
     fillForm: fill1099DIVForm,
+  },
+  "1099Bshort_term": {
+    linkText: "Dispositions (Sch D, etc.)",
+    getFormData: (data) => getFormData({ formName: "1099Bshort_term", data }),
+    fillForm: fill1099BShortTermForm,
   },
 };
 

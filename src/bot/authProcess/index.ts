@@ -9,7 +9,6 @@ export async function authProcess({ email, password }: IAccount) {
   try {
     await fillEmail({ page, email });
     await fillPassword({ page, password });
-    playwrightService.setCurrentPage(page);
 
     return { page, playwrightService };
   } catch (error) {
