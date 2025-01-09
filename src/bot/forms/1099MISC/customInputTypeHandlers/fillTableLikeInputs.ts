@@ -34,7 +34,7 @@ export async function fillTableLikeInputs({
 
     // Find the table containing the input using page.evaluate
     logger.info("Locating table and counting inputs using page.evaluate...");
-    const INITIAL_NUMBER_OF_INPUTS = 7;
+    const INITIAL_NUMBER_OF_INPUTS = 3;
 
     let numberOfInputs = await getInputNumber({ page, xpath });
     logger.info(`Initial number of inputs: ${numberOfInputs}`);
@@ -68,7 +68,6 @@ export async function fillTableLikeInputs({
         );
         continue;
       }
-
       const inputIndex = index + i * INITIAL_NUMBER_OF_INPUTS;
       const inputValue = value[i].toString();
       logger.info(`Current index: ${inputIndex}`);
@@ -150,6 +149,6 @@ async function getInputNumber({ page, xpath }: { page: Page; xpath: string }) {
 
     return tableElement.querySelectorAll("input").length;
   }, xpath);
-  const defaultNumberOfInputs = 7;
+  const defaultNumberOfInputs = 3;
   return numberOfInputs || defaultNumberOfInputs;
 }

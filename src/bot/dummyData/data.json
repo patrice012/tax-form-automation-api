@@ -114,7 +114,7 @@
             "is_pii": false
           },
           "FATCA_filing_requirement": {
-            "value": false,
+            "value": true,
             "status": "success",
             "type": "bool",
             "notes": [],
