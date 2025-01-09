@@ -104,13 +104,20 @@ function processSpecialInput(input: InputField, refData: any): IInput | null {
 }
 
 function processStandardInput(input: InputField, refData: any): IInput {
+  // special field => basis_is_reported_to_irs
+  let expectValue = refData?.value;
+  if (input.ref === "basis_is_reported_to_irs") {
+    expectValue =
+      refData?.value === true ? null : refData.value === false ? 1 : 2;
+  }
+
   return {
     label: normalizeText(input?.label),
     ref: normalizeText(input?.ref as string),
     inputType: normalizeText(input?.inputType),
     xpath: normalizeXPath(input?.xpath as string),
     custom: normalizeText(input?.custom || ""),
-    value: refData?.value,
+    value: expectValue,
     status: refData?.status,
     type: refData?.type,
     notes: refData?.notes,
