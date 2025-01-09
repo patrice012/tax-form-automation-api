@@ -6,7 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 
-export async function fill1099BShortTermForm({
+export async function fill1099BLongTermForm({
   page,
   formData,
 }: {

@@ -10,6 +10,7 @@ import { fill1099NECForm } from "../forms/1099NEC/fillForm";
 import { fill1099INTForm } from "../forms/1099INT/fillForm";
 import { fill1099DIVForm } from "../forms/1099DIV/fillForm";
 import { fill1099BShortTermForm } from "../forms/1099BShortTerm/fillForm";
+import { fill1099BLongTermForm } from "../forms/1099BLongTerm/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -43,6 +44,11 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "Dispositions (Sch D, etc.)",
     getFormData: (data) => getFormData({ formName: "1099Bshort_term", data }),
     fillForm: fill1099BShortTermForm,
+  },
+  "1099Blong_term": {
+    linkText: "Dispositions (Sch D, etc.)",
+    getFormData: (data) => getFormData({ formName: "1099Blong_term", data }),
+    fillForm: fill1099BLongTermForm,
   },
 };
 
@@ -78,7 +84,7 @@ export async function fillAllForms({
         await processor.fillForm({ page, formData: formSpecificData });
 
         logger.info(`Returning to forms page after processing form: ${name}`);
-        await page.waitForTimeout(30000);
+        await page.waitForTimeout(10000);
         await displayFormsSection({ page });
       } catch (error) {
         logger.error(`Error processing form: ${name} - ${error}`);

@@ -17,7 +17,7 @@ export function getStepFormSections() {
         await displayDetailForm({ page });
       },
       step: 1,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "General Information",
@@ -30,7 +30,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:general_information`);
       },
       step: 2,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "Schedule D",
@@ -43,7 +43,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:schedule_d`);
       },
       step: 3,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "Sale of Asset 4797, 6252",
@@ -56,7 +56,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:sale_of_asset`);
       },
       step: 4,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "4684, 6781, 8824, 4255",
@@ -69,7 +69,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:4684`);
       },
       step: 5,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "Sale of Home",
@@ -82,7 +82,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:sale_of_home`);
       },
       step: 6,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
     {
       title: "Less Common Scenarios",
@@ -95,7 +95,7 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:less_common_scenarios`);
       },
       step: 7,
-      formType: "ShortTerm",
+      formType: "LongTerm",
     },
   ];
   return stepForms;

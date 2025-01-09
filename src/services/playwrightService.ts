@@ -48,7 +48,7 @@ class PlaywrightService {
     customOptions?: Partial<LaunchOptions>
   ): LaunchOptions {
     const defaultOptions: LaunchOptions = {
-      headless: true,
+      headless: false,
       // executablePath: BrowserApp.executablePath(),
       args: [
         "--no-sandbox",

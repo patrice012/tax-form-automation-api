@@ -21,7 +21,7 @@ export async function checkboxInput({
     try {
       // Wait for element to be visible and enabled
       logger.info("Waiting for element to be visible and enabled...");
-      const labelLocator = page.getByText(label).first();
+      const labelLocator = page.locator(`:has-text(${label})`).first();
       await labelLocator.waitFor({
         state: "visible",
         timeout: 30000,
@@ -34,7 +34,7 @@ export async function checkboxInput({
 
     // Use page.evaluate to directly check the checkbox
     const result = await page.evaluate(
-      ({ xpath, desiredState }) => {
+      ({ xpath, desiredState, label }) => {
         const checkbox = document.evaluate(
           xpath,
           document,
@@ -77,7 +77,7 @@ export async function checkboxInput({
           };
         }
       },
-      { xpath, desiredState }
+      { xpath, desiredState, label }
     );
 
     if (!result.success) {

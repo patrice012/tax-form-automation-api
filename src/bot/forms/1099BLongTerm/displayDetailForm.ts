@@ -12,7 +12,7 @@ export async function displayDetailForm({
     // Locate the button containing a span with the specific text
     const button = page
       .locator(`button:has(span:has-text("${stepTitle}"))`)
-      .nth(0);
+      .nth(1);
 
     // Wait for the button to be visible
     logger.info(`Waiting for btn:has-text=${stepTitle} to be visible`);

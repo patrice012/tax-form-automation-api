@@ -5,7 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { fillPopupLikeInputs } from "./customInputTypeHandlers/fillPopupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 
 export async function fillW2Form({
   page,

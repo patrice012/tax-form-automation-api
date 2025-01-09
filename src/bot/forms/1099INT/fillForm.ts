@@ -4,7 +4,7 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "./customInputTypeHandlers/fillPopupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { displayDetailForm } from "./displayDetailForm";
 
 export async function fill1099INTForm({
