@@ -1,0 +1,84 @@
+import { Page } from "playwright";
+import { getInputMapping } from "./formMapping/inputMapping";
+import logger from "../../../utils/logger";
+import { fillTextInput } from "../../inputTypeHandlers/text";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { navigateToCorrectForm } from "./handleFormNavigation";
+
+export async function fill1098EForm({
+  page,
+  formData,
+}: {
+  page: Page;
+  formData: unknown;
+}) {
+  try {
+    // Navigate to the correct page
+    await navigateToCorrectForm({ page });
+
+    const inputMapping = await getInputMapping({ data: formData });
+    const inputs = inputMapping.inputs;
+    const popupLikeInputs = [];
+
+    for (let input of inputs) {
+      const { xpath, value, label, custom, inputType } = input;
+
+      if (custom && custom === "popup") {
+        popupLikeInputs.push(input);
+        continue;
+      }
+
+      try {
+        switch (inputType) {
+          case "checkbox":
+            await checkboxInput({ value, label, xpath, page });
+            break;
+          case "number":
+            await fillTextInput({ value, label, xpath, page });
+            break;
+          case "text":
+            await fillTextInput({ value, label, xpath, page });
+            break;
+          case "select":
+            await selectOption({ value, label, xpath, page });
+            break;
+        }
+      } catch (error) {
+        logger.error(`Error processing: ${label}`);
+      }
+    }
+
+    // handle special cases --  inputs inside popup
+    for (let i = 0; i < popupLikeInputs.length; i++) {
+      const { xpath, value, label } = popupLikeInputs[i];
+      try {
+        // parse value => [[label, val]]]
+        const newValue = transformValue(value);
+        await fillPopupLikeInputs({
+          value: newValue,
+          label,
+          xpath,
+          page,
+        });
+      } catch (error) {
+        logger.error(`Error processing: ${label} --> ${error}`);
+      }
+    }
+
+    logger.info("Form filled");
+  } catch (error) {
+    logger.error(`Failed to fill form ${error}`);
+  }
+}
+
+function transformValue(value: unknown[]) {
+  const _value = Array.isArray(value) ? value : [value];
+  return _value
+    .filter((item) => item)
+    .map((item) => {
+      // If the item is not an array, transform it into ["", item]
+      return Array.isArray(item) ? item : ["", item];
+    });
+}
