@@ -2,9 +2,234 @@
   {
     "targetClient": {
       "email": "irhathaway1@gmail.com",
-      "taxYear": 2023
+      "taxYear": 2024
     },
     "forms": [
+      {
+        "form_name": "1098E",
+        "form_data": {
+          "lenders_name": {
+            "value": "BAGVQ",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "MCYMG",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "1_student_loan_interest": {
+            "value": 302946.35,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "2_box_1_loan_organization": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
+        "form_name": "1098T",
+        "form_data": {
+          "filers_name": {
+            "value": "EIPYO",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "student_name": {
+            "value": ["JYFPV", "SHRUU"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "BNRBQ",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "1_payments_received_for_qualified_tuition_related_expenses": {
+            "value": 456,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "4_adjustments_made_for_a_prior_year": {
+            "value": 245100.85,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "5_scholarships_grants": {
+            "value": 181094.02,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "6_adjustments_to_scholarships_grants_prior_year": {
+            "value": 229869.67,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "7_if_checked_amount_in_box_1": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "8_checked_if_least_half_time_students": {
+            "value": false,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "9_checked_if_graduate_student": {
+            "value": false,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "10_ins_contract_reimb_refund": {
+            "value": 412867.3,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "filers_employer_identification_no": {
+            "value": "IGYHL",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
+        "form_name": "1098",
+        "form_data": {
+          "payers_tin": {
+            "value": "CDJDF",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": "IMBVK",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "YAWOM",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "mortgage_interest": {
+            "value": 149306.33,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "outstanding_mortgage_principal": {
+            "value": 445820.77,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "mortgage_origination_date": {
+            "value": "NTUXM",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "refund_of_overpaid_interest": {
+            "value": 242821.0,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "mortgage_insurance_premiums": {
+            "value": 334436.81,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "points_paid_on_purchase_of_principal_residence": {
+            "value": 362090.69,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "if_address_of_property_securing_mortgage": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "address_or_description_of_property_securing_mortgage": {
+            "value": "NXPRC",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "number_of_properties_securing_the_mortgage": {
+            "value": "WEGIL",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "other": {
+            "value": "WHYKV",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "mortgage_acquisition_date": {
+            "value": "TBYFB",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
       {
         "form_name": "1099MISC",
         "form_data": {

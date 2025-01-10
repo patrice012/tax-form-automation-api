@@ -1,7 +1,7 @@
 import { Page } from "playwright";
-import { displayDetailForm } from "../../displayDetailForm";
+import { displayDetailForm } from "../../handleFormNavigation/displayDetailForm";
 import { navigateToStep } from "./navigateToStep";
-import { navigateToCorrectStep } from "../../navigateToCorrectStep";
+import { navigateToCorrectForm } from "../../handleFormNavigation";
 
 export function getStepFormSections() {
   const stepForms = [
@@ -10,7 +10,7 @@ export function getStepFormSections() {
       identifier: "quick_entry",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:quick_entry`);
-        await navigateToCorrectStep({ page });
+        await navigateToCorrectForm({ page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:quick_entry`);

@@ -6,7 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { navigateToCorrectStep } from "./navigateToCorrectStep";
+import { navigateToCorrectForm } from "./handleFormNavigation";
 
 export async function fill1099MISCForm({
   page,
@@ -17,7 +17,7 @@ export async function fill1099MISCForm({
 }) {
   try {
     // Navigate to the correct page
-    await navigateToCorrectStep({ page });
+    await navigateToCorrectForm({ page });
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;

@@ -5,7 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
-import { displayDetailForm } from "./displayDetailForm";
+import { displayDetailForm } from "./handleFormNavigation";
 
 export async function fill1099INTForm({
   page,

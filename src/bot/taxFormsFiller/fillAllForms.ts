@@ -12,6 +12,9 @@ import { fill1099DIVForm } from "../forms/1099DIV/fillForm";
 import { fill1099BShortTermForm } from "../forms/1099BShortTerm/fillForm";
 import { fill1099BLongTermForm } from "../forms/1099BLongTerm/fillForm";
 import { fill1099MISCForm } from "../forms/1099MISC/fillForm";
+import { fill1098Form } from "../forms/1098/fillForm";
+import { fill1098TForm } from "../forms/1098T/fillForm";
+import { fill1098EForm } from "../forms/1098E/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -55,6 +58,21 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "SS Benefits, Alimony, Misc. Income",
     getFormData: (data) => getFormData({ formName: "1099MISC", data }),
     fillForm: fill1099MISCForm,
+  },
+  "1098": {
+    linkText: "Itemized Deductions (Sch A)",
+    getFormData: (data) => getFormData({ formName: "1098", data }),
+    fillForm: fill1098Form,
+  },
+  "1098T": {
+    linkText: "Education Credits (1098-T, 8863)",
+    getFormData: (data) => getFormData({ formName: "1098T", data }),
+    fillForm: fill1098TForm,
+  },
+  "1098E": {
+    linkText: "Adjustments to Income",
+    getFormData: (data) => getFormData({ formName: "1098E", data }),
+    fillForm: fill1098EForm,
   },
 };
 

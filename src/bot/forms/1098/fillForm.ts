@@ -4,7 +4,7 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { navigateToCorrectStep } from "./navigateToCorrectStep";
+import { navigateToCorrectForm } from "./handleFormNavigation";
 
 export async function fill1098Form({
   page,
@@ -15,7 +15,7 @@ export async function fill1098Form({
 }) {
   try {
     // Navigate to the correct page
-    await navigateToCorrectStep({ page });
+    await navigateToCorrectForm({ page });
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;

@@ -10,7 +10,7 @@ export const loadAuthPage = async (): Promise<any> => {
 
   const page = await playwrightService.createPage();
   try {
-    await page!.goto(targetUrl, { waitUntil: "networkidle", timeout: 10000 });
+    await page!.goto(targetUrl, { waitUntil: "load", timeout: 10000 });
     playwrightService.setCurrentPage(page);
     return { page, playwrightService };
   } catch (error) {

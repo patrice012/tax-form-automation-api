@@ -1,16 +1,18 @@
+import logger from "../../../../utils/logger";
 import { Page } from "playwright";
-import logger from "../../../utils/logger";
 
-export async function navigateToStep({
+export async function displayDetailForm({
   page,
-  stepTitle,
+  stepTitle = "Details",
 }: {
   page: Page;
-  stepTitle: string;
+  stepTitle?: string;
 }) {
   try {
     // Locate the button containing a span with the specific text
-    const button = page.locator(`button:has-text("${stepTitle}")`);
+    const button = page
+      .locator(`button:has(span:has-text("${stepTitle}"))`)
+      .nth(0);
 
     // Wait for the button to be visible
     logger.info(`Waiting for btn:has-text=${stepTitle} to be visible`);

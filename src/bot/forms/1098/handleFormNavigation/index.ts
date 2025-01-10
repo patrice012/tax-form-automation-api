@@ -1,14 +1,11 @@
-import logger from "../../../utils/logger";
 import { Page } from "playwright";
+import logger from "../../../../utils/logger";
 
-export async function displayDetailForm({
-  page,
-  stepTitle = "Details",
-}: {
-  page: Page;
-  stepTitle?: string;
-}) {
+export async function navigateToCorrectForm({ page }: { page: Page }) {
+  const stepTitle = "Interest";
   try {
+    logger.info(`Go to ${stepTitle} form page`);
+
     // Locate the button containing a span with the specific text
     const button = page
       .locator(`button:has(span:has-text("${stepTitle}"))`)

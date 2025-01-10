@@ -24,7 +24,7 @@ export const loadTaxPage = async ({
     }
     try {
       await page!.goto(targetUrl, {
-        waitUntil: "domcontentloaded",
+        waitUntil: "load",
         timeout: 15000,
       });
     } catch (error) {

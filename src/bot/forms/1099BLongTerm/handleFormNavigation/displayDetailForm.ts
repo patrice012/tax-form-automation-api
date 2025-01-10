@@ -1,4 +1,4 @@
-import logger from "../../../utils/logger";
+import logger from "../../../../utils/logger";
 import { Page } from "playwright";
 
 export async function displayDetailForm({
