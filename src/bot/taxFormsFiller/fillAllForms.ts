@@ -17,6 +17,7 @@ import { fill1098TForm } from "../forms/1098T/fillForm";
 import { fill1098EForm } from "../forms/1098E/fillForm";
 import { fill1099RForm } from "../forms/1099R/fillForm";
 import { fill1099GForm } from "../forms/1099G/fillForm";
+import { fill1099SSAForm } from "../forms/1099SSA/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -85,6 +86,11 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "Tax Refund, Unempl. Comp. (1099-G)",
     getFormData: (data) => getFormData({ formName: "1099G", data }),
     fillForm: fill1099GForm,
+  },
+  "1099SSA": {
+    linkText: "SS Benefits, Alimony, Misc. Income",
+    getFormData: (data) => getFormData({ formName: "1099SSA", data }),
+    fillForm: fill1099SSAForm,
   },
 };
 

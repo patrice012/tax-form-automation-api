@@ -6,6 +6,74 @@
     },
     "forms": [
       {
+        "form_name": "1099SSA",
+        "form_data": {
+          "benefits_paid": {
+            "value": 29819.02,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_3_paid_by_check_or_dd": {
+            "value": 297522.02,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_3_part_b_deducted": {
+            "value": 460596.26,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_3_part_c_deducted": {
+            "value": 234348.99,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_3_part_d_deducted": {
+            "value": 201254.26,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "benefits_repaid": {
+            "value": 269990.78,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "net_benefits": {
+            "value": 299018.33,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 367266.96,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "claim_number": {
+            "value": "AFRWP",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
         "form_name": "1099G",
         "form_data": {
           "payers_tin": {
