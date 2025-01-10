@@ -60,6 +60,12 @@ export async function fillTableLikeInputs({
       logger.info(`Current number of inputs: ${numberOfInputs}`);
     }
 
+    // Skip (15) St (data not provided) field and increment index to match the right input field
+    if (index % INITIAL_NUMBER_OF_INPUTS !== 0) {
+      logger.info(`Increment index: ${index} --> ${index + 1}`);
+      index = index + 1;
+    }
+
     logger.info(`Filling inputs...${index}`);
 
     for (let i = 0; i < value.length; i++) {
@@ -69,6 +75,7 @@ export async function fillTableLikeInputs({
         );
         continue;
       }
+
       const inputIndex = index + i * INITIAL_NUMBER_OF_INPUTS;
       const inputValue = value[i].toString();
       logger.info(`Current index: ${inputIndex}`);

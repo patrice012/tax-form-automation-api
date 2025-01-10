@@ -333,13 +333,6 @@
             "notes": [],
             "is_pii": false
           },
-          "state": {
-            "value": ["", ""],
-            "status": "success",
-            "type": ["string", "string"],
-            "notes": [],
-            "is_pii": false
-          },
           "payers_state_number": {
             "value": ["WXUFU", "MOXDD"],
             "status": "success",
