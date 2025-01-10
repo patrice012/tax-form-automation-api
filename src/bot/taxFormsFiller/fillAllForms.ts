@@ -15,6 +15,8 @@ import { fill1099MISCForm } from "../forms/1099MISC/fillForm";
 import { fill1098Form } from "../forms/1098/fillForm";
 import { fill1098TForm } from "../forms/1098T/fillForm";
 import { fill1098EForm } from "../forms/1098E/fillForm";
+import { fill1099RForm } from "../forms/1099R/fillForm";
+import { fill1099GForm } from "../forms/1099G/fillForm";
 
 type FormProcessor = {
   linkText: string;
@@ -73,6 +75,16 @@ const formProcessors: Record<string, FormProcessor> = {
     linkText: "Adjustments to Income",
     getFormData: (data) => getFormData({ formName: "1098E", data }),
     fillForm: fill1098EForm,
+  },
+  "1099R": {
+    linkText: "Pensions, IRAs (1099-R)",
+    getFormData: (data) => getFormData({ formName: "1099R", data }),
+    fillForm: fill1099RForm,
+  },
+  "1099G": {
+    linkText: "Tax Refund, Unempl. Comp. (1099-G)",
+    getFormData: (data) => getFormData({ formName: "1099G", data }),
+    fillForm: fill1099GForm,
   },
 };
 

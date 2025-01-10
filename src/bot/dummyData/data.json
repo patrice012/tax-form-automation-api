@@ -6,6 +6,310 @@
     },
     "forms": [
       {
+        "form_name": "1099G",
+        "form_data": {
+          "payers_tin": {
+            "value": "SOCYR",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": "AJOLB",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "YZBJR",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "unemployment_compensation": {
+            "value": 176839.32,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "state_or_local_income_tax_refunds_credits_offsets": {
+            "value": 437356.36,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "box_2_tax_year": {
+            "value": "TYGEU",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 206147.21,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "RTAA_payments": {
+            "value": 462243.65,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "taxable_grants": {
+            "value": 205856.58,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "agriculture_payments": {
+            "value": 367528.77,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "is_trade_or_business_income": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "market_gain": {
+            "value": 54047.81,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "state": {
+            "value": ["WFVLH", "FAFIW"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": ["HQKZN", "CZEZG"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [217281.88, 156838.66],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
+        "form_name": "1099R",
+        "form_data": {
+          "payers_tin": {
+            "value": "NKOGS",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_name": {
+            "value": null,
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "account_number": {
+            "value": "NSTRJ",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "gross_income": {
+            "value": null,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "taxable_amount": {
+            "value": 165100.02,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "taxable_amount_not_determined": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "total_distribution": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "capital_gain": {
+            "value": 204196.45,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "federal_income_tax_withheld": {
+            "value": 147827.6,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "employee_contributions_designated_roth_contributions_or_insurance_premiums": {
+            "value": 210223.17,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "net_unrealized_appreciation_in_employers_securities": {
+            "value": 338658.97,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "distribution_code": {
+            "value": "QHOAH",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "ira_sep_simple": {
+            "value": true,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "other": {
+            "value": 450590.41,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "percentage_of_total_distribution": {
+            "value": "ECNQI",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "total_employee_contributions": {
+            "value": 375569.07,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "amount_allocable_to_IRR_within_5_years": {
+            "value": 112320.33,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "first_year_of_desig_roth_contrib": {
+            "value": 12212.69,
+            "status": "success",
+            "type": "number",
+            "notes": [],
+            "is_pii": false
+          },
+          "FATCA_filing_requirement": {
+            "value": false,
+            "status": "success",
+            "type": "bool",
+            "notes": [],
+            "is_pii": false
+          },
+          "date_of_payment": {
+            "value": "TLXOS",
+            "status": "success",
+            "type": "string",
+            "notes": [],
+            "is_pii": false
+          },
+          "state_tax_withheld": {
+            "value": [199826.43, 343811.21],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state": {
+            "value": ["", ""],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "payers_state_number": {
+            "value": ["WXUFU", "MOXDD"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "state_distribution": {
+            "value": [265565.94, 158648.98],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "local_tax_withheld": {
+            "value": [221286.71, 446010.15],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          },
+          "name_of_locality": {
+            "value": ["XLEWL", "VHUMG"],
+            "status": "success",
+            "type": ["string", "string"],
+            "notes": [],
+            "is_pii": false
+          },
+          "local_distribution": {
+            "value": [356772.43, 167923.77],
+            "status": "success",
+            "type": ["number", "number"],
+            "notes": [],
+            "is_pii": false
+          }
+        }
+      },
+      {
         "form_name": "1098E",
         "form_data": {
           "lenders_name": {
