@@ -1,7 +1,7 @@
 import { Page } from "playwright";
 import logger from "../../../../utils/logger";
 
-const INITIAL_NUMBER_OF_INPUTS = 3;
+const INITIAL_NUMBER_OF_INPUTS = 7;
 
 export async function fillTableLikeInputs({
   value,
