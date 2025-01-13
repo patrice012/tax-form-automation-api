@@ -78,6 +78,52 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
       logger.error(`Error selecting tax year: ${error}`);
     }
 
+    // Select Type
+    const typeLocator = page
+      .locator('[data-automation-id="select-return-type"]')
+      .first();
+
+    logger.info(`Attempting to select option Type`);
+
+    try {
+      try {
+        // Wait for element to be visible
+        logger.info("Waiting for select element to be visible...");
+        await typeLocator.waitFor({
+          state: "visible",
+          timeout: 5000,
+        });
+      } catch (error) {
+        logger.warn(`Failed to wait for element`);
+      }
+
+      // Get all available options
+      const options = await typeLocator.evaluate(
+        (select: HTMLSelectElement) => {
+          return Array.from(select.options).map((option) => ({
+            value: option.value,
+            text: option.text,
+          }));
+        }
+      );
+
+      logger.info("Available options:", options);
+      const matchingOption = options?.at(1);
+      logger.info(`Select this option, ${matchingOption}`);
+
+      if (matchingOption) {
+        // Select the matching option using its full value
+        await typeLocator.selectOption(matchingOption?.value as string);
+        logger.info(
+          `Selected option with value: ${matchingOption?.value as string}`
+        );
+      } else {
+        logger.info("No available option Type");
+      }
+    } catch (error) {
+      logger.error(`Error selecting tax year: ${error}`);
+    }
+
     // Handle Next button
     const nextButton = page.locator("[data-testid='save-tax-return-button']");
     if ((await nextButton.isVisible()) && !(await nextButton.isDisabled())) {
