@@ -1,5 +1,4 @@
 import { Page } from "playwright";
-import { displayDetailForm } from "../../handleFormNavigation/displayDetailForm";
 import { navigateToStep } from "./navigateToStep";
 import { navigateToCorrectForm } from "../../handleFormNavigation";
 
@@ -14,7 +13,6 @@ export function getStepFormSections() {
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:quick_entry`);
-        await displayDetailForm({ page });
       },
       step: 1,
       formType: "LongTerm",

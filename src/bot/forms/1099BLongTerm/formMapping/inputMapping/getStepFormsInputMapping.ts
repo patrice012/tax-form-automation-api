@@ -1,7 +1,7 @@
 import logger from "../../../../../utils/logger";
 import { mergeData } from "./mergeData";
 import { cleanUpInputMapping } from "./utils";
-import { IInput } from "./declaration";
+import { IInput } from "../declaration";
 import { getEntryPointInputFields } from "../inputFields/entryPoint";
 import { get4684InputFields } from "../inputFields/4684";
 import { getGeneralInformationInputFields } from "../inputFields/generalInformation";
