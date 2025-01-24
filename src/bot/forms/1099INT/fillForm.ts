@@ -6,6 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { createNewForm } from "./formActions/createNewForm";
+import { resetInputValues } from "./formActions/resetInpustValue";
 
 export async function fill1099INTForm({
   page,
@@ -16,6 +17,7 @@ export async function fill1099INTForm({
 }) {
   try {
     await createNewForm({ page });
+    await resetInputValues({ page });
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
