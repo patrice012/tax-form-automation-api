@@ -1,4 +1,4 @@
-import { IInputMapping } from "./declaration";
+import { IInputMapping } from "../declaration";
 
 export function normalizeXPath(xpath: string): string {
   // Remove unnecessary prefixes like `//` at the start

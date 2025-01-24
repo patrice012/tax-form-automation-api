@@ -1,7 +1,12 @@
+import { Tfield } from "./declaration";
+
 const inputs_fields = [
   {
     label: "Name of payer",
     ref: "payers_name",
+    id: "OSIEdit1-21",
+    dataTestId: "OSIEdit1-21",
+    inputIndex: 0,
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -9,24 +14,36 @@ const inputs_fields = [
   {
     label: "Taxpayer",
     inputType: "radio",
+    id: "OSIRadioButton7-390",
+    dataTestId: "OSIRadioButton7-390",
+    inputIndex: 1,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/input[1]",
   },
   {
     label: "Spouse",
     inputType: "radio",
+    id: "OSIRadioButton8-393",
+    dataTestId: "OSIRadioButton8-393",
+    inputIndex: 2,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[2]/div[1]/input[1]",
   },
   {
     label: "Joint",
     inputType: "radio",
+    id: "OSIRadioButton9-396",
+    dataTestId: "OSIRadioButton9-396",
+    inputIndex: 3,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[3]/div[1]/input[1]",
   },
   {
     label: "Banks, savings & loans, credit unions, etc.",
     ref: "interest_income",
+    id: "field-OSICtrlE6-56-label",
+    dataTestId: "OSICtrlE6-56-input",
+    inputIndex: 4,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -52,6 +69,9 @@ const inputs_fields = [
   {
     label: "U.S. bonds, T-bills, etc. (nontaxable to state)",
     ref: "interest_on_US_savings_bonds_and_treasury_obligations",
+    id: "field-OSICtrlE8-62-label",
+    dataTestId: "OSICtrlE8-62-input",
+    inputIndex: 8,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -91,6 +111,9 @@ const inputs_fields = [
       "Specified private activity bond interest included above (Form 6251)",
     ref: "specified_private_activity_bond_interest",
     inputType: "number",
+    id: "field-OSICtrlE12-118-label",
+    dataTestId: "OSICtrlE12-118-input",
+    inputIndex: 14,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
@@ -139,6 +162,9 @@ const inputs_fields = [
   {
     label: "Tax-exempt interest (1099-INT in error)",
     ref: "tax_exempt_interest",
+    id: "field-OSICtrlE15-186-label",
+    dataTestId: "OSICtrlE15-186-input",
+    inputIndex: 22,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -152,6 +178,9 @@ const inputs_fields = [
   {
     label: "Original issue discount (OID)",
     ref: "market_discount",
+    id: "field-OSICtrlE16-189-label",
+    dataTestId: "OSICtrlE16-189-input",
+    inputIndex: 24,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -165,6 +194,9 @@ const inputs_fields = [
   {
     label: "Amortizable bond premium",
     ref: "bond_premium",
+    id: "field-OSICtrlE17-192-label",
+    dataTestId: "OSICtrlE17-192-input",
+    inputIndex: 26,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -179,6 +211,9 @@ const inputs_fields = [
     label: "Amortizable bond premium on Treasury obligations",
     ref: "bond_premium_on_treasury_obligations",
     inputType: "number",
+    id: "field-OSICtrlE73-210-label",
+    dataTestId: "OSICtrlE73-210-input",
+    inputIndex: 28,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
@@ -203,6 +238,9 @@ const inputs_fields = [
   {
     label: "Federal income tax withheld",
     ref: "federal_income_tax_withheld",
+    id: "field-OSICtrlE19-248-label",
+    dataTestId: "OSICtrlE19-248-input",
+    inputIndex: 32,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -216,6 +254,9 @@ const inputs_fields = [
   {
     label: "State income tax withheld",
     ref: "state_tax_withheld",
+    id: "field-OSICtrlE20-251-label",
+    dataTestId: "OSICtrlE20-251-input",
+    inputIndex: 34,
     inputType: "number",
     custom: "popup",
     xpath:
@@ -230,6 +271,9 @@ const inputs_fields = [
   {
     label: "Early withdrawal penalty",
     ref: "early_withdrawal_penalty",
+    id: "field-OSICtrlE30-295-label",
+    dataTestId: "OSICtrlE30-295-input",
+    inputIndex: 36,
     inputType: "number",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -280,6 +324,9 @@ const inputs_fields = [
     label: "Name of foreign country (not required if HTKO)",
     ref: "foreign_country_or_US_possession",
     inputType: "text",
+    id: "OSIEdit41-474",
+    dataTestId: "OSIEdit41-474",
+    inputIndex: 41,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]",
   },
@@ -299,6 +346,9 @@ const inputs_fields = [
     label: "Foreign income tax withheld (U.S. dollars)",
     ref: "foreign_tax_paid",
     inputType: "number",
+    id: "field-OSIText28-430-491-492",
+    dataTestId: "OSICtrlE28-448-input",
+    inputIndex: 44,
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
   },
@@ -329,6 +379,9 @@ const inputs_fields = [
   {
     label: "FATCA filing requirement",
     ref: "FATCA_filing_requirement",
+    id: "OSICheckBox9-504",
+    dataTestId: "OSICheckBox9-504",
+    inputIndex: 49,
     inputType: "checkbox",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -342,6 +395,9 @@ const inputs_fields = [
   {
     label: "Identification number (SSN or EIN)",
     ref: "payers_tin",
+    id: "OSIEdit3-521-taxid",
+    dataTestId: "OSIEdit3-521-taxid",
+    inputIndex: 51,
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -415,6 +471,9 @@ const inputs_fields = [
   {
     label: "Account number",
     ref: "account_number",
+    id: "OSIEdit69-575",
+    dataTestId: "OSIEdit69-575",
+    inputIndex: 61,
     inputType: "text",
     xpath:
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
@@ -428,19 +487,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function getInputFields() {
   const arr = fields.filter((field) => {
