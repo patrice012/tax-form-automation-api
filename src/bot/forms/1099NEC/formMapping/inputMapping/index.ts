@@ -2,7 +2,7 @@ import logger from "../../../../../utils/logger";
 import { getInputFields } from "../inputFields";
 import { mergeData } from "./mergeData";
 import { cleanUpInputMapping } from "./utils";
-import { IInputMapping } from "./declaration";
+import { IInputMapping } from "../declaration";
 import { getFormData } from "../../../utils/getFormData";
 import { getData } from "../../../../dummyData/getData";
 
@@ -19,7 +19,7 @@ export async function getInputMapping({
     //   formName: "1099NEC",
     //   data: data[0]?.forms || [],
     // });
-    // const inputMapping = mergeData(formData, inputFields);
+    // const inputMapping = mergeData([formData], inputFields);
     const clientData = Array.isArray(data) ? data : [data];
     const inputMapping = mergeData(clientData, inputFields);
 
@@ -32,6 +32,6 @@ export async function getInputMapping({
   }
 }
 
-// getInputMapping()
+// getInputMapping({ data: {} })
 //   .then((d) => console.log(JSON.stringify(d, null, 2)))
 //   .catch(console.log);

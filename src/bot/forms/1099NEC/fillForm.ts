@@ -18,21 +18,21 @@ export async function fill1099NECForm({
 
     for (let input of inputs) {
       const inputType = input.inputType;
-      const { xpath, value, label } = input;
+      const { label } = input;
 
       try {
         switch (inputType) {
           case "checkbox":
-            await checkboxInput({ value, label, xpath, page });
+            await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "text":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "select":
-            await selectOption({ value, label, xpath, page });
+            await selectOption({ page, input });
             break;
         }
       } catch (error) {
