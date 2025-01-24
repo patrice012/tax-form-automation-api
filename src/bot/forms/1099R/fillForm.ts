@@ -6,7 +6,9 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { displayDetailForm } from "./handleFormNavigation";
+import { createNewRow } from "./formActions/createNewRow";
+import { resetInputValues } from "./formActions/resetInpustValue";
+import { displayDetailForm } from "./formActions/displayDetailForm";
 
 export async function fill1099RForm({
   page,
@@ -17,7 +19,17 @@ export async function fill1099RForm({
 }) {
   try {
     // Navigate to the correct page
-    await displayDetailForm({ page });
+    // await displayDetailForm({ page });
+
+    // Create a new row
+    const newRow = await createNewRow({ page });
+    logger.info(`New row created: ${JSON.stringify(newRow)}`);
+    await displayDetailForm({
+      page,
+      btnIndex: Number(newRow.rowIndex) - 1,
+    });
+
+    await resetInputValues({ page });
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
@@ -25,7 +37,7 @@ export async function fill1099RForm({
     const tableLikeInputs = [];
 
     for (let input of inputs) {
-      const { xpath, value, label, custom, inputType } = input;
+      const { label, custom, inputType } = input;
 
       if (custom && custom === "table") {
         tableLikeInputs.push(input);
@@ -40,16 +52,16 @@ export async function fill1099RForm({
       try {
         switch (inputType) {
           case "checkbox":
-            await checkboxInput({ value, label, xpath, page });
+            await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "text":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "select":
-            await selectOption({ value, label, xpath, page });
+            await selectOption({ page, input });
             break;
         }
       } catch (error) {
@@ -59,14 +71,14 @@ export async function fill1099RForm({
 
     // handle special cases -- inputs inside table
     for (let i = 0; i < tableLikeInputs.length; i++) {
-      const { xpath, value, label, inputType } = tableLikeInputs[i];
+      const input = tableLikeInputs[i];
+      const { value, label } = input;
       try {
         await fillTableLikeInputs({
           value: value,
-          label,
-          xpath,
-          page,
           index: i,
+          page,
+          input,
         });
       } catch (error) {
         logger.error(`Error processing: ${label}`);
@@ -75,18 +87,18 @@ export async function fill1099RForm({
 
     // handle special cases --  inputs inside popup
     for (let i = 0; i < popupLikeInputs.length; i++) {
-      const { xpath, value, label } = popupLikeInputs[i];
+      const input = popupLikeInputs[i];
+      const { value, label } = input;
       try {
         // parse value => [[label, val]]]
         const newValue = transformValue(value);
         await fillPopupLikeInputs({
           value: newValue,
-          label,
-          xpath,
           page,
+          input,
         });
       } catch (error) {
-        logger.error(`Error processing: ${label}`);
+        logger.error(`Error processing: ${label} --> ${error}`);
       }
     }
 
