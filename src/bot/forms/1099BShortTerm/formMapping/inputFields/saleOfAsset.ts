@@ -1,3 +1,5 @@
+import { Tfield } from "../declaration";
+
 const inputs_fields = [
   {
     label: "Depreciation allowed (-1=none, triggers 4797)",
@@ -286,19 +288,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function getSaleOfAssetInputFields() {
   const arr = fields.filter((field) => {

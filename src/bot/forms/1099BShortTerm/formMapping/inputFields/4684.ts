@@ -1,3 +1,5 @@
+import { Tfield } from "../declaration";
+
 const inputs_fields = [
   {
     label: "Description (fire, robbery, etc.)",
@@ -514,19 +516,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function get4684InputFields() {
   const arr = fields.filter((field) => {

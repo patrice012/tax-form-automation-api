@@ -1,3 +1,5 @@
+import { Tfield } from "../declaration";
+
 const inputs_fields = [
   {
     label: "Total gain (loss) [Override]",
@@ -340,19 +342,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function getLessCommonScenariosInputFields() {
   const arr = fields.filter((field) => {

@@ -1,0 +1,143 @@
+import { Page } from "playwright";
+import logger from "../../../../utils/logger";
+import { clearInput, fillInput, focusInput } from "./utils";
+
+const INPUTS_PER_ROW = 11;
+
+async function waitForElement(
+  selector: string,
+  page: Page,
+  timeout = 30000
+): Promise<boolean> {
+  try {
+    logger.info(`Waiting for element to be visible: ${selector}`);
+    const locator = page.locator(selector).first();
+    await locator.waitFor({ state: "visible", timeout });
+    return true;
+  } catch (error) {
+    logger.warn(`Element not visible: ${selector}, continuing execution.`);
+    return false;
+  }
+}
+
+async function getTotalInputs(
+  page: Page,
+  mainSelector: string
+): Promise<number> {
+  const totalInputs = await page.evaluate((selector) => {
+    const container = document.querySelector(selector);
+    return container ? container.querySelectorAll("td input").length : 0;
+  }, mainSelector);
+  return totalInputs;
+}
+
+async function getTotalRowsWithInputs(
+  page: Page,
+  mainSelector: string
+): Promise<number> {
+  const totalRows = await page.evaluate((selector) => {
+    const container = document.querySelector(selector);
+    if (!container) return 0;
+
+    // Filter rows (`<tr>`) that contain at least one `<input>` inside them
+    const rowsWithInputs = Array.from(container.querySelectorAll("tr")).filter(
+      (row) => {
+        return row.querySelector("input") !== null;
+      }
+    );
+
+    return rowsWithInputs.length;
+  }, mainSelector);
+  return totalRows;
+}
+
+async function getDetailsButtonCount(page: Page): Promise<number> {
+  const buttonsCount = await page
+    .locator(`button:has(span:has-text("Details"))`)
+    .all();
+  return buttonsCount.length;
+}
+
+export async function createNewRow({ page }: { page: Page }): Promise<any> {
+  const mainSelector = ".main-content";
+  const value = 10;
+
+  try {
+    logger.info(`Start filling inputs in the table`);
+
+    // Wait for the main container to be visible
+    const isMainVisible = await waitForElement(mainSelector, page);
+    if (!isMainVisible) {
+      logger.error(`Main container not found. Aborting operation.`);
+      return;
+    }
+
+    try {
+      await waitForElement('button:has(span:has-text("Details"))', page);
+    } catch (error) {}
+
+    // Get total number of inputs, rows, and "Details" buttons
+    let totalInputs = await getTotalInputs(page, mainSelector);
+    let totalRows = await getTotalRowsWithInputs(page, mainSelector);
+    let totalDetailsButtons = await getDetailsButtonCount(page);
+
+    logger.info(
+      `Total Inputs: ${totalInputs}, Rows: ${totalRows}, Details Buttons: ${totalDetailsButtons}`
+    );
+
+    // Check if total rows match the total number of "Details" buttons
+    do {
+      // Calculate the starting index for the last row's inputs
+      const startIndex = (totalRows - 1) * INPUTS_PER_ROW;
+      logger.info(`Starting index for last row inputs: ${startIndex}`);
+
+      try {
+        // Clear the first input value if exists
+        clearInput({ page, startIndex: startIndex });
+      } catch (error) {}
+
+      try {
+        // Fill the first input in the last row
+        await fillInput({ page, startIndex, value: value });
+      } catch (error) {}
+
+      try {
+        // Focus on the next input
+        await focusInput({ page, startIndex: startIndex + 1 });
+      } catch (error) {}
+
+      // Wait for a button to appear
+      await page.waitForTimeout(1000);
+
+      totalDetailsButtons = await getDetailsButtonCount(page);
+
+      logger.info(
+        `Inputs: ${totalInputs}, Rows: ${totalRows}, Details Buttons: ${totalDetailsButtons}, Refreshing values`
+      );
+      if (totalDetailsButtons !== totalRows) {
+        // Get the latest number of button
+        totalInputs = await getTotalInputs(page, mainSelector);
+        totalRows = await getTotalRowsWithInputs(page, mainSelector);
+
+        logger.warn(
+          `Mismatch in row and "Details" button counts. Rows: ${totalRows}, Buttons: ${totalDetailsButtons}`
+        );
+      } else {
+        break;
+      }
+
+      logger.info(
+        `Updated Total --> Inputs: ${totalInputs}, Rows: ${totalRows}, Details Buttons: ${totalDetailsButtons}`
+      );
+    } while (totalDetailsButtons !== totalRows);
+
+    return {
+      buttonLocator: `button:has(span:has-text("Details"))`,
+      rowIndex: totalDetailsButtons,
+      inputsPerRow: INPUTS_PER_ROW,
+      startIndex: (totalRows - 1) * INPUTS_PER_ROW,
+    };
+  } catch (error) {
+    logger.error(`An unexpected error occurred: ${error}`);
+  }
+}

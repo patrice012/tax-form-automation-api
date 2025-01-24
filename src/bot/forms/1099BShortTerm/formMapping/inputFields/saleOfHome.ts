@@ -1,3 +1,5 @@
+import { Tfield } from "../declaration";
+
 const inputs_fields = [
   {
     label: "Sale of home (MANDATORY to compute exclusion)",
@@ -158,19 +160,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function getSaleOfHomeInputFields() {
   const arr = fields.filter((field) => {

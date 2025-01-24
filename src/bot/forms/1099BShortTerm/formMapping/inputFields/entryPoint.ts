@@ -1,3 +1,5 @@
+import { Tfield } from "../declaration";
+
 const inputs_fields = [
   {
     label: "Quantity",
@@ -72,19 +74,6 @@ const inputs_fields = [
 ];
 
 const fields = [...inputs_fields];
-
-type Tfield = {
-  label: string;
-  inputType: string;
-  xpath?: string;
-  ref?: string;
-  custom?: string;
-  fields?: {
-    label: string;
-    inputType: string;
-    xpath: string;
-  };
-};
 
 export function getEntryPointInputFields() {
   const arr = fields.filter((field) => {

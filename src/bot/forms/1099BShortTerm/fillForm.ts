@@ -5,6 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillEntryForm } from "./fillEntryForm";
 
 export async function fill1099BShortTermForm({
   page,
@@ -17,14 +18,25 @@ export async function fill1099BShortTermForm({
     const sectionInputMapping = await getInputMapping({ data: formData });
 
     for (let inputMapping of sectionInputMapping) {
-      const { inputs, step, formType, title, initializeStep, cleanupStep } =
-        inputMapping;
+      const {
+        inputs,
+        formType,
+        title,
+        initializeStep,
+        cleanupStep,
+        identifier,
+      } = inputMapping;
       logger.info(
-        `Processing form: ${formType} -- input section: ${title} -- step: ${step}`
+        `Processing form: ${formType} -- input section: ${title} -- id: ${identifier}`
       );
 
-      // Run init script
+      if (identifier === "quick_entry") {
+        await fillEntryForm({ page, inputMapping });
+        continue;
+      }
+
       if (initializeStep) {
+        // Run init script
         try {
           await initializeStep({ page });
         } catch (error) {
@@ -36,7 +48,7 @@ export async function fill1099BShortTermForm({
 
       for (let input of inputs) {
         const inputType = input.inputType;
-        const { xpath, value, label, custom } = input;
+        const { label, custom } = input;
 
         if (custom && custom === "popup") {
           popupLikeInputs.push(input);
@@ -46,16 +58,16 @@ export async function fill1099BShortTermForm({
         try {
           switch (inputType) {
             case "checkbox":
-              await checkboxInput({ value, label, xpath, page });
+              await checkboxInput({ page, input });
               break;
             case "number":
-              await fillTextInput({ value, label, xpath, page });
+              await fillTextInput({ page, input });
               break;
             case "text":
-              await fillTextInput({ value, label, xpath, page });
+              await fillTextInput({ page, input });
               break;
             case "select":
-              await selectOption({ value, label, xpath, page });
+              await selectOption({ page, input });
               break;
           }
         } catch (error) {
@@ -65,18 +77,18 @@ export async function fill1099BShortTermForm({
 
       // handle special cases --  inputs inside popup
       for (let i = 0; i < popupLikeInputs.length; i++) {
-        const { xpath, value, label } = popupLikeInputs[i];
+        const input = popupLikeInputs[i];
+        const { value, label } = input;
         try {
           // parse value => [[label, val]]]
           const newValue = transformValue(value);
           await fillPopupLikeInputs({
             value: newValue,
-            label,
-            xpath,
             page,
+            input,
           });
         } catch (error) {
-          logger.error(`Error processing: ${label}`);
+          logger.error(`Error processing: ${label} --> ${error}`);
         }
       }
 
