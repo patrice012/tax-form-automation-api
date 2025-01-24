@@ -1,6 +1,6 @@
 import logger from "../../utils/logger";
 import { getData } from "../dummyData/getData";
-import { IMergeData } from "../forms/utils/getFormData";
+import { IMergeData } from "../forms/declaration";
 
 export async function getClientInformation(): Promise<{
   email: string;

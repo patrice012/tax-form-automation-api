@@ -1,22 +1,21 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
+import { IInput } from "../forms/declaration";
 
 export async function checkboxInput({
-  value,
-  xpath,
-  label,
   page,
+  input,
+  mainParentSelector,
 }: {
-  value: string | number;
-  xpath: string;
-  label: string;
   page: Page;
+  input: IInput;
+  mainParentSelector?: string;
 }): Promise<void> {
+  const { xpath, value, label, id, dataTestId, inputIndex } = input;
   try {
     logger.info(
       `Handling checkbox for: ${label} with desired state: ${value.toString()}`
     );
-    logger.info(`Using xpath: ${xpath}`);
 
     try {
       // Wait for element to be visible and enabled
@@ -30,44 +29,61 @@ export async function checkboxInput({
       logger.warn(`Label: ${label} not visible`);
     }
 
+    // Convert desired state to boolean
     const desiredState = value.toString().toLowerCase() === "true";
 
-    // Use page.evaluate to directly check the checkbox
+    // Fallback using page.evaluate
     const result = await page.evaluate(
-      ({ xpath, desiredState, label }) => {
-        const checkbox = document.evaluate(
-          xpath,
-          document,
-          null,
-          XPathResult.FIRST_ORDERED_NODE_TYPE,
-          null
-        ).singleNodeValue as HTMLInputElement;
+      ({
+        xpath,
+        desiredState,
+        id,
+        dataTestId,
+        inputIndex,
+        mainParentSelector,
+      }) => {
+        let checkbox: HTMLInputElement | null = null;
+
+        // Determine the best selector to use
+        if (id) {
+          checkbox = document.querySelector(`#${id}`) as HTMLInputElement;
+        } else if (dataTestId && !checkbox) {
+          checkbox = document.querySelector(
+            `[data-testid="${dataTestId}"]`
+          ) as HTMLInputElement;
+        } else if (xpath && !checkbox) {
+          checkbox = document.evaluate(
+            xpath,
+            document,
+            null,
+            XPathResult.FIRST_ORDERED_NODE_TYPE,
+            null
+          ).singleNodeValue as HTMLInputElement;
+        } else if (!checkbox && inputIndex && mainParentSelector) {
+          try {
+            checkbox = Array.from(
+              document
+                ?.querySelector(mainParentSelector)
+                ?.querySelectorAll("input") || []
+            )?.at(inputIndex) as HTMLInputElement;
+          } catch (error) {
+            console.log("Index base query fail", { error });
+          }
+        }
 
         if (!checkbox) {
           return { success: false, error: "Checkbox not found" };
         }
 
-        const currentState = checkbox.checked as boolean;
-
+        const currentState = checkbox.checked;
         if (currentState === desiredState) {
-          console.log(
-            `Current state match desire state for: ${label}, skip it`
-          );
           return { success: true, checked: checkbox.checked };
         }
 
         try {
-          // Focus and click the checkbox
-          checkbox.focus();
           checkbox.click();
-
-          // Set the checked property as a backup
           checkbox.checked = desiredState;
-
-          // Dispatch events
-          checkbox.dispatchEvent(new Event("click", { bubbles: true }));
           checkbox.dispatchEvent(new Event("change", { bubbles: true }));
-          checkbox.dispatchEvent(new Event("input", { bubbles: true }));
 
           return { success: true, checked: checkbox.checked };
         } catch (e) {
@@ -77,13 +93,15 @@ export async function checkboxInput({
           };
         }
       },
-      { xpath, desiredState, label }
+      { xpath, desiredState, id, dataTestId, inputIndex, mainParentSelector }
     );
 
     if (!result.success) {
-      logger.error(`Failed to check checkbox ${label}: ${result.error}`);
+      logger.error(`Fallback failed for checkbox ${label}: ${result.error}`);
     } else {
-      logger.info(`Successfully checked checkbox ${label}`);
+      logger.info(
+        `Successfully changed checkbox state for ${label} using fallback.`
+      );
     }
   } catch (error) {
     logger.error(

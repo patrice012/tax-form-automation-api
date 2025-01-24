@@ -1,5 +1,5 @@
-import { IMergeData } from "./getFormData";
 import logger from "../../../utils/logger";
+import { IMergeData } from "../declaration";
 
 export function getFormsName({ formData }: { formData: IMergeData[] }) {
   const names = formData.map((form) => form.form_name);

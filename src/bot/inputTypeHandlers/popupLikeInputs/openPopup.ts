@@ -2,11 +2,35 @@ import { Page } from "playwright";
 import logger from "../../../utils/logger";
 
 // Helper to open the popup
-export async function openPopup({ page, xpath }: { page: Page; xpath: string }) {
-  const inputLocator = page.locator(`xpath=${xpath}`).first();
-  logger.info(inputLocator ? "popup input found" : "popup input not found");
-
+export async function openPopup({
+  page,
+  id,
+  dataTestId,
+  xpath,
+}: {
+  page: Page;
+  id?: string;
+  dataTestId?: string;
+  xpath?: string;
+}): Promise<{ isOpen: boolean }> {
   try {
+    let inputLocator;
+
+    // Determine the best selector to use
+    if (id) {
+      logger.info(`Using ID: ${id}`);
+      inputLocator = page.locator(`#${id}`).first();
+    } else if (dataTestId && !inputLocator) {
+      logger.info(`Using data-testid: ${dataTestId}`);
+      inputLocator = page.locator(`[data-testid="${dataTestId}"]`).first();
+    } else if (xpath && !inputLocator) {
+      logger.info(`Using XPath: ${xpath}`);
+      inputLocator = page.locator(`xpath=${xpath}`).first();
+    } else {
+      throw new Error("No valid selector provided to locate the popup input.");
+    }
+
+    logger.info(inputLocator ? "Popup input found." : "Popup input not found.");
     logger.info("Focusing on the input element...");
     await inputLocator.focus();
 
@@ -15,12 +39,13 @@ export async function openPopup({ page, xpath }: { page: Page; xpath: string }) 
     logger.info("Locating the closest div containing the input...");
 
     // Find the button within the closest div
-    const btnSelector = 'button[type="button"]'; //'button[aria-label="expandDetails"]'
+    const btnSelector = 'button[type="button"]'; // Or 'button[aria-label="expandDetails"]' if needed
     const buttonLocator = closestDiv.locator(btnSelector);
+
     logger.info(
-      "Waiting for expand button within the closest div to appear..."
+      "Waiting for the expand button within the closest div to appear..."
     );
-    // await buttonLocator.waitFor({ state: "visible", timeout: 30000 });
+    await buttonLocator.waitFor({ state: "visible", timeout: 30000 });
 
     logger.info("Clicking the expand button...");
     await buttonLocator.click();

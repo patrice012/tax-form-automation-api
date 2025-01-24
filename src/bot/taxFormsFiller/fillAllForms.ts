@@ -1,6 +1,5 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
-import { IMergeData } from "../forms/utils/getFormData";
 import { navigateToForm } from "./navigateToForm";
 import { getFormData } from "../forms/utils/getFormData";
 import { getFormsName } from "../forms/utils/getFormsName";
@@ -18,6 +17,7 @@ import { fill1098EForm } from "../forms/1098E/fillForm";
 import { fill1099RForm } from "../forms/1099R/fillForm";
 import { fill1099GForm } from "../forms/1099G/fillForm";
 import { fill1099SSAForm } from "../forms/1099SSA/fillForm";
+import { IMergeData } from "../forms/declaration";
 
 type FormProcessor = {
   linkText: string;

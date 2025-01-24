@@ -4,24 +4,24 @@ import { fillInputs } from "./fillInputs";
 import { getInputNumber } from "./helper";
 import { openPopup } from "./openPopup";
 import { clickActionButton } from "./saveFormAndClosePopup";
+import { IInput } from "../../forms/declaration";
 
 export async function fillPopupLikeInputs({
   value,
-  xpath,
-  label,
   page,
+  input,
 }: {
   value: (string | number)[][];
-  xpath: string;
-  label: string;
   page: Page;
+  input: IInput;
 }): Promise<void> {
+  const { xpath, label, id, dataTestId, inputIndex } = input;
   try {
     logger.info(`Attempting to fill input for ${label} with value: ${value}`);
     logger.info(`Using xpath: ${xpath}`);
 
     // Open the popup
-    const popup = await openPopup({ page, xpath });
+    const popup = await openPopup({ page, xpath, id, dataTestId });
 
     if (!popup.isOpen) {
       logger.error("Failed to open popup");
