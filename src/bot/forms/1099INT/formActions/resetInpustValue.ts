@@ -2,9 +2,14 @@ import { Page } from "playwright";
 import logger from "../../../../utils/logger";
 import { waitForElement } from "./utils";
 
-export async function resetInputValues({ page }: { page: Page }) {
+export async function resetInputValues({
+  page,
+  mainSelector = ".main-content",
+}: {
+  page: Page;
+  mainSelector?: string;
+}) {
   try {
-    const mainSelector = ".main-content";
     logger.info(`Start resetting input values`);
 
     try {

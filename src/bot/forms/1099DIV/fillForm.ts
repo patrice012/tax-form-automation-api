@@ -5,8 +5,9 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
-import { createNewForm } from "./formActions/createNewForm";
 import { resetInputValues } from "./formActions/resetInpustValue";
+import { createNewRow } from "./formActions/createNewRow";
+import { displayDetailForm } from "./formActions/displayDetailForm";
 
 export async function fill1099DIVForm({
   page,
@@ -16,7 +17,14 @@ export async function fill1099DIVForm({
   formData: unknown;
 }) {
   try {
-    await createNewForm({ page });
+    // Create a new row
+    const newRow = await createNewRow({ page });
+    logger.info(`New row created: ${JSON.stringify(newRow)}`);
+    await displayDetailForm({
+      page,
+      btnIndex: Number(newRow.rowIndex) - 1,
+    });
+
     await resetInputValues({ page });
 
     const inputMapping = await getInputMapping({ data: formData });

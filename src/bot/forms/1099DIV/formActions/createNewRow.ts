@@ -1,8 +1,24 @@
 import { Page } from "playwright";
 import logger from "../../../../utils/logger";
-import { waitForElement, clearInput, fillInput, focusInput } from "./utils";
+import { clearInput, fillInput, focusInput } from "./utils";
 
-const INPUTS_PER_ROW = 7;
+const INPUTS_PER_ROW = 8;
+
+async function waitForElement(
+  selector: string,
+  page: Page,
+  timeout = 30000
+): Promise<boolean> {
+  try {
+    logger.info(`Waiting for element to be visible: ${selector}`);
+    const locator = page.locator(selector).first();
+    await locator.waitFor({ state: "visible", timeout });
+    return true;
+  } catch (error) {
+    logger.warn(`Element not visible: ${selector}, continuing execution.`);
+    return false;
+  }
+}
 
 async function getTotalInputs(
   page: Page,
@@ -42,7 +58,7 @@ async function getDetailsButtonCount(page: Page): Promise<number> {
   return buttonsCount.length;
 }
 
-export async function createNewForm({ page }: { page: Page }): Promise<void> {
+export async function createNewRow({ page }: { page: Page }): Promise<any> {
   const mainSelector = ".main-content";
   const value = 10;
 
@@ -115,21 +131,12 @@ export async function createNewForm({ page }: { page: Page }): Promise<void> {
       );
     } while (totalDetailsButtons !== totalRows);
 
-    // If the row-to-button count matches, click on the last "Details" button
-    if (totalDetailsButtons === totalRows) {
-      const lastButtonSelector = `button:has(span:has-text("Details"))`;
-      logger.info(
-        `Clicking on the last "Details" button: ${lastButtonSelector}`
-      );
-      try {
-        const lastButton = page.locator(lastButtonSelector).last();
-        await lastButton.click();
-        logger.info(`Successfully clicked on the last "Details" button.`);
-      } catch (error) {
-        logger.error(`Failed to click on the last "Details" button: ${error}`);
-      }
-    } else {
-    }
+    return {
+      buttonLocator: `button:has(span:has-text("Details"))`,
+      rowIndex: totalDetailsButtons,
+      inputsPerRow: INPUTS_PER_ROW,
+      startIndex: (totalRows - 1) * INPUTS_PER_ROW,
+    };
   } catch (error) {
     logger.error(`An unexpected error occurred: ${error}`);
   }
