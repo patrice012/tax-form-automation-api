@@ -5,6 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
+import { createNewForm } from "./formActions/createNewForm";
 
 export async function fill1098TForm({
   page,
@@ -17,13 +18,16 @@ export async function fill1098TForm({
     // Navigate to the correct page
     await navigateToCorrectForm({ page });
 
+    await createNewForm({ page });
+    logger.info(`Start filling process`);
+
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
     const popupLikeInputs = [];
     const tableLikeInputs = [];
 
     for (let input of inputs) {
-      const { xpath, value, label, custom, inputType } = input;
+      const { label, custom, inputType } = input;
 
       if (custom && custom === "table") {
         tableLikeInputs.push(input);
@@ -38,16 +42,16 @@ export async function fill1098TForm({
       try {
         switch (inputType) {
           case "checkbox":
-            await checkboxInput({ value, label, xpath, page });
+            await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "text":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "select":
-            await selectOption({ value, label, xpath, page });
+            await selectOption({ page, input });
             break;
         }
       } catch (error) {
