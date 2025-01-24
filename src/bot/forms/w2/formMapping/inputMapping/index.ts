@@ -1,6 +1,6 @@
 import logger from "../../../../../utils/logger";
 import { getInputFields } from "../inputFields";
-import { IInputMapping } from "./declaration";
+import { IInputMapping } from "../declaration";
 import { mergeData } from "./mergeData";
 import { cleanUpInputMapping } from "./utils";
 import { getFormData } from "../../../utils/getFormData";
@@ -21,6 +21,7 @@ export async function getInputMapping({
     // });
     const clientData = Array.isArray(data) ? data : [data];
     const inputMapping = mergeData(clientData, inputFields);
+    // const inputMapping = mergeData([formData], inputFields);
 
     return cleanUpInputMapping(inputMapping);
   } catch (error) {
@@ -31,6 +32,6 @@ export async function getInputMapping({
   }
 }
 
-// getInputMapping()
+// getInputMapping({ data: null })
 //   .then((d) => console.log(JSON.stringify(d, null, 2)))
 //   .catch(console.log);

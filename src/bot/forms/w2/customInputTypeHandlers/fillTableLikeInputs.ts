@@ -1,26 +1,25 @@
 import { Page } from "playwright";
 import logger from "../../../../utils/logger";
+import { IInput } from "../../declaration";
 
 const INITIAL_NUMBER_OF_INPUTS = 7;
 
 export async function fillTableLikeInputs({
   value,
-  xpath,
-  label,
   page,
   index,
+  input,
 }: {
   value: (string | number)[];
-  xpath: string;
-  label: string;
   page: Page;
   index: number;
+  input: IInput;
 }): Promise<void> {
+  const { label, xpath, id, dataTestId, inputIndex } = input;
   try {
     logger.info(
       `Handling table-like inputs for: ${label} with values: ${value}`
     );
-    logger.info(`Using xpath: ${xpath}`);
 
     try {
       // Wait for the label to be visible
@@ -37,7 +36,7 @@ export async function fillTableLikeInputs({
     // Find the table containing the input using page.evaluate
     logger.info("Locating table and counting inputs using page.evaluate...");
 
-    let numberOfInputs = await getInputNumber({ page, xpath });
+    let numberOfInputs = await getInputNumber({ page, xpath, id, dataTestId });
     logger.info(`Initial number of inputs: ${numberOfInputs}`);
 
     // Calculate the required number of inputs
@@ -51,7 +50,7 @@ export async function fillTableLikeInputs({
       logger.info("Adding more rows...");
       await addButton.click();
       await page.waitForTimeout(1000);
-      const newValues = await getInputNumber({ page, xpath });
+      const newValues = await getInputNumber({ page, xpath, id, dataTestId });
       if (newValues === numberOfInputs) {
         break;
       } else if (newValues > numberOfInputs) {
@@ -130,26 +129,63 @@ export async function fillTableLikeInputs({
   }
 }
 
-async function getInputNumber({ page, xpath }: { page: Page; xpath: string }) {
-  const numberOfInputs = await page.evaluate((inputXPath: string) => {
-    const inputElement = document.evaluate(
-      inputXPath,
-      document,
-      null,
-      XPathResult.FIRST_ORDERED_NODE_TYPE,
-      null
-    ).singleNodeValue as HTMLInputElement;
+export async function getInputNumber({
+  page,
+  id,
+  dataTestId,
+  xpath,
+}: {
+  page: Page;
+  id?: string;
+  dataTestId?: string;
+  xpath?: string;
+}): Promise<number> {
+  const INITIAL_NUMBER_OF_INPUTS = 0;
 
-    if (!inputElement) {
-      throw new Error("Input element not found for the provided XPath.");
-    }
+  try {
+    const numberOfInputs = await page.evaluate(
+      ({ id, dataTestId, xpath }) => {
+        let inputElement: HTMLInputElement | null = null;
 
-    const tableElement = inputElement.closest("table");
-    if (!tableElement) {
-      throw new Error("No table element found containing the input.");
-    }
+        // Determine the best selector to locate the input
+        if (id) {
+          console.log(`Using ID: ${id}`);
+          inputElement = document.querySelector(`#${id}`) as HTMLInputElement;
+        } else if (dataTestId && !inputElement) {
+          console.log(`Using data-testid: ${dataTestId}`);
+          inputElement = document.querySelector(
+            `[data-testid="${dataTestId}"]`
+          ) as HTMLInputElement;
+        } else if (xpath && !inputElement) {
+          console.log(`Using XPath: ${xpath}`);
+          inputElement = document.evaluate(
+            xpath,
+            document,
+            null,
+            XPathResult.FIRST_ORDERED_NODE_TYPE,
+            null
+          ).singleNodeValue as HTMLInputElement;
+        }
 
-    return tableElement.querySelectorAll("input").length;
-  }, xpath);
-  return numberOfInputs || INITIAL_NUMBER_OF_INPUTS;
+        if (!inputElement) {
+          throw new Error("Input element not found for the provided selector.");
+        }
+
+        // Locate the closest table containing the input
+        const tableElement = inputElement.closest("table");
+        if (!tableElement) {
+          throw new Error("No table element found containing the input.");
+        }
+
+        // Return the number of input elements within the table
+        return tableElement.querySelectorAll("input").length;
+      },
+      { id, dataTestId, xpath }
+    );
+
+    return numberOfInputs || INITIAL_NUMBER_OF_INPUTS;
+  } catch (error) {
+    logger.error("Error in getInputNumber:", error);
+    return INITIAL_NUMBER_OF_INPUTS;
+  }
 }

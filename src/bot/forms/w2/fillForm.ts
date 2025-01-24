@@ -6,6 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { createNewForm } from "./formActions/createNewForm";
 
 export async function fillW2Form({
   page,
@@ -15,6 +16,9 @@ export async function fillW2Form({
   formData: unknown;
 }) {
   try {
+    await createNewForm({ page });
+    logger.info(`Start filling process`);
+
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
     const tableLikeInputs = [];
@@ -22,7 +26,7 @@ export async function fillW2Form({
 
     for (let input of inputs) {
       const inputType = input.inputType;
-      const { xpath, value, label, custom } = input;
+      const { custom, label } = input;
 
       if (custom && custom === "table") {
         tableLikeInputs.push(input);
@@ -37,16 +41,16 @@ export async function fillW2Form({
       try {
         switch (inputType) {
           case "checkbox":
-            await checkboxInput({ value, label, xpath, page });
+            await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "text":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "select":
-            await selectOption({ value, label, xpath, page });
+            await selectOption({ page, input });
             break;
         }
       } catch (error) {
@@ -55,14 +59,14 @@ export async function fillW2Form({
     }
     // handle special cases -- inputs inside table
     for (let i = 0; i < tableLikeInputs.length; i++) {
-      const { xpath, value, label } = tableLikeInputs[i];
+      const input = tableLikeInputs[i];
+      const { value, label } = input;
       try {
         await fillTableLikeInputs({
           value: value,
-          label,
-          xpath,
-          page,
           index: i,
+          page,
+          input,
         });
       } catch (error) {
         logger.error(`Error processing: ${label}`);
@@ -71,16 +75,16 @@ export async function fillW2Form({
 
     // handle special cases --  inputs inside popup
     for (let i = 0; i < popupLikeInputs.length; i++) {
-      const { xpath, value, label } = popupLikeInputs[i];
+      const input = popupLikeInputs[i];
+      const { value, label } = input;
       try {
         await fillPopupLikeInputs({
           value: value,
-          label,
-          xpath,
           page,
+          input,
         });
       } catch (error) {
-        logger.error(`Error processing: ${label}`);
+        logger.error(`Error processing: ${label} --> ${error}`);
       }
     }
 
