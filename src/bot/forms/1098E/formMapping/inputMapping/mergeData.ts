@@ -1,4 +1,4 @@
-import { IInput, IInputMapping, InputField, IMergeData } from "./declaration";
+import { IInput, IInputMapping, InputField, IMergeData } from "../declaration";
 import { normalizeText, normalizeXPath } from "./utils";
 
 function processMixedInputs(input: InputField, refData: any): IInput[] {
@@ -10,6 +10,7 @@ function processMixedInputs(input: InputField, refData: any): IInput[] {
         : refData.type;
 
       return {
+        ...field,
         label: normalizeText(field.label),
         ref: normalizeText(input.ref as string),
         inputType: normalizeText(field.inputType),
@@ -41,6 +42,7 @@ function processTableInputs(input: InputField, refData: any[]): IInput[] {
       );
 
       return {
+        ...field,
         label: normalizeText(field.label),
         ref: normalizeText(input.ref as string),
         inputType: normalizeText(field.inputType),
@@ -56,6 +58,7 @@ function processTableInputs(input: InputField, refData: any[]): IInput[] {
 
 function processStandardInput(input: InputField, refData: any): IInput {
   return {
+    ...input,
     label: normalizeText(input?.label),
     ref: normalizeText(input?.ref as string),
     inputType: normalizeText(input?.inputType),

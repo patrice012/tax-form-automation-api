@@ -23,7 +23,7 @@ export async function fill1098EForm({
     const popupLikeInputs = [];
 
     for (let input of inputs) {
-      const { xpath, value, label, custom, inputType } = input;
+      const { label, custom, inputType } = input;
 
       if (custom && custom === "popup") {
         popupLikeInputs.push(input);
@@ -33,16 +33,16 @@ export async function fill1098EForm({
       try {
         switch (inputType) {
           case "checkbox":
-            await checkboxInput({ value, label, xpath, page });
+            await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "text":
-            await fillTextInput({ value, label, xpath, page });
+            await fillTextInput({ page, input });
             break;
           case "select":
-            await selectOption({ value, label, xpath, page });
+            await selectOption({ page, input });
             break;
         }
       } catch (error) {
@@ -52,15 +52,15 @@ export async function fill1098EForm({
 
     // handle special cases --  inputs inside popup
     for (let i = 0; i < popupLikeInputs.length; i++) {
-      const { xpath, value, label } = popupLikeInputs[i];
+      const input = popupLikeInputs[i];
+      const { value, label } = input;
       try {
         // parse value => [[label, val]]]
         const newValue = transformValue(value);
         await fillPopupLikeInputs({
           value: newValue,
-          label,
-          xpath,
           page,
+          input,
         });
       } catch (error) {
         logger.error(`Error processing: ${label} --> ${error}`);
