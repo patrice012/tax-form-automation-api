@@ -5,6 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1098Form({
   page,
@@ -15,6 +16,7 @@ export async function fill1098Form({
 }) {
   try {
     // Navigate to the correct page
+    await closeSideBarPopup({ page });
     await navigateToCorrectForm({ page });
 
     const inputMapping = await getInputMapping({ data: formData });

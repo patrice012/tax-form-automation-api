@@ -4,6 +4,7 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1099NECForm({
   page,
@@ -13,6 +14,8 @@ export async function fill1099NECForm({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
+
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
 

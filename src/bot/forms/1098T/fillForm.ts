@@ -6,6 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
 import { createNewForm } from "./formActions/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1098TForm({
   page,
@@ -15,9 +16,9 @@ export async function fill1098TForm({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
     // Navigate to the correct page
     await navigateToCorrectForm({ page });
-
     await createNewForm({ page });
     logger.info(`Start filling process`);
 
