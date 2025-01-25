@@ -1,10 +1,12 @@
 import { Page } from "playwright";
 import logger from "../../../utils/logger";
 import { fillInputs } from "./fillInputs";
-import { getInputNumber } from "./helper";
 import { openPopup } from "./openPopup";
 import { clickActionButton } from "./saveFormAndClosePopup";
 import { IInput } from "../../forms/declaration";
+import { waitForPopup } from "./waitForPopup";
+
+const INITIAL_NUMBER_OF_INPUTS = 2;
 
 export async function fillPopupLikeInputs({
   value,
@@ -18,7 +20,6 @@ export async function fillPopupLikeInputs({
   const { xpath, label, id, dataTestId, inputIndex } = input;
   try {
     logger.info(`Attempting to fill input for ${label} with value: ${value}`);
-    logger.info(`Using xpath: ${xpath}`);
 
     // Open the popup
     const popup = await openPopup({ page, xpath, id, dataTestId });
@@ -27,29 +28,17 @@ export async function fillPopupLikeInputs({
       logger.error("Failed to open popup");
       return;
     }
+    logger.info("Popup is open, start processing");
 
     // Wait for the popup modal
     const popupSelector = "[data-testid='stacked-modal']";
     await waitForPopup({ page, selector: popupSelector });
-
-    // Initial inputs and calculations
-    const INITIAL_NUMBER_OF_INPUTS = 2;
-    let numberOfInputs = await getInputNumber({
-      page,
-      selector: popupSelector,
-    });
-    logger.info(`Initial number of inputs: ${numberOfInputs}`);
-
-    const requiredInputs = INITIAL_NUMBER_OF_INPUTS * value.length;
-    logger.info(`Required inputs: ${requiredInputs}`);
 
     // Fill inputs
     await fillInputs({
       page,
       value,
       popupSelector,
-      numberOfInputs,
-      requiredInputs,
     });
 
     // Click the action button
@@ -59,22 +48,5 @@ export async function fillPopupLikeInputs({
     logger.info(`Successfully filled input with value: ${value} for ${label}`);
   } catch (error) {
     logger.error(`Primary method failed for ${label}:`, error);
-  }
-}
-
-// Helper to wait for popup visibility
-async function waitForPopup({
-  page,
-  selector,
-}: {
-  page: Page;
-  selector: string;
-}) {
-  try {
-    logger.info("Waiting for popup to appear...");
-    await page.locator(selector).waitFor({ state: "visible", timeout: 15000 });
-    logger.info("Popup is visible.");
-  } catch (error) {
-    logger.error(`Error waiting for popup: ${error}`);
   }
 }

@@ -9,5 +9,5 @@ export async function getInputNumber({
   selector: string;
 }) {
   const inputs = await page.locator(selector).locator("input").all();
-  return inputs.length || 2;
+  return inputs.length;
 }

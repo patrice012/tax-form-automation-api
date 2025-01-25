@@ -42,13 +42,26 @@ export async function openPopup({
     const btnSelector = 'button[type="button"]'; // Or 'button[aria-label="expandDetails"]' if needed
     const buttonLocator = closestDiv.locator(btnSelector);
 
-    logger.info(
-      "Waiting for the expand button within the closest div to appear..."
-    );
-    await buttonLocator.waitFor({ state: "visible", timeout: 30000 });
+    if (!buttonLocator) {
+      logger.error("Open popup Button not found");
+      return { isOpen: false };
+    }
+
+    try {
+      logger.info(
+        "Waiting for the expand button within the closest div to appear..."
+      );
+      await buttonLocator.waitFor({ state: "visible", timeout: 5000 });
+    } catch (error) {
+      logger.warn(
+        "Fail to waiting for the expan button to become visible after 10s"
+      );
+    }
 
     logger.info("Clicking the expand button...");
-    await buttonLocator.click();
+    await buttonLocator.click({
+      timeout: 5000,
+    });
 
     return { isOpen: true };
   } catch (error) {
