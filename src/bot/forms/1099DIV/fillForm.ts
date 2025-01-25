@@ -5,9 +5,11 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
-import { resetInputValues } from "./formActions/resetInpustValue";
-import { createNewRow } from "./formActions/createNewRow";
+import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
 import { displayDetailForm } from "./formActions/displayDetailForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { resetInputValues } from "../../inputTypeHandlers/utils/resetInpustValue";
+import { areInputsFilled } from "../../inputTypeHandlers/utils/areInputsFilled";
 
 export async function fill1099DIVForm({
   page,
@@ -18,14 +20,23 @@ export async function fill1099DIVForm({
 }) {
   try {
     // Create a new row
-    const newRow = await createNewRow({ page });
-    logger.info(`New row created: ${JSON.stringify(newRow)}`);
-    await displayDetailForm({
-      page,
-      btnIndex: Number(newRow.rowIndex) - 1,
-    });
+    const newRow = await getLatestEmptyRow({ page });
+    if (newRow) {
+      await displayDetailForm({
+        page,
+        btnIndex: Number(newRow.rowIndex) - 1,
+      });
+    }
+    await closeSideBarPopup({ page });
 
-    await resetInputValues({ page });
+    // const hasFilledInputs = await areInputsFilled({
+    //   page,
+    //   mainSelector: ".main-content",
+    // });
+
+    // if (hasFilledInputs) {
+    //   await resetInputValues({ page });
+    // }
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;

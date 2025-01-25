@@ -3,8 +3,8 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { createNewRow } from "./formActions/createNewRow";
 import { displayDetailForm } from "./formActions/displayDetailForm";
+import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
 
 export async function fillEntryForm({
   page,
@@ -31,7 +31,7 @@ export async function fillEntryForm({
     }
 
     // Create a new row
-    const newRow = await createNewRow({ page });
+    const newRow = await getLatestEmptyRow({ page });
     logger.info(`New row created: ${JSON.stringify(newRow)}`);
 
     if (!newRow) {

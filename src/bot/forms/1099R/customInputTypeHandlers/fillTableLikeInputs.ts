@@ -20,7 +20,6 @@ export async function fillTableLikeInputs({
     logger.info(
       `Handling table-like inputs for: ${label} with values: ${value}`
     );
-    logger.info(`Using xpath: ${xpath}`);
 
     try {
       // Wait for the label to be visible
@@ -81,9 +80,34 @@ export async function fillTableLikeInputs({
       logger.info(`Current index: ${inputIndex}`);
 
       try {
-        // First, find the table using XPath
-        const table = page.locator(`xpath=${xpath}/ancestor::table`);
-        await table.waitFor({ state: "visible", timeout: 5000 });
+        // Determine the best selector to use
+        let table;
+        if (id) {
+          logger.info(`Using ID: ${id}`);
+          // Locate the closest table using XPath
+          table = page
+            .locator(`xpath=//*[@id="${id}"]/ancestor::table`)
+            .first();
+        } else if (dataTestId && !table) {
+          logger.info(`Using data-testid: ${dataTestId}`);
+          // Locate the closest table using XPath with data-testid
+          table = page
+            .locator(`xpath=//*[@data-testid="${dataTestId}"]/ancestor::table`)
+            .first();
+        } else if (xpath && !table) {
+          logger.info(`Using XPath: ${xpath}`);
+          // Combine the provided XPath with ancestor::table
+          table = page.locator(`xpath=${xpath}/ancestor::table`).first();
+        } else {
+          throw new Error("No valid selector provided to locate the input.");
+        }
+
+        // Wait for the table to be visible or handle it further
+        try {
+          await table.waitFor({ state: "visible", timeout: 5000 });
+        } catch (error) {
+          logger.error(`Error waiting for table element: ${error}`);
+        }
 
         // Get all inputs within the table using a relative XPath
         const inputs = await table.locator("input").all();

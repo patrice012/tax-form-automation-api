@@ -6,6 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillEntryForm } from "./fillEntryForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1099BLongTermForm({
   page,
@@ -15,6 +16,7 @@ export async function fill1099BLongTermForm({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
     const sectionInputMapping = await getInputMapping({ data: formData });
 
     for (let inputMapping of sectionInputMapping) {

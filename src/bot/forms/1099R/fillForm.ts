@@ -6,9 +6,11 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { createNewRow } from "./formActions/createNewRow";
-import { resetInputValues } from "./formActions/resetInpustValue";
+import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
+import { resetInputValues } from "../../inputTypeHandlers/utils/resetInpustValue";
 import { displayDetailForm } from "./formActions/displayDetailForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { areInputsFilled } from "../../inputTypeHandlers/utils/areInputsFilled";
 
 export async function fill1099RForm({
   page,
@@ -18,18 +20,24 @@ export async function fill1099RForm({
   formData: unknown;
 }) {
   try {
-    // Navigate to the correct page
-    // await displayDetailForm({ page });
-
     // Create a new row
-    const newRow = await createNewRow({ page });
-    logger.info(`New row created: ${JSON.stringify(newRow)}`);
-    await displayDetailForm({
-      page,
-      btnIndex: Number(newRow.rowIndex) - 1,
-    });
+    const newRow = await getLatestEmptyRow({ page });
+    if (newRow) {
+      await displayDetailForm({
+        page,
+        btnIndex: Number(newRow.rowIndex) - 1,
+      });
+    }
+    await closeSideBarPopup({ page });
 
-    await resetInputValues({ page });
+    // const hasFilledInputs = await areInputsFilled({
+    //   page,
+    //   mainSelector: ".main-content",
+    // });
+
+    // if (hasFilledInputs) {
+    //   await resetInputValues({ page });
+    // }
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
