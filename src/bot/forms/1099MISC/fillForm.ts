@@ -8,6 +8,7 @@ import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { navigateToCorrectForm } from "./handleFormNavigation";
 import { createNewForm } from "./formActions/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1099MISCForm({
   page,
@@ -18,8 +19,8 @@ export async function fill1099MISCForm({
 }) {
   try {
     // Navigate to the correct page
+    await closeSideBarPopup({ page });
     await navigateToCorrectForm({ page });
-
     await createNewForm({ page });
     logger.info(`Start filling process`);
 

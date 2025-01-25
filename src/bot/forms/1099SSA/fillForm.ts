@@ -6,6 +6,7 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1099SSAForm({
   page,
@@ -15,6 +16,8 @@ export async function fill1099SSAForm({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
+
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
     const popupLikeInputs = [];

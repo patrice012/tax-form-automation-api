@@ -7,6 +7,7 @@ import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { createNewForm } from "./formActions/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fillW2Form({
   page,
@@ -16,6 +17,7 @@ export async function fillW2Form({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
     await createNewForm({ page });
     logger.info(`Start filling process`);
 

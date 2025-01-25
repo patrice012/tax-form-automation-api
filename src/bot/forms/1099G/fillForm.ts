@@ -7,6 +7,7 @@ import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { createNewForm } from "./formActions/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 
 export async function fill1099GForm({
   page,
@@ -16,6 +17,7 @@ export async function fill1099GForm({
   formData: unknown;
 }) {
   try {
+    await closeSideBarPopup({ page });
     await createNewForm({ page });
     logger.info(`Start filling process`);
 
