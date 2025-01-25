@@ -4,10 +4,11 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { createNewForm } from "./formActions/createNewForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { mapToArray } from "../utils/mapToArray";
 
 export async function fill1099GForm({
   page,
@@ -81,7 +82,7 @@ export async function fill1099GForm({
       const { value, label } = input;
       try {
         // parse value => [[label, val]]]
-        const newValue = transformValue(value);
+        const newValue = mapToArray(value);
         await fillPopupLikeInputs({
           value: newValue,
           page,
@@ -96,13 +97,4 @@ export async function fill1099GForm({
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
-}
-
-function transformValue(value: unknown[]) {
-  return value
-    .filter((item) => item)
-    .map((item) => {
-      // If the item is not an array, transform it into ["", item]
-      return Array.isArray(item) ? item : ["", item];
-    });
 }

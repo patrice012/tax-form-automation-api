@@ -1,11 +1,11 @@
 import { Page } from "playwright";
 import { getInputMapping } from "./formMapping/inputMapping";
 import logger from "../../../utils/logger";
-import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { textForTable } from "../../inputTypeHandlers/textForTable";
 
 export async function fill1098Form({
   page,
@@ -32,10 +32,10 @@ export async function fill1098Form({
             await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ page, input });
+            await textForTable({ page, input });
             break;
           case "text":
-            await fillTextInput({ page, input });
+            await textForTable({ page, input });
             break;
           case "select":
             await selectOption({ page, input });

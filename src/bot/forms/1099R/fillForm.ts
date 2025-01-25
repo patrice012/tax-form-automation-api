@@ -4,13 +4,12 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
-import { resetInputValues } from "../../inputTypeHandlers/utils/resetInpustValue";
 import { displayDetailForm } from "./formActions/displayDetailForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
-import { areInputsFilled } from "../../inputTypeHandlers/utils/areInputsFilled";
+import { mapToArray } from "../utils/mapToArray";
 
 export async function fill1099RForm({
   page,
@@ -29,15 +28,6 @@ export async function fill1099RForm({
       });
     }
     await closeSideBarPopup({ page });
-
-    // const hasFilledInputs = await areInputsFilled({
-    //   page,
-    //   mainSelector: ".main-content",
-    // });
-
-    // if (hasFilledInputs) {
-    //   await resetInputValues({ page });
-    // }
 
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
@@ -99,7 +89,7 @@ export async function fill1099RForm({
       const { value, label } = input;
       try {
         // parse value => [[label, val]]]
-        const newValue = transformValue(value);
+        const newValue = mapToArray(value);
         await fillPopupLikeInputs({
           value: newValue,
           page,
@@ -114,13 +104,4 @@ export async function fill1099RForm({
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
-}
-
-function transformValue(value: unknown[]) {
-  return value
-    .filter((item) => item)
-    .map((item) => {
-      // If the item is not an array, transform it into ["", item]
-      return Array.isArray(item) ? item : ["", item];
-    });
 }

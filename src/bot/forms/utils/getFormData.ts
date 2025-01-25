@@ -1,8 +1,6 @@
 import logger from "../../../utils/logger";
 import { IMergeData } from "../declaration";
 
-
-
 export function getFormData({
   formName,
   data,

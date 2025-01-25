@@ -5,7 +5,7 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { createNewForm } from "./formActions/createNewForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 

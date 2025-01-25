@@ -1,12 +1,13 @@
 import { Page } from "playwright";
 import { getInputMapping } from "./formMapping/inputMapping";
 import logger from "../../../utils/logger";
-import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { mapToArray } from "../utils/mapToArray";
+import { textForTable } from "../../inputTypeHandlers/textForTable";
 
 export async function fill1099SSAForm({
   page,
@@ -42,10 +43,10 @@ export async function fill1099SSAForm({
             await checkboxInput({ page, input });
             break;
           case "number":
-            await fillTextInput({ page, input });
+            await textForTable({ page, input });
             break;
           case "text":
-            await fillTextInput({ page, input });
+            await textForTable({ page, input });
             break;
           case "select":
             await selectOption({ page, input });
@@ -78,7 +79,7 @@ export async function fill1099SSAForm({
       const { value, label } = input;
       try {
         // parse value => [[label, val]]]
-        const newValue = transformValue(value);
+        const newValue = mapToArray(value);
         await fillPopupLikeInputs({
           value: newValue,
           page,
@@ -93,13 +94,4 @@ export async function fill1099SSAForm({
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
-}
-
-function transformValue(value: unknown[]) {
-  return value
-    .filter((item) => item)
-    .map((item) => {
-      // If the item is not an array, transform it into ["", item]
-      return Array.isArray(item) ? item : ["", item];
-    });
 }

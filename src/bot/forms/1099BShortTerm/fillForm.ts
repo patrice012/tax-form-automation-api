@@ -4,9 +4,10 @@ import logger from "../../../utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/popupLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillEntryForm } from "./fillEntryForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { mapToArray } from "../utils/mapToArray";
 
 export async function fill1099BShortTermForm({
   page,
@@ -83,7 +84,7 @@ export async function fill1099BShortTermForm({
         const { value, label } = input;
         try {
           // parse value => [[label, val]]]
-          const newValue = transformValue(value);
+          const newValue = mapToArray(value);
           await fillPopupLikeInputs({
             value: newValue,
             page,
@@ -108,13 +109,4 @@ export async function fill1099BShortTermForm({
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
-}
-
-function transformValue(value: unknown[]) {
-  return value
-    .filter((item) => item)
-    .map((item) => {
-      // If the item is not an array, transform it into ["", item]
-      return Array.isArray(item) ? item : ["", item];
-    });
 }
