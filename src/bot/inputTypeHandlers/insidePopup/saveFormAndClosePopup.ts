@@ -15,7 +15,11 @@ export async function clickActionButton({
 
   try {
     // Wait for the button to be visible
-    await actionButton.waitFor({ state: "visible", timeout: 3000 });
+    try {
+      await actionButton.waitFor({ state: "visible", timeout: 7000 });
+    } catch (error) {
+      logger.info(`Error waiting for element: ${error}`);
+    }
 
     // Click the action button
     await actionButton.click();

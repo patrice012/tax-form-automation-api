@@ -22,6 +22,11 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
 
     const { email, taxYear, formData } = await getClientInformation();
 
+    if (!email) {
+      logger.warn(`No client email provided`);
+      return { page, success: false };
+    }
+
     const nameElement = await findClientNameByEmail({
       page,
       emailToFind: email.trim(),
@@ -44,7 +49,12 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
         const tableRow = page
           .locator("[data-testid='protax-datatable-row']")
           .first();
-        await tableRow.waitFor({ state: "visible", timeout: 5000 });
+
+        try {
+          await tableRow.waitFor({ state: "visible", timeout: 7000 });
+        } catch (error) {
+          logger.info(`Error waiting for element: ${error}`);
+        }
         logger.info("Table row is visible");
 
         const hasItems = await page.evaluate(
@@ -75,9 +85,9 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
       }
 
       if (tableElementsFound) {
-        await handleExistingTaxReturn(page);
+        await handleExistingTaxReturn({ page });
       } else {
-        await handleNewTaxReturn(page);
+        await handleNewTaxReturn({ page, taxYear });
       }
     } catch (error) {
       logger.error("Error handling tax return:", error);
@@ -90,7 +100,7 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
     logger.info("start fill forms");
     await fillAllForms({ page, formData });
 
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(7000);
 
     return { page, success: true };
   } catch (error) {

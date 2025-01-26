@@ -1,8 +1,13 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
-import { getClientInformation } from "./getClientInformation";
 
-export async function handleNewTaxReturn(page: Page): Promise<any> {
+export async function handleNewTaxReturn({
+  page,
+  taxYear,
+}: {
+  page: Page;
+  taxYear: string;
+}): Promise<any> {
   try {
     // Create tax return
     const createButton = page
@@ -19,8 +24,6 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
     await createButton.click();
 
     // Select appropriate tax year
-    const { taxYear } = await getClientInformation();
-
     const locator = page
       .locator("[data-automation-id='select-return-year']")
       .first();
@@ -32,7 +35,7 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
         logger.info("Waiting for select element to be visible...");
         await locator.waitFor({
           state: "visible",
-          timeout: 5000,
+          timeout: 7000,
         });
       } catch (error) {
         logger.warn(`Failed to wait for element`);
@@ -91,7 +94,7 @@ export async function handleNewTaxReturn(page: Page): Promise<any> {
         logger.info("Waiting for select element to be visible...");
         await typeLocator.waitFor({
           state: "visible",
-          timeout: 5000,
+          timeout: 7000,
         });
       } catch (error) {
         logger.warn(`Failed to wait for element`);

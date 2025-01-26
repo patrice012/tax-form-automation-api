@@ -38,14 +38,14 @@ export async function checkInputValue({
 
     try {
       // Wait for element to be visible
-      await locator.waitFor({ state: "visible", timeout: 5000 });
+      await locator.waitFor({ state: "visible", timeout: 7000 });
       logger.info(`Input is visible`);
     } catch {
       logger.warn(`Input is not visible`);
     }
 
     try {
-      const value = locator?.inputValue();
+      const value = locator?.inputValue({ timeout: 7000 });
       return Boolean(value);
     } catch (error) {
       logger.error(`Fail to test inputValue: ${error}`);

@@ -11,7 +11,7 @@ export async function waitForPopup({
 }) {
   try {
     logger.info("Waiting for popup to appear...");
-    await page.locator(selector).waitFor({ state: "visible", timeout: 15000 });
+    await page.locator(selector).waitFor({ state: "visible", timeout: 17000 });
     logger.info("Popup is visible.");
   } catch (error) {
     logger.error(`Error waiting for popup: ${error}`);

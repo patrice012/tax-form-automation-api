@@ -16,7 +16,7 @@ export async function navigateToClientProfile(
 
     const url = `https://ito.intuit.com${href}`;
     try {
-      await page.goto(url, { waitUntil: "networkidle", timeout: 10000 });
+      await page.goto(url, { waitUntil: "networkidle", timeout: 15000 });
       logger.info("Navigated to client profile");
     } catch (error) {
       logger.warn("Failed to navigated to client profile");

@@ -13,7 +13,11 @@ export async function navigateToCorrectForm({ page }: { page: Page }) {
 
     // Wait for the button to be visible
     logger.info(`Waiting for btn:has-text=${stepTitle} to be visible`);
-    await button.waitFor({ state: "visible" });
+    try {
+      await button.waitFor({ state: "visible", timeout: 15000 });
+    } catch (error) {
+      logger.info(`Error waiting for element: ${error}`);
+    }
 
     try {
       // Attempt to click the button

@@ -12,7 +12,7 @@ export const checkForOTP = async ({
       logger.info("Waiting for OTP option to appear...");
       await page
         .locator(otpOptionSelector)
-        .waitFor({ state: "visible", timeout: 5000 });
+        .waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.warn("Error waiting for OTP option:", error);
       return { page, success: false };

@@ -17,7 +17,7 @@ export async function closeSideBarPopup({ page }: { page: Page }) {
     try {
       // Wait for the button to be visible
       logger.info(`Waiting for sidebar popup to become visible`);
-      await button.waitFor({ state: "visible", timeout: 5000 });
+      await button.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.error(`Sidebar popup Error: ${error}`);
     }

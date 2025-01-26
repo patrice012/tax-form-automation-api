@@ -12,7 +12,11 @@ export async function navigateToFormsSection({
       const locator = page.locator(
         "[data-automation-id='SECTION_INPUT_RETURN']"
       );
-      await locator.waitFor({ state: "visible" });
+      try {
+        await locator.waitFor({ state: "visible", timeout: 15000 });
+      } catch (error) {
+        logger.info(`Error waiting for element: ${error}`);
+      }
       await locator.click();
       logger.info("Clicked Input Return button");
     } catch (clickError) {

@@ -17,7 +17,7 @@ export async function navigateToStep({
       `Waiting for button:has-text("${stepTitle}") to become visible.`
     );
     try {
-      await buttonLocator.waitFor({ state: "visible", timeout: 5000 });
+      await buttonLocator.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.info(`Error waiting for button to become visible: ${error}`);
     }
@@ -26,7 +26,7 @@ export async function navigateToStep({
       // Attempt to click the button normally
       logger.info(`Clicking button:has-text("${stepTitle}")`);
       await buttonLocator.click({
-        timeout: 5000,
+        timeout: 7000,
       });
       logger.info(`Successfully clicked button:has-text("${stepTitle}")`);
     } catch (clickError) {

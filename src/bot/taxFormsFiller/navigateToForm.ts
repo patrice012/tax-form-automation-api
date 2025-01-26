@@ -12,7 +12,12 @@ export async function navigateToForm({
     // Attempt to click the form link
     try {
       const locator = page.locator("a", { hasText: linkText });
-      await locator.waitFor({ state: "visible" });
+      try {
+        await locator.waitFor({ state: "visible", timeout: 15000 });
+      } catch (error) {
+        logger.info(`Error waiting for element: ${error}`);
+      }
+
       await locator.click();
       logger.info(`Clicked ${linkText} form link`);
     } catch (linkClickError) {

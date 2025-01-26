@@ -16,7 +16,7 @@ export async function navigateToStep({
     logger.info(`Waiting for btn:has-text=${stepTitle} to be visible`);
 
     try {
-      await button.waitFor({ state: "visible", timeout: 5000 });
+      await button.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.info(`Error waiting for button to become visible: ${error}`);
     }
@@ -25,8 +25,8 @@ export async function navigateToStep({
       // Attempt to click the button
       logger.info(`Attempting to click button:has-text=${stepTitle}`);
       await button.click({
-        timeout: 5000,
-      });;
+        timeout: 7000,
+      });
       logger.info(`Clicked button:has-text=${stepTitle}`);
     } catch (clickError) {
       // Fallback: Use evaluate to click the button

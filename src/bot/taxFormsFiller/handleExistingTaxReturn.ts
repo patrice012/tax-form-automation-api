@@ -1,7 +1,11 @@
 import { Page } from "playwright";
 import logger from "../../utils/logger";
 
-export async function handleExistingTaxReturn(page: Page): Promise<void> {
+export async function handleExistingTaxReturn({
+  page,
+}: {
+  page: Page;
+}): Promise<void> {
   const firstRow = page.locator("[data-testid='protax-datatable-row']").first();
   const button = firstRow.locator("button#viewTaxReturn");
 

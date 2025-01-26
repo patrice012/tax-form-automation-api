@@ -25,6 +25,7 @@ export async function textForTable({
     logger.info(`Check if input for ${label} is already filled`);
     const isInputFilled = await checkInputValue({ page, input });
     logger.info(`Input for ${label} has value: ${isInputFilled}`);
+    
     if (!isInputFilled) {
       logger.info(`Input for ${label} has no value, start filling normaly`);
       await fillTextInput({ page, input });

@@ -51,7 +51,7 @@ export async function openPopup({
       logger.info(
         "Waiting for the expand button within the closest div to appear..."
       );
-      await buttonLocator.waitFor({ state: "visible", timeout: 5000 });
+      await buttonLocator.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.warn(
         "Fail to waiting for the expan button to become visible after 10s"
@@ -60,7 +60,7 @@ export async function openPopup({
 
     logger.info("Clicking the expand button...");
     await buttonLocator.click({
-      timeout: 5000,
+      timeout: 7000,
     });
 
     return { isOpen: true };

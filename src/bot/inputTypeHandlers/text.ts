@@ -33,7 +33,7 @@ export async function fillTextInput({
 
   try {
     // Wait for element to be visible
-    await locator.waitFor({ state: "visible", timeout: 5000 });
+    await locator.waitFor({ state: "visible", timeout: 7000 });
     logger.info(`Input is visible`);
   } catch {
     logger.warn(`Input is not visible`);

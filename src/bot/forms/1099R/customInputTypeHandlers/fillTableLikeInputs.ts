@@ -104,7 +104,7 @@ export async function fillTableLikeInputs({
 
         // Wait for the table to be visible or handle it further
         try {
-          await table.waitFor({ state: "visible", timeout: 5000 });
+          await table.waitFor({ state: "visible", timeout: 7000 });
         } catch (error) {
           logger.error(`Error waiting for table element: ${error}`);
         }
@@ -119,8 +119,11 @@ export async function fillTableLikeInputs({
         }
 
         // Wait for the specific input to be visible and interactable
-        await inputs[inputIndex].waitFor({ state: "visible", timeout: 5000 });
-
+        try {
+          await inputs[inputIndex].waitFor({ state: "visible", timeout: 7000 });
+        } catch (error) {
+          logger.info(`Error waiting for element: ${error}`);
+        }
         // Fill the input
         await inputs[inputIndex].fill(inputValue, { force: true });
 

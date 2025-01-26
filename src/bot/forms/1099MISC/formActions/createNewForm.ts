@@ -11,14 +11,16 @@ export async function createNewForm({ page }: { page: Page }) {
     try {
       // Wait for the button to become visible
       logger.info(`Waiting for button to become visible.`);
-      await buttonLocator.waitFor({ state: "visible", timeout: 5000 });
-    } catch (error) {}
+      await buttonLocator.waitFor({ state: "visible", timeout: 7000 });
+    } catch (error) {
+      logger.info(`Error waiting for element: ${error}`);
+    }
 
     try {
       // Attempt to click the button normally
       logger.info(`Clicking create new form button`);
       await buttonLocator.click({
-        timeout: 5000,
+        timeout: 7000,
       });
       logger.info(`Successfully clicked create new form button`);
     } catch (clickError) {
