@@ -1,4 +1,4 @@
-import { Tfield } from "./declaration";
+import { Tfield } from "../declaration";
 
 const inputs_fields = [
   {

@@ -1,12 +1,19 @@
 import { Page } from 'playwright';
-import { verifyFormVisibility } from './verifyFormVisibility';
 import logger from '@/utils/logger';
-import { navigateToForm } from '../../../taxFormsFiller/navigateToForm';
+import { verifyFormVisibility } from '../utils/verifyFormVisibility';
+import { navigateToForm } from '../../taxFormsFiller/navigateToForm';
 
 export async function navigateToCorrectForm({ page }: { page: Page }) {
   try {
     // Check visibility of the current forms
-    const visibilityStatus = await verifyFormVisibility({ page });
+    const correctFormText = 'Quick Entry:';
+    const alternateFormText = 'Back to Quick entry';
+
+    const visibilityStatus = await verifyFormVisibility({
+      page,
+      correctFormText,
+      alternateFormText,
+    });
 
     if (visibilityStatus.isAlternateForm) {
       logger.info(

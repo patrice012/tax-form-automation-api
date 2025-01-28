@@ -4,7 +4,7 @@ import logger from "@/utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { navigateToCorrectForm } from "./handleFormNavigation";
+import { navigateToCorrectForm } from "./navigateToCorrectForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { selecteLastForm } from "../utils/selecteLastForm";
 import { createNewForm } from "../utils/createNewForm";

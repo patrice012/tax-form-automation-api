@@ -1,20 +1,28 @@
 import { Page } from 'playwright';
-import { verifyFormVisibility } from './verifyFormVisibility';
 import logger from '@/utils/logger';
-import { navigateToStep } from './navigateToStep';
+import { verifyFormVisibility } from '../utils/verifyFormVisibility';
+import { navigateToForm } from '../../taxFormsFiller/navigateToForm';
 
 export async function navigateToCorrectForm({ page }: { page: Page }) {
   try {
     // Check visibility of the current forms
-    const visibilityStatus = await verifyFormVisibility({ page });
+    const correctFormText = 'Quick Entry:';
+    const alternateFormText = 'Back to Quick entry';
+
+    const visibilityStatus = await verifyFormVisibility({
+      page,
+      correctFormText,
+      alternateFormText,
+    });
 
     if (visibilityStatus.isAlternateForm) {
       logger.info(
         'User is on the alternate form page, navigating to the correct form.',
       );
-      logger.info('On Entry page, go to detail page');
-      await navigateToStep({ page, stepTitle: 'Form 1099-MISC/NEC' });
-      logger.info('Go to detail form page');
+      logger.info('Relaoding page');
+      await page.reload();
+      await navigateToForm({ page, linkText: 'Dispositions (Sch D, etc.)' });
+      logger.info('Reopen Dispositions (Sch D, etc.) form');
       logger.info('Navigation to the correct form page completed.');
     } else if (visibilityStatus.isCorrectForm) {
       logger.info(

@@ -1,7 +1,6 @@
 import logger from '@/utils/logger';
 import { mergeData } from './mergeData';
-import { cleanUpInputMapping } from './utils';
-import { IInput } from '../declaration';
+import { IInput } from '../../../declaration';
 import { getEntryPointInputFields } from '../inputFields/entryPoint';
 import { get4684InputFields } from '../inputFields/4684';
 import { getGeneralInformationInputFields } from '../inputFields/generalInformation';
@@ -9,6 +8,7 @@ import { getLessCommonScenariosInputFields } from '../inputFields/lessCommonScen
 import { getSaleOfAssetInputFields } from '../inputFields/saleOfAsset';
 import { getSaleOfHomeInputFields } from '../inputFields/saleOfHome';
 import { getScheduleDInputFields } from '../inputFields/scheduleD';
+import { cleanUpInputMapping } from '../../../utils/inputMapping';
 
 type InputFieldsFetcher = () => any;
 type InputMappingResult = {

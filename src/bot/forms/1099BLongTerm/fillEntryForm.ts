@@ -3,8 +3,8 @@ import logger from '@/utils/logger';
 import { fillTextInput } from '../../inputTypeHandlers/text';
 import { selectOption } from '../../inputTypeHandlers/select';
 import { checkboxInput } from '../../inputTypeHandlers/checkbox';
-import { displayDetailForm } from './formActions/displayDetailForm';
-import { getLatestEmptyRow } from './formActions/getLatestEmptyRow';
+import { getLatestEmptyRow } from '../utils/getLatestEmptyRow';
+import { displayDetailForm } from '../utils/displayDetailForm';
 
 export async function fillEntryForm({
   page,

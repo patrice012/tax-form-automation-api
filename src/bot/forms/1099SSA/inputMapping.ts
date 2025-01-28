@@ -1,8 +1,8 @@
-import logger from "@/utils/logger";
-import { getInputFields } from "./inputFields";
-import { IInputMapping } from "./declaration";
-import { mergeInputFieldsWithClientData } from "../utils/mergeInputFieldsWithClientData";
-import { cleanUpInputMapping } from "../utils/inputMapping";
+import logger from '@/utils/logger';
+import { getInputFields } from './inputFields';
+import { IInputMapping } from '../declaration';
+import { mergeInputFieldsWithClientData } from '../utils/mergeInputFieldsWithClientData';
+import { cleanUpInputMapping } from '../utils/inputMapping';
 // import { getFormData } from '../../../utils/getFormData';
 // import { getData } from '../../../../dummyData/getData';
 
@@ -23,7 +23,7 @@ export async function getInputMapping({
     const clientData = Array.isArray(data) ? data : [data];
     const inputMapping = mergeInputFieldsWithClientData(
       clientData,
-      inputFields
+      inputFields,
     );
 
     return cleanUpInputMapping(inputMapping);

@@ -6,11 +6,11 @@ import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { navigateToCorrectForm } from "./handleFormNavigation";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { mapToArray } from "../utils/mapToArray";
 import { selecteLastForm } from "../utils/selecteLastForm";
 import { createNewForm } from "../utils/createNewForm";
+import { navigateToCorrectForm } from "./navigateToCorrectForm";
 
 export async function fill1099MISCForm({
   page,

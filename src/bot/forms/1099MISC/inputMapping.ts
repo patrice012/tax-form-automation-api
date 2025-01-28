@@ -1,6 +1,6 @@
 import logger from "@/utils/logger";
 import { getInputFields } from "./inputFields";
-import { IInputMapping } from "./declaration";
+import { IInputMapping } from "../declaration";
 import { mergeInputFieldsWithClientData } from "../utils/mergeInputFieldsWithClientData";
 import { cleanUpInputMapping } from "../utils/inputMapping";
 // import { getFormData } from '../../../utils/getFormData';

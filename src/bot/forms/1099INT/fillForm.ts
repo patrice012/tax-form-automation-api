@@ -5,10 +5,10 @@ import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
-import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
-import { displayDetailForm } from "./formActions/displayDetailForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { mapToArray } from "../utils/mapToArray";
+import { getLatestEmptyRow } from "../utils/getLatestEmptyRow";
+import { displayDetailForm } from "../utils/displayDetailForm";
 
 export async function fill1099INTForm({
   page,

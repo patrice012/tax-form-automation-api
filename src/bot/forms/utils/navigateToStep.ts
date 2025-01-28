@@ -1,5 +1,5 @@
-import { Page } from 'playwright';
-import logger from '@/utils/logger';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
 
 export async function navigateToStep({
   page,
@@ -14,11 +14,11 @@ export async function navigateToStep({
 
     // Wait for the button to become visible
     logger.info(
-      `Waiting for button:has-text("${stepTitle}") to become visible.`,
+      `Waiting for button:has-text("${stepTitle}") to become visible.`
     );
 
     try {
-      await buttonLocator.waitFor({ state: 'visible', timeout: 7000 });
+      await buttonLocator.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.info(`Error waiting for button to become visible: ${error}`);
     }
@@ -32,13 +32,13 @@ export async function navigateToStep({
       logger.info(`Successfully clicked button:has-text("${stepTitle}")`);
     } catch (clickError) {
       logger.warn(
-        `Standard click failed for button:has-text("${stepTitle}"). Attempting alternative click: ${clickError}`,
+        `Standard click failed for button:has-text("${stepTitle}"). Attempting alternative click: ${clickError}`
       );
 
       // Fallback to evaluate and click using raw JavaScript
       await page.evaluate((buttonText) => {
-        const button = Array.from(document.querySelectorAll('button')).find(
-          (btn) => btn.textContent?.includes(buttonText),
+        const button = Array.from(document.querySelectorAll("button")).find(
+          (btn) => btn.textContent?.includes(buttonText)
         );
         if (button) {
           button.click();
@@ -48,7 +48,7 @@ export async function navigateToStep({
       }, stepTitle);
 
       logger.info(
-        `Successfully clicked button:has-text("${stepTitle}") using fallback method.`,
+        `Successfully clicked button:has-text("${stepTitle}") using fallback method.`
       );
     }
   } catch (error) {

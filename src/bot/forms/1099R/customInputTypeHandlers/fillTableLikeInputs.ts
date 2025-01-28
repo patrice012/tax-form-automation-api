@@ -70,9 +70,9 @@ export async function fillTableLikeInputs({
     logger.info(`Filling inputs...${index}`);
 
     for (let i = 0; i < value.length; i++) {
-      if (!value[i]) {
+      if (value[i] === null || value[i] === undefined) {
         logger.info(
-          `Skip input ${label}: with value: ${value[i]} --> not valid value`,
+          `Skip input ${label}: with value: ${value[i]} --> not valid value`
         );
         continue;
       }

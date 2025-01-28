@@ -1,6 +1,6 @@
 import { Page } from 'playwright';
+import { navigateToCorrectForm } from '../../navigateToCorrectForm';
 import { navigateToStep } from './navigateToStep';
-import { navigateToCorrectForm } from '../../handleFormNavigation';
 
 export function getStepFormSections() {
   const stepForms = [

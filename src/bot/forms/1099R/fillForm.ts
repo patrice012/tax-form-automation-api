@@ -1,15 +1,15 @@
-import { Page } from "playwright";
-import { getInputMapping } from "./inputMapping";
-import logger from "@/utils/logger";
-import { fillTextInput } from "../../inputTypeHandlers/text";
-import { selectOption } from "../../inputTypeHandlers/select";
-import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
-import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
-import { displayDetailForm } from "./formActions/displayDetailForm";
-import { closeSideBarPopup } from "../utils/closeSideBarPopup";
-import { mapToArray } from "../utils/mapToArray";
+import { Page } from 'playwright';
+import { getInputMapping } from './inputMapping';
+import logger from '@/utils/logger';
+import { fillTextInput } from '../../inputTypeHandlers/text';
+import { selectOption } from '../../inputTypeHandlers/select';
+import { checkboxInput } from '../../inputTypeHandlers/checkbox';
+import { fillPopupLikeInputs } from '../../inputTypeHandlers/insidePopup';
+import { fillTableLikeInputs } from './customInputTypeHandlers/fillTableLikeInputs';
+import { closeSideBarPopup } from '../utils/closeSideBarPopup';
+import { mapToArray } from '../utils/mapToArray';
+import { getLatestEmptyRow } from '../utils/getLatestEmptyRow';
+import { displayDetailForm } from '../utils/displayDetailForm';
 
 export async function fill1099RForm({
   page,
@@ -37,28 +37,28 @@ export async function fill1099RForm({
     for (const input of inputs) {
       const { label, custom, inputType } = input;
 
-      if (custom && custom === "table") {
+      if (custom && custom === 'table') {
         tableLikeInputs.push(input);
         continue;
       }
 
-      if (custom && custom === "popup") {
+      if (custom && custom === 'popup') {
         popupLikeInputs.push(input);
         continue;
       }
 
       try {
         switch (inputType) {
-          case "checkbox":
+          case 'checkbox':
             await checkboxInput({ page, input });
             break;
-          case "number":
+          case 'number':
             await fillTextInput({ page, input });
             break;
-          case "text":
+          case 'text':
             await fillTextInput({ page, input });
             break;
-          case "select":
+          case 'select':
             await selectOption({ page, input });
             break;
         }
@@ -100,7 +100,7 @@ export async function fill1099RForm({
       }
     }
 
-    logger.info("Form filled");
+    logger.info('Form filled');
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
