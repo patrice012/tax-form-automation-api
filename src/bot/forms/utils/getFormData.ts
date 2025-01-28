@@ -1,5 +1,5 @@
-import logger from "../../../utils/logger";
-import { IMergeData } from "../declaration";
+import logger from '@/utils/logger';
+import { IMergeData } from '../declaration';
 
 export function getFormData({
   formName,
@@ -10,7 +10,8 @@ export function getFormData({
 }): IMergeData {
   const formData = data.find(
     (item) =>
-      (item as { form_name: string; form_data: unknown }).form_name === formName
+      (item as { form_name: string; form_data: unknown }).form_name ===
+      formName,
   ) as IMergeData;
 
   logger.info(`Form ${formName} ==> ${JSON.stringify(formData, null, 2)}`);

@@ -4,10 +4,17 @@
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["**/*.ts", "src", "mappings"]
+  "include": ["**/*.ts", "src", "mappings"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

@@ -1,7 +1,7 @@
-import { Page } from "playwright";
-import { verifyFormVisibility } from "./verifyFormVisibility";
-import logger from "../../../../utils/logger";
-import { navigateToStep } from "./navigateToStep";
+import { Page } from 'playwright';
+import { verifyFormVisibility } from './verifyFormVisibility';
+import logger from '@/utils/logger';
+import { navigateToStep } from './navigateToStep';
 
 export async function navigateToCorrectForm({ page }: { page: Page }) {
   try {
@@ -10,19 +10,19 @@ export async function navigateToCorrectForm({ page }: { page: Page }) {
 
     if (visibilityStatus.isAlternateForm) {
       logger.info(
-        "User is on the alternate form page, navigating to the correct form."
+        'User is on the alternate form page, navigating to the correct form.',
       );
-      logger.info("On Entry page, go to detail page");
-      await navigateToStep({ page, stepTitle: "Form 1099-MISC/NEC" });
-      logger.info("Go to detail form page");
-      logger.info("Navigation to the correct form page completed.");
+      logger.info('On Entry page, go to detail page');
+      await navigateToStep({ page, stepTitle: 'Form 1099-MISC/NEC' });
+      logger.info('Go to detail form page');
+      logger.info('Navigation to the correct form page completed.');
     } else if (visibilityStatus.isCorrectForm) {
       logger.info(
-        "User is already on the correct form page. No navigation needed."
+        'User is already on the correct form page. No navigation needed.',
       );
     } else {
       logger.warn(
-        "Unable to determine the current form state. Navigation skipped."
+        'Unable to determine the current form state. Navigation skipped.',
       );
     }
   } catch (error) {

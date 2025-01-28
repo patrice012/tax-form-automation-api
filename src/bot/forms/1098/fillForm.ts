@@ -1,11 +1,11 @@
 import { Page } from "playwright";
 import { getInputMapping } from "./formMapping/inputMapping";
-import logger from "../../../utils/logger";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { textForTable } from "../../inputTypeHandlers/textForTable";
+import logger from "@/utils/logger";
 
 export async function fill1098Form({
   page,
@@ -22,7 +22,7 @@ export async function fill1098Form({
     const inputMapping = await getInputMapping({ data: formData });
     const inputs = inputMapping.inputs;
 
-    for (let input of inputs) {
+    for (const input of inputs) {
       const inputType = input.inputType;
       const { label } = input;
 
@@ -42,7 +42,7 @@ export async function fill1098Form({
             break;
         }
       } catch (error) {
-        logger.error(`Error processing: ${label}`);
+        logger.error(`Error processing: ${label} ${error}`);
       }
     }
 

@@ -1,14 +1,14 @@
-import { Page } from "playwright";
-import { getInputMapping } from "./formMapping/inputMapping";
-import logger from "../../../utils/logger";
-import { fillTextInput } from "../../inputTypeHandlers/text";
-import { selectOption } from "../../inputTypeHandlers/select";
-import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
-import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
-import { displayDetailForm } from "./formActions/displayDetailForm";
-import { closeSideBarPopup } from "../utils/closeSideBarPopup";
-import { mapToArray } from "../utils/mapToArray";
+import { Page } from 'playwright';
+import { getInputMapping } from './formMapping/inputMapping';
+import logger from '@/utils/logger';
+import { fillTextInput } from '../../inputTypeHandlers/text';
+import { selectOption } from '../../inputTypeHandlers/select';
+import { checkboxInput } from '../../inputTypeHandlers/checkbox';
+import { fillPopupLikeInputs } from '../../inputTypeHandlers/insidePopup';
+import { getLatestEmptyRow } from './formActions/getLatestEmptyRow';
+import { displayDetailForm } from './formActions/displayDetailForm';
+import { closeSideBarPopup } from '../utils/closeSideBarPopup';
+import { mapToArray } from '../utils/mapToArray';
 
 export async function fill1099DIVForm({
   page,
@@ -32,32 +32,32 @@ export async function fill1099DIVForm({
     const inputs = inputMapping.inputs;
     const popupLikeInputs = [];
 
-    for (let input of inputs) {
+    for (const input of inputs) {
       const inputType = input.inputType;
       const { label, custom } = input;
 
-      if (custom && custom === "popup") {
+      if (custom && custom === 'popup') {
         popupLikeInputs.push(input);
         continue;
       }
 
       try {
         switch (inputType) {
-          case "checkbox":
+          case 'checkbox':
             await checkboxInput({ page, input });
             break;
-          case "number":
+          case 'number':
             await fillTextInput({ page, input });
             break;
-          case "text":
+          case 'text':
             await fillTextInput({ page, input });
             break;
-          case "select":
+          case 'select':
             await selectOption({ page, input });
             break;
         }
       } catch (error) {
-        logger.error(`Error processing: ${label}`);
+        logger.error(`Error processing: ${label} ${error}`);
       }
     }
 
@@ -78,7 +78,7 @@ export async function fill1099DIVForm({
       }
     }
 
-    logger.info("Form filled");
+    logger.info('Form filled');
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }

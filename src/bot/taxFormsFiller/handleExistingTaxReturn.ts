@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import logger from "../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function handleExistingTaxReturn({
   page,
@@ -7,27 +7,27 @@ export async function handleExistingTaxReturn({
   page: Page;
 }): Promise<void> {
   const firstRow = page.locator("[data-testid='protax-datatable-row']").first();
-  const button = firstRow.locator("button#viewTaxReturn");
+  const button = firstRow.locator('button#viewTaxReturn');
 
   try {
     await button.click();
-    logger.info("Clicked the viewTaxReturn button in the first row.");
+    logger.info('Clicked the viewTaxReturn button in the first row.');
   } catch (error) {
-    logger.warn("Retrying using page.evaluate");
+    logger.warn('Retrying using page.evaluate', error);
     await page.evaluate(() => {
       const rows = document.querySelectorAll(
-        "[data-testid='protax-datatable-row']"
+        "[data-testid='protax-datatable-row']",
       );
       if (rows.length > 0) {
         const button = rows[0].querySelector(
-          "button#viewTaxReturn"
+          'button#viewTaxReturn',
         ) as HTMLElement;
         if (button) {
           button?.click();
-          console.log("Clicked the viewTaxReturn button in the first row.");
+          console.log('Clicked the viewTaxReturn button in the first row.');
         } else {
           console.warn(
-            "No button with id 'viewTaxReturn' found in the first row."
+            "No button with id 'viewTaxReturn' found in the first row.",
           );
         }
       } else {

@@ -1,13 +1,13 @@
-import { Page } from "playwright";
-import logger from "../../../../utils/logger";
-import { AddNewRow } from "../../../inputTypeHandlers/insideTable/AddNewRow";
-import { waitForElement } from "../../../inputTypeHandlers/utils/waitForElement";
-import { focusInput } from "../../../inputTypeHandlers/insideTable/focusInput";
-import { getRandomIndex } from "../../../inputTypeHandlers/utils/getRandomIndex";
-import { fillInput } from "../../../inputTypeHandlers/insideTable/fillInput";
-import { clearInput } from "../../../inputTypeHandlers/insideTable/clearInput";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
+import { AddNewRow } from '../../../inputTypeHandlers/insideTable/AddNewRow';
+import { waitForElement } from '../../../inputTypeHandlers/utils/waitForElement';
+import { focusInput } from '../../../inputTypeHandlers/insideTable/focusInput';
+import { getRandomIndex } from '../../../inputTypeHandlers/utils/getRandomIndex';
+import { fillInput } from '../../../inputTypeHandlers/insideTable/fillInput';
+import { clearInput } from '../../../inputTypeHandlers/insideTable/clearInput';
 
-const INPUTS_PER_ROW = 8;
+// const INPUTS_PER_ROW = 8;
 
 async function getDetailsButtonCount(page: Page): Promise<number> {
   const buttonsCount = await page
@@ -21,26 +21,28 @@ export async function getLatestEmptyRow({
 }: {
   page: Page;
 }): Promise<any> {
-  const mainSelector = ".main-content";
+  const mainSelector = '.main-content';
   // const value = 10;
 
   try {
     try {
       await waitForElement('button:has(span:has-text("Details"))', page);
-    } catch (error) {}
+    } catch (error) {
+      logger.warn(`${error}`);
+    }
 
-    let newRow = await AddNewRow({ page, mainParentSelector: mainSelector });
+    const newRow = await AddNewRow({ page, mainParentSelector: mainSelector });
     logger.info(`New row created: ${JSON.stringify(newRow)}`);
 
     if (newRow) {
       const { startIndex, rowIndex, inputsPerRow } = newRow;
 
-      logger.info("Start waiting for detail button");
+      logger.info('Start waiting for detail button');
       let totalDetailsButtons = await getDetailsButtonCount(page);
 
       while (newRow?.rowIndex !== totalDetailsButtons) {
         logger.info(
-          `Adding new button for row: ${rowIndex}, current button index: ${totalDetailsButtons}`
+          `Adding new button for row: ${rowIndex}, current button index: ${totalDetailsButtons}`,
         );
         try {
           // Clear the first input value in the last row
@@ -66,11 +68,13 @@ export async function getLatestEmptyRow({
         try {
           // Clear the first input value if exists
           clearInput({ page, startIndex });
-        } catch (error) {}
+        } catch (error) {
+          logger.warn(`${error}`);
+        }
 
         totalDetailsButtons = await getDetailsButtonCount(page);
         logger.info(
-          `Refreshing value:: rowIndex:${newRow.rowIndex} buttonIndex: ${totalDetailsButtons}`
+          `Refreshing value:: rowIndex:${newRow.rowIndex} buttonIndex: ${totalDetailsButtons}`,
         );
       }
 

@@ -1,4 +1,4 @@
-import logger from "../../utils/logger";
+import logger from "@/utils/logger";
 
 import { navigateToClientList } from "./navigateToClientList";
 import { navigateToClientProfile } from "./navigateToClientProfile";
@@ -81,6 +81,7 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
           tableElementsFound = true;
         }
       } catch (error) {
+        logger.warn(`${error}`);
         logger.warn("Warn: Table not loaded on time.");
       }
 
@@ -100,7 +101,8 @@ export async function startTaxFormsFiller({ page }: TaxFillerOptions) {
     logger.info("start fill forms");
     await fillAllForms({ page, formData });
 
-    await page.waitForTimeout(7000);
+    //logger.info('Waiting for autosave');
+    await page.waitForTimeout(5000);
 
     return { page, success: true };
   } catch (error) {

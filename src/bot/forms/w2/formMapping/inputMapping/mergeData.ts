@@ -1,5 +1,5 @@
-import { IInput, IInputMapping, InputField, IMergeData } from "../declaration";
-import { normalizeText, normalizeXPath } from "./utils";
+import { IInput, IInputMapping, InputField, IMergeData } from '../declaration';
+import { normalizeText, normalizeXPath } from './utils';
 
 function processMixedInputs(input: InputField, refData: any): IInput[] {
   return (
@@ -15,7 +15,7 @@ function processMixedInputs(input: InputField, refData: any): IInput[] {
         ref: normalizeText(input.ref as string),
         inputType: normalizeText(field.inputType),
         xpath: normalizeXPath(field.xpath as string),
-        custom: normalizeText(field.custom || ""),
+        custom: normalizeText(field.custom || ''),
         value: fieldValue,
         status: refData.status,
         type: fieldType,
@@ -38,7 +38,7 @@ function processTableInputs(input: InputField, refData: any[]): IInput[] {
           }
           return acc;
         },
-        { value: [], type: [] } as { value: unknown[]; type: string[] }
+        { value: [], type: [] } as { value: unknown[]; type: string[] },
       );
 
       return {
@@ -47,9 +47,9 @@ function processTableInputs(input: InputField, refData: any[]): IInput[] {
         ref: normalizeText(input.ref as string),
         inputType: normalizeText(field.inputType),
         xpath: normalizeXPath(field.xpath as string),
-        custom: normalizeText(input.custom || ""),
+        custom: normalizeText(input.custom || ''),
         value: typeValues.value,
-        status: "",
+        status: '',
         type: typeValues.type,
       };
     }) || []
@@ -63,7 +63,7 @@ function processStandardInput(input: InputField, refData: any): IInput {
     ref: normalizeText(input?.ref as string),
     inputType: normalizeText(input?.inputType),
     xpath: normalizeXPath(input?.xpath as string),
-    custom: normalizeText(input?.custom || ""),
+    custom: normalizeText(input?.custom || ''),
     value: refData?.value,
     status: refData?.status,
     type: refData?.type,
@@ -74,7 +74,7 @@ function processStandardInput(input: InputField, refData: any): IInput {
 
 export function mergeData(
   clientData: IMergeData[],
-  inputs: InputField[]
+  inputs: InputField[],
 ): IInputMapping {
   const data = clientData.map((client) => {
     const mergedInputs: IInput[] = [];
@@ -84,13 +84,13 @@ export function mergeData(
 
       if (refData) {
         if (
-          input.inputType === "mixed" &&
+          input.inputType === 'mixed' &&
           input.fields &&
           Array.isArray(refData.value)
         ) {
           mergedInputs.push(...processMixedInputs(input, refData));
         } else if (
-          input.inputType === "table" &&
+          input.inputType === 'table' &&
           input.fields &&
           Array.isArray(refData)
         ) {

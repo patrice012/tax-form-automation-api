@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import logger from "../../utils/logger";
+import logger from "@/utils/logger";
 
 export async function handleNewTaxReturn({
   page,
@@ -18,12 +18,13 @@ export async function handleNewTaxReturn({
 
     try {
       await createButton.isVisible();
-    } catch (error) {}
+    } catch (error) {
+      logger.error(error);
+    }
 
     logger.info("Using primary create button");
     await createButton.click();
 
-    // Select appropriate tax year
     const locator = page
       .locator("[data-automation-id='select-return-year']")
       .first();
@@ -35,10 +36,10 @@ export async function handleNewTaxReturn({
         logger.info("Waiting for select element to be visible...");
         await locator.waitFor({
           state: "visible",
-          timeout: 7000,
+          timeout: 5000,
         });
       } catch (error) {
-        logger.warn(`Failed to wait for element`);
+        logger.warn(`Failed to wait for element`, error);
       }
 
       // Get all available options
@@ -76,52 +77,6 @@ export async function handleNewTaxReturn({
         logger.error(
           `Selection verification failed. Expected to start with: ${taxYear}, Got: ${selectedValue}`
         );
-      }
-    } catch (error) {
-      logger.error(`Error selecting tax year: ${error}`);
-    }
-
-    // Select Type
-    const typeLocator = page
-      .locator('[data-automation-id="select-return-type"]')
-      .first();
-
-    logger.info(`Attempting to select option Type`);
-
-    try {
-      try {
-        // Wait for element to be visible
-        logger.info("Waiting for select element to be visible...");
-        await typeLocator.waitFor({
-          state: "visible",
-          timeout: 7000,
-        });
-      } catch (error) {
-        logger.warn(`Failed to wait for element`);
-      }
-
-      // Get all available options
-      const options = await typeLocator.evaluate(
-        (select: HTMLSelectElement) => {
-          return Array.from(select.options).map((option) => ({
-            value: option.value,
-            text: option.text,
-          }));
-        }
-      );
-
-      logger.info("Available options:", options);
-      const matchingOption = options?.at(1);
-      logger.info(`Select this option, ${matchingOption}`);
-
-      if (matchingOption) {
-        // Select the matching option using its full value
-        await typeLocator.selectOption(matchingOption?.value as string);
-        logger.info(
-          `Selected option with value: ${matchingOption?.value as string}`
-        );
-      } else {
-        logger.info("No available option Type");
       }
     } catch (error) {
       logger.error(`Error selecting tax year: ${error}`);

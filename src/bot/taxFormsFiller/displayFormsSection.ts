@@ -1,17 +1,17 @@
-import { Page } from "playwright";
-import logger from "../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function displayFormsSection({ page }: { page: Page }) {
   try {
-    const linkText = "View all input screens";
+    const linkText = 'View all input screens';
 
     // Locate the button containing a span with the specific text
     const button = page.locator(`button:has(span:has-text("${linkText}"))`);
 
     // Wait for the button to be visible
-    logger.info("Waiting for btn to be visible");
+    logger.info('Waiting for btn to be visible');
     try {
-      await button.waitFor({ state: "visible", timeout: 15000 });
+      await button.waitFor({ state: 'visible', timeout: 15000 });
     } catch (error) {
       logger.info(`Error waiting for element: ${error}`);
     }
@@ -19,16 +19,16 @@ export async function displayFormsSection({ page }: { page: Page }) {
     try {
       // Attempt to click the button
       await button.click();
-      logger.info("Clicked View all input screens button");
+      logger.info('Clicked View all input screens button');
     } catch (clickError) {
       // Fallback: Use evaluate to click the button
       logger.warn(
-        `Standard click failed. Attempting to click using evaluate: ${clickError}`
+        `Standard click failed. Attempting to click using evaluate: ${clickError}`,
       );
 
       await page.evaluate((buttonText) => {
-        const button = Array.from(document.querySelectorAll("button")).find(
-          (btn) => btn.textContent?.includes(buttonText)
+        const button = Array.from(document.querySelectorAll('button')).find(
+          (btn) => btn.textContent?.includes(buttonText),
         );
         if (button) {
           button.click();
@@ -37,7 +37,7 @@ export async function displayFormsSection({ page }: { page: Page }) {
         }
       }, linkText);
 
-      logger.info("Clicked View all input screens button using evaluate");
+      logger.info('Clicked View all input screens button using evaluate');
     }
   } catch (error) {
     logger.error(`Failed to display all inputs: ${error}`);

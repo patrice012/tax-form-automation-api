@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import logger from "../../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 // Helper to close the popup
 export async function clickActionButton({
@@ -16,14 +16,14 @@ export async function clickActionButton({
   try {
     // Wait for the button to be visible
     try {
-      await actionButton.waitFor({ state: "visible", timeout: 7000 });
+      await actionButton.waitFor({ state: 'visible', timeout: 7000 });
     } catch (error) {
       logger.info(`Error waiting for element: ${error}`);
     }
 
     // Click the action button
     await actionButton.click();
-    logger.info("Clicked the action button.");
+    logger.info('Clicked the action button.');
 
     // Wait for a short delay to allow popup to respond
     await page.waitForTimeout(500);
@@ -34,16 +34,16 @@ export async function clickActionButton({
     try {
       isPopupVisible = await popup.isVisible();
     } catch (error) {
-      logger.info("Fail to check popup visibility");
+      logger.info('Fail to check popup visibility', error);
     }
     logger.info(`Popup visibility: ${isPopupVisible}`);
 
     if (isPopupVisible) {
-      logger.warn("Popup is still open, clicking the action button again.");
+      logger.warn('Popup is still open, clicking the action button again.');
       await actionButton.click();
     } else {
       logger.info(
-        "Popup closed successfully after clicking the action button."
+        'Popup closed successfully after clicking the action button.',
       );
     }
   } catch (error) {

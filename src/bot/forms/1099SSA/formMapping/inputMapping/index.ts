@@ -1,10 +1,10 @@
-import logger from "../../../../../utils/logger";
-import { getInputFields } from "../inputFields";
-import { mergeData } from "./mergeData";
-import { cleanUpInputMapping } from "./utils";
-import { IInputMapping } from "../declaration";
-import { getFormData } from "../../../utils/getFormData";
-import { getData } from "../../../../dummyData/getData";
+import logger from '@/utils/logger';
+import { getInputFields } from '../inputFields';
+import { mergeData } from './mergeData';
+import { cleanUpInputMapping } from './utils';
+import { IInputMapping } from '../declaration';
+// import { getFormData } from '../../../utils/getFormData';
+// import { getData } from '../../../../dummyData/getData';
 
 export async function getInputMapping({
   data,

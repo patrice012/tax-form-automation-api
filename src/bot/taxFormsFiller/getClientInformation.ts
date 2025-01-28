@@ -1,6 +1,6 @@
-import logger from "../../utils/logger";
-import { getData } from "../dummyData/getData";
-import { IMergeData } from "../forms/declaration";
+import logger from '@/utils/logger';
+import { getData } from '../dummyData/getData';
+import { IMergeData } from '../forms/declaration';
 
 export async function getClientInformation(): Promise<{
   email: string;
@@ -13,12 +13,12 @@ export async function getClientInformation(): Promise<{
     const taxYear = data[0]?.targetClient?.taxYear;
     const formData = data[0]?.forms;
     return {
-      email: email ? email?.trim() : "",
-      taxYear: taxYear || "",
+      email: email ? email?.trim() : '',
+      taxYear: taxYear || '',
       formData: formData || [],
     };
   } catch (error) {
-    logger.error(`Fail getting client email`);
-    return { email: "", taxYear: "", formData: [] };
+    logger.error(`Fail getting client email, ${error}`);
+    return { email: '', taxYear: '', formData: [] };
   }
 }

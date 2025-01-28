@@ -1,6 +1,6 @@
-import { Page } from "playwright";
-import { IInput } from "../../forms/declaration";
-import logger from "../../../utils/logger";
+import { Page } from 'playwright';
+import { IInput } from '../../forms/declaration';
+import logger from '@/utils/logger';
 
 export async function checkInputValue({
   page,
@@ -30,15 +30,15 @@ export async function checkInputValue({
       logger.info(`Using inputIndex: ${inputIndex}`);
       locator = page
         .locator(mainParentSelector)
-        .locator("input")
+        .locator('input')
         .nth(inputIndex);
     } else {
-      throw new Error("No valid selector provided to locate the input.");
+      throw new Error('No valid selector provided to locate the input.');
     }
 
     try {
       // Wait for element to be visible
-      await locator.waitFor({ state: "visible", timeout: 7000 });
+      await locator.waitFor({ state: 'visible', timeout: 7000 });
       logger.info(`Input is visible`);
     } catch {
       logger.warn(`Input is not visible`);

@@ -1,12 +1,12 @@
-import { Page } from "playwright";
-import logger from "../../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 import {
   getTotalInputsByRow,
   getTotalRowsWithInputs,
-} from "../insideTable/rowInputs";
-import { getRandomIndex } from "../utils/getRandomIndex";
-import { fillInput } from "../insideTable/fillInput";
-import { clearInput } from "../insideTable/clearInput";
+} from '../insideTable/rowInputs';
+import { getRandomIndex } from '../utils/getRandomIndex';
+import { fillInput } from '../insideTable/fillInput';
+import { clearInput } from '../insideTable/clearInput';
 
 // Helper to fill inputs dynamically
 export async function fillInputs({
@@ -27,7 +27,7 @@ export async function fillInputs({
   // Get initial number of rows
   const initialTotalRows = await getTotalRowsWithInputs(page, popupSelector);
   logger.info(
-    `Initial total rows: ${initialTotalRows}, inputs by row: ${INPUTS_BY_ROW}`
+    `Initial total rows: ${initialTotalRows}, inputs by row: ${INPUTS_BY_ROW}`,
   );
 
   // Calculate the starting index for the last row's inputs
@@ -35,19 +35,19 @@ export async function fillInputs({
   logger.info(`Starting index for last row inputs: ${startIndex}`);
 
   logger.info(
-    `INPUTS_BY_ROW: ${INPUTS_BY_ROW}, values length: ${flatValues.length}, startIndex: ${startIndex}`
+    `INPUTS_BY_ROW: ${INPUTS_BY_ROW}, values length: ${flatValues.length}, startIndex: ${startIndex}`,
   );
 
   let index = startIndex;
   while (flatValues.length) {
-    const value = flatValues.shift() || "";
-    const input = page.locator(popupSelector).locator("input").nth(index);
+    const value = flatValues.shift() || '';
+    const input = page.locator(popupSelector).locator('input').nth(index);
     logger.info(`Filling input ${index} with value: ${value}`);
     try {
       await input.clear();
-      logger.info("Clear input value");
+      logger.info('Clear input value');
     } catch (error) {
-      logger.warn("Failed to clear input");
+      logger.warn('Failed to clear input', error);
     }
     await input.fill(value.toString());
     index++;
@@ -60,7 +60,7 @@ export async function fillInputs({
         try {
           const savedValue = await page
             .locator(popupSelector)
-            ?.locator("input")
+            ?.locator('input')
             ?.nth(startIndex)
             ?.inputValue();
           // Clear the first input value in the last row
@@ -76,16 +76,18 @@ export async function fillInputs({
 
           const randomInput = page
             .locator(popupSelector)
-            .locator("input")
+            .locator('input')
             .nth(randomIndex);
           logger.info(
-            `Pressing Enter on a random input (index: ${randomIndex})...`
+            `Pressing Enter on a random input (index: ${randomIndex})...`,
           );
           try {
-            await randomInput?.press("Enter");
+            await randomInput?.press('Enter');
             await page.waitForTimeout(1500);
           } catch (error) {
-            logger.error(`Error pressing ENTER KEY on input: ${randomIndex}`);
+            logger.error(
+              `Error pressing ENTER KEY on input: ${randomIndex} ${error}`,
+            );
           }
 
           // Wait for the new row to appear
@@ -94,16 +96,20 @@ export async function fillInputs({
           try {
             // Clear the first input value if exists
             clearInput({ page, startIndex });
-          } catch (error) {}
+          } catch (error) {
+            logger.warn(`${error}`);
+          }
 
           try {
             if (savedValue) {
               logger.info(
-                `Existing value at index: ${startIndex}, set it again, value:${savedValue}`
+                `Existing value at index: ${startIndex}, set it again, value:${savedValue}`,
               );
               fillInput({ page, startIndex, value: savedValue });
             }
-          } catch (error) {}
+          } catch (error) {
+            logger.warn(`${error}`);
+          }
         } catch (error) {
           logger.error(`Error interacting with inputs: ${error}`);
         }
@@ -116,5 +122,5 @@ export async function fillInputs({
     }
   }
 
-  logger.info("Filled inputs");
+  logger.info('Filled inputs');
 }

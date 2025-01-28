@@ -1,10 +1,10 @@
-import { Page } from "playwright";
-import logger from "../../../utils/logger";
-import { waitForElement } from "./waitForElement";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
+import { waitForElement } from './waitForElement';
 
 export async function resetInputValues({
   page,
-  mainSelector = ".main-content",
+  mainSelector = '.main-content',
 }: {
   page: Page;
   mainSelector?: string;
@@ -21,7 +21,7 @@ export async function resetInputValues({
     }
 
     // Get all input elements within the container
-    const inputs = page.locator(mainSelector).locator("input");
+    const inputs = page.locator(mainSelector).locator('input');
 
     const inputCount = await inputs.count();
     for (let i = 0; i < inputCount; i++) {
@@ -31,19 +31,19 @@ export async function resetInputValues({
         // Check if the input is disabled, readonly, or hidden
         const isDisabled = await input.isDisabled();
         const isReadOnly = await input.evaluate((el) =>
-          el.hasAttribute("readonly")
+          el.hasAttribute('readonly'),
         );
-        const type = await input.evaluate((el) => el.getAttribute("type"));
+        const type = await input.evaluate((el) => el.getAttribute('type'));
         const value = await input.inputValue();
         if (
           isDisabled ||
           isReadOnly ||
-          type === "checkbox" ||
-          type === "radio" ||
+          type === 'checkbox' ||
+          type === 'radio' ||
           !value
         ) {
           logger.info(
-            `Skipping input at index ${i} (disabled: ${isDisabled}, readonly: ${isReadOnly}, type:${type}, value:${value})`
+            `Skipping input at index ${i} (disabled: ${isDisabled}, readonly: ${isReadOnly}, type:${type}, value:${value})`,
           );
           continue;
         }
@@ -51,11 +51,11 @@ export async function resetInputValues({
         // Attempt to clear input using Playwright API
         await input.clear();
         logger.info(
-          `Successfully cleared input at index ${i} using Playwright API`
+          `Successfully cleared input at index ${i} using Playwright API`,
         );
       } catch (playwrightError) {
         logger.warn(
-          `Playwright API failed to clear input at index ${i}: ${playwrightError}`
+          `Playwright API failed to clear input at index ${i}: ${playwrightError}`,
         );
 
         // Fallback: Use DOM API to clear input
@@ -65,7 +65,7 @@ export async function resetInputValues({
             const container = document.querySelector(selector);
             if (!container) return;
 
-            const inputs = container.querySelectorAll("input");
+            const inputs = container.querySelectorAll('input');
             const input = inputs[idx];
             if (!input) return;
 
@@ -77,11 +77,11 @@ export async function resetInputValues({
             // Skip disabled, readonly, hidden, or empty inputs
             if (isDisabled || isReadOnly || isHidden || !inputValue) return;
 
-            input.value = ""; // Clear input value
-            input.dispatchEvent(new Event("input", { bubbles: true }));
-            input.dispatchEvent(new Event("change", { bubbles: true }));
+            input.value = ''; // Clear input value
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(new Event('change', { bubbles: true }));
           },
-          { idx: i, selector: mainSelector }
+          { idx: i, selector: mainSelector },
         );
 
         logger.info(`Successfully cleared input at index ${i} using DOM API`);

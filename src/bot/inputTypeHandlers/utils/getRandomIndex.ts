@@ -12,7 +12,7 @@ export function getRandomIndex(range: { min?: number; max: number }): number {
 
   if (max <= min) {
     console.warn(
-      `Invalid range: max (${max}) must be greater than min (${min}). Returning min as fallback.`
+      `Invalid range: max (${max}) must be greater than min (${min}). Returning min as fallback.`,
     );
     return min;
   }

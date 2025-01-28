@@ -4,6 +4,6 @@ import {
   IInput,
   IInputMapping,
   Tfield,
-} from "../../declaration";
+} from '../../declaration';
 
 export { IInput, IMergeData, InputField, IInputMapping, Tfield };

@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import logger from "../../../../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function navigateToStep({
   page,
@@ -16,7 +16,7 @@ export async function navigateToStep({
     logger.info(`Waiting for btn:has-text=${stepTitle} to be visible`);
 
     try {
-      await button.waitFor({ state: "visible", timeout: 7000 });
+      await button.waitFor({ state: 'visible', timeout: 7000 });
     } catch (error) {
       logger.info(`Error waiting for button to become visible: ${error}`);
     }
@@ -31,12 +31,12 @@ export async function navigateToStep({
     } catch (clickError) {
       // Fallback: Use evaluate to click the button
       logger.warn(
-        `Standard click failed. Attempting to click using evaluate: ${clickError}`
+        `Standard click failed. Attempting to click using evaluate: ${clickError}`,
       );
 
       await page.evaluate((buttonText) => {
-        const button = Array.from(document.querySelectorAll("button")).find(
-          (btn) => btn.textContent?.includes(buttonText)
+        const button = Array.from(document.querySelectorAll('button')).find(
+          (btn) => btn.textContent?.includes(buttonText),
         );
         if (button) {
           button.click();

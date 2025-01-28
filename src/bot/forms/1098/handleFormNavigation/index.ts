@@ -1,5 +1,5 @@
 import { Page } from "playwright";
-import logger from "../../../../utils/logger";
+import logger from "@/utils/logger";
 
 export async function navigateToCorrectForm({ page }: { page: Page }) {
   const stepTitle = "Interest";

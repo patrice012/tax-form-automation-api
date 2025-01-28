@@ -1,10 +1,10 @@
-import { Page } from "playwright";
-import logger from "../../../utils/logger";
-import { fillTextInput } from "../../inputTypeHandlers/text";
-import { selectOption } from "../../inputTypeHandlers/select";
-import { checkboxInput } from "../../inputTypeHandlers/checkbox";
-import { displayDetailForm } from "./formActions/displayDetailForm";
-import { getLatestEmptyRow } from "./formActions/getLatestEmptyRow";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
+import { fillTextInput } from '../../inputTypeHandlers/text';
+import { selectOption } from '../../inputTypeHandlers/select';
+import { checkboxInput } from '../../inputTypeHandlers/checkbox';
+import { displayDetailForm } from './formActions/displayDetailForm';
+import { getLatestEmptyRow } from './formActions/getLatestEmptyRow';
 
 export async function fillEntryForm({
   page,
@@ -22,9 +22,9 @@ export async function fillEntryForm({
     // Run initialization script
     if (initializeStep) {
       try {
-        logger.info("Running initialization step...");
+        logger.info('Running initialization step...');
         await initializeStep({ page });
-        logger.info("Initialization step completed.");
+        logger.info('Initialization step completed.');
       } catch (error) {
         logger.error(`Initialization step failed: ${error}`);
       }
@@ -35,7 +35,7 @@ export async function fillEntryForm({
     logger.info(`New row created: ${JSON.stringify(newRow)}`);
 
     if (!newRow) {
-      logger.error("Failed to create a new row. Exiting form processing.");
+      logger.error('Failed to create a new row. Exiting form processing.');
       return;
     }
 
@@ -43,10 +43,10 @@ export async function fillEntryForm({
     const formProcessor: any[] = [];
 
     // Process each input
-    for (let input of inputs) {
+    for (const input of inputs) {
       const { label, inputType, ref } = input;
       logger.info(
-        `Processing input: Label="${label}", Type="${inputType}", Ref="${ref}"`
+        `Processing input: Label="${label}", Type="${inputType}", Ref="${ref}"`,
       );
 
       let fieldIndex = 0;
@@ -54,13 +54,13 @@ export async function fillEntryForm({
 
       // Map specific references to field indices
       switch (ref) {
-        case "account_number":
+        case 'account_number':
           fieldIndex = 0;
           break;
-        case "description_of_property":
+        case 'description_of_property':
           fieldIndex = 1;
           break;
-        case "basis_is_reported_to_irs":
+        case 'basis_is_reported_to_irs':
           fieldIndex = 7;
           break;
         default:
@@ -70,21 +70,21 @@ export async function fillEntryForm({
 
       // Determine the appropriate form filler function based on input type
       switch (inputType) {
-        case "checkbox":
+        case 'checkbox':
           formFiller = checkboxInput;
           break;
-        case "number":
-        case "text":
+        case 'number':
+        case 'text':
           formFiller = fillTextInput;
           break;
-        case "select":
+        case 'select':
           formFiller = selectOption;
           break;
         default:
           logger.error(
             `Unsupported input type "${inputType}" for input: ${JSON.stringify(
-              input
-            )}`
+              input,
+            )}`,
           );
           formFiller = null;
       }
@@ -93,8 +93,8 @@ export async function fillEntryForm({
       if (!formFiller) {
         logger.warn(
           `No formFiller function available for input: ${JSON.stringify(
-            input
-          )}. Skipping.`
+            input,
+          )}. Skipping.`,
         );
         continue;
       }
@@ -110,12 +110,12 @@ export async function fillEntryForm({
     }
 
     // Fill each field using the assigned form filler
-    for (let formField of formProcessor) {
+    for (const formField of formProcessor) {
       const { input, formFiller, fieldIndex, startIndex } = formField;
       const validIndex = Number(startIndex) + Number(fieldIndex);
       try {
         logger.info(
-          `Filling input: Label="${input.label}", Type="${input.inputType}", Index="${validIndex}"`
+          `Filling input: Label="${input.label}", Type="${input.inputType}", Index="${validIndex}"`,
         );
 
         await formFiller({
@@ -127,15 +127,15 @@ export async function fillEntryForm({
             xpath: null,
             inputIndex: validIndex,
           },
-          mainParentSelector: ".main-content table",
+          mainParentSelector: '.main-content table',
         });
 
         logger.info(
-          `Successfully filled input: Label="${input.label}", Type="${input.inputType}"`
+          `Successfully filled input: Label="${input.label}", Type="${input.inputType}"`,
         );
       } catch (error) {
         logger.error(
-          `Failed to fill input: Label="${input.label}", Type="${input.inputType}", Error="${error}"`
+          `Failed to fill input: Label="${input.label}", Type="${input.inputType}", Error="${error}"`,
         );
       }
     }
@@ -143,9 +143,9 @@ export async function fillEntryForm({
     // Run cleanup script
     if (cleanupStep) {
       try {
-        logger.info("Running cleanup step...");
+        logger.info('Running cleanup step...');
         await cleanupStep({ page });
-        logger.info("Cleanup step completed.");
+        logger.info('Cleanup step completed.');
       } catch (error) {
         logger.error(`Cleanup step failed: ${error}`);
       }
@@ -156,11 +156,11 @@ export async function fillEntryForm({
           btnIndex: Number(newRow.rowIndex) - 1,
         });
       } catch (error) {
-        logger.info(`Fail to display detail form`);
+        logger.info(`Fail to display detail form ${error}`);
       }
     }
 
-    logger.info("Form filled successfully.");
+    logger.info('Form filled successfully.');
   } catch (error) {
     logger.error(`Failed to fill form: ${error}`);
   }

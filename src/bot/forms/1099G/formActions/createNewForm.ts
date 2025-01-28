@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import logger from "../../../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function createNewForm({ page }: { page: Page }) {
   const selector =
@@ -11,7 +11,7 @@ export async function createNewForm({ page }: { page: Page }) {
     try {
       // Wait for the button to become visible
       logger.info(`Waiting for button to become visible.`);
-      await buttonLocator.waitFor({ state: "visible", timeout: 15000 });
+      await buttonLocator.waitFor({ state: 'visible', timeout: 15000 });
     } catch (error) {
       logger.info(`Error waiting for element: ${error}`);
     }
@@ -25,21 +25,21 @@ export async function createNewForm({ page }: { page: Page }) {
       logger.info(`Successfully clicked create new form button`);
     } catch (clickError) {
       logger.warn(
-        `Standard click failed for create new form button. Attempting alternative click: ${clickError}`
+        `Standard click failed for create new form button. Attempting alternative click: ${clickError}`,
       );
 
       // Fallback to evaluate and click using raw JavaScript
       await page.evaluate((selector) => {
         const button = document.querySelector(selector);
         if (button) {
-          button?.dispatchEvent(new Event("click"));
+          button?.dispatchEvent(new Event('click'));
         } else {
           throw new Error(`create new form button not found`);
         }
       }, selector);
 
       logger.info(
-        `Successfully clicked create new form button using fallback method.`
+        `Successfully clicked create new form button using fallback method.`,
       );
     }
   } catch (error) {

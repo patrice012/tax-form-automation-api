@@ -1,5 +1,5 @@
-import logger from "../../../../../utils/logger";
-import { getStepFormSections } from "./getStepFormSections";
+import logger from '@/utils/logger';
+import { getStepFormSections } from './getStepFormSections';
 import {
   getEntryPointInputMapping,
   getGeneralInformationInputMapping,
@@ -8,7 +8,7 @@ import {
   getSaleOfHomeInputMapping,
   getSaleOfAssetInputMapping,
   getScheduleDInputMapping,
-} from "./getStepFormsInputMapping";
+} from './getStepFormsInputMapping';
 
 function mapAndFilterStepForms({
   stepForms,
@@ -18,17 +18,17 @@ function mapAndFilterStepForms({
   inputMappings: Array<{ formId: string; inputs: any[] }>;
 }) {
   try {
-    logger.info("Starting to map input mappings to step forms.");
+    logger.info('Starting to map input mappings to step forms.');
 
     // Map input mappings to stepForms based on formId and identifier
     const updatedStepForms = stepForms.map((form) => {
       const matchingInputMapping = inputMappings.find(
-        (inputMapping) => inputMapping.formId === form.identifier
+        (inputMapping) => inputMapping.formId === form.identifier,
       );
 
       if (matchingInputMapping) {
         logger.info(
-          `Mapping inputs to step form with identifier: ${form.identifier}`
+          `Mapping inputs to step form with identifier: ${form.identifier}`,
         );
         return {
           ...form,
@@ -37,29 +37,29 @@ function mapAndFilterStepForms({
       }
 
       logger.warn(
-        `No matching input mapping found for step form identifier: ${form.identifier}`
+        `No matching input mapping found for step form identifier: ${form.identifier}`,
       );
       return { ...form, inputs: [] };
     });
 
-    logger.info("Finished mapping inputs to step forms.");
+    logger.info('Finished mapping inputs to step forms.');
 
     // Filter forms where inputs field is not empty
     const filteredStepForms = updatedStepForms.filter(
-      (form) => form.inputs && form.inputs.length > 0
+      (form) => form.inputs && form.inputs.length > 0,
     );
 
     // Sort the filtered forms by the 'step' attribute in ascending order
     const sortedStepForms = filteredStepForms.sort((a, b) => a.step - b.step);
 
     logger.info(
-      `Filtered step forms to include only those with non-empty inputs. Count: ${sortedStepForms.length}`
+      `Filtered step forms to include only those with non-empty inputs. Count: ${sortedStepForms.length}`,
     );
 
     return sortedStepForms;
   } catch (error) {
     logger.error(
-      `Error occurred while mapping and filtering step forms: ${error}`
+      `Error occurred while mapping and filtering step forms: ${error}`,
     );
     throw error;
   }

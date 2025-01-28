@@ -1,5 +1,5 @@
-import logger from "../../../../utils/logger";
-import { Page } from "playwright";
+import logger from '@/utils/logger';
+import { Page } from 'playwright';
 
 export async function displayDetailForm({
   page,
@@ -8,7 +8,7 @@ export async function displayDetailForm({
   page: Page;
   btnIndex: number;
 }) {
-  const stepTitle = "Details";
+  const stepTitle = 'Details';
   try {
     logger.info(`Locating button at index: ${btnIndex}`);
 
@@ -29,7 +29,7 @@ export async function displayDetailForm({
       logger.error(
         `Invalid btnIndex: ${btnIndex}. Must be between 0 and ${
           buttons.length - 1
-        }.`
+        }.`,
       );
       return;
     }
@@ -41,7 +41,7 @@ export async function displayDetailForm({
     // Wait for the button to be visible
     logger.info(`Waiting for button at index ${btnIndex + 1} to be visible.`);
     try {
-      await button.waitFor({ state: "visible", timeout: 15000 });
+      await button.waitFor({ state: 'visible', timeout: 15000 });
     } catch (error) {
       logger.info(`Error waiting for element: ${error}`);
     }
@@ -54,11 +54,11 @@ export async function displayDetailForm({
     } catch (clickError) {
       // Fallback: Use evaluate to click the button
       logger.warn(
-        `Standard click failed. Attempting to click using evaluate: ${clickError}`
+        `Standard click failed. Attempting to click using evaluate: ${clickError}`,
       );
 
       await page.evaluate((index) => {
-        const button = Array.from(document.querySelectorAll("button"))?.[index];
+        const button = Array.from(document.querySelectorAll('button'))?.[index];
         if (button) {
           button.click();
         } else {
@@ -67,14 +67,14 @@ export async function displayDetailForm({
       }, btnIndex);
 
       logger.info(
-        `Successfully clicked button at index ${btnIndex + 1} using evaluate.`
+        `Successfully clicked button at index ${btnIndex + 1} using evaluate.`,
       );
     }
   } catch (error) {
     logger.error(
       `Failed to click the button at index ${
         btnIndex + 1
-      } with text "${stepTitle}": ${error}`
+      } with text "${stepTitle}": ${error}`,
     );
   }
 }

@@ -1,6 +1,6 @@
-import { Page } from "playwright";
-import logger from "../../../../utils/logger";
-import { IInput } from "../../declaration";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
+import { IInput } from '../../declaration';
 
 const INITIAL_NUMBER_OF_INPUTS = 3;
 
@@ -15,26 +15,28 @@ export async function fillTableLikeInputs({
   index: number;
   input: IInput;
 }): Promise<void> {
-  const { label, xpath, id, dataTestId, inputIndex } = input;
+  const { label, xpath, id, dataTestId } = input;
   try {
     logger.info(
-      `Handling table-like inputs for: ${label} with values: ${value}`
+      `Handling table-like inputs for: ${label} with values: ${value}`,
     );
 
     try {
       // Wait for the label to be visible
-      logger.info("Waiting for the label to be visible...");
+      logger.info('Waiting for the label to be visible...');
       const labelLocator = page.locator(`:has-text(${label})`).first();
       await labelLocator.waitFor({
-        state: "visible",
+        state: 'visible',
         timeout: 30000,
       });
     } catch (error) {
-      logger.warn(`Label: ${label} not visible. Continuing execution.`);
+      logger.warn(
+        `Label: ${label} not visible. Continuing execution. ${error}`,
+      );
     }
 
     // Find the table containing the input using page.evaluate
-    logger.info("Locating table and counting inputs using page.evaluate...");
+    logger.info('Locating table and counting inputs using page.evaluate...');
 
     let numberOfInputs = await getInputNumber({ page, xpath, id, dataTestId });
     logger.info(`Initial number of inputs: ${numberOfInputs}`);
@@ -47,7 +49,7 @@ export async function fillTableLikeInputs({
     const addButtonSelector = "[aria-label='Add']";
     const addButton = page.locator(addButtonSelector);
     while (numberOfInputs < requiredInputs) {
-      logger.info("Adding more rows...");
+      logger.info('Adding more rows...');
       await addButton.click();
       await page.waitForTimeout(1000);
       const newValues = await getInputNumber({ page, xpath, id, dataTestId });
@@ -64,7 +66,7 @@ export async function fillTableLikeInputs({
     for (let i = 0; i < value.length; i++) {
       if (!value[i]) {
         logger.info(
-          `Skip input ${label}: with value: ${value[i]} --> not valid value`
+          `Skip input ${label}: with value: ${value[i]} --> not valid value`,
         );
         continue;
       }
@@ -92,28 +94,28 @@ export async function fillTableLikeInputs({
           // Combine the provided XPath with ancestor::table
           table = page.locator(`xpath=${xpath}/ancestor::table`).first();
         } else {
-          throw new Error("No valid selector provided to locate the input.");
+          throw new Error('No valid selector provided to locate the input.');
         }
 
         // Wait for the table to be visible or handle it further
         try {
-          await table.waitFor({ state: "visible", timeout: 7000 });
+          await table.waitFor({ state: 'visible', timeout: 7000 });
         } catch (error) {
           logger.error(`Error waiting for table element: ${error}`);
         }
 
         // Get all inputs within the table using a relative XPath
-        const inputs = await table.locator("input").all();
+        const inputs = await table.locator('input').all();
 
         if (inputIndex >= inputs.length) {
           throw new Error(
-            `Input index ${inputIndex} is out of bounds. Total inputs: ${inputs.length}`
+            `Input index ${inputIndex} is out of bounds. Total inputs: ${inputs.length}`,
           );
         }
 
         // Wait for the specific input to be visible and interactable
         try {
-          await inputs[inputIndex].waitFor({ state: "visible", timeout: 7000 });
+          await inputs[inputIndex].waitFor({ state: 'visible', timeout: 7000 });
         } catch (error) {
           logger.info(`Error waiting for element: ${error}`);
         }
@@ -133,13 +135,13 @@ export async function fillTableLikeInputs({
           const retryValue = await inputs[inputIndex].inputValue();
           if (retryValue !== inputValue) {
             throw new Error(
-              `Value verification failed. Expected: ${inputValue}, Got: ${retryValue}`
+              `Value verification failed. Expected: ${inputValue}, Got: ${retryValue}`,
             );
           }
         }
 
         logger.info(
-          `Successfully filled input at index ${inputIndex} with value: ${inputValue}`
+          `Successfully filled input at index ${inputIndex} with value: ${inputValue}`,
         );
       } catch (error) {
         logger.error(`Failed to fill input at index ${inputIndex}: ${error}`);
@@ -151,7 +153,7 @@ export async function fillTableLikeInputs({
   } catch (error) {
     logger.error(
       `Failed to handle table-like inputs for ${label} due to unexpected error.`,
-      error
+      error,
     );
   }
 }
@@ -181,7 +183,7 @@ export async function getInputNumber({
         } else if (dataTestId && !inputElement) {
           console.log(`Using data-testid: ${dataTestId}`);
           inputElement = document.querySelector(
-            `[data-testid="${dataTestId}"]`
+            `[data-testid="${dataTestId}"]`,
           ) as HTMLInputElement;
         } else if (xpath && !inputElement) {
           console.log(`Using XPath: ${xpath}`);
@@ -190,29 +192,29 @@ export async function getInputNumber({
             document,
             null,
             XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null
+            null,
           ).singleNodeValue as HTMLInputElement;
         }
 
         if (!inputElement) {
-          throw new Error("Input element not found for the provided selector.");
+          throw new Error('Input element not found for the provided selector.');
         }
 
         // Locate the closest table containing the input
-        const tableElement = inputElement.closest("table");
+        const tableElement = inputElement.closest('table');
         if (!tableElement) {
-          throw new Error("No table element found containing the input.");
+          throw new Error('No table element found containing the input.');
         }
 
         // Return the number of input elements within the table
-        return tableElement.querySelectorAll("input").length;
+        return tableElement.querySelectorAll('input').length;
       },
-      { id, dataTestId, xpath }
+      { id, dataTestId, xpath },
     );
 
     return numberOfInputs || INITIAL_NUMBER_OF_INPUTS;
   } catch (error) {
-    logger.error("Error in getInputNumber:", error);
+    logger.error('Error in getInputNumber:', error);
     return INITIAL_NUMBER_OF_INPUTS;
   }
 }

@@ -39,11 +39,11 @@ export function mapToArray(value: unknown[]): [string, string][] {
     .filter((item) => item)
     .map((item) => {
       if (Array.isArray(item)) {
-        const first = item.length === 1 ? "" : item?.at(0) || "";
+        const first = item.length === 1 ? '' : item?.at(0) || '';
         const second =
-          item.length === 1 ? item?.at(0) || "" : item?.at(1) || "";
+          item.length === 1 ? item?.at(0) || '' : item?.at(1) || '';
         return [String(first), String(second)];
       }
-      return ["", String(item)];
+      return ['', String(item)];
     });
 }

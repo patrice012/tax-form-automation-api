@@ -1,7 +1,7 @@
-import { Page } from "playwright";
-import { PlaywrightService } from "../../services/playwrightService";
-import logger from "../../utils/logger";
-import { fillPassword } from "../auth/fillPassword";
+import { Page } from 'playwright';
+import { PlaywrightService } from '@/services/playwrightService';
+import logger from '@/utils/logger';
+import { fillPassword } from '../auth/fillPassword';
 
 // Main login function using the helpers
 export const loadTaxPage = async ({
@@ -14,7 +14,7 @@ export const loadTaxPage = async ({
   page: Page;
   playwrightService: PlaywrightService;
 }> => {
-  const targetUrl = "https://ito.intuit.com/app/protax/client-list";
+  const targetUrl = 'https://ito.intuit.com/app/protax/client-list';
 
   const playwrightService = new PlaywrightService();
   try {
@@ -24,7 +24,7 @@ export const loadTaxPage = async ({
     }
     try {
       await page!.goto(targetUrl, {
-        waitUntil: "load",
+        waitUntil: 'load',
         timeout: 17000,
       });
     } catch (error) {
@@ -34,20 +34,20 @@ export const loadTaxPage = async ({
     let accountChoiceButtonExists = false;
 
     try {
-      logger.info("Check for account selection");
+      logger.info('Check for account selection');
       const accountChoiceButton = page.locator(
-        "[data-testid='AccountChoiceButton_0']"
+        "[data-testid='AccountChoiceButton_0']",
       );
 
       if (await accountChoiceButton.isVisible()) {
         accountChoiceButtonExists = true;
         await accountChoiceButton.click();
-        logger.info("Account selected.");
+        logger.info('Account selected.');
       } else {
-        logger.warn("Account choice button not visible.");
+        logger.warn('Account choice button not visible.');
       }
     } catch (error) {
-      logger.error("Failed to select an account:", error);
+      logger.error('Failed to select an account:', error);
     }
 
     logger.info(`Account choice button present: ${accountChoiceButtonExists}`);
@@ -60,7 +60,7 @@ export const loadTaxPage = async ({
     playwrightService.setCurrentPage(page);
     return { page, playwrightService };
   } catch (error) {
-    logger.error("Scraping error:", error);
+    logger.error('Scraping error:', error);
     throw error;
   }
 };

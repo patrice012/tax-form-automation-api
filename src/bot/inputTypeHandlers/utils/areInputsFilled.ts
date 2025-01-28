@@ -1,6 +1,6 @@
-import { Page } from "playwright";
-import { waitForElement } from "./waitForElement";
-import logger from "../../../utils/logger";
+import { Page } from 'playwright';
+import { waitForElement } from './waitForElement';
+import logger from '@/utils/logger';
 
 /**
  * Checks if any input field within the specified container is already filled.
@@ -15,7 +15,7 @@ export async function areInputsFilled({
 }): Promise<boolean> {
   try {
     logger.info(
-      `Starting check for filled inputs in selector: ${mainSelector}`
+      `Starting check for filled inputs in selector: ${mainSelector}`,
     );
 
     try {
@@ -27,7 +27,7 @@ export async function areInputsFilled({
     }
 
     // Get all input elements within the container
-    const inputs = page.locator(mainSelector).locator("input");
+    const inputs = page.locator(mainSelector).locator('input');
     const inputCount = await inputs.count();
 
     for (let i = 0; i < inputCount; i++) {
@@ -37,20 +37,20 @@ export async function areInputsFilled({
         // Check if the input is disabled, readonly, or hidden
         const isDisabled = await input.isDisabled();
         const isReadOnly = await input.evaluate((el) =>
-          el.hasAttribute("readonly")
+          el.hasAttribute('readonly'),
         );
-        const type = await input.evaluate((el) => el.getAttribute("type"));
+        const type = await input.evaluate((el) => el.getAttribute('type'));
         const value = await input.inputValue();
 
         // Skip inputs that cannot be filled
         if (
           isDisabled ||
           isReadOnly ||
-          type === "checkbox" ||
-          type === "radio"
+          type === 'checkbox' ||
+          type === 'radio'
         ) {
           logger.info(
-            `Skipping input at index ${i} (disabled: ${isDisabled}, readonly: ${isReadOnly}, type: ${type})`
+            `Skipping input at index ${i} (disabled: ${isDisabled}, readonly: ${isReadOnly}, type: ${type})`,
           );
           continue;
         }
@@ -58,7 +58,7 @@ export async function areInputsFilled({
         // Check if the input is filled
         if (value && value.trim().length > 0) {
           logger.info(
-            `Found filled input at index ${i} (type: ${type}, value: "${value}")`
+            `Found filled input at index ${i} (type: ${type}, value: "${value}")`,
           );
           return true;
         }

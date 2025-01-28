@@ -1,6 +1,6 @@
-import { Page, Locator } from "playwright";
-import { getPagination } from "./getPagination";
-import logger from "../../utils/logger";
+import { Page, Locator } from 'playwright';
+import { getPagination } from './getPagination';
+import logger from '@/utils/logger';
 
 export async function findClientNameByEmail({
   page,
@@ -11,16 +11,16 @@ export async function findClientNameByEmail({
 }): Promise<Locator | null> {
   try {
     // Get initial pagination information
-    logger.info("Fetching initial pagination state...");
+    logger.info('Fetching initial pagination state...');
     let paginationObj = await getPagination({ page });
     let { prevButton, nextButton, currentIndex } = paginationObj;
 
     if (!prevButton || !nextButton) {
-      logger.warn("Pagination buttons are not found.");
+      logger.warn('Pagination buttons are not found.');
     }
 
     logger.info(
-      `Initial pagination state: Current Page = ${currentIndex?.value}, Prev Button = ${prevButton?.selector}, Next Button = ${nextButton?.selector}`
+      `Initial pagination state: Current Page = ${currentIndex?.value}, Prev Button = ${prevButton?.selector}, Next Button = ${nextButton?.selector}`,
     );
 
     // Navigate to the first page if not already there
@@ -38,12 +38,12 @@ export async function findClientNameByEmail({
           nextButton = paginationObj.nextButton;
           currentIndex = paginationObj.currentIndex;
         } else {
-          logger.warn("Previous button selector is not available.");
+          logger.warn('Previous button selector is not available.');
           break;
         }
       }
       logger.info(
-        `Reached the first page: Current Page = ${currentIndex?.value}`
+        `Reached the first page: Current Page = ${currentIndex?.value}`,
       );
     }
 
@@ -51,7 +51,7 @@ export async function findClientNameByEmail({
     let matchingElement: Locator | null = null;
     do {
       logger.info(
-        `Searching for email "${emailToFind}" on page ${currentIndex?.value}...`
+        `Searching for email "${emailToFind}" on page ${currentIndex?.value}...`,
       );
       const rows = await page
         .locator('[data-testid="protax-datatable-row"]')
@@ -61,7 +61,7 @@ export async function findClientNameByEmail({
       for (const [index, row] of rows.entries()) {
         logger.info(`Checking row ${index + 1} for the email...`);
         const emailElement = row.locator(
-          '[data-automation-id="CLIENT_EMAIL_LINK"]'
+          '[data-automation-id="CLIENT_EMAIL_LINK"]',
         );
         if (emailElement) {
           const email = await emailElement.textContent();
@@ -70,10 +70,10 @@ export async function findClientNameByEmail({
             logger.info(
               `Email "${emailToFind}" found in row ${
                 index + 1
-              }. Retrieving client name...`
+              }. Retrieving client name...`,
             );
             matchingElement = row.locator(
-              '[data-automation-id="CLIENT_NAME_LINK"]'
+              '[data-automation-id="CLIENT_NAME_LINK"]',
             );
             break;
           }
@@ -83,7 +83,7 @@ export async function findClientNameByEmail({
       const handleNextPage = !matchingElement && !nextButton?.isDisabled;
       if (handleNextPage && nextButton?.selector) {
         logger.info(
-          `Email not found on page ${currentIndex?.value}. Navigating to the next page...`
+          `Email not found on page ${currentIndex?.value}. Navigating to the next page...`,
         );
         await page.locator(nextButton.selector).click();
         paginationObj = await getPagination({ page });
@@ -92,7 +92,7 @@ export async function findClientNameByEmail({
         currentIndex = paginationObj.currentIndex;
       } else if (!matchingElement) {
         logger.info(
-          `Email not found, and no more pages to navigate. Search terminated.`
+          `Email not found, and no more pages to navigate. Search terminated.`,
         );
         break;
       }

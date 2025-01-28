@@ -1,5 +1,5 @@
-import { Page } from "playwright";
-import logger from "../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function navigateToForm({
   page,
@@ -11,9 +11,9 @@ export async function navigateToForm({
   try {
     // Attempt to click the form link
     try {
-      const locator = page.locator("a", { hasText: linkText });
+      const locator = page.locator('a', { hasText: linkText });
       try {
-        await locator.waitFor({ state: "visible", timeout: 15000 });
+        await locator.waitFor({ state: 'visible', timeout: 15000 });
       } catch (error) {
         logger.info(`Error waiting for element: ${error}`);
       }
@@ -23,12 +23,12 @@ export async function navigateToForm({
     } catch (linkClickError) {
       // Fallback: Use evaluate to click the form link
       logger.warn(
-        `Standard click failed on form link. Attempting fallback: ${linkClickError}`
+        `Standard click failed on form link. Attempting fallback: ${linkClickError}`,
       );
 
       await page.evaluate((formLinkText) => {
-        const link = Array.from(document.querySelectorAll("a")).find((anchor) =>
-          anchor.textContent?.includes(formLinkText)
+        const link = Array.from(document.querySelectorAll('a')).find((anchor) =>
+          anchor.textContent?.includes(formLinkText),
         );
         if (link) {
           link.click();

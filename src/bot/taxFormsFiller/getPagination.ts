@@ -1,12 +1,12 @@
-import { Page } from "playwright";
-import logger from "../../utils/logger";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
 
 export async function getPagination({ page }: { page: Page }) {
   const prevButtonLocator =
     '[data-automation-id="protax-pagination-input-previous"]';
   const nextButtonLocator =
     '[data-automation-id="protax-pagination-input-next"]';
-  const currentIndexLocator = ".protax-pagination-input button.active";
+  const currentIndexLocator = '.protax-pagination-input button.active';
 
   const paginationObj = {
     prevButton: {
@@ -21,7 +21,7 @@ export async function getPagination({ page }: { page: Page }) {
     },
     currentIndex: {
       selector: currentIndexLocator,
-      value: "1",
+      value: '1',
     },
   };
 
@@ -36,7 +36,7 @@ export async function getPagination({ page }: { page: Page }) {
       };
       paginationObj.prevButton = prevButton;
     } catch (error) {
-      logger.warn(`Fail to get pagination previous button data`);
+      logger.warn(`Fail to get pagination previous button data ${error}`);
     }
 
     try {
@@ -49,7 +49,7 @@ export async function getPagination({ page }: { page: Page }) {
       };
       paginationObj.nextButton = nextButton;
     } catch (error) {
-      logger.warn(`Fail to get pagination next button data`);
+      logger.warn(`Fail to get pagination next button data ${error}`);
     }
 
     try {
@@ -61,14 +61,14 @@ export async function getPagination({ page }: { page: Page }) {
 
       const currentIndex = {
         selector: currentIndexLocator,
-        value: currentIndexText ? currentIndexText.trim() : "1",
+        value: currentIndexText ? currentIndexText.trim() : '1',
       };
       paginationObj.currentIndex = currentIndex;
     } catch (error) {
-      logger.warn(`Fail to get pagination current index value`);
+      logger.warn(`Fail to get pagination current index value ${error}`);
     }
 
-    logger.info("Pagination details retrieved successfully.");
+    logger.info('Pagination details retrieved successfully.');
     return paginationObj;
   } catch (error) {
     logger.error(`Error getting pagination: ${error}`);

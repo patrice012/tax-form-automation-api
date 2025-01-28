@@ -1,15 +1,15 @@
-import { Page } from "playwright";
-import logger from "../../../utils/logger";
-import { IInput } from "../../forms/declaration";
-import { fillInputs } from "../insidePopup/fillInputs";
-import { openPopup } from "../insidePopup/openPopup";
-import { clickActionButton } from "../insidePopup/saveFormAndClosePopup";
-import { checkInputValue } from "./checkInputValue";
-import { fillTextInput } from "../text";
-import { waitForPopup } from "../insidePopup/waitForPopup";
-import { mapToArray } from "../../forms/utils/mapToArray";
+import { Page } from 'playwright';
+import logger from '@/utils/logger';
+import { IInput } from '../../forms/declaration';
+import { fillInputs } from '../insidePopup/fillInputs';
+import { openPopup } from '../insidePopup/openPopup';
+import { clickActionButton } from '../insidePopup/saveFormAndClosePopup';
+import { checkInputValue } from './checkInputValue';
+import { fillTextInput } from '../text';
+import { waitForPopup } from '../insidePopup/waitForPopup';
+import { mapToArray } from '../../forms/utils/mapToArray';
 
-const INITIAL_NUMBER_OF_INPUTS = 2;
+// const INITIAL_NUMBER_OF_INPUTS = 2;
 
 export async function textForTable({
   page,
@@ -18,14 +18,14 @@ export async function textForTable({
   page: Page;
   input: IInput;
 }): Promise<void> {
-  const { xpath, label, value, id, dataTestId, inputIndex } = input;
+  const { xpath, label, value, id, dataTestId } = input;
   try {
     logger.info(`Attempting to fill input for ${label} with value: ${value}`);
 
     logger.info(`Check if input for ${label} is already filled`);
     const isInputFilled = await checkInputValue({ page, input });
     logger.info(`Input for ${label} has value: ${isInputFilled}`);
-    
+
     if (!isInputFilled) {
       logger.info(`Input for ${label} has no value, start filling normaly`);
       await fillTextInput({ page, input });
@@ -38,14 +38,14 @@ export async function textForTable({
     const popup = await openPopup({ page, xpath, id, dataTestId });
 
     if (!popup.isOpen) {
-      logger.error("Failed to open popup, exist process");
+      logger.error('Failed to open popup, exist process');
       logger.info(
-        `Start filling input for ${label} normaly, existing value will be overwritten`
+        `Start filling input for ${label} normaly, existing value will be overwritten`,
       );
       await fillTextInput({ page, input });
       return;
     }
-    logger.info("Popup is open, start processing");
+    logger.info('Popup is open, start processing');
 
     // Wait for the popup modal
     const popupSelector = "[data-testid='stacked-modal']";
@@ -55,8 +55,8 @@ export async function textForTable({
     const valueToArray = mapToArray(value);
     logger.info(
       `Initial value: ${value} --> valueToArray: ${JSON.stringify(
-        valueToArray
-      )}`
+        valueToArray,
+      )}`,
     );
 
     try {
@@ -72,11 +72,11 @@ export async function textForTable({
       await clickActionButton({ page, popupSelector, btnSelector });
 
       logger.info(
-        `Successfully filled input with value: ${value} for ${label}`
+        `Successfully filled input with value: ${value} for ${label}`,
       );
     } catch (error) {
       logger.info(
-        `Fail to fill Input for ${label} using popup, start filling normaly`
+        `Fail to fill Input for ${label} using popup, start filling normaly ${error}`,
       );
       await fillTextInput({ page, input });
     }
