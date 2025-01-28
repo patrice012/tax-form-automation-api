@@ -1,11 +1,11 @@
-import { Page } from 'playwright';
-import { waitForElement } from '../utils/waitForElement';
-import logger from '@/utils/logger';
-import { clearInput } from './clearInput';
-import { fillInput } from './fillInput';
-import { focusInput } from './focusInput';
-import { getRandomIndex } from '../utils/getRandomIndex';
-import { getTotalInputsByRow, getTotalRowsWithInputs } from './rowInputs';
+import { Page } from "playwright";
+import { waitForElement } from "../utils/waitForElement";
+import logger from "@/utils/logger";
+import { clearInput } from "./clearInput";
+import { fillInput } from "./fillInput";
+import { focusInput } from "./focusInput";
+import { getRandomIndex } from "../utils/getRandomIndex";
+import { getTotalInputsByRow, getTotalRowsWithInputs } from "./rowInputs";
 
 export async function AddNewRow({
   page,
@@ -38,7 +38,7 @@ export async function AddNewRow({
     // Get initial number of rows
     const initialTotalRows = await getTotalRowsWithInputs(page, mainSelector);
     logger.info(
-      `Initial total rows: ${initialTotalRows}, inputs by row: ${INPUTS_BY_ROW}`,
+      `Initial total rows: ${initialTotalRows}, inputs by row: ${INPUTS_BY_ROW}`
     );
 
     // Calculate the starting index for the last row's inputs
@@ -48,13 +48,14 @@ export async function AddNewRow({
     let newRowAdded = false;
     let totalRows = 0;
 
+    // Try to add a new row
+    const savedValue = await page
+      .locator(`td input`)
+      ?.nth(startIndex)
+      ?.inputValue();
+
     while (!newRowAdded) {
       try {
-        // Try to add a new row
-        const savedValue = await page
-          .locator(`td input`)
-          ?.nth(startIndex)
-          ?.inputValue();
         // Clear the first input value in the last row
         await clearInput({ page, startIndex });
 
@@ -80,7 +81,7 @@ export async function AddNewRow({
         try {
           if (savedValue) {
             logger.info(
-              `Existing value at index: ${startIndex}, set it again  value:${savedValue}`,
+              `Existing value at index: ${startIndex}, set it again  value:${savedValue}`
             );
             fillInput({ page, startIndex, value: savedValue });
           }
@@ -97,12 +98,12 @@ export async function AddNewRow({
       // Validate if a new row was added successfully
       if (currentTotalRows === initialTotalRows + 1) {
         logger.info(
-          `New row added successfully. Total rows: ${currentTotalRows}`,
+          `New row added successfully. Total rows: ${currentTotalRows}`
         );
         newRowAdded = true;
       } else {
         logger.warn(
-          `Failed to add a new row. Initial rows: ${initialTotalRows}, Current rows: ${currentTotalRows}`,
+          `Failed to add a new row. Initial rows: ${initialTotalRows}, Current rows: ${currentTotalRows}`
         );
       }
     }

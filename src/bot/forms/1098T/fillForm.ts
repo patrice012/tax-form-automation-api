@@ -1,13 +1,13 @@
 import { Page } from "playwright";
-import { getInputMapping } from "./formMapping/inputMapping";
+import { getInputMapping } from "./inputMapping";
 import logger from "@/utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { navigateToCorrectForm } from "./handleFormNavigation";
-import { createNewForm } from "./formActions/createNewForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { selecteLastForm } from "../utils/selecteLastForm";
+import { createNewForm } from "../utils/createNewForm";
 
 export async function fill1098TForm({
   page,
@@ -20,7 +20,9 @@ export async function fill1098TForm({
     await closeSideBarPopup({ page });
     // Navigate to the correct page
     await navigateToCorrectForm({ page });
-    await createNewForm({ page });
+    const selector =
+      '[data-testid="OSIScreen1-5-tabsbar-View-Add-Icon-icon-control"]';
+    await createNewForm({ page, selector });
     await selecteLastForm({ page });
     logger.info(`Start filling process`);
 

@@ -1,10 +1,10 @@
-import { Page } from 'playwright';
-import { getInputMapping } from './formMapping/inputMapping';
-import logger from '@/utils/logger';
-import { selectOption } from '../../inputTypeHandlers/select';
-import { checkboxInput } from '../../inputTypeHandlers/checkbox';
-import { closeSideBarPopup } from '../utils/closeSideBarPopup';
-import { textForTable } from '../../inputTypeHandlers/textForTable';
+import { Page } from "playwright";
+import { getInputMapping } from "./inputMapping";
+import logger from "@/utils/logger";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { textForTable } from "../../inputTypeHandlers/textForTable";
 
 export async function fill1099NECForm({
   page,
@@ -25,16 +25,16 @@ export async function fill1099NECForm({
 
       try {
         switch (inputType) {
-          case 'checkbox':
+          case "checkbox":
             await checkboxInput({ page, input });
             break;
-          case 'number':
+          case "number":
             await textForTable({ page, input });
             break;
-          case 'text':
+          case "text":
             await textForTable({ page, input });
             break;
-          case 'select':
+          case "select":
             await selectOption({ page, input });
             break;
         }
@@ -43,7 +43,7 @@ export async function fill1099NECForm({
       }
     }
 
-    logger.info('Form filled');
+    logger.info("Form filled");
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }

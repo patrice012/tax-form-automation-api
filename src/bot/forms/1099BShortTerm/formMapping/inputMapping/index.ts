@@ -1,9 +1,9 @@
-import logger from '@/utils/logger';
-import { getMergeStepFormInputAndSectionData } from './mergeStepFormInputAndSectionData';
-// import { getFormData } from '../../../utils/getFormData';
-// import { getData } from '../../../../dummyData/getData';
+import logger from "@/utils/logger";
+import { getMergeStepFormInputAndSectionData } from "./mergeStepFormInputAndSectionData";
+// import { getFormData } from "../../../utils/getFormData";
+// import { getData } from "../../../../dummyData/getData";
 
-export async function getInputMapping({ data }: { data?: any }) {
+export async function getInputMapping({ data }: { data: any }) {
   try {
     // const data = await getData();
     // const formData = getFormData({
@@ -18,6 +18,6 @@ export async function getInputMapping({ data }: { data?: any }) {
   }
 }
 
-// getInputMapping({})
-//   .then((d) => console.log(JSON.stringify(d, null, 2)))
+// getInputMapping({ data: {} })
+//   .then((d) => console.log(JSON.stringify(d, null, 2), "1098BShortTerm"))
 //   .catch(console.log);

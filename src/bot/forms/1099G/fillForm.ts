@@ -1,15 +1,15 @@
 import { Page } from "playwright";
-import { getInputMapping } from "./formMapping/inputMapping";
+import { getInputMapping } from "./inputMapping";
 import logger from "@/utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
 import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
-import { createNewForm } from "./formActions/createNewForm";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { mapToArray } from "../utils/mapToArray";
 import { selecteLastForm } from "../utils/selecteLastForm";
+import { createNewForm } from "../utils/createNewForm";
 
 export async function fill1099GForm({
   page,
@@ -20,7 +20,9 @@ export async function fill1099GForm({
 }) {
   try {
     await closeSideBarPopup({ page });
-    await createNewForm({ page });
+    const selector =
+      '[data-testid="OSIScreen1-10-tabsbar-View-Add-Icon-icon-control"]';
+    await createNewForm({ page, selector });
     await selecteLastForm({ page });
     logger.info(`Start filling process`);
 
