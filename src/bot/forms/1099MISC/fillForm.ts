@@ -1,15 +1,16 @@
-import { Page } from 'playwright';
-import { getInputMapping } from './formMapping/inputMapping';
-import logger from '@/utils/logger';
-import { fillTextInput } from '../../inputTypeHandlers/text';
-import { selectOption } from '../../inputTypeHandlers/select';
-import { checkboxInput } from '../../inputTypeHandlers/checkbox';
-import { fillPopupLikeInputs } from '../../inputTypeHandlers/insidePopup';
-import { fillTableLikeInputs } from './customInputTypeHandlers/fillTableLikeInputs';
-import { navigateToCorrectForm } from './handleFormNavigation';
-import { createNewForm } from './formActions/createNewForm';
-import { closeSideBarPopup } from '../utils/closeSideBarPopup';
-import { mapToArray } from '../utils/mapToArray';
+import { Page } from "playwright";
+import { getInputMapping } from "./formMapping/inputMapping";
+import logger from "@/utils/logger";
+import { fillTextInput } from "../../inputTypeHandlers/text";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
+import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
+import { navigateToCorrectForm } from "./handleFormNavigation";
+import { createNewForm } from "./formActions/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { mapToArray } from "../utils/mapToArray";
+import { selecteLastForm } from "../utils/selecteLastForm";
 
 export async function fill1099MISCForm({
   page,
@@ -23,6 +24,7 @@ export async function fill1099MISCForm({
     await closeSideBarPopup({ page });
     await navigateToCorrectForm({ page });
     await createNewForm({ page });
+    await selecteLastForm({ page });
     logger.info(`Start filling process`);
 
     const inputMapping = await getInputMapping({ data: formData });
@@ -33,28 +35,28 @@ export async function fill1099MISCForm({
     for (const input of inputs) {
       const { label, custom, inputType } = input;
 
-      if (custom && custom === 'table') {
+      if (custom && custom === "table") {
         tableLikeInputs.push(input);
         continue;
       }
 
-      if (custom && custom === 'popup') {
+      if (custom && custom === "popup") {
         popupLikeInputs.push(input);
         continue;
       }
 
       try {
         switch (inputType) {
-          case 'checkbox':
+          case "checkbox":
             await checkboxInput({ page, input });
             break;
-          case 'number':
+          case "number":
             await fillTextInput({ page, input });
             break;
-          case 'text':
+          case "text":
             await fillTextInput({ page, input });
             break;
-          case 'select':
+          case "select":
             await selectOption({ page, input });
             break;
         }
@@ -96,7 +98,7 @@ export async function fill1099MISCForm({
       }
     }
 
-    logger.info('Form filled');
+    logger.info("Form filled");
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }
