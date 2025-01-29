@@ -1,14 +1,15 @@
-import { Page } from 'playwright';
-import { getInputMapping } from './inputMapping';
-import logger from '@/utils/logger';
-import { fillTextInput } from '../../inputTypeHandlers/text';
-import { selectOption } from '../../inputTypeHandlers/select';
-import { checkboxInput } from '../../inputTypeHandlers/checkbox';
-import { fillTableLikeInputs } from './customInputTypeHandlers/fillTableLikeInputs';
-import { fillPopupLikeInputs } from '../../inputTypeHandlers/insidePopup';
-import { createNewForm } from '../utils/createNewForm';
-import { closeSideBarPopup } from '../utils/closeSideBarPopup';
-import { selecteLastForm } from '../utils/selecteLastForm';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
+import { fillTextInput } from "../../inputTypeHandlers/text";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
+import { createNewForm } from "../utils/createNewForm";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { selecteLastForm } from "../utils/selecteLastForm";
+import { getInputMapping } from "../utils/getInputMapping";
+import { getInputFields } from "./inputFields";
 
 export async function fillW2Form({
   page,
@@ -19,82 +20,89 @@ export async function fillW2Form({
 }) {
   try {
     await closeSideBarPopup({ page });
-    const selector =
-      '[data-testid="OSIScreen1-23-tabsbar-View-Add-Icon-icon-control"]';
-    await createNewForm({ page, selector });
-    await selecteLastForm({ page });
-    logger.info(`Start filling process`);
 
-    const inputMapping = await getInputMapping({ data: formData });
-    const inputs = inputMapping.inputs;
-    const tableLikeInputs = [];
-    const popupLikeInputs = [];
+    const formName = "W2";
+    const inputMappings = await getInputMapping({
+      data: formData,
+      formName: formName,
+      getInputFields: getInputFields,
+    });
 
-    for (const input of inputs) {
-      const inputType = input.inputType;
-      const { custom, label } = input;
+    for (const inputMapping of inputMappings) {
+      const selector =
+        '[data-testid="OSIScreen1-23-tabsbar-View-Add-Icon-icon-control"]';
+      await createNewForm({ page, selector });
+      await selecteLastForm({ page });
+      logger.info(`Start filling process`);
 
-      if (custom && custom === 'table') {
-        tableLikeInputs.push(input);
-        continue;
-      }
+      const inputs = inputMapping.inputs;
+      const tableLikeInputs = [];
+      const popupLikeInputs = [];
 
-      if (custom && custom === 'popup') {
-        popupLikeInputs.push(input);
-        continue;
-      }
+      for (const input of inputs) {
+        const inputType = input.inputType;
+        const { custom, label } = input;
 
-      try {
-        switch (inputType) {
-          case 'checkbox':
-            await checkboxInput({ page, input });
-            break;
-          case 'number':
-            await fillTextInput({ page, input });
-            break;
-          case 'text':
-            await fillTextInput({ page, input });
-            break;
-          case 'select':
-            await selectOption({ page, input });
-            break;
+        if (custom && custom === "table") {
+          tableLikeInputs.push(input);
+          continue;
         }
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
+
+        if (custom && custom === "popup") {
+          popupLikeInputs.push(input);
+          continue;
+        }
+
+        try {
+          switch (inputType) {
+            case "checkbox":
+              await checkboxInput({ page, input });
+              break;
+            case "number":
+            case "text":
+              await fillTextInput({ page, input });
+              break;
+            case "select":
+              await selectOption({ page, input });
+              break;
+          }
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
       }
-    }
-    // handle special cases -- inputs inside table
-    for (let i = 0; i < tableLikeInputs.length; i++) {
-      const input = tableLikeInputs[i];
-      const { value, label } = input;
-      try {
-        await fillTableLikeInputs({
-          value: value,
-          index: i,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
+      // handle special cases -- inputs inside table
+      for (let i = 0; i < tableLikeInputs.length; i++) {
+        const input = tableLikeInputs[i];
+        const { value, label } = input;
+        try {
+          await fillTableLikeInputs({
+            value: value,
+            index: i,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
+      }
+
+      // handle special cases --  inputs inside popup
+      for (let i = 0; i < popupLikeInputs.length; i++) {
+        const input = popupLikeInputs[i];
+        const { value, label } = input;
+        try {
+          await fillPopupLikeInputs({
+            value: value,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing: ${label} --> ${error}`);
+        }
       }
     }
 
-    // handle special cases --  inputs inside popup
-    for (let i = 0; i < popupLikeInputs.length; i++) {
-      const input = popupLikeInputs[i];
-      const { value, label } = input;
-      try {
-        await fillPopupLikeInputs({
-          value: value,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} --> ${error}`);
-      }
-    }
-
-    logger.info('Form filled');
+    logger.info("Form filled");
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }

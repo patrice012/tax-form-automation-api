@@ -47,6 +47,7 @@ export async function AddNewRow({
 
     let newRowAdded = false;
     let totalRows = 0;
+    let maximum_trial = 10;
 
     // Try to add a new row
     const savedValue = await page
@@ -54,7 +55,7 @@ export async function AddNewRow({
       ?.nth(startIndex)
       ?.inputValue();
 
-    while (!newRowAdded) {
+    while (!newRowAdded && maximum_trial > 0) {
       try {
         // Clear the first input value in the last row
         await clearInput({ page, startIndex });
@@ -91,6 +92,8 @@ export async function AddNewRow({
       } catch (error) {
         logger.error(`Error interacting with inputs: ${error}`);
         return null;
+      } finally {
+        maximum_trial = maximum_trial - 1;
       }
 
       const currentTotalRows = await getTotalRowsWithInputs(page, mainSelector);

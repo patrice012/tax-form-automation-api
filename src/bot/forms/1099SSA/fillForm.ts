@@ -1,13 +1,14 @@
-import { Page } from 'playwright';
-import { getInputMapping } from './inputMapping';
-import logger from '@/utils/logger';
-import { selectOption } from '../../inputTypeHandlers/select';
-import { checkboxInput } from '../../inputTypeHandlers/checkbox';
-import { fillPopupLikeInputs } from '../../inputTypeHandlers/insidePopup';
-import { fillTableLikeInputs } from './customInputTypeHandlers/fillTableLikeInputs';
-import { closeSideBarPopup } from '../utils/closeSideBarPopup';
-import { mapToArray } from '../utils/mapToArray';
-import { textForTable } from '../../inputTypeHandlers/textForTable';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
+import { selectOption } from "../../inputTypeHandlers/select";
+import { checkboxInput } from "../../inputTypeHandlers/checkbox";
+import { fillPopupLikeInputs } from "../../inputTypeHandlers/insidePopup";
+import { fillTableLikeInputs } from "./customInputTypeHandlers/fillTableLikeInputs";
+import { closeSideBarPopup } from "../utils/closeSideBarPopup";
+import { mapToArray } from "../utils/mapToArray";
+import { textForTable } from "../../inputTypeHandlers/textForTable";
+import { getInputMapping } from "../utils/getInputMapping";
+import { getInputFields } from "./inputFields";
 
 export async function fill1099SSAForm({
   page,
@@ -19,78 +20,87 @@ export async function fill1099SSAForm({
   try {
     await closeSideBarPopup({ page });
 
-    const inputMapping = await getInputMapping({ data: formData });
-    const inputs = inputMapping.inputs;
-    const popupLikeInputs = [];
-    const tableLikeInputs = [];
+    logger.info(`Start filling 1099SSA form`);
 
-    for (const input of inputs) {
-      const { label, custom, inputType } = input;
+    // Get input mappings
+    const formName = "1099SSA";
+    const inputMappings = await getInputMapping({
+      data: formData,
+      formName: formName,
+      getInputFields: getInputFields,
+    });
 
-      if (custom && custom === 'table') {
-        tableLikeInputs.push(input);
-        continue;
-      }
+    for (const inputMapping of inputMappings) {
+      const inputs = inputMapping.inputs;
+      const popupLikeInputs = [];
+      const tableLikeInputs = [];
 
-      if (custom && custom === 'popup') {
-        popupLikeInputs.push(input);
-        continue;
-      }
+      for (const input of inputs) {
+        const { label, custom, inputType } = input;
 
-      try {
-        switch (inputType) {
-          case 'checkbox':
-            await checkboxInput({ page, input });
-            break;
-          case 'number':
-            await textForTable({ page, input });
-            break;
-          case 'text':
-            await textForTable({ page, input });
-            break;
-          case 'select':
-            await selectOption({ page, input });
-            break;
+        if (custom && custom === "table") {
+          tableLikeInputs.push(input);
+          continue;
         }
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
+
+        if (custom && custom === "popup") {
+          popupLikeInputs.push(input);
+          continue;
+        }
+
+        try {
+          switch (inputType) {
+            case "checkbox":
+              await checkboxInput({ page, input });
+              break;
+            case "number":
+            case "text":
+              await textForTable({ page, input });
+              break;
+            case "select":
+              await selectOption({ page, input });
+              break;
+          }
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
+      }
+
+      // handle special cases -- inputs inside table
+      for (let i = 0; i < tableLikeInputs.length; i++) {
+        const input = tableLikeInputs[i];
+        const { value, label } = input;
+        try {
+          await fillTableLikeInputs({
+            value: value,
+            index: i,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
+      }
+
+      // handle special cases --  inputs inside popup
+      for (let i = 0; i < popupLikeInputs.length; i++) {
+        const input = popupLikeInputs[i];
+        const { value, label } = input;
+        try {
+          // parse value => [[label, val]]]
+          const newValue = mapToArray(value);
+          await fillPopupLikeInputs({
+            value: newValue,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing: ${label} --> ${error}`);
+        }
       }
     }
 
-    // handle special cases -- inputs inside table
-    for (let i = 0; i < tableLikeInputs.length; i++) {
-      const input = tableLikeInputs[i];
-      const { value, label } = input;
-      try {
-        await fillTableLikeInputs({
-          value: value,
-          index: i,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
-      }
-    }
-
-    // handle special cases --  inputs inside popup
-    for (let i = 0; i < popupLikeInputs.length; i++) {
-      const input = popupLikeInputs[i];
-      const { value, label } = input;
-      try {
-        // parse value => [[label, val]]]
-        const newValue = mapToArray(value);
-        await fillPopupLikeInputs({
-          value: newValue,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} --> ${error}`);
-      }
-    }
-
-    logger.info('Form filled');
+    logger.info("1099SSA form filled");
   } catch (error) {
     logger.error(`Failed to fill form ${error}`);
   }

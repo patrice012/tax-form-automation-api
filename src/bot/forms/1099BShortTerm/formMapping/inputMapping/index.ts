@@ -1,5 +1,5 @@
-import logger from '@/utils/logger';
-import { getMergeStepFormInputAndSectionData } from './mergeStepFormInputAndSectionData';
+import logger from "@/utils/logger";
+import { getMergeStepFormInputAndSectionData } from "./mergeStepFormInputAndSectionData";
 // import { getFormData } from "../../../utils/getFormData";
 // import { getData } from "../../../../dummyData/getData";
 

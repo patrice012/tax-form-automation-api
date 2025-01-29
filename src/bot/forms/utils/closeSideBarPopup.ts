@@ -1,5 +1,5 @@
-import { Page } from 'playwright';
-import logger from '@/utils/logger';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
 
 export async function closeSideBarPopup({ page }: { page: Page }) {
   const locator = '[class*="Request-bar-FTU-flyout-header"]';
@@ -7,17 +7,17 @@ export async function closeSideBarPopup({ page }: { page: Page }) {
     logger.info(`Try closing sidebar popup`);
 
     // Locate the button containing a span with the specific text
-    const button = page.locator(locator)?.locator('button')?.first();
+    const button = page.locator(locator)?.locator("button")?.first();
 
     if (!button) {
-      console.log('Popup not present');
+      console.log("Popup not present");
       return;
     }
 
     try {
       // Wait for the button to be visible
       logger.info(`Waiting for sidebar popup to become visible`);
-      await button.waitFor({ state: 'visible', timeout: 7000 });
+      await button.waitFor({ state: "visible", timeout: 7000 });
     } catch (error) {
       logger.error(`Sidebar popup Error: ${error}`);
     }
@@ -33,7 +33,7 @@ export async function closeSideBarPopup({ page }: { page: Page }) {
     }
 
     if (!isVisible) {
-      logger.info('Closing button not visible');
+      logger.info("Closing button not visible");
       return;
     }
 
@@ -45,11 +45,11 @@ export async function closeSideBarPopup({ page }: { page: Page }) {
     } catch (clickError) {
       // Fallback: Use evaluate to click the button
       logger.warn(
-        `Standard click failed. Attempting to click using evaluate: ${clickError}`,
+        `Standard click failed. Attempting to click using evaluate: ${clickError}`
       );
 
       await page.evaluate((locator) => {
-        const button = document.querySelector(locator)?.querySelector('button');
+        const button = document.querySelector(locator)?.querySelector("button");
 
         if (button) {
           button.click();
@@ -62,5 +62,25 @@ export async function closeSideBarPopup({ page }: { page: Page }) {
     }
   } catch (error) {
     logger.error(`Failed to click the button: ${error}`);
+  }
+
+  // Try to close all popup
+  try {
+    logger.info("Try to close popups if present");
+    const btns = await page
+      .locator(`[data-automation-id="close-button"]`)
+      .all();
+
+    if (btns) {
+      for (const btn of btns) {
+        try {
+          btn.click();
+        } catch (error) {
+          logger.warn(`Fail closing popup`);
+        }
+      }
+    }
+  } catch (error) {
+    logger.warn(`Fail to close some popup`);
   }
 }

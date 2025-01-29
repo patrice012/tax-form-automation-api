@@ -1,6 +1,6 @@
-import { Page } from 'playwright';
-import { IInput } from '../../forms/declaration';
-import logger from '@/utils/logger';
+import { Locator, Page } from "playwright";
+import { IInput } from "../../forms/declaration";
+import logger from "@/utils/logger";
 
 export async function checkInputValue({
   page,
@@ -16,39 +16,46 @@ export async function checkInputValue({
     logger.info(`Checking input for label: ${label} value`);
 
     // Determine the best selector to use
-    let locator;
+    let locator: Locator;
     if (id) {
       logger.info(`Using ID: ${id}`);
       locator = page.locator(`#${id}`).first();
-    } else if (dataTestId && !locator) {
+    } else if (dataTestId) {
       logger.info(`Using data-testid: ${dataTestId}`);
       locator = page.locator(`[data-testid="${dataTestId}"]`).first();
-    } else if (xpath && !locator) {
+    } else if (xpath) {
       logger.info(`Using XPath: ${xpath}`);
       locator = page.locator(`xpath=${xpath}`).first();
-    } else if (inputIndex && !locator && mainParentSelector) {
+    } else if (inputIndex !== undefined && mainParentSelector) {
       logger.info(`Using inputIndex: ${inputIndex}`);
-      locator = page
-        .locator(mainParentSelector)
-        .locator('input')
-        .nth(inputIndex);
+      locator = page.locator(`${mainParentSelector} input`).nth(inputIndex);
     } else {
-      throw new Error('No valid selector provided to locate the input.');
+      throw new Error("No valid selector provided to locate the input.");
     }
 
+    // Ensure the locator is visible before proceeding
     try {
-      // Wait for element to be visible
-      await locator.waitFor({ state: 'visible', timeout: 7000 });
+      await locator.waitFor({ state: "visible", timeout: 5000 });
       logger.info(`Input is visible`);
     } catch {
       logger.warn(`Input is not visible`);
+      return false;
+    }
+
+    // Ensure the element exists and is an input before checking its value
+    const isInput = await locator.evaluate(
+      (el) => el.tagName.toLowerCase() === "input"
+    );
+    if (!isInput) {
+      logger.warn(`Located element is not an input field`);
+      return false;
     }
 
     try {
-      const value = locator?.inputValue({ timeout: 7000 });
-      return Boolean(value);
+      const value = await locator.inputValue({ timeout: 3000 });
+      return Boolean(value?.trim());
     } catch (error) {
-      logger.error(`Fail to test inputValue: ${error}`);
+      logger.error(`Failed to get input value: ${error}`);
       return false;
     }
   } catch (error) {

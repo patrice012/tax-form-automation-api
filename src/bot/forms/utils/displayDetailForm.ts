@@ -12,9 +12,10 @@ export async function displayDetailForm({
   try {
     logger.info(`Locating button at index: ${btnIndex}`);
 
-    // Locate all buttons with the span containing the specified text
+    // Locate the button containing the specified text
     const buttons = await page
-      .locator(`button:has(span:has-text("${stepTitle}"))`)
+      .locator(`button:has(span), button`)
+      .filter({ hasText: stepTitle })
       .all();
 
     if (!buttons || buttons.length === 0) {

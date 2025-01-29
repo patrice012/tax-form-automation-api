@@ -1,14 +1,18 @@
 import { Page } from "playwright";
 import logger from "@/utils/logger";
-import { verifyFormVisibility } from "../utils/verifyFormVisibility";
-import { navigateToForm } from "../../taxFormsFiller/navigateToForm";
+import { verifyFormVisibility } from "./verifyFormVisibility";
+import { navigateToStep } from "./navigateToStep";
 
-export async function navigateToCorrectForm({ page }: { page: Page }) {
+export async function navigateToEntryPage({
+  page,
+  correctFormText,
+  alternateFormText,
+}: {
+  page: Page;
+  correctFormText: string;
+  alternateFormText: string;
+}) {
   try {
-    // Check visibility of the current forms
-    const correctFormText = "Carryovers/Misc Info";
-    const alternateFormText = "Back to Quick entry";
-
     const visibilityStatus = await verifyFormVisibility({
       page,
       correctFormText,
@@ -19,10 +23,7 @@ export async function navigateToCorrectForm({ page }: { page: Page }) {
       logger.info(
         "User is on the alternate form page, navigating to the correct form."
       );
-      logger.info("Relaoding page");
-      await page.reload();
-      await navigateToForm({ page, linkText: "Dispositions (Sch D, etc.)" });
-      logger.info("Reopen Dispositions (Sch D, etc.) form");
+      await navigateToStep({ page, stepTitle: alternateFormText });
       logger.info("Navigation to the correct form page completed.");
     } else if (visibilityStatus.isCorrectForm) {
       logger.info(

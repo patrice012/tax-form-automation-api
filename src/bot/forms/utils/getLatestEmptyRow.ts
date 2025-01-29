@@ -26,7 +26,7 @@ export async function getLatestEmptyRow({
 
   try {
     try {
-      await waitForElement('button:has(span:has-text("Details"))', page);
+      await waitForElement('button:has(span:has-text("Details"))', page, 10000);
     } catch (error) {
       logger.warn(`${error}`);
     }
@@ -39,8 +39,9 @@ export async function getLatestEmptyRow({
 
       logger.info("Start waiting for detail button");
       let totalDetailsButtons = await getDetailsButtonCount(page);
+      let maximum_trial = 10;
 
-      while (newRow?.rowIndex !== totalDetailsButtons) {
+      while (newRow?.rowIndex !== totalDetailsButtons && maximum_trial > 0) {
         logger.info(
           `Adding new button for row: ${rowIndex}, current button index: ${totalDetailsButtons}`
         );
@@ -60,6 +61,8 @@ export async function getLatestEmptyRow({
         } catch (error) {
           logger.error(`Error interacting with inputs: ${error}`);
           return null;
+        } finally {
+          maximum_trial = maximum_trial - 1;
         }
 
         // Wait for the new button to appear

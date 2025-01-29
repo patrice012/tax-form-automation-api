@@ -1,5 +1,4 @@
 import { Page } from "playwright";
-import { getInputMapping } from "./inputMapping";
 import logger from "@/utils/logger";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
@@ -8,6 +7,8 @@ import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { mapToArray } from "../utils/mapToArray";
 import { textForTable } from "../../inputTypeHandlers/textForTable";
 import { navigateToCorrectForm } from "../utils/navigateToCorrectForm";
+import { getInputMapping } from "../utils/getInputMapping";
+import { getInputFields } from "./inputFields";
 
 export async function fill1098EForm({
   page,
@@ -21,52 +22,53 @@ export async function fill1098EForm({
     await closeSideBarPopup({ page });
     await navigateToCorrectForm({ page, sectionTitle: "Education" });
 
-    const inputMapping = await getInputMapping({ data: formData });
-    const inputs = inputMapping.inputs;
-    const popupLikeInputs = [];
+    const formName = "1098E";
+    const inputMappings = await getInputMapping({
+      data: formData,
+      formName: formName,
+      getInputFields: getInputFields,
+    });
 
-    for (const input of inputs) {
-      const { label, custom, inputType } = input;
+    for (const inputMapping of inputMappings) {
+      const inputs = inputMapping.inputs;
+      const popupLikeInputs: typeof inputs = [];
 
-      if (custom && custom === "popup") {
-        popupLikeInputs.push(input);
-        continue;
-      }
+      for (const input of inputs) {
+        const { label, custom, inputType } = input;
 
-      try {
-        switch (inputType) {
-          case "checkbox":
-            await checkboxInput({ page, input });
-            break;
-          case "number":
-            await textForTable({ page, input });
-            break;
-          case "text":
-            await textForTable({ page, input });
-            break;
-          case "select":
-            await selectOption({ page, input });
-            break;
+        if (custom === "popup") {
+          popupLikeInputs.push(input);
+          continue;
         }
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
-      }
-    }
 
-    // handle special cases --  inputs inside popup
-    for (let i = 0; i < popupLikeInputs.length; i++) {
-      const input = popupLikeInputs[i];
-      const { value, label } = input;
-      try {
-        // parse value => [[label, val]]]
-        const newValue = mapToArray(value);
-        await fillPopupLikeInputs({
-          value: newValue,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} --> ${error}`);
+        try {
+          switch (inputType) {
+            case "checkbox":
+              await checkboxInput({ page, input });
+              break;
+            case "number":
+            case "text":
+              await textForTable({ page, input });
+              break;
+            case "select":
+              await selectOption({ page, input });
+              break;
+          }
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
+      }
+
+      // Handle special cases -- inputs inside popup
+      for (const input of popupLikeInputs) {
+        const { value, label } = input;
+        try {
+          // parse value => [[label, val]]]
+          const newValue = mapToArray(value);
+          await fillPopupLikeInputs({ value: newValue, page, input });
+        } catch (error) {
+          logger.error(`Error processing: ${label} --> ${error}`);
+        }
       }
     }
 

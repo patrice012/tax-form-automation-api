@@ -1,20 +1,19 @@
-import logger from '@/utils/logger';
-import { IMergeData } from '../declaration';
+import logger from "@/utils/logger";
+import { IMergeData } from "../declaration";
 
 export function getFormData({
   formName,
   data,
 }: {
   formName: string;
-  data: unknown[];
-}): IMergeData {
-  const formData = data.find(
+  data: any[];
+}): IMergeData[] {
+  const formData = data.filter(
     (item) =>
-      (item as { form_name: string; form_data: unknown }).form_name ===
-      formName,
-  ) as IMergeData;
+      (item as { form_name: string; form_data: unknown }).form_name === formName
+  );
 
-  logger.info(`Form ${formName} ==> ${JSON.stringify(formData, null, 2)}`);
+  logger.info(`Form ${formName} ==> ${formData.length} data`);
 
-  return formData;
+  return formData as IMergeData[];
 }

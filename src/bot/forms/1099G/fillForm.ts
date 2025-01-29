@@ -1,5 +1,4 @@
 import { Page } from "playwright";
-import { getInputMapping } from "./inputMapping";
 import logger from "@/utils/logger";
 import { fillTextInput } from "../../inputTypeHandlers/text";
 import { selectOption } from "../../inputTypeHandlers/select";
@@ -10,6 +9,8 @@ import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { mapToArray } from "../utils/mapToArray";
 import { selecteLastForm } from "../utils/selecteLastForm";
 import { createNewForm } from "../utils/createNewForm";
+import { getInputMapping } from "../utils/getInputMapping";
+import { getInputFields } from "./inputFields";
 
 export async function fill1099GForm({
   page,
@@ -20,80 +21,84 @@ export async function fill1099GForm({
 }) {
   try {
     await closeSideBarPopup({ page });
-    const selector =
-      '[data-testid="OSIScreen1-10-tabsbar-View-Add-Icon-icon-control"]';
-    await createNewForm({ page, selector });
-    await selecteLastForm({ page });
-    logger.info(`Start filling process`);
 
-    const inputMapping = await getInputMapping({ data: formData });
-    const inputs = inputMapping.inputs;
-    const popupLikeInputs = [];
-    const tableLikeInputs = [];
+    const formName = "1099G";
+    const inputMappings = await getInputMapping({
+      data: formData,
+      formName: formName,
+      getInputFields: getInputFields,
+    });
 
-    for (const input of inputs) {
-      const { label, custom, inputType } = input;
+    for (const inputMapping of inputMappings) {
+      const selector =
+        '[data-testid="OSIScreen1-10-tabsbar-View-Add-Icon-icon-control"]';
+      await createNewForm({ page, selector });
+      await selecteLastForm({ page });
+      logger.info(`Start filling process`);
 
-      if (custom && custom === "table") {
-        tableLikeInputs.push(input);
-        continue;
-      }
+      const inputs = inputMapping.inputs;
+      const popupLikeInputs: typeof inputs = [];
+      const tableLikeInputs: typeof inputs = [];
 
-      if (custom && custom === "popup") {
-        popupLikeInputs.push(input);
-        continue;
-      }
+      for (const input of inputs) {
+        const { label, custom, inputType } = input;
 
-      try {
-        switch (inputType) {
-          case "checkbox":
-            await checkboxInput({ page, input });
-            break;
-          case "number":
-            await fillTextInput({ page, input });
-            break;
-          case "text":
-            await fillTextInput({ page, input });
-            break;
-          case "select":
-            await selectOption({ page, input });
-            break;
+        if (custom === "table") {
+          tableLikeInputs.push(input);
+          continue;
         }
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
-      }
-    }
 
-    // handle special cases -- inputs inside table
-    for (let i = 0; i < tableLikeInputs.length; i++) {
-      const input = tableLikeInputs[i];
-      const { value, label } = input;
-      try {
-        await fillTableLikeInputs({
-          value: value,
-          index: i,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
-      }
-    }
+        if (custom === "popup") {
+          popupLikeInputs.push(input);
+          continue;
+        }
 
-    // handle special cases --  inputs inside popup
-    for (let i = 0; i < popupLikeInputs.length; i++) {
-      const input = popupLikeInputs[i];
-      const { value, label } = input;
-      try {
-        // parse value => [[label, val]]]
-        const newValue = mapToArray(value);
-        await fillPopupLikeInputs({
-          value: newValue,
-          page,
-          input,
-        });
-      } catch (error) {
-        logger.error(`Error processing: ${label} --> ${error}`);
+        try {
+          switch (inputType) {
+            case "checkbox":
+              await checkboxInput({ page, input });
+              break;
+            case "number":
+            case "text":
+              await fillTextInput({ page, input });
+              break;
+            case "select":
+              await selectOption({ page, input });
+              break;
+          }
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
+        }
+      }
+
+      // Handle special cases -- table-like inputs
+      for (const [index, input] of tableLikeInputs.entries()) {
+        const { label, value } = input;
+        try {
+          await fillTableLikeInputs({
+            value,
+            index,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing table input: ${label} --> ${error}`);
+        }
+      }
+
+      // Handle special cases -- popup-like inputs
+      for (const input of popupLikeInputs) {
+        const { label, value } = input;
+        try {
+          const newValue = mapToArray(value);
+          await fillPopupLikeInputs({
+            value: newValue,
+            page,
+            input,
+          });
+        } catch (error) {
+          logger.error(`Error processing popup input: ${label} --> ${error}`);
+        }
       }
     }
 

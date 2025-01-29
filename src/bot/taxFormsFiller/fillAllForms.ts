@@ -36,7 +36,6 @@ const formProcessors: Record<string, FormProcessor> = {
     getFormData: (data) => getFormData({ formName: "1099NEC", data }),
     fillForm: fill1099NECForm,
   },
-
   "1099INT": {
     linkText: "Interest Income (1099-INT, 1099-OID)",
     getFormData: (data) => getFormData({ formName: "1099INT", data }),

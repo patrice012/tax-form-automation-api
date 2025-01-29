@@ -1,12 +1,12 @@
-import { Page } from 'playwright';
-import { navigateToStep } from './navigateToStep';
-import { navigateToCorrectForm } from '../../navigateToCorrectForm';
+import { Page } from "playwright";
+import { navigateToCorrectForm } from "../../navigateToCorrectForm";
+import { navigateToStep } from "@/bot/forms/utils/navigateToStep";
 
 export function getStepFormSections() {
   const stepForms = [
     {
-      title: 'Quick Entry',
-      identifier: 'quick_entry',
+      title: "Quick Entry",
+      identifier: "quick_entry",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:quick_entry`);
         await navigateToCorrectForm({ page });
@@ -15,91 +15,91 @@ export function getStepFormSections() {
         console.log(`Cleaning up step for form section:quick_entry ${page}`);
       },
       step: 1,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: 'General Information',
-      identifier: 'general_information',
+      title: "General Information",
+      identifier: "general_information",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(
-          `Initializing step for form section:general_information ${page}`,
+          `Initializing step for form section:general_information ${page}`
         );
-        // await navigateToStep({ stepTitle: "General Information", page });
+        await navigateToStep({ stepTitle: "General Information", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(
-          `Cleaning up step for form section:general_information ${page}`,
+          `Cleaning up step for form section:general_information ${page}`
         );
       },
       step: 2,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: 'Schedule D',
-      identifier: 'schedule_d',
+      title: "Schedule D",
+      identifier: "schedule_d",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:schedule_d`);
-        await navigateToStep({ stepTitle: 'Schedule D', page });
+        await navigateToStep({ stepTitle: "Schedule D", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:schedule_d ${page}`);
       },
       step: 3,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: 'Sale of Asset 4797, 6252',
-      identifier: 'sale_of_asset',
+      title: "Sale of Asset 4797, 6252",
+      identifier: "sale_of_asset",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:sale_of_asset`);
-        await navigateToStep({ stepTitle: 'Sale of Asset 4797, 6252', page });
+        await navigateToStep({ stepTitle: "Sale of Asset 4797, 6252", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:sale_of_asset ${page}`);
       },
       step: 4,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: '4684, 6781, 8824, 4255',
-      identifier: '4684',
+      title: "4684, 6781, 8824, 4255",
+      identifier: "4684",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:4684`);
-        await navigateToStep({ stepTitle: '4684, 6781, 8824, 4255', page });
+        await navigateToStep({ stepTitle: "4684, 6781, 8824, 4255", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:4684 ${page}`);
       },
       step: 5,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: 'Sale of Home',
-      identifier: 'sale_of_home',
+      title: "Sale of Home",
+      identifier: "sale_of_home",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:sale_of_home`);
-        await navigateToStep({ stepTitle: 'Sale of Home', page });
+        await navigateToStep({ stepTitle: "Sale of Home", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(`Cleaning up step for form section:sale_of_home ${page}`);
       },
       step: 6,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
     {
-      title: 'Less Common Scenarios',
-      identifier: 'less_common_scenarios',
+      title: "Less Common Scenarios",
+      identifier: "less_common_scenarios",
       initializeStep: async ({ page }: { page: Page }) => {
         console.log(`Initializing step for form section:less_common_scenarios`);
-        await navigateToStep({ stepTitle: 'Less Common Scenarios', page });
+        await navigateToStep({ stepTitle: "Less Common Scenarios", page });
       },
       cleanupStep: async ({ page }: { page: Page }) => {
         console.log(
-          `Cleaning up step for form section:less_common_scenarios ${page}`,
+          `Cleaning up step for form section:less_common_scenarios ${page}`
         );
       },
       step: 7,
-      formType: 'ShortTerm',
+      formType: "ShortTerm",
     },
   ];
   return stepForms;

@@ -1,11 +1,12 @@
 import { Page } from "playwright";
-import { getInputMapping } from "./inputMapping";
 import { selectOption } from "../../inputTypeHandlers/select";
 import { checkboxInput } from "../../inputTypeHandlers/checkbox";
 import { closeSideBarPopup } from "../utils/closeSideBarPopup";
 import { textForTable } from "../../inputTypeHandlers/textForTable";
 import logger from "@/utils/logger";
 import { navigateToCorrectForm } from "../utils/navigateToCorrectForm";
+import { getInputMapping } from "../utils/getInputMapping";
+import { getInputFields } from "./inputFields";
 
 export async function fill1098Form({
   page,
@@ -19,30 +20,36 @@ export async function fill1098Form({
     await closeSideBarPopup({ page });
     await navigateToCorrectForm({ page, sectionTitle: "Interest" });
 
-    const inputMapping = await getInputMapping({ data: formData });
-    const inputs = inputMapping.inputs;
+    const formName = "1098";
+    const inputMappings = await getInputMapping({
+      data: formData,
+      formName: formName,
+      getInputFields: getInputFields,
+    });
 
-    for (const input of inputs) {
-      const inputType = input.inputType;
-      const { label } = input;
+    for (const inputMapping of inputMappings) {
+      const inputs = inputMapping.inputs;
 
-      try {
-        switch (inputType) {
-          case "checkbox":
-            await checkboxInput({ page, input });
-            break;
-          case "number":
-            await textForTable({ page, input });
-            break;
-          case "text":
-            await textForTable({ page, input });
-            break;
-          case "select":
-            await selectOption({ page, input });
-            break;
+      for (const input of inputs) {
+        const inputType = input.inputType;
+        const { label } = input;
+
+        try {
+          switch (inputType) {
+            case "checkbox":
+              await checkboxInput({ page, input });
+              break;
+            case "number":
+            case "text":
+              await textForTable({ page, input });
+              break;
+            case "select":
+              await selectOption({ page, input });
+              break;
+          }
+        } catch (error) {
+          logger.error(`Error processing: ${label} ${error}`);
         }
-      } catch (error) {
-        logger.error(`Error processing: ${label} ${error}`);
       }
     }
 
