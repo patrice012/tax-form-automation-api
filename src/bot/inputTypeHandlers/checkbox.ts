@@ -5,7 +5,7 @@ import { IInput } from "../forms/declaration";
 export async function checkboxInput({
   page,
   input,
-  mainParentSelector,
+  mainParentSelector = ".main-content",
 }: {
   page: Page;
   input: IInput;

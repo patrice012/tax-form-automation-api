@@ -172,6 +172,16 @@ window.generateMappingsFromElement = (selector) => {
     return data;
   }
 
+  function extractTextAreaFormData(selector) {
+    const mainElement = document.querySelector(selector);
+    if (!mainElement) {
+      console.error("Main element not found. Please provide a valid selector.");
+      return;
+    }
+    const data = extractFormData(mainElement, "TEXTAREA");
+    return data;
+  }
+
   const downloadAsJson = (data, filename) => {
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: "application/json" });
@@ -189,9 +199,13 @@ window.generateMappingsFromElement = (selector) => {
   const selectFormData = extractSelectFormData(selector);
   console.log("select Form Data:", selectFormData);
 
+  const textareaFormData = extractTextAreaFormData(selector);
+  console.log("textarea Form Data:", textareaFormData);
+
   const data = {
     inputs: inputFormData,
     select: selectFormData,
+    textArea: textareaFormData,
   };
 
   // Download the result as JSON
@@ -203,8 +217,3 @@ console.log(
 );
 
 generateMappingsFromElement(".main-content");
-
-// // Usage
-// const mainElement = document.querySelector(".main-content");
-// const formData = extractFormData(mainElement);
-// console.log(formData);

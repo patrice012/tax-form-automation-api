@@ -1,11 +1,11 @@
-import { Page } from 'playwright';
-import logger from '@/utils/logger';
-import { IInput } from '../forms/declaration';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
+import { IInput } from "../forms/declaration";
 
 export async function selectOption({
   page,
   input,
-  mainParentSelector,
+  mainParentSelector = ".main-content",
 }: {
   page: Page;
   input: IInput;
@@ -28,15 +28,15 @@ export async function selectOption({
     logger.info(`Using inputIndex: ${inputIndex}`);
     locator = page
       .locator(mainParentSelector)
-      .locator('select')
+      .locator("select")
       .nth(inputIndex);
   } else {
-    throw new Error('No valid selector provided to locate the input.');
+    throw new Error("No valid selector provided to locate the input.");
   }
 
   try {
     // Wait for element to be visible
-    await locator.waitFor({ state: 'visible', timeout: 7000 });
+    await locator.waitFor({ state: "visible", timeout: 7000 });
     logger.info(`Input is visible`);
   } catch {
     logger.warn(`Input is not visible`);
@@ -44,14 +44,14 @@ export async function selectOption({
 
   if (!locator) {
     logger.error(
-      `No valid selector found for ${label}. Falling back to DOM API.`,
+      `No valid selector found for ${label}. Falling back to DOM API.`
     );
   }
 
   try {
     if (locator) {
       logger.info(
-        `Attempting to select option for ${label} with value: ${value}`,
+        `Attempting to select option for ${label} with value: ${value}`
       );
 
       // Get all available options
@@ -62,13 +62,13 @@ export async function selectOption({
         }));
       });
 
-      logger.info('Available options:', options);
+      logger.info("Available options:", options);
 
       // Find the matching option that starts with our value
       const matchingOption = options.find(
         (opt) =>
           opt.value.startsWith(value.toString()) ||
-          opt.text.startsWith(value.toString()),
+          opt.text.startsWith(value.toString())
       );
 
       if (!matchingOption) {
@@ -81,17 +81,17 @@ export async function selectOption({
 
       // Verify the selection
       const selectedValue = await locator.evaluate(
-        (select: HTMLSelectElement) => select.value,
+        (select: HTMLSelectElement) => select.value
       );
 
       if (!selectedValue.startsWith(value.toString())) {
         throw new Error(
-          `Selection verification failed. Expected: ${value}, Got: ${selectedValue}`,
+          `Selection verification failed. Expected: ${value}, Got: ${selectedValue}`
         );
       }
 
       logger.info(
-        `Successfully selected option with value: ${matchingOption.value} for ${label}`,
+        `Successfully selected option with value: ${matchingOption.value} for ${label}`
       );
       return;
     }
@@ -101,7 +101,7 @@ export async function selectOption({
 
   // Fallback: Use DOM API to interact directly with the element
   try {
-    logger.info('Attempting fallback method using evaluate...');
+    logger.info("Attempting fallback method using evaluate...");
 
     const result = await page.evaluate(
       ({ id, dataTestId, xpath, value, inputIndex, mainParentSelector }) => {
@@ -115,7 +115,7 @@ export async function selectOption({
         if (!select && dataTestId) {
           console.log(`Trying with data-testid: ${dataTestId}`);
           select = document.querySelector(
-            `[data-testid='${dataTestId}']`,
+            `[data-testid='${dataTestId}']`
           ) as HTMLSelectElement;
         }
 
@@ -126,7 +126,7 @@ export async function selectOption({
             document,
             null,
             XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null,
+            null
           ).singleNodeValue as HTMLSelectElement;
         }
 
@@ -135,15 +135,15 @@ export async function selectOption({
             select = Array.from(
               document
                 ?.querySelector(mainParentSelector)
-                ?.querySelectorAll('select') || [],
+                ?.querySelectorAll("select") || []
             )?.at(inputIndex) as HTMLSelectElement;
           } catch (error) {
-            console.log('Index base query fail', { error });
+            console.log("Index base query fail", { error });
           }
         }
 
         if (!select) {
-          return { success: false, error: 'Select element not found' };
+          return { success: false, error: "Select element not found" };
         }
 
         try {
@@ -152,7 +152,7 @@ export async function selectOption({
           const targetOption = options.find(
             (opt) =>
               opt.value.startsWith(value.toString()) ||
-              opt.text.startsWith(value.toString()),
+              opt.text.startsWith(value.toString())
           );
 
           if (!targetOption) {
@@ -166,8 +166,8 @@ export async function selectOption({
           select.value = targetOption.value;
 
           // Dispatch events
-          select.dispatchEvent(new Event('change', { bubbles: true }));
-          select.dispatchEvent(new Event('input', { bubbles: true }));
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          select.dispatchEvent(new Event("input", { bubbles: true }));
 
           return {
             success: true,
@@ -177,11 +177,11 @@ export async function selectOption({
         } catch (e) {
           return {
             success: false,
-            error: e instanceof Error ? e.message : 'Unknown error',
+            error: e instanceof Error ? e.message : "Unknown error",
           };
         }
       },
-      { id, dataTestId, xpath, value, inputIndex, mainParentSelector },
+      { id, dataTestId, xpath, value, inputIndex, mainParentSelector }
     );
 
     if (!result.success) {
@@ -192,7 +192,7 @@ export async function selectOption({
   } catch (fallbackError) {
     logger.error(
       `All attempts to select option ${label} failed. Please check element accessibility and page state.`,
-      fallbackError,
+      fallbackError
     );
   }
 }

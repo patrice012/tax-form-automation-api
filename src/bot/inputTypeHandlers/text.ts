@@ -1,11 +1,11 @@
-import { Page } from 'playwright';
-import logger from '@/utils/logger';
-import { IInput } from '../forms/declaration';
+import { Page } from "playwright";
+import logger from "@/utils/logger";
+import { IInput } from "../forms/declaration";
 
 export async function fillTextInput({
   page,
   input,
-  mainParentSelector,
+  mainParentSelector = ".main-content",
 }: {
   page: Page;
   input: IInput;
@@ -26,14 +26,14 @@ export async function fillTextInput({
     locator = page.locator(`xpath=${xpath}`).first();
   } else if (inputIndex && !locator && mainParentSelector) {
     logger.info(`Using inputIndex: ${inputIndex}`);
-    locator = page.locator(mainParentSelector).locator('input').nth(inputIndex);
+    locator = page.locator(mainParentSelector).locator("input").nth(inputIndex);
   } else {
-    throw new Error('No valid selector provided to locate the input.');
+    throw new Error("No valid selector provided to locate the input.");
   }
 
   try {
     // Wait for element to be visible
-    await locator.waitFor({ state: 'visible', timeout: 7000 });
+    await locator.waitFor({ state: "visible", timeout: 7000 });
     logger.info(`Input is visible`);
   } catch {
     logger.warn(`Input is not visible`);
@@ -41,7 +41,7 @@ export async function fillTextInput({
 
   if (!locator) {
     logger.error(
-      `No valid selector found for ${label}. Falling back to DOM API.`,
+      `No valid selector found for ${label}. Falling back to DOM API.`
     );
   }
 
@@ -49,26 +49,26 @@ export async function fillTextInput({
     if (locator) {
       // Focus the element
       await locator.focus();
-      logger.info('Element focused');
+      logger.info("Element focused");
 
       // Clear existing value
       await locator.clear();
-      logger.info('Existing value cleared');
+      logger.info("Existing value cleared");
 
       // Fill the new value
       await locator.fill(value.toString());
-      logger.info('New value typed');
+      logger.info("New value typed");
 
       // Verify the value was set correctly
       const actualValue = await locator.inputValue();
       if (actualValue !== value.toString()) {
         throw new Error(
-          `Value verification failed. Expected: ${value}, Got: ${actualValue}`,
+          `Value verification failed. Expected: ${value}, Got: ${actualValue}`
         );
       }
 
       logger.info(
-        `Successfully filled input with value: ${value} for ${label}`,
+        `Successfully filled input with value: ${value} for ${label}`
       );
       return;
     }
@@ -78,7 +78,7 @@ export async function fillTextInput({
 
   // Fallback: Use DOM API to interact directly with the element
   try {
-    logger.info('Attempting fallback method using evaluate...');
+    logger.info("Attempting fallback method using evaluate...");
 
     const result = await page.evaluate(
       ({ id, dataTestId, xpath, value, inputIndex, mainParentSelector }) => {
@@ -92,7 +92,7 @@ export async function fillTextInput({
         if (!element && dataTestId) {
           console.log(`Trying with data-testid: ${dataTestId}`);
           element = document.querySelector(
-            `[data-testid="${dataTestId}"]`,
+            `[data-testid="${dataTestId}"]`
           ) as HTMLInputElement;
         }
 
@@ -103,7 +103,7 @@ export async function fillTextInput({
             document,
             null,
             XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null,
+            null
           ).singleNodeValue as HTMLInputElement;
         }
 
@@ -112,34 +112,34 @@ export async function fillTextInput({
             element = Array.from(
               document
                 ?.querySelector(mainParentSelector)
-                ?.querySelectorAll('input') || [],
+                ?.querySelectorAll("input") || []
             )?.at(inputIndex) as HTMLInputElement;
           } catch (error) {
-            console.log('Index base query fail', { error });
+            console.log("Index base query fail", { error });
           }
         }
 
         if (!element) {
-          return { success: false, error: 'Element not found' };
+          return { success: false, error: "Element not found" };
         }
 
         try {
           // Focus the element
           element.focus();
           // Clear existing value
-          element.value = '';
+          element.value = "";
           // Set new value
           element.value = value.toString();
           // Dispatch events
-          element.dispatchEvent(new Event('input', { bubbles: true }));
-          element.dispatchEvent(new Event('change', { bubbles: true }));
+          element.dispatchEvent(new Event("input", { bubbles: true }));
+          element.dispatchEvent(new Event("change", { bubbles: true }));
 
           return { success: true, value: element.value };
         } catch (error) {
           return { success: false, error: (error as Error).message };
         }
       },
-      { id, dataTestId, xpath, value, inputIndex, mainParentSelector },
+      { id, dataTestId, xpath, value, inputIndex, mainParentSelector }
     );
 
     if (!result.success) {
@@ -147,12 +147,12 @@ export async function fillTextInput({
     }
 
     logger.info(
-      `Successfully filled input using fallback method: ${value} for ${label}`,
+      `Successfully filled input using fallback method: ${value} for ${label}`
     );
   } catch (fallbackError) {
     logger.error(
       `All attempts to fill input for ${label} failed. Please check element accessibility and page state.`,
-      fallbackError,
+      fallbackError
     );
   }
 }

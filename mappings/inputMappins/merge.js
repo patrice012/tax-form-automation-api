@@ -1,9 +1,5 @@
-const olddata = [];
-
-const newdata = [];
-
-// import * as fs from "fs";
-// import * as path from "path";
+const olddataArr = [];
+const newdataArr = [];
 
 const fs = require("fs");
 const path = require("path");
@@ -17,29 +13,52 @@ function updateOldData(olddata, newdata) {
   }
 
   // Helper to remove the starting part of the xpath
-  const stripXpathStart = (xpath) => xpath.replace(/^\/\/body\/div\[\d+\]/, "");
+  const oldSubXpath =
+    "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]";
+  const newSubXpath =
+    "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]";
+  const stripXpathStart = (xpath) => xpath.replace(newSubXpath, oldSubXpath);
 
-  newdata.forEach((newItem) => {
+  const mappedData = newdata.map((newItem) => {
     const newXpath = stripXpathStart(newItem.input.xpath);
-
-    olddata.forEach((oldItem) => {
-      // Check if the processed new xpath is included in the old xpath
-      if (oldItem.xpath.includes(newXpath)) {
-        // Update the old data item with new id and dataTestId
-        oldItem.id = newItem.input.id;
-        oldItem.dataTestId = newItem.input.dataTestId;
+    const oldItem = olddata.find((elm) => {
+      if (elm.id === newItem.input.id) {
+        console.log("Match using Id:", elm.id);
+        return elm;
+      } else if (elm.dataTestId === newItem.input.dataTestId) {
+        console.log("Match using dataTestId:", elm.dataTestId);
+        return elm;
+      } else if (elm.xpath === newXpath) {
+        console.log("Match using Xpath:", elm.xpath, newItem.input.xpath);
+        return elm;
       }
     });
+
+    if (oldItem) {
+      // Update the old data item with new id and dataTestId
+      oldItem.id = newItem.input.id;
+      oldItem.dataTestId = newItem.input.dataTestId;
+      oldItem["inputIndex"] = newItem.input.inputIndex;
+      return oldItem;
+    } else {
+      console.log("Not found:", newItem.input.id);
+    }
   });
+
+  console.log(
+    `Check: Old Items ${olddata.length} -- New Items: ${mappedData.length}`
+  );
   const filePath = path.join(resultsPath, `data.json`);
 
-  // Write the output to a file
-  fs.writeFileSync(filePath, JSON.stringify(olddata), "utf8");
+  const filterData = mappedData.filter((data) => data);
 
-  return olddata;
+  // Write the output to a file
+  fs.writeFileSync(filePath, JSON.stringify(filterData), "utf8");
+
+  return filterData;
 }
 
 // Process the data
-const updatedOldData = updateOldData(olddata, newdata);
+const updatedOldData = updateOldData(olddataArr, newdataArr);
 
-console.log(updatedOldData);
+// console.log(updatedOldData);

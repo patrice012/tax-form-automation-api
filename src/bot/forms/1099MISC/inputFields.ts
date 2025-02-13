@@ -9,6 +9,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit19-141",
     dataTestId: "OSIEdit19-141",
+    inputIndex: 0,
   },
   {
     label: "OSIEdit7-131",
@@ -17,6 +18,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit7-131",
     dataTestId: "OSIEdit7-131",
+    inputIndex: 1,
   },
   {
     label: "OSIEdit4-129",
@@ -25,6 +27,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit4-129",
     dataTestId: "OSIEdit4-129",
+    inputIndex: 2,
   },
   {
     label: "OSIEdit31-173",
@@ -33,14 +36,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit31-173",
     dataTestId: "OSIEdit31-173",
-  },
-  {
-    label: "Select dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/select[1]",
-    id: "OSIEdit32-175-176",
-    dataTestId: "OSIEdit32-175-176",
+    inputIndex: 3,
   },
   {
     label: "OSIEdit33-178",
@@ -49,6 +45,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/input[1]",
     id: "OSIEdit33-178",
     dataTestId: "OSIEdit33-178",
+    inputIndex: 4,
   },
   {
     label: "Foreign address",
@@ -57,6 +54,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox1-134",
     dataTestId: "OSICheckBox1-134",
+    inputIndex: 5,
   },
   {
     label: "OSIEdit11-157",
@@ -65,6 +63,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit11-157",
     dataTestId: "OSIEdit11-157",
+    inputIndex: 6,
   },
   {
     label: "OSIEdit12-159",
@@ -73,14 +72,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/input[1]",
     id: "OSIEdit12-159",
     dataTestId: "OSIEdit12-159",
-  },
-  {
-    label: "Select dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/div[1]/select[1]",
-    id: "OSIEdit13-161-162",
-    dataTestId: "OSIEdit13-161-162",
+    inputIndex: 7,
   },
   {
     label: "Foreign phone number",
@@ -89,6 +81,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox6-144",
     dataTestId: "OSICheckBox6-144",
+    inputIndex: 8,
   },
   {
     label: "OSIEdit9-137",
@@ -97,6 +90,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit9-137",
     dataTestId: "OSIEdit9-137",
+    inputIndex: 9,
   },
   {
     label: "Federal identification number",
@@ -106,14 +100,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit10-139-taxid",
     dataTestId: "OSIEdit10-139-taxid",
-  },
-  {
-    label: "tax id dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/select[1]",
-    id: "OSIEdit10-139-taxid_choice",
-    dataTestId: "OSIEdit10-139-taxid_choice",
+    inputIndex: 10,
   },
   {
     label: "OSIEdit34-147",
@@ -122,6 +109,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[10]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit34-147",
     dataTestId: "OSIEdit34-147",
+    inputIndex: 11,
   },
   {
     label: "1=spouse, 2=joint",
@@ -130,6 +118,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit52-292",
     dataTestId: "OSIEdit52-292",
+    inputIndex: 12,
   },
   {
     label: "(1) Rents",
@@ -139,6 +128,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText58-324-368-369",
     dataTestId: "OSICtrlE44-326-input",
+    inputIndex: 13,
   },
   {
     label: "(2) Royalties",
@@ -148,6 +138,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText57-322-370-371",
     dataTestId: "OSICtrlE54-329-input",
+    inputIndex: 14,
   },
   {
     label: "(3) Other income",
@@ -157,6 +148,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText56-320-372-373",
     dataTestId: "OSICtrlE55-332-input",
+    inputIndex: 15,
   },
   {
     label: "(4) Federal income tax withheld",
@@ -166,6 +158,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText9-302-374-375",
     dataTestId: "OSICtrlE16-363-input",
+    inputIndex: 16,
   },
   {
     label: "(5) Fishing boat proceeds",
@@ -175,6 +168,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText54-318-376-377",
     dataTestId: "OSICtrlE57-335-input",
+    inputIndex: 17,
   },
   {
     label: "(6) Medical and health care payments",
@@ -184,6 +178,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText53-316-378-379",
     dataTestId: "OSICtrlE58-338-input",
+    inputIndex: 18,
   },
   {
     label: "(7) Payer made direct sales of $5,000 or more",
@@ -193,6 +188,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[7]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox10-342",
     dataTestId: "OSICheckBox10-342",
+    inputIndex: 19,
   },
   {
     label: "(8) Substitute payments in lieu of dividends or interest",
@@ -202,6 +198,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText52-314-380-381",
     dataTestId: "OSICtrlE59-345-input",
+    inputIndex: 20,
   },
   {
     label: "(9) Crop insurance proceeds",
@@ -211,6 +208,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText51-312-382-383",
     dataTestId: "OSICtrlE60-348-input",
+    inputIndex: 21,
   },
   {
     label: "(10) Gross proceeds paid to an attorney",
@@ -220,6 +218,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[10]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText50-310-384-385",
     dataTestId: "OSICtrlE61-351-input",
+    inputIndex: 22,
   },
   {
     label: "(11) Fish purchased for resale",
@@ -229,6 +228,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[11]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText14-300-386-387",
     dataTestId: "OSICtrlE17-366-input",
+    inputIndex: 23,
   },
   {
     label: "(12) Section 409A deferrals",
@@ -238,6 +238,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[12]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText49-308-388-389",
     dataTestId: "OSICtrlE62-354-input",
+    inputIndex: 24,
   },
   {
     label: "(13) Excess golden parachute payments",
@@ -247,6 +248,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[13]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText48-306-390-391",
     dataTestId: "OSICtrlE63-357-input",
+    inputIndex: 25,
   },
   {
     label: "(14) Nonqualified deferred compensation",
@@ -256,6 +258,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[14]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText42-304-392-393",
     dataTestId: "OSICtrlE64-360-input",
+    inputIndex: 26,
   },
   {
     label: "(1) Nonemployee compensation",
@@ -264,6 +267,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText3-401-412-413",
     dataTestId: "OSICtrlE3-403-input",
+    inputIndex: 27,
   },
   {
     label: "(2) Payer made direct sales of $5,000 or more",
@@ -272,6 +276,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox3-410",
     dataTestId: "OSICheckBox3-410",
+    inputIndex: 28,
   },
   {
     label: "(4) Federal income tax withheld",
@@ -280,6 +285,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]",
     id: "field-OSIText55-399-414-415",
     dataTestId: "OSICtrlE56-406-input",
+    inputIndex: 29,
   },
   {
     label: "State tax withheld",
@@ -290,15 +296,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIInPlaceGrid1-260-input-idx-0",
     dataTestId: "OSIInPlaceGrid1-260-input-idx-0",
-  },
-  {
-    label: "State",
-    inputType: "select",
-    custom: "table",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/select[1]",
-    id: "OSIInPlaceGrid1-263-idx-0",
-    dataTestId: "OSIInPlaceGrid1-263-idx-0",
+    inputIndex: 30,
   },
   {
     label: "Payer's state no.",
@@ -309,6 +307,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIInPlaceGrid1-266-input-idx-0",
     dataTestId: "OSIInPlaceGrid1-266-input-idx-0",
+    inputIndex: 31,
   },
   {
     label: "State income",
@@ -319,6 +318,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIInPlaceGrid1-269-input-idx-0",
     dataTestId: "OSIInPlaceGrid1-269-input-idx-0",
+    inputIndex: 32,
   },
   {
     label: "State ID verified?",
@@ -327,6 +327,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox22-247",
     dataTestId: "OSICheckBox22-247",
+    inputIndex: 36,
   },
   {
     label: "Corrected",
@@ -335,6 +336,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox2-17",
     dataTestId: "OSICheckBox2-17",
+    inputIndex: 37,
   },
   {
     label: "Recipient is business",
@@ -343,6 +345,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox7-57",
     dataTestId: "OSICheckBox7-57",
+    inputIndex: 38,
   },
   {
     label: "SSNEINApplied ForForeign USLAFCPNot ApplicableTax Exempt",
@@ -351,14 +354,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit14-48-taxid",
     dataTestId: "OSIEdit14-48-taxid",
-  },
-  {
-    label: "tax id dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/select[1]",
-    id: "OSIEdit14-48-taxid_choice",
-    dataTestId: "OSIEdit14-48-taxid_choice",
+    inputIndex: 39,
   },
   {
     label: "OSIEdit50-44",
@@ -367,6 +363,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit50-44",
     dataTestId: "OSIEdit50-44",
+    inputIndex: 40,
   },
   {
     label: "OSIEdit27-46",
@@ -375,6 +372,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit27-46",
     dataTestId: "OSIEdit27-46",
+    inputIndex: 41,
   },
   {
     label: "OSIEdit15-50",
@@ -383,6 +381,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit15-50",
     dataTestId: "OSIEdit15-50",
+    inputIndex: 42,
   },
   {
     label: "OSIEdit5-84",
@@ -391,14 +390,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit5-84",
     dataTestId: "OSIEdit5-84",
-  },
-  {
-    label: "Select dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/select[1]",
-    id: "OSIEdit6-86-87",
-    dataTestId: "OSIEdit6-86-87",
+    inputIndex: 43,
   },
   {
     label: "OSIEdit8-89",
@@ -407,6 +399,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/input[1]",
     id: "OSIEdit8-89",
     dataTestId: "OSIEdit8-89",
+    inputIndex: 44,
   },
   {
     label: "Foreign address",
@@ -415,6 +408,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox17-53",
     dataTestId: "OSICheckBox17-53",
+    inputIndex: 45,
   },
   {
     label: "OSIEdit141-68",
@@ -423,6 +417,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit141-68",
     dataTestId: "OSIEdit141-68",
+    inputIndex: 46,
   },
   {
     label: "OSIEdit111-70",
@@ -431,14 +426,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/input[1]",
     id: "OSIEdit111-70",
     dataTestId: "OSIEdit111-70",
-  },
-  {
-    label: "Select dropdown",
-    inputType: "select",
-    xpath:
-      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/div[1]/select[1]",
-    id: "OSIEdit96-72-73",
-    dataTestId: "OSIEdit96-72-73",
+    inputIndex: 47,
   },
   {
     label: "OSIEdit2-14",
@@ -447,6 +435,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSIEdit2-14",
     dataTestId: "OSIEdit2-14",
+    inputIndex: 48,
   },
   {
     label: "FATCA filing requirement",
@@ -456,6 +445,7 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox8-21",
     dataTestId: "OSICheckBox8-21",
+    inputIndex: 49,
   },
   {
     label: "TIN not.",
@@ -464,6 +454,71 @@ const inputs_fields = [
       "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
     id: "OSICheckBox9-25",
     dataTestId: "OSICheckBox9-25",
+    inputIndex: 50,
+  },
+  {
+    label: "Select dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/select[1]",
+    id: "OSIEdit32-175-176",
+    dataTestId: "OSIEdit32-175-176",
+    inputIndex: 0,
+  },
+  {
+    label: "Select dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/div[1]/select[1]",
+    id: "OSIEdit13-161-162",
+    dataTestId: "OSIEdit13-161-162",
+    inputIndex: 1,
+  },
+  {
+    label: "tax id dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/select[1]",
+    id: "OSIEdit10-139-taxid_choice",
+    dataTestId: "OSIEdit10-139-taxid_choice",
+    inputIndex: 2,
+  },
+  {
+    label: "State",
+    inputType: "select",
+    custom: "table",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/div[1]/select[1]",
+    id: "OSIInPlaceGrid1-263-idx-0",
+    dataTestId: "OSIInPlaceGrid1-263-idx-0",
+    inputIndex: 3,
+  },
+  {
+    label: "tax id dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/select[1]",
+    id: "OSIEdit14-48-taxid_choice",
+    dataTestId: "OSIEdit14-48-taxid_choice",
+    inputIndex: 5,
+  },
+  {
+    label: "Select dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/select[1]",
+    id: "OSIEdit6-86-87",
+    dataTestId: "OSIEdit6-86-87",
+    inputIndex: 6,
+  },
+  {
+    label: "Select dropdown",
+    inputType: "select",
+    xpath:
+      "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/div[3]/div[1]/div[1]/div[1]/select[1]",
+    id: "OSIEdit96-72-73",
+    dataTestId: "OSIEdit96-72-73",
+    inputIndex: 7,
   },
 ];
 
