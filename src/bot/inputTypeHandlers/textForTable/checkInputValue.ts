@@ -16,17 +16,17 @@ export async function checkInputValue({
     logger.info(`Checking input for label: ${label} value`);
 
     // Determine the best selector to use
-    let locator: Locator;
+    let locator: Locator | null = null;
     if (id) {
       logger.info(`Using ID: ${id}`);
       locator = page.locator(`#${id}`).first();
-    } else if (dataTestId) {
+    } else if (dataTestId && !locator) {
       logger.info(`Using data-testid: ${dataTestId}`);
       locator = page.locator(`[data-testid="${dataTestId}"]`).first();
-    } else if (xpath) {
+    } else if (xpath && !locator) {
       logger.info(`Using XPath: ${xpath}`);
       locator = page.locator(`xpath=${xpath}`).first();
-    } else if (inputIndex !== undefined && mainParentSelector) {
+    } else if (inputIndex !== undefined && !locator && mainParentSelector) {
       logger.info(`Using inputIndex: ${inputIndex}`);
       locator = page.locator(`${mainParentSelector} input`).nth(inputIndex);
     } else {
