@@ -1,0 +1,1852 @@
+{
+  "documents": {
+    "forms": [
+      {
+        "form_data": {
+          "1_student_loan_interest_0": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE5-1180-input",
+            "id": "field-OSICtrlE5-1180-label",
+            "inputIndex": null,
+            "label": "Total qualified student loan interest paid - Taxpayer",
+            "page_href": null,
+            "type": "number",
+            "value": 803,
+            "xpath": null
+          }
+        },
+        "form_name": "1098E"
+      },
+      {
+        "form_data": {
+          "1_payments_received_for_qualified_tuition_related_expenses_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE47-65-input",
+            "id": "field-OSIText44-58-70-71",
+            "inputIndex": null,
+            "label": "Qualified tuition and fees (net of nontaxable benefits)",
+            "page_href": null,
+            "type": "number",
+            "value": 22021,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[7]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "filers_employer_identification_no_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit44-125-taxid",
+            "id": "OSIEdit44-125-taxid",
+            "inputIndex": null,
+            "label": "Federal ID number",
+            "page_href": null,
+            "type": "string",
+            "value": "956006145",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[5]/div[1]/section[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "filers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit31-115",
+            "id": "OSIEdit31-115",
+            "inputIndex": null,
+            "label": "Name",
+            "page_href": null,
+            "type": "string",
+            "value": "University Santa Barbara",
+            "xpath": null
+          },
+          "student_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit3-30",
+            "id": "OSIEdit3-30",
+            "inputIndex": 2,
+            "label": "First name",
+            "page_href": null,
+            "type": "string",
+            "value": "BRANDON",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "student_name_1": {
+            "custom": null,
+            "dataTestId": "OSIEdit4-32",
+            "id": "OSIEdit4-32",
+            "inputIndex": 3,
+            "label": "Last name",
+            "page_href": null,
+            "type": "string",
+            "value": "ROBERT WEST",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1098T"
+      },
+
+      {
+        "form_data": {
+          "RTAA_payments_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE43-52-input",
+            "id": "field-OSIText43-41-197-198",
+            "inputIndex": null,
+            "label": "RTAA payments (5)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit30-295",
+            "id": "OSIEdit30-295",
+            "inputIndex": null,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "213d21",
+            "xpath": null
+          },
+          "agriculture_payments_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE45-109-input",
+            "id": "field-OSIText45-92-111-112",
+            "inputIndex": null,
+            "label": "Agriculture payments (7)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[6]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "box_2_tax_year_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE11-161-input",
+            "id": "field-OSIText11-144-193-194",
+            "inputIndex": null,
+            "label": "Tax year for box 2 if not 2023 (3)",
+            "page_href": null,
+            "type": "string",
+            "value": "2016",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE6-49-input",
+            "id": "field-OSIText6-43-195-196",
+            "inputIndex": null,
+            "label": "Federal income tax withheld (4)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "is_trade_or_business_income_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox3-46",
+            "id": "OSICheckBox3-46",
+            "inputIndex": null,
+            "label": "Box 2 is trade or business income (8)",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": null
+          },
+          "market_gain_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE44-106-input",
+            "id": "field-OSIText44-94-113-114",
+            "inputIndex": null,
+            "label": "Market gain (9)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[6]/div[1]/section[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit33-367",
+            "id": "OSIEdit33-367",
+            "inputIndex": null,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "STATE OF CALIFORNIA FRANCHISE ",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_state_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit9-223",
+            "id": "OSIEdit9-223",
+            "inputIndex": null,
+            "label": "Payer's state identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "231e1",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit14-389-taxid",
+            "id": "OSIEdit14-389-taxid",
+            "inputIndex": null,
+            "label": "Identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "68-0204061",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_or_local_income_tax_refunds_credits_offsets_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE34-152-input",
+            "id": "field-OSIText33-150-185-186",
+            "inputIndex": null,
+            "label": "Income tax refunds, credits or offsets (2)",
+            "page_href": null,
+            "type": "number",
+            "value": 5074,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE2-225-input",
+            "id": "field-OSIText2-219-267-268",
+            "inputIndex": null,
+            "label": "State income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "taxable_grants_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE32-131-input",
+            "id": "field-OSIText12-124-133-134",
+            "inputIndex": null,
+            "label": "Federal taxable amount",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "unemployment_compensation_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE3-65-input",
+            "id": "field-OSIText3-63-81-82",
+            "inputIndex": null,
+            "label": "Total received (1)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099G"
+      },
+      {
+        "form_data": {
+          "lenders_name": {
+            "custom": null,
+            "dataTestId": "OSIEdit355-963",
+            "id": "OSIEdit355-963",
+            "inputIndex": null,
+            "label": "Lender's name",
+            "page_href": "Interest",
+            "type": "string",
+            "value": "NEWREZ LLC DBA",
+            "xpath": null
+          },
+          "mortgage_interest": {
+            "custom": null,
+            "dataTestId": "OSICtrlE349-939-input",
+            "id": "field-OSICtrlE349-939-label",
+            "inputIndex": null,
+            "label": "Interest paid",
+            "page_href": "Interest",
+            "type": "number",
+            "value": 136325,
+            "xpath": null
+          },
+          "mortgage_origination_date": {
+            "custom": null,
+            "dataTestId": "OSIEdit437-1239",
+            "id": "OSIEdit437-1239",
+            "inputIndex": null,
+            "label": "1=debt incurred after 12/15/17",
+            "page_href": "Interest",
+            "preprocessing": "mortgage_origination_date_lacerte",
+            "type": "string",
+            "value": 1,
+            "xpath": null
+          },
+          "outstanding_mortgage_principal": {
+            "custom": null,
+            "dataTestId": "OSICtrlE371-1209-input",
+            "id": "field-OSICtrlE371-1209-label",
+            "inputIndex": null,
+            "label": "Average balance Override",
+            "page_href": "Interest",
+            "type": "number",
+            "value": 2870000,
+            "xpath": null
+          },
+          "points_paid_on_purchase_of_principal_residence": {
+            "custom": null,
+            "dataTestId": "OSICtrlE347-933-input",
+            "id": "field-OSICtrlE347-933-label",
+            "inputIndex": null,
+            "label": "Points paid",
+            "page_href": "Interest",
+            "type": "number",
+            "value": 2311,
+            "xpath": null
+          },
+          "real_estate_taxes": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE15-221-input",
+            "id": "field-OSICtrlE15-221-label",
+            "inputIndex": null,
+            "label": "Principal residence [Adjust] (Click on button to expand)",
+            "page_href": "Taxes",
+            "type": "number",
+            "value": 123,
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/section/div[2]/div/section/div/div/section/div/div/div/div/div[3]/div[5]/div/div/div[2]/div[1]/div[2]/div/div/div/div/div/div/input"
+          }
+        },
+        "form_name": "1098"
+      },
+      {
+        "form_data": {
+          "federal_income_tax_withheld": {
+            "custom": null,
+            "dataTestId": "OSICtrlE5-791-input",
+            "id": "field-OSICtrlE5-791-label",
+            "inputIndex": null,
+            "label": "Voluntary federal income tax withheld (SSA-1099, box 6 / RRB-1099, box 10)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_part_a": {
+            "custom": null,
+            "dataTestId": "OSICtrlE40-779-input",
+            "id": "field-OSICtrlE40-779-label",
+            "inputIndex": null,
+            "label": "Medicare premiums paid (SSA-1099) ",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_part_b": {
+            "custom": null,
+            "dataTestId": "OSICtrlE40-779-input",
+            "id": "field-OSICtrlE40-779-label",
+            "inputIndex": null,
+            "label": "Medicare premiums paid (SSA-1099) ",
+            "page_href": null,
+            "type": "number",
+            "value": 3499,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_part_c": {
+            "custom": null,
+            "dataTestId": "OSICtrlE40-779-input",
+            "id": "field-OSICtrlE40-779-label",
+            "inputIndex": null,
+            "label": "Medicare premiums paid (SSA-1099) ",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_part_d": {
+            "custom": null,
+            "dataTestId": "OSICtrlE40-779-input",
+            "id": "field-OSICtrlE40-779-label",
+            "inputIndex": null,
+            "label": "Medicare premiums paid (SSA-1099) ",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "net_benefits": {
+            "custom": null,
+            "dataTestId": "OSICtrlE3-770-input",
+            "id": "field-OSICtrlE3-770-label",
+            "inputIndex": null,
+            "label": "Social security benefits (SSA-1099, box 5)",
+            "page_href": null,
+            "type": "number",
+            "value": 14268,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099SSA"
+      },
+      {
+        "form_data": {
+          "FATCA_filing_requirement_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox9-462",
+            "id": "OSICheckBox9-462",
+            "inputIndex": null,
+            "label": "FATCA filing requirement",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit15-475",
+            "id": "OSIEdit15-475",
+            "inputIndex": null,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "A060360000027368570",
+            "xpath": "//body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[4]/div/div/section/div[3]/div/section/div[4]/div/section/div[8]/div/div/div/div/input"
+          },
+          "distribution_code_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit27-127-128",
+            "id": "OSIEdit27-127-128",
+            "inputIndex": null,
+            "label": "(7) Distribution code #1 (Click on arrow to select from list)",
+            "page_href": null,
+            "type": "select",
+            "value": "7",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[11]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]"
+          },
+          "distribution_code_1": {
+            "custom": null,
+            "dataTestId": "OSIEdit89-146-147",
+            "id": "OSIEdit89-146-147",
+            "inputIndex": null,
+            "label": "(7) Distribution code #2 (Click on arrow to select from list)",
+            "page_href": null,
+            "type": "select",
+            "value": "2",
+            "xpath": null
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE85-140-input",
+            "id": "field-OSICtrlE85-140-label",
+            "inputIndex": null,
+            "label": "(4) Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 2400,
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[4]/div/div/section/div[3]/div/section/div[2]/div/section/div/div/div/div/div[3]/div[8]/div[2]/div/div/div/div/div/div/input"
+          },
+          "gross_income_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE2-118-input",
+            "id": "field-OSICtrlE2-118-label",
+            "inputIndex": null,
+            "label": "(1) Gross distribution",
+            "page_href": null,
+            "type": "number",
+            "value": 7030,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "ira_sep_simple_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox2-159",
+            "id": "OSICheckBox2-159",
+            "inputIndex": null,
+            "label": "(7) IRA/SEP/SIMPLE",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[13]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit52-53",
+            "id": "OSIEdit52-53",
+            "inputIndex": null,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "EQUITABLE BENEFIT PAYMENT SERV",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_state_number_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid2-344-input-idx-0",
+            "id": "OSIInPlaceGrid2-344-input-idx-0",
+            "inputIndex": null,
+            "label": "(15) State Identification Number",
+            "page_href": null,
+            "type": "string",
+            "value": ["CA/016-0239-0"],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit8-33-taxid",
+            "id": "OSIEdit8-33-taxid",
+            "inputIndex": null,
+            "label": "Federal identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "13-5570651",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "taxable_amount_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE13-137-input",
+            "id": "field-OSICtrlE13-137-label",
+            "inputIndex": null,
+            "label": "(2a) Taxable amount",
+            "page_href": null,
+            "type": "number",
+            "value": 7030,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "taxable_amount_not_determined_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox29-190",
+            "id": "OSICheckBox29-190",
+            "inputIndex": null,
+            "label": "(2b) Taxable amount not determined",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "total_distribution_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox31-194",
+            "id": "OSICheckBox31-194",
+            "inputIndex": null,
+            "label": "Total distribution",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099R"
+      },
+      {
+        "form_data": {
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit233-275",
+            "id": "OSIEdit233-275",
+            "inputIndex": null,
+            "label": "Account number",
+            "page_href": "General Information",
+            "type": "string",
+            "value": "CASH001CABZ004209",
+            "xpath": null
+          },
+          "accrued_market_discount_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE165-363-input",
+            "id": "field-OSIText165-324-611-612",
+            "inputIndex": null,
+            "label": "Accrued market discount adjustment",
+            "page_href": "Schedule D",
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "cost_basis_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE9-156-input",
+            "id": "field-OSIText9-23-237-238",
+            "inputIndex": null,
+            "label": "Cost or other basis (do not reduce by depreciation)",
+            "page_href": "General Information",
+            "type": "number",
+            "value": 2000,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "date_acquired_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit2-95",
+            "id": "OSIEdit2-95",
+            "inputIndex": null,
+            "label": "Date acquired (negative date=various)",
+            "page_href": "generalInformation",
+            "type": "string",
+            "value": "-11/01/2024",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "date_sold_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit3-97",
+            "id": "OSIEdit3-97",
+            "inputIndex": null,
+            "label": "Date sold (negative date=various)",
+            "page_href": "generalInformation",
+            "type": "string",
+            "value": "-12/01/2024",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[5]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "description_of_property_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit93-91",
+            "id": "OSIEdit93-91",
+            "inputIndex": null,
+            "label": "Description of Property",
+            "page_href": "General Information",
+            "type": "string",
+            "value": "DRIVEWEALT ST REPT 4209",
+            "xpath": null
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE164-360-input",
+            "id": "field-OSIText164-326-595-596",
+            "inputIndex": null,
+            "label": "Federal income tax withheld",
+            "page_href": "Schedule D",
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "loss_not_allowed_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE249-405-input",
+            "id": "field-OSIText248-302-613-614",
+            "inputIndex": null,
+            "label": "Amount of loss that is nondeductible (-1 to disallow all)",
+            "page_href": "Schedule D",
+            "type": "number",
+            "value": 123,
+            "xpath": null
+          },
+          "noncovered_security_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox104-345",
+            "id": "OSICheckBox104-345",
+            "inputIndex": null,
+            "label": "Worthless security",
+            "page_href": "Schedule D",
+            "type": "bool",
+            "value": true,
+            "xpath": null
+          },
+          "proceeds_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE356-153-input",
+            "id": "field-OSIText352-25-235-236",
+            "inputIndex": null,
+            "label": "Sales price",
+            "page_href": "General Information",
+            "type": "number",
+            "value": 2059,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "proceeds_from_collectibles_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox155-349",
+            "id": "OSICheckBox155-349",
+            "inputIndex": null,
+            "label": "Collectible (art, stamps, coins, precious metals, etc.)(28% rate)",
+            "page_href": "Schedule D",
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[18]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "short_term_gain_loss_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit4-99",
+            "id": "OSIEdit4-99",
+            "inputIndex": null,
+            "label": "1=short-term, 2=long-term [Override]",
+            "page_href": "General Information",
+            "preprocessing": "convert_bool_to_short_term_type",
+            "type": "number",
+            "value": 1,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[11]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_tax_withheld_0": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE1-368-input",
+            "id": "field-OSIText1-320-597-598",
+            "inputIndex": null,
+            "label": "State income tax withheld",
+            "page_href": "Schedule D",
+            "type": "number",
+            "value": [123],
+            "xpath": null
+          },
+          "wash_sale_loss_disallowed_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE284-422-input",
+            "id": "field-OSIText281-296-609-610",
+            "inputIndex": null,
+            "label": "Wash sale amount disallowed (-1 to disallow all)",
+            "page_href": "Schedule D",
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[7]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099B"
+      },
+      {
+        "form_data": {
+          "FATCA_filing_requirement_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox9-504",
+            "id": "OSICheckBox9-504",
+            "inputIndex": 49,
+            "label": "FATCA filing requirement",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit69-575",
+            "id": "OSIEdit69-575",
+            "inputIndex": 61,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "838829310",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "bond_premium_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE17-192-input",
+            "id": "field-OSICtrlE17-192-label",
+            "inputIndex": 26,
+            "label": "Amortizable bond premium",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "bond_premium_on_tax_exempt_bond_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE4-135-input",
+            "id": "field-OSICtrlE4-135-label",
+            "inputIndex": null,
+            "label": "Amortizable bond premium on tax-exempt bonds",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": null
+          },
+          "bond_premium_on_treasury_obligations_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE73-210-input",
+            "id": "field-OSICtrlE73-210-label",
+            "inputIndex": 28,
+            "label": "Amortizable bond premium on Treasury obligations",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "early_withdrawal_penalty_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE30-295-input",
+            "id": "field-OSICtrlE30-295-label",
+            "inputIndex": 36,
+            "label": "Early withdrawal penalty",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE19-248-input",
+            "id": "field-OSICtrlE19-248-label",
+            "inputIndex": 32,
+            "label": "Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "foreign_country_or_US_possession_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit41-474",
+            "id": "OSIEdit41-474",
+            "inputIndex": 41,
+            "label": "Name of foreign country (not required if HTKO)",
+            "page_href": null,
+            "type": "string",
+            "value": "DE",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "foreign_tax_paid_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE28-448-input",
+            "id": "field-OSIText28-430-491-492",
+            "inputIndex": 44,
+            "label": "Foreign income tax withheld (U.S. dollars)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "interest_income_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE6-56-input",
+            "id": "field-OSICtrlE6-56-label",
+            "inputIndex": 4,
+            "label": "Banks, savings & loans, credit unions, etc.",
+            "page_href": null,
+            "type": "number",
+            "value": 3795,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "interest_on_US_savings_bonds_and_treasury_obligations_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE8-62-input",
+            "id": "field-OSICtrlE8-62-label",
+            "inputIndex": 8,
+            "label": "U.S. bonds, T-bills, etc. (nontaxable to state)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "market_discount_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE16-189-input",
+            "id": "field-OSICtrlE16-189-label",
+            "inputIndex": 24,
+            "label": "Original issue discount (OID)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit1-21",
+            "id": "OSIEdit1-21",
+            "inputIndex": 0,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "MASSACHUSETTS MUTUAL LIFE INSU",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit3-521-taxid",
+            "id": "OSIEdit3-521-taxid",
+            "inputIndex": 51,
+            "label": "Identification number (SSN or EIN)",
+            "page_href": null,
+            "preprocessing": "clean_ein",
+            "type": "string",
+            "value": "04-1590850",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "specified_private_activity_bond_interest_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE12-118-input",
+            "id": "field-OSICtrlE12-118-label",
+            "inputIndex": 14,
+            "label": "Specified private activity bond interest included above (Form 6251)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_tax_withheld_0": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE20-251-input",
+            "id": "field-OSICtrlE20-251-label",
+            "inputIndex": 34,
+            "label": "State income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "tax_exempt_interest_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE15-186-input",
+            "id": "field-OSICtrlE15-186-label",
+            "inputIndex": 22,
+            "label": "Tax-exempt interest (1099-INT in error)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099INT"
+      },
+      {
+        "form_data": {
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit2-14",
+            "id": "OSIEdit2-14",
+            "inputIndex": null,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "21331321",
+            "xpath": null
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE56-406-input",
+            "id": "field-OSIText55-399-414-415",
+            "inputIndex": null,
+            "label": "(4) Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": null
+          },
+          "nonemployee_compensation_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE3-403-input",
+            "id": "field-OSIText3-401-412-413",
+            "inputIndex": null,
+            "label": "Nonemployee compensation",
+            "page_href": null,
+            "type": "number",
+            "value": 2071,
+            "xpath": null
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit19-141",
+            "id": "OSIEdit19-141",
+            "inputIndex": null,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "Mission Blue Hoc LLC",
+            "xpath": null
+          },
+          "payers_state_number_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-266-input-idx-0",
+            "id": "OSIInPlaceGrid1-266-input-idx-0",
+            "inputIndex": null,
+            "label": "Payer's state no.",
+            "page_href": null,
+            "type": "string",
+            "value": ["123"],
+            "xpath": null
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit10-139-taxid",
+            "id": "OSIEdit10-139-taxid",
+            "inputIndex": null,
+            "label": "Federal identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "83-2352379",
+            "xpath": null
+          },
+          "resale_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox3-410",
+            "id": "OSICheckBox3-410",
+            "inputIndex": null,
+            "label": "(2) Payer made direct sales of $5,000 or more",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": null
+          },
+          "state_income_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-269-input-idx-0",
+            "id": "OSIInPlaceGrid1-269-input-idx-0",
+            "inputIndex": null,
+            "label": "State income",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": null
+          },
+          "state_tax_withheld_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-260-input-idx-0",
+            "id": "OSIInPlaceGrid1-260-input-idx-0",
+            "inputIndex": null,
+            "label": "State tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": null
+          }
+        },
+        "form_name": "1099NEC"
+      },
+      {
+        "form_data": {
+          "FATCA_filing_requirement_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox8-21",
+            "id": "OSICheckBox8-21",
+            "inputIndex": null,
+            "label": "FATCA filing requirement",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit2-14",
+            "id": "OSIEdit2-14",
+            "inputIndex": null,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "e12d21d",
+            "xpath": null
+          },
+          "box_7_checkbox_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox10-342",
+            "id": "OSICheckBox10-342",
+            "inputIndex": null,
+            "label": "(7) Payer made direct sales of $5,000 or more",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[7]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "crop_insurance_proceeds_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE60-348-input",
+            "id": "field-OSIText51-312-382-383",
+            "inputIndex": null,
+            "label": "(9) Crop insurance proceeds",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[9]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "excess_golden_parachute_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE63-357-input",
+            "id": "field-OSIText48-306-390-391",
+            "inputIndex": null,
+            "label": "(13) Excess golden parachute payments",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[13]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE16-363-input",
+            "id": "field-OSIText9-302-374-375",
+            "inputIndex": null,
+            "label": "(4) Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "fish_purchased_for_resale_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE17-366-input",
+            "id": "field-OSIText14-300-386-387",
+            "inputIndex": null,
+            "label": "(11) Fish purchased for resale",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[11]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "fishing_boat_proceeds_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE57-335-input",
+            "id": "field-OSIText54-318-376-377",
+            "inputIndex": null,
+            "label": "(5) Fishing boat proceeds",
+            "page_href": null,
+            "type": "number",
+            "value": 213,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "gross_proceeds_paid_to_an_attorney_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE61-351-input",
+            "id": "field-OSIText50-310-384-385",
+            "inputIndex": null,
+            "label": "(10) Gross proceeds paid to an attorney",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[10]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medical_and_health_care_payments_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE58-338-input",
+            "id": "field-OSIText53-316-378-379",
+            "inputIndex": null,
+            "label": "(6) Medical and health care payments",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "nonqualified_deferred_compensation_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE64-360-input",
+            "id": "field-OSIText42-304-392-393",
+            "inputIndex": null,
+            "label": "(14) Nonqualified deferred compensation",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[14]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "other_income_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE55-332-input",
+            "id": "field-OSIText56-320-372-373",
+            "inputIndex": null,
+            "label": "(3) Other income",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit19-141",
+            "id": "OSIEdit19-141",
+            "inputIndex": null,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "AUTOGLASSNOW, LLC",
+            "xpath": null
+          },
+          "payers_state_number_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-266-input-idx-0",
+            "id": "OSIInPlaceGrid1-266-input-idx-0",
+            "inputIndex": null,
+            "label": "Payer's state no.",
+            "page_href": null,
+            "type": "string",
+            "value": ["123dw", "d12d"],
+            "xpath": null
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit10-139-taxid",
+            "id": "OSIEdit10-139-taxid",
+            "inputIndex": null,
+            "label": "Federal identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "26 3557726",
+            "xpath": null
+          },
+          "rents_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE44-326-input",
+            "id": "field-OSIText58-324-368-369",
+            "inputIndex": null,
+            "label": "(1) Rents",
+            "page_href": null,
+            "type": "number",
+            "value": 38250,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "royalties_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE54-329-input",
+            "id": "field-OSIText57-322-370-371",
+            "inputIndex": null,
+            "label": "(2) Royalties",
+            "page_href": null,
+            "type": "number",
+            "value": 213,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "section_409A_deferrals_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE62-354-input",
+            "id": "field-OSIText49-308-388-389",
+            "inputIndex": null,
+            "label": "(12) Section 409A deferrals",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[12]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_income_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-269-input-idx-0",
+            "id": "OSIInPlaceGrid1-269-input-idx-0",
+            "inputIndex": null,
+            "label": "State income",
+            "page_href": null,
+            "type": "number",
+            "value": [123, 123],
+            "xpath": null
+          },
+          "state_tax_withheld_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid1-260-input-idx-0",
+            "id": "OSIInPlaceGrid1-260-input-idx-0",
+            "inputIndex": null,
+            "label": "State tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": [123, 123],
+            "xpath": null
+          },
+          "substitute_payments_in_lieu_of_dividends_or_interest_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE59-345-input",
+            "id": "field-OSIText52-314-380-381",
+            "inputIndex": null,
+            "label": "(8) Substitute payments in lieu of dividends or interest",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099MISC"
+      },
+      {
+        "form_data": {
+          "FATCA_filing_requirement_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox6-599",
+            "id": "OSICheckBox6-599",
+            "inputIndex": 57,
+            "label": "FATCA filing requirements",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[5]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "account_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit64-617",
+            "id": "OSIEdit64-617",
+            "inputIndex": 54,
+            "label": "Account number",
+            "page_href": null,
+            "type": "string",
+            "value": "C0009338284",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "collectibles_28_gain_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE1-170-input",
+            "id": "field-OSICtrlE1-170-label",
+            "inputIndex": 15,
+            "label": "(2d) Collectibles (28%) rate gain",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "exempt_interest_dividends_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE8-278-input",
+            "id": "field-OSICtrlE8-278-label",
+            "inputIndex": null,
+            "label": "Total municipal bonds",
+            "page_href": null,
+            "type": "number",
+            "value": 21,
+            "xpath": null
+          },
+          "federal_income_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE11-322-input",
+            "id": "field-OSICtrlE11-322-label",
+            "inputIndex": 33,
+            "label": "(4) Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "foreign_country_or_US_possession_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit37-567",
+            "id": "OSIEdit37-567",
+            "inputIndex": 44,
+            "label": "Name of foreign country (not required if HTKO)",
+            "page_href": null,
+            "type": "string",
+            "value": "DE",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "foreign_tax_paid_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE16-533-input",
+            "id": "field-OSIText16-515-586-587",
+            "inputIndex": 49,
+            "label": "Foreign income tax withheld (U.S. dollars)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[3]/div[1]/section[1]/div[8]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "investment_expenses_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE6-182-input",
+            "id": "field-OSICtrlE6-182-label",
+            "inputIndex": 23,
+            "label": "(6) Investment expenses",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[11]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "nondividend_distributions_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE5-179-input",
+            "id": "field-OSICtrlE5-179-label",
+            "inputIndex": 19,
+            "label": "(3) Nondividend distributions",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit60-59",
+            "id": "OSIEdit60-59",
+            "inputIndex": 0,
+            "label": "Name of payer",
+            "page_href": null,
+            "type": "string",
+            "value": "AT&T INC.",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "payers_tin_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit68-61-taxid",
+            "id": "OSIEdit68-61-taxid",
+            "inputIndex": 1,
+            "label": "Payer's identification number",
+            "page_href": null,
+            "type": "string",
+            "value": "43-1301883",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "qualified_dividends_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE3-164-input",
+            "id": "field-OSICtrlE3-164-label",
+            "inputIndex": null,
+            "label": "(1b) Qualified dividends",
+            "page_href": null,
+            "type": "number",
+            "value": 11,
+            "xpath": null
+          },
+          "section_1202_gain_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE33-176-input",
+            "id": "field-OSICtrlE33-176-label",
+            "inputIndex": 13,
+            "label": "(2c) Section 1202 gain",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "section_199A_dividends_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE66-212-input",
+            "id": "field-OSICtrlE66-212-label",
+            "inputIndex": null,
+            "label": "(5) Section 199A dividends",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[10]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "section_897_capital_gain_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE76-220-input",
+            "id": "field-OSICtrlE76-220-label",
+            "inputIndex": 18,
+            "label": "(2f) Section 897 capital gain (informational only)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "section_897_ordinary_dividends_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE61-217-input",
+            "id": "field-OSICtrlE61-217-label",
+            "inputIndex": 17,
+            "label": "(2e) Section 897 ordinary dividends (informational only)",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_tax_withheld_0": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE12-325-input",
+            "id": "field-OSICtrlE12-325-label",
+            "inputIndex": 35,
+            "label": "State income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "total_capital_gain_distributions_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE4-167-input",
+            "id": "field-OSICtrlE4-167-label",
+            "inputIndex": 9,
+            "label": "(2a) Total capital gain distributions",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "total_ordinary_dividends_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE24-188-input",
+            "id": "field-OSICtrlE24-188-label",
+            "inputIndex": 5,
+            "label": "(1a) Total ordinary dividends",
+            "page_href": null,
+            "type": "number",
+            "value": 11,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "unrecap_sec_1250_gain_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE30-173-input",
+            "id": "field-OSICtrlE30-173-label",
+            "inputIndex": 11,
+            "label": "(2b) Unrecaptured section 1250 gain",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "1099DIV"
+      },
+      {
+        "form_data": {
+          "allocated_tips_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE242-552-input",
+            "id": "field-OSICtrlE242-552-label",
+            "inputIndex": null,
+            "label": "(8) Allocated tips",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "box12a_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit60-431-432",
+            "id": "OSIEdit60-431-432",
+            "inputIndex": null,
+            "label": "Code",
+            "page_href": null,
+            "type": "select",
+            "value": "A",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]"
+          },
+          "box12a_1": {
+            "custom": null,
+            "dataTestId": "OSICtrlE61-434-input",
+            "id": "field-OSICtrlE61-434-label",
+            "inputIndex": null,
+            "label": "Amount",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "box12b_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit57-423-424",
+            "id": "OSIEdit57-423-424",
+            "inputIndex": null,
+            "label": " Code",
+            "page_href": null,
+            "type": "select",
+            "value": "B",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]"
+          },
+          "box12b_1": {
+            "custom": null,
+            "dataTestId": "OSICtrlE58-426-input",
+            "id": "field-OSICtrlE58-426-label",
+            "inputIndex": null,
+            "label": "Amount",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "box12c_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit28-415-416",
+            "id": "OSIEdit28-415-416",
+            "inputIndex": null,
+            "label": " Code",
+            "page_href": null,
+            "type": "select",
+            "value": "C",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]"
+          },
+          "box12c_1": {
+            "custom": null,
+            "dataTestId": "OSICtrlE38-418-input",
+            "id": "field-OSICtrlE38-418-label",
+            "inputIndex": null,
+            "label": " Amount",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "box12d_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit25-407-408",
+            "id": "OSIEdit25-407-408",
+            "inputIndex": null,
+            "label": " Code",
+            "page_href": null,
+            "type": "select",
+            "value": "D",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]"
+          },
+          "box12d_1": {
+            "custom": null,
+            "dataTestId": "OSICtrlE26-410-input",
+            "id": "field-OSICtrlE26-410-label",
+            "inputIndex": null,
+            "label": "Amount",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "dependent_care_benefits_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE243-555-input",
+            "id": "field-OSICtrlE243-555-label",
+            "inputIndex": null,
+            "label": "(10) Dependent care benefits",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_address_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit2-52",
+            "id": "OSIEdit2-52",
+            "inputIndex": null,
+            "label": "Street address",
+            "page_href": null,
+            "type": "string",
+            "value": "16755 COYOTE BUSH DR",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_city_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit140-54",
+            "id": "OSIEdit140-54",
+            "inputIndex": null,
+            "label": "City",
+            "page_href": null,
+            "type": "string",
+            "value": "SAN DIEGO",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_fed_id_number_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit44-39-taxid",
+            "id": "OSIEdit44-39-taxid",
+            "inputIndex": null,
+            "label": "(b) Employer identification number (EIN)",
+            "page_href": null,
+            "preprocessing": "clean_ein",
+            "type": "string",
+            "value": "82-2272766",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/section[1]/div[1]/div[1]/span[1]/div[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_name_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit135-37",
+            "id": "OSIEdit135-37",
+            "inputIndex": null,
+            "label": "(c) Name of employer",
+            "page_href": null,
+            "type": "string",
+            "value": "HUNT AND COMPANY LLC",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_state_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit138-56",
+            "id": "OSIEdit138-56",
+            "inputIndex": null,
+            "label": "State",
+            "page_href": null,
+            "type": "string",
+            "value": "CA",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[2]/div[1]/div[1]/input[1]"
+          },
+          "employer_state_id_number_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid4-1841-input-idx-0",
+            "id": "OSIInPlaceGrid4-1841-input-idx-0",
+            "inputIndex": null,
+            "label": "(15) Employer's State ID Number",
+            "page_href": null,
+            "type": "string",
+            "value": ["107-6149 2", "d221d"],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "employer_zip_code_0": {
+            "custom": null,
+            "dataTestId": "OSIEdit139-58",
+            "id": "OSIEdit139-58",
+            "inputIndex": null,
+            "label": "ZIP code",
+            "page_href": null,
+            "type": "string",
+            "value": "92127",
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/span[1]/div[3]/div[1]/div[1]/input[1]"
+          },
+          "federal_tax_withheld_0": {
+            "custom": "table",
+            "dataTestId": "OSICtrlE236-534-input",
+            "id": "field-OSICtrlE236-534-label",
+            "inputIndex": null,
+            "label": "(2) Federal income tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 1686,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "local_income_tax_0": {
+            "custom": "table",
+            "dataTestId": "OSICtrlE171-647-input",
+            "id": "field-OSICtrlE171-647-label",
+            "inputIndex": null,
+            "label": "(19) Local Income Tax [Override]",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/section/div[3]/div/section/div[3]/div/section/div/div/div/div/div[3]/div[4]/div[2]/div/div/div/div/div/div/input"
+          },
+          "local_wages_and_tips_0": {
+            "custom": "table",
+            "dataTestId": "OSICtrlE170-644-input",
+            "id": "field-OSICtrlE170-644-label",
+            "inputIndex": null,
+            "label": "(18) Local Wages, Tips, etc. [Override]",
+            "page_href": null,
+            "type": "number",
+            "value": [123],
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/section/div[3]/div/section/div[3]/div/section/div/div/div/div/div[3]/div[3]/div[2]/div/div/div/div/div/div/input"
+          },
+          "locality_name_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid4-1856-input-idx-0",
+            "id": "OSIInPlaceGrid4-1856-input-idx-0",
+            "inputIndex": null,
+            "label": "(20) Locality Name",
+            "page_href": null,
+            "type": "string",
+            "value": ["21e12d"],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE240-546-input",
+            "id": "field-OSICtrlE240-546-label",
+            "inputIndex": null,
+            "label": "(6) Medicare tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 282,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "medicare_wages_and_tips_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE239-543-input",
+            "id": "field-OSICtrlE239-543-label",
+            "inputIndex": null,
+            "label": "(5) Medicare wages and tips",
+            "page_href": null,
+            "type": "number",
+            "value": 19500,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "nonqualified_plans_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE244-558-input",
+            "id": "field-OSICtrlE244-558-label",
+            "inputIndex": null,
+            "label": "(11) Nonqualified plans",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[10]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "other_0": {
+            "custom": "popup",
+            "dataTestId": "OSICtrlE20-144-input",
+            "id": "field-OSICtrlE20-144-label",
+            "inputIndex": null,
+            "label": "Other",
+            "page_href": null,
+            "type": "string",
+            "value": [["SDI", 195]],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[7]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "retirement_plan_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox13-486",
+            "id": "OSICheckBox13-486",
+            "inputIndex": null,
+            "label": "Retirement plan",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[6]/div[1]/section[1]/div[3]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "social_security_tax_withheld_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE238-540-input",
+            "id": "field-OSICtrlE238-540-label",
+            "inputIndex": null,
+            "label": "(4) Social security tax withheld",
+            "page_href": null,
+            "type": "number",
+            "value": 1209,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "social_security_tips_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE241-549-input",
+            "id": "field-OSICtrlE241-549-label",
+            "inputIndex": null,
+            "label": "(7) Social security tips",
+            "page_href": null,
+            "type": "number",
+            "value": 123,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "social_security_wages_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE237-537-input",
+            "id": "field-OSICtrlE237-537-label",
+            "inputIndex": null,
+            "label": "(3) Social security wages",
+            "page_href": null,
+            "type": "number",
+            "value": 19500,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_0": {
+            "custom": "table",
+            "dataTestId": "OSIInPlaceGrid4-1838-input-idx-0",
+            "id": "OSIInPlaceGrid4-1838-input-idx-0",
+            "inputIndex": null,
+            "label": "(15) St",
+            "page_href": null,
+            "type": "string",
+            "value": ["CA", "WE"],
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[4]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "state_income_tax_0": {
+            "custom": "table",
+            "dataTestId": "OSICtrlE169-641-input",
+            "id": "field-OSICtrlE169-641-label",
+            "inputIndex": null,
+            "label": "(17) State Income Tax [Override]",
+            "page_href": null,
+            "type": "number",
+            "value": [232, 123],
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/section/div[3]/div/section/div[3]/div/section/div/div/div/div/div[3]/div[2]/div[2]/div/div/div/div/div/div/input"
+          },
+          "state_wages_and_tips_0": {
+            "custom": "table",
+            "dataTestId": "OSICtrlE168-638-input",
+            "id": "field-OSICtrlE168-638-label",
+            "inputIndex": null,
+            "label": "(16) State Wages, Tips, etc. [Override]",
+            "page_href": null,
+            "type": "number",
+            "value": [19500, 123],
+            "xpath": "/html/body/div[2]/div/div/div[1]/div/div/div/div[3]/div/div/div/div/div[2]/div[2]/div/div[2]/div/div[3]/div/div/section/div[3]/div/section/div[3]/div/section/div/div/div/div/div[3]/div[1]/div[2]/div/div/div/div/div/div/input"
+          },
+          "statutory_employee_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox3-482",
+            "id": "OSICheckBox3-482",
+            "inputIndex": null,
+            "label": "Statutory employee",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[6]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "third_party_sick_pay_0": {
+            "custom": null,
+            "dataTestId": "OSICheckBox15-490",
+            "id": "OSICheckBox15-490",
+            "inputIndex": null,
+            "label": "Third party sick pay",
+            "page_href": null,
+            "type": "bool",
+            "value": true,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[6]/div[1]/section[1]/div[4]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          },
+          "wage_income_0": {
+            "custom": null,
+            "dataTestId": "OSICtrlE235-531-input",
+            "id": "field-OSICtrlE235-531-label",
+            "inputIndex": null,
+            "label": "(1) Wages, tips, etc.",
+            "page_href": null,
+            "type": "number",
+            "value": 19500,
+            "xpath": "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/section[1]/div[3]/div[1]/section[1]/div[2]/div[1]/section[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+          }
+        },
+        "form_name": "W2"
+      },
+      {
+        "form_data": {},
+        "form_name": "W2"
+      }
+    ],
+    "targetClient": {
+      "email": "test@email.com",
+      "firstName": "EndToEnd2",
+      "lastName": "SourceDocs2",
+      "taxYear": 2024
+    }
+  }
+}

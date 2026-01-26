@@ -1,30 +1,5 @@
-import { Browser, BrowserContext, Page, LaunchOptions } from "playwright";
-import { chromium, firefox } from "playwright-extra";
-
-// puppeteer extra libraries
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
-import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
-import AnonymizeUAPlugin from "puppeteer-extra-plugin-anonymize-ua";
-
-import logger from "../utils/logger";
-import { CAPTCHA_TOKEN } from "../config/env";
-
-const BrowserApp = chromium;
-
-// initializations
-BrowserApp.use(AnonymizeUAPlugin());
-BrowserApp.use(StealthPlugin());
-BrowserApp.use(
-  RecaptchaPlugin({
-    provider: {
-      id: "2captcha",
-      token: CAPTCHA_TOKEN,
-    },
-    visualFeedback: true,
-    solveInactiveChallenges: true,
-    solveScoreBased: true,
-  })
-);
+import { Browser, BrowserContext, Page, LaunchOptions, chromium } from 'playwright';
+import logger from '../utils/logger';
 
 class PlaywrightService {
   private static instance: PlaywrightService;
@@ -45,16 +20,15 @@ class PlaywrightService {
 
   // Default launch options with ability to override
   private getLaunchOptions(
-    customOptions?: Partial<LaunchOptions>
+    customOptions?: Partial<LaunchOptions>,
   ): LaunchOptions {
     const defaultOptions: LaunchOptions = {
       headless: false,
-      // executablePath: BrowserApp.executablePath(),
       args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--start-maximized",
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--start-maximized',
       ],
     };
 
@@ -63,28 +37,28 @@ class PlaywrightService {
 
   // Initialize browser and context
   public async initialize(
-    customOptions?: Partial<LaunchOptions>
+    customOptions?: Partial<LaunchOptions>,
   ): Promise<void> {
     try {
       // // Close existing browser if open
       // await this.close();
 
       // Launch new browser
-      this.browser = await BrowserApp.launch(
-        this.getLaunchOptions(customOptions)
+      this.browser = await chromium.launch(
+        this.getLaunchOptions(customOptions),
       );
 
       // Create new context with common settings
       this.context = await this.browser.newContext({
         viewport: null,
         userAgent:
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
       });
 
       // Optional: Add additional context configurations
       // this.context.setDefaultTimeout(30000);
     } catch (error) {
-      logger.error("Playwright initialization error:", error);
+      logger.error('Playwright initialization error:', error);
       throw error;
     }
   }

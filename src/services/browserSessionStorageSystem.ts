@@ -1,117 +1,116 @@
-import { Page } from "playwright";
-import { encodePassword, decodePassword } from "../utils/hashPwd";
-import logger from "../utils/logger";
-import { BrowserSession, IBrowserSession } from "../models/BrowserSession";
+// import { Page } from 'playwright';
+// import logger from '../utils/logger';
+// import { BrowserSession } from '@/utils/types';
 
-class SessionManager {
-  _session: IBrowserSession | null = null;
+// class SessionManager {
+//   _session: BrowserSession | null = null;
 
-  async saveSession({
-    page,
-    uid,
-    documentId,
-    key,
-  }: {
-    page: Page;
-    uid: string;
-    documentId: string;
-    key?: string;
-  }): Promise<string> {
-    try {
-      // Get cookies from the current page
-      const cookies = await page.context().cookies();
+//   async saveSession({
+//     page,
+//     uid,
+//     documentId,
+//     key,
+//   }: {
+//     page: Page;
+//     uid: string;
+//     documentId: string;
+//     key?: string;
+//   }): Promise<string> {
+//     try {
+//       // Get cookies from the current page
+//       const cookies = await page.context().cookies();
 
-      const _hash = key ? encodePassword(key) : "0";
-      const updateFields = { uid, documentId, cookies } as {
-        uid: string;
-        documentId: string;
-        cookies: any[];
-        key: string;
-      };
-      if (key) {
-        updateFields.key = _hash;
-      }
+//       const _hash = key ? encodePassword(key) : '0';
+//       const updateFields = { uid, documentId, cookies } as {
+//         uid: string;
+//         documentId: string;
+//         cookies: any[];
+//         key: string;
+//       };
+//       if (key) {
+//         updateFields.key = _hash;
+//       }
 
-      const session = await BrowserSession.findOneAndUpdate(
-        { uid: uid, documentId },
-        { ...updateFields },
-        { new: true, upsert: true }
-      );
+//       const session = await BrowserSession.findOneAndUpdate(
+//         { uid: uid, documentId },
+//         { ...updateFields },
+//         { new: true, upsert: true },
+//       );
 
-      this._session = session;
+//       this._session = session;
 
-      await session.save();
-      return session._id.toString();
-    } catch (error) {
-      logger.error("Error saving browser session:", error);
-      throw error;
-    }
-  }
+//       await session.save();
+//       return session._id.toString();
+//     } catch (error) {
+//       logger.error('Error saving browser session:', error);
+//       throw error;
+//     }
+//   }
 
-  async loadSessionToPage({
-    uid,
-    documentId,
-  }: {
-    uid: string;
-    documentId: string;
-  }): Promise<any> {
-    try {
-      let session = null;
+//   async loadSessionToPage({
+//     uid,
+//     documentId,
+//   }: {
+//     uid: string;
+//     documentId: string;
+//   }): Promise<any> {
+//     try {
+//       let session = null;
 
-      if (this._session) {
-        session = this._session;
-      } else {
-        session = await BrowserSession.findOne({ uid, documentId });
-        this._session = session;
-      }
+//       if (this._session) {
+//         session = this._session;
+//       } else {
+//         session = await BrowserSession.findOne({ uid, documentId });
+//         this._session = session;
+//       }
 
-      if (!session) {
-        return false;
-      }
+//       if (!session) {
+//         return false;
+//       }
 
-      // Update last used timestamp
-      await BrowserSession.findByIdAndUpdate(session._id, {
-        lastUsed: new Date(),
-      });
+//       // Update last used timestamp
+//       await BrowserSession.findByIdAndUpdate(session._id, {
+//         lastUsed: new Date(),
+//       });
 
-      return session;
-    } catch (error) {
-      logger.error("Error loading browser session:", error);
-      throw error;
-    }
-  }
+//       return session;
+//     } catch (error) {
+//       logger.error('Error loading browser session:', error);
+//       throw error;
+//     }
+//   }
 
-  async getHash({ uid, documentId }: { uid: string; documentId: string }) {
-    try {
-      let session = null;
+//   async getHash({ uid, documentId }: { uid: string; documentId: string }) {
+//     try {
+//       let session = null;
 
-      if (this._session) {
-        session = this._session;
-      } else {
-        session = await BrowserSession.findOne({ uid, documentId });
-        this._session = session;
-      }
+//       if (this._session) {
+//         session = this._session;
+//       } else {
+//         session = await BrowserSession.findOne({ uid, documentId });
+//         this._session = session;
+//       }
 
-      const hashedKey = session?.key;
+//       const hashedKey = session?.key;
 
-      if (!hashedKey) return null;
+//       if (!hashedKey) return null;
 
-      const key = decodePassword(hashedKey);
-      return key;
-    } catch (error) {
-      logger.error("Error saving browser session:", error);
-    }
-  }
+//       const key = decodePassword(hashedKey);
+//       return key;
+//     } catch (error) {
+//       logger.error('Error saving browser session:', error);
+//     }
+//   }
 
-  async clearOldSessions(uid: string, maxAgeDays: number = 7): Promise<void> {
-    const cutoffDate = new Date();
-    cutoffDate.setDate(cutoffDate.getDate() - maxAgeDays);
+//   async clearOldSessions(uid: string, maxAgeDays: number = 7): Promise<void> {
+//     const cutoffDate = new Date();
+//     cutoffDate.setDate(cutoffDate.getDate() - maxAgeDays);
 
-    await BrowserSession.deleteMany({
-      uid,
-      lastUsed: { $lt: cutoffDate },
-    });
-  }
-}
+//     await BrowserSession.deleteMany({
+//       uid,
+//       lastUsed: { $lt: cutoffDate },
+//     });
+//   }
+// }
 
-export { SessionManager };
+// export { SessionManager };
