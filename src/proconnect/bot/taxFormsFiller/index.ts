@@ -49,7 +49,7 @@ export async function startTaxFormsFiller(
       return {
         page,
         success: false,
-        message: 'No client email provided, please ensure the client in trueprep has an email',
+        message: 'No client email provided, please ensure the client in TaxDataAPI has an email',
       };
     }
 
@@ -65,7 +65,7 @@ export async function startTaxFormsFiller(
         page,
         success: false,
         message:
-          'No client profile found, please ensure the client email matches the email in trueprep',
+          'No client profile found, please ensure the client email matches the email in TaxDataAPI',
       };
     }
 

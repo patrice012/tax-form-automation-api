@@ -11,7 +11,7 @@ import {
 import { ExportPreparationDto } from './dto/proconnect.dto';
 import { ProconnectService, ExportProgress } from './proconnect.service';
 
-@Controller('proconnect')
+@Controller('tax-forms')
 export class ProconnectController {
   constructor(private readonly proconnectService: ProconnectService) {}
 

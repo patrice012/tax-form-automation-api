@@ -33,11 +33,11 @@ async function bootstrap() {
 
   await app.listen(port);
 
-  console.log('🚀 ProConnect Bot API');
+  console.log('🚀 Tax Form Automation API');
   console.log(`📍 Environment: ${nodeEnv}`);
   console.log(`🌐 Server running on: http://localhost:${port}`);
   console.log(`📊 Health check: http://localhost:${port}/health`);
-  console.log(`📝 API endpoint: http://localhost:${port}/proconnect`);
+  console.log(`📝 API endpoint: http://localhost:${port}/tax-forms`);
 }
 
 bootstrap();

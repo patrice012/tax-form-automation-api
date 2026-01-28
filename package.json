@@ -1,10 +1,15 @@
 {
-  "name": "proconnect-bot-api",
+  "name": "tax-form-automation-api",
   "version": "1.0.0",
-  "description": "NestJS API for ProConnect Tax Forms Bot Service",
-  "author": "",
+  "description": "Automated tax form filling API using Playwright and NestJS",
+  "author": "patrice012",
   "private": true,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrice012/tax-form-automation-api"
+  },
+  "keywords": ["tax-forms", "automation", "playwright", "nestjs", "bot", "form-filler"],
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",

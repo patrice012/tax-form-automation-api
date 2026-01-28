@@ -25,19 +25,19 @@ const logger = winston.createLogger({
       format: winston.format.simple(),
     }),
     new winston.transports.File({
-      filename: path.join(logDir, 'trueprepexport.error.log'),
+      filename: path.join(logDir, 'tax-automation.error.log'),
       level: 'error',
     }),
     new winston.transports.File({
-      filename: path.join(logDir, 'trueprepexport.warn.log'),
+      filename: path.join(logDir, 'tax-automation.warn.log'),
       level: 'warn',
     }),
     new winston.transports.File({
-      filename: path.join(logDir, 'trueprepexport.debug.log'),
+      filename: path.join(logDir, 'tax-automation.debug.log'),
       level: 'debug',
     }),
     new winston.transports.File({
-      filename: path.join(logDir, 'trueprepexport.combined.log'),
+      filename: path.join(logDir, 'tax-automation.combined.log'),
     }),
   ],
 });

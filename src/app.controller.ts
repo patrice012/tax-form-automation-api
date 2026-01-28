@@ -13,14 +13,15 @@ export class AppController {
   @Get()
   getRoot() {
     return {
-      name: 'ProConnect Bot API',
+      name: 'Tax Form Automation API',
       version: '1.0.0',
       status: 'running',
+      description: 'Automated tax form filling using Playwright',
       endpoints: {
         health: '/health',
-        proconnect: {
-          fillTaxReturn: 'POST /proconnect/fill-tax-return',
-          exportProgress: 'GET /proconnect/export-progress',
+        taxForms: {
+          fillTaxReturn: 'POST /tax-forms/fill-tax-return',
+          exportProgress: 'GET /tax-forms/export-progress',
         },
       },
     };
